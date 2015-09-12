@@ -1,0 +1,9 @@
+<permissions>
+    <feature name="oem.prox.calibration.support" />
+    <feature name="oem.button.light.support" />
+    <feature name="oem.button.define.not.support" />
+    <feature name="oem.otgSwitch.support" />
+    <feature name="oem.audiotuner.common" />
+    <feature name="oem.threeScreenshot.support" />
+    <feature name="oem.5gwifi.support" />
+</permissions>
