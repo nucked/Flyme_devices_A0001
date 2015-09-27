@@ -25,12 +25,12 @@
     .locals 1
 
     .prologue
-    .line 238
+    .line 233
     iput-object p1, p0, Lcom/android/internal/telephony/ServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/ServiceStateTracker;
 
     invoke-direct {p0}, Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;-><init>()V
 
-    .line 239
+    .line 234
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/telephony/ServiceStateTracker$1;->previousSubId:I
@@ -44,14 +44,14 @@
     .locals 9
 
     .prologue
-    .line 246
+    .line 241
     iget-object v7, p0, Lcom/android/internal/telephony/ServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/ServiceStateTracker;
 
     const-string v8, "SubscriptionListener.onSubscriptionInfoChanged"
 
     invoke-virtual {v7, v8}, Lcom/android/internal/telephony/ServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 248
+    .line 243
     iget-object v7, p0, Lcom/android/internal/telephony/ServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/ServiceStateTracker;
 
     iget-object v7, v7, Lcom/android/internal/telephony/ServiceStateTracker;->mPhoneBase:Lcom/android/internal/telephony/PhoneBase;
@@ -60,7 +60,7 @@
 
     move-result v6
 
-    .line 249
+    .line 244
     .local v6, "subId":I
     iget-object v7, p0, Lcom/android/internal/telephony/ServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/ServiceStateTracker;
 
@@ -70,28 +70,28 @@
 
     move-result v4
 
-    .line 250
+    .line 245
     .local v4, "previousSubId":I
     if-eq v4, v6, :cond_1
 
-    .line 251
+    .line 246
     move v4, v6
 
-    .line 252
+    .line 247
     invoke-static {v6}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
     move-result v7
 
     if-eqz v7, :cond_1
 
-    .line 254
+    .line 249
     iget-object v7, p0, Lcom/android/internal/telephony/ServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/ServiceStateTracker;
 
     iget-object v7, v7, Lcom/android/internal/telephony/ServiceStateTracker;->mPhoneBase:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v7}, Lcom/android/internal/telephony/PhoneBase;->notifyCallForwardingIndicator()V
 
-    .line 255
+    .line 250
     iget-object v7, p0, Lcom/android/internal/telephony/ServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/ServiceStateTracker;
 
     iget-object v7, v7, Lcom/android/internal/telephony/ServiceStateTracker;->mPhoneBase:Lcom/android/internal/telephony/PhoneBase;
@@ -100,13 +100,13 @@
 
     move-result-object v0
 
-    .line 260
+    .line 255
     .local v0, "context":Landroid/content/Context;
     invoke-static {v0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v5
 
-    .line 262
+    .line 257
     .local v5, "sp":Landroid/content/SharedPreferences;
     const-string v7, "network_selection_name_key"
 
@@ -116,7 +116,7 @@
 
     move-result-object v3
 
-    .line 264
+    .line 259
     .local v3, "oldNetworkSelectionName":Ljava/lang/String;
     const-string v7, "network_selection_key"
 
@@ -126,7 +126,7 @@
 
     move-result-object v2
 
-    .line 266
+    .line 261
     .local v2, "oldNetworkSelection":Ljava/lang/String;
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -140,13 +140,13 @@
 
     if-nez v7, :cond_1
 
-    .line 268
+    .line 263
     :cond_0
     invoke-interface {v5}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 269
+    .line 264
     .local v1, "editor":Landroid/content/SharedPreferences$Editor;
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -168,7 +168,7 @@
 
     invoke-interface {v1, v7, v3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 271
+    .line 266
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -189,20 +189,20 @@
 
     invoke-interface {v1, v7, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 273
+    .line 268
     const-string v7, "network_selection_name_key"
 
     invoke-interface {v1, v7}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 274
+    .line 269
     const-string v7, "network_selection_key"
 
     invoke-interface {v1, v7}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 275
+    .line 270
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 279
+    .line 274
     .end local v0    # "context":Landroid/content/Context;
     .end local v1    # "editor":Landroid/content/SharedPreferences$Editor;
     .end local v2    # "oldNetworkSelection":Ljava/lang/String;

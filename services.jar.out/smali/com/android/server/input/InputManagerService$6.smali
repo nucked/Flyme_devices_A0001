@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 876
+    .line 921
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$6;->this$0:Lcom/android/server/input/InputManagerService;
 
     iput-object p2, p0, Lcom/android/server/input/InputManagerService$6;->val$result:[Landroid/hardware/input/KeyboardLayout;
@@ -50,7 +50,7 @@
     .param p6, "priority"    # I
 
     .prologue
-    .line 880
+    .line 925
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$6;->val$result:[Landroid/hardware/input/KeyboardLayout;
 
     const/4 v1, 0x0
@@ -61,6 +61,6 @@
 
     aput-object v2, v0, v1
 
-    .line 881
+    .line 926
     return-void
 .end method

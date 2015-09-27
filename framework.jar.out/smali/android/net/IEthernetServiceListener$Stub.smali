@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.net.IEthernetServiceListener"
 
-.field static final TRANSACTION_onAvailabilityChanged:I = 0x1
+.field static final TRANSACTION_onAvailabilityChanged_0:I = 0x1
 
 
 # direct methods

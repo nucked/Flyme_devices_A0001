@@ -10,8 +10,14 @@
 .method public abstract getPackageVisibilityOverride(Ljava/lang/String;I)I
 .end method
 
+.method public abstract getShowNotificationForPackageOnKeyguard(Ljava/lang/String;I)I
+.end method
+
 .method public abstract setPackagePriority(Ljava/lang/String;II)V
 .end method
 
 .method public abstract setPackageVisibilityOverride(Ljava/lang/String;II)V
+.end method
+
+.method public abstract setShowNotificationForPackageOnKeyguard(Ljava/lang/String;II)V
 .end method

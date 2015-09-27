@@ -135,7 +135,7 @@
     .end annotation
 .end method
 
-.method public abstract updateCallForward(IILjava/lang/String;II)I
+.method public abstract updateCallForward(IILjava/lang/String;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -151,7 +151,7 @@
     .end annotation
 .end method
 
-.method public abstract updateCallWaiting(ZI)I
+.method public abstract updateCallWaiting(Z)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

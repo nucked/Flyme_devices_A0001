@@ -32,18 +32,18 @@
     .param p3, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 1254
+    .line 1239
     iput-object p1, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->this$0:Landroid/app/LoadedApk$ServiceDispatcher;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1255
+    .line 1240
     iput-object p2, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->mName:Landroid/content/ComponentName;
 
-    .line 1256
+    .line 1241
     iput-object p3, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->mService:Landroid/os/IBinder;
 
-    .line 1257
+    .line 1242
     return-void
 .end method
 
@@ -53,7 +53,7 @@
     .locals 3
 
     .prologue
-    .line 1260
+    .line 1245
     iget-object v0, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->this$0:Landroid/app/LoadedApk$ServiceDispatcher;
 
     iget-object v1, p0, Landroid/app/LoadedApk$ServiceDispatcher$DeathMonitor;->mName:Landroid/content/ComponentName;
@@ -62,6 +62,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/LoadedApk$ServiceDispatcher;->death(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 
-    .line 1261
+    .line 1246
     return-void
 .end method

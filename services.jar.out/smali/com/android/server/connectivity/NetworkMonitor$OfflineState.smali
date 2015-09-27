@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 364
+    .line 360
     iput-object p1, p0, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -37,7 +37,7 @@
     .param p2, "x1"    # Lcom/android/server/connectivity/NetworkMonitor$1;
 
     .prologue
-    .line 364
+    .line 360
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;-><init>(Lcom/android/server/connectivity/NetworkMonitor;)V
 
     return-void
@@ -53,7 +53,7 @@
 
     const/4 v2, 0x0
 
-    .line 367
+    .line 363
     iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
     # getter for: Lcom/android/server/connectivity/NetworkMonitor;->mConnectivityServiceHandler:Landroid/os/Handler;
@@ -78,7 +78,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 369
+    .line 365
     iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
     # getter for: Lcom/android/server/connectivity/NetworkMonitor;->mUserDoesNotWant:Z
@@ -88,7 +88,7 @@
 
     if-nez v0, :cond_0
 
-    .line 370
+    .line 366
     iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
     const v1, 0x82008
@@ -97,7 +97,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/connectivity/NetworkMonitor;->sendMessageDelayed(IIIJ)V
 
-    .line 373
+    .line 369
     :cond_0
     return-void
 .end method
@@ -106,7 +106,7 @@
     .locals 2
 
     .prologue
-    .line 395
+    .line 391
     iget-object v0, p0, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
     const v1, 0x82008
@@ -114,7 +114,7 @@
     # invokes: Lcom/android/server/connectivity/NetworkMonitor;->removeMessages(I)V
     invoke-static {v0, v1}, Lcom/android/server/connectivity/NetworkMonitor;->access$2500(Lcom/android/server/connectivity/NetworkMonitor;I)V
 
-    .line 396
+    .line 392
     return-void
 .end method
 
@@ -125,7 +125,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 377
+    .line 373
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -154,17 +154,17 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/connectivity/NetworkMonitor;->log(Ljava/lang/String;)V
 
-    .line 378
+    .line 374
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 385
+    .line 381
     :cond_0
     :goto_0
     return v0
 
-    .line 383
+    .line 379
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/connectivity/NetworkMonitor$OfflineState;->this$0:Lcom/android/server/connectivity/NetworkMonitor;
 
@@ -179,7 +179,7 @@
 
     goto :goto_0
 
-    .line 378
+    .line 374
     nop
 
     :pswitch_data_0

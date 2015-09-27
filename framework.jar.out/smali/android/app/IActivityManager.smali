@@ -109,6 +109,8 @@
 
 .field public static final GET_CALLING_ACTIVITY_TRANSACTION:I = 0x16
 
+.field public static final GET_CALLING_PACKAGE_FOR_BROADCAST_TRANSACTION:I = 0xf5
+
 .field public static final GET_CALLING_PACKAGE_TRANSACTION:I = 0x15
 
 .field public static final GET_CONFIGURATION_TRANSACTION:I = 0x2e
@@ -182,8 +184,6 @@
 .field public static final GET_TASK_FOR_ACTIVITY_TRANSACTION:I = 0x1b
 
 .field public static final GET_TASK_THUMBNAIL_TRANSACTION:I = 0x52
-
-.field public static final GET_TOP_ACTIVITY_COMPONENTNAME_TRANSACTION:I = 0xc9
 
 .field public static final GET_UID_FOR_INTENT_SENDER_TRANSACTION:I = 0x5d
 
@@ -723,7 +723,7 @@
     .end annotation
 .end method
 
-.method public abstract finishReceiver(Landroid/os/IBinder;ILjava/lang/String;Landroid/os/Bundle;Z)V
+.method public abstract finishReceiver(Landroid/os/IBinder;ILjava/lang/String;Landroid/os/Bundle;ZI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -842,6 +842,14 @@
 .end method
 
 .method public abstract getCallingPackage(Landroid/os/IBinder;)Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getCallingPackageForBroadcast(Z)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1202,14 +1210,6 @@
         }
     .end annotation
 
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getTopActivityComponentName()Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

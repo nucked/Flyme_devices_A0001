@@ -36,9 +36,9 @@
 
 .field static final TRANSACTION_deleteStoredMessage:I = 0x6
 
-.field static final TRANSACTION_downloadMessage:I = 0x2
+.field static final TRANSACTION_downloadMessage_1:I = 0x2
 
-.field static final TRANSACTION_getAutoPersisting:I = 0xe
+.field static final TRANSACTION_getAutoPersisting_13:I = 0xe
 
 .field static final TRANSACTION_getCarrierConfigValues:I = 0x3
 
@@ -48,9 +48,9 @@
 
 .field static final TRANSACTION_sendMessage:I = 0x1
 
-.field static final TRANSACTION_sendStoredMessage:I = 0xc
+.field static final TRANSACTION_sendStoredMessage_11:I = 0xc
 
-.field static final TRANSACTION_setAutoPersisting:I = 0xd
+.field static final TRANSACTION_setAutoPersisting_12:I = 0xd
 
 .field static final TRANSACTION_updateStoredMessageStatus:I = 0x8
 

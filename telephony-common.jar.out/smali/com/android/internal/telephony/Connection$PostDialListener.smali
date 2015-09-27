@@ -15,8 +15,5 @@
 
 
 # virtual methods
-.method public abstract onPostDialChar(C)V
-.end method
-
 .method public abstract onPostDialWait()V
 .end method

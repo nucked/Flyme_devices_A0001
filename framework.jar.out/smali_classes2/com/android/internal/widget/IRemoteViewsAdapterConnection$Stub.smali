@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.widget.IRemoteViewsAdapterConnection"
 
-.field static final TRANSACTION_onServiceConnected:I = 0x1
+.field static final TRANSACTION_onServiceConnected_0:I = 0x1
 
 .field static final TRANSACTION_onServiceDisconnected:I = 0x2
 

@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 9577
+    .line 10257
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$FileInstallArgs$1;->this$1:Lcom/android/server/pm/PackageManagerService$FileInstallArgs;
 
     invoke-direct {p0}, Lcom/android/internal/os/IParcelFileDescriptorFactory$Stub;-><init>()V
@@ -44,14 +44,14 @@
     .end annotation
 
     .prologue
-    .line 9580
+    .line 10260
     invoke-static {p1}, Landroid/os/FileUtils;->isValidExtFilename(Ljava/lang/String;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 9581
+    .line 10261
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -76,7 +76,7 @@
 
     throw v3
 
-    .line 9584
+    .line 10264
     :cond_0
     :try_start_0
     new-instance v2, Ljava/io/File;
@@ -84,13 +84,13 @@
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$FileInstallArgs$1;->this$1:Lcom/android/server/pm/PackageManagerService$FileInstallArgs;
 
     # getter for: Lcom/android/server/pm/PackageManagerService$FileInstallArgs;->codeFile:Ljava/io/File;
-    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService$FileInstallArgs;->access$3400(Lcom/android/server/pm/PackageManagerService$FileInstallArgs;)Ljava/io/File;
+    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService$FileInstallArgs;->access$3600(Lcom/android/server/pm/PackageManagerService$FileInstallArgs;)Ljava/io/File;
 
     move-result-object v3
 
     invoke-direct {v2, v3, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 9585
+    .line 10265
     .local v2, "file":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -108,7 +108,7 @@
 
     move-result-object v1
 
-    .line 9587
+    .line 10267
     .local v1, "fd":Ljava/io/FileDescriptor;
     invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -118,7 +118,7 @@
 
     invoke-static {v3, v4}, Landroid/system/Os;->chmod(Ljava/lang/String;I)V
 
-    .line 9588
+    .line 10268
     new-instance v3, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
@@ -127,13 +127,13 @@
 
     return-object v3
 
-    .line 9589
+    .line 10269
     .end local v1    # "fd":Ljava/io/FileDescriptor;
     .end local v2    # "file":Ljava/io/File;
     :catch_0
     move-exception v0
 
-    .line 9590
+    .line 10270
     .local v0, "e":Landroid/system/ErrnoException;
     new-instance v3, Landroid/os/RemoteException;
 

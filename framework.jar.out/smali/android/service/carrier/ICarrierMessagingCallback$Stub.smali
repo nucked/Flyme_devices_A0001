@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_onDownloadMmsComplete:I = 0x5
 
-.field static final TRANSACTION_onFilterComplete:I = 0x1
+.field static final TRANSACTION_onFilterComplete_0:I = 0x1
 
 .field static final TRANSACTION_onSendMmsComplete:I = 0x4
 

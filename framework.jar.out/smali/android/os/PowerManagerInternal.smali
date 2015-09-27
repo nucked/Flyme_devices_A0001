@@ -112,9 +112,6 @@
 .method public abstract getLowPowerModeEnabled()Z
 .end method
 
-.method public abstract getWakeLockedPids()[I
-.end method
-
 .method public abstract registerLowPowerModeObserver(Landroid/os/PowerManagerInternal$LowPowerModeListener;)V
 .end method
 

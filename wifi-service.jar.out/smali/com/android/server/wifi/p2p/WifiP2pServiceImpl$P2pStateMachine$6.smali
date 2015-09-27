@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 2472
+    .line 2469
     iput-object p1, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStateMachine$6;->this$1:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,25 +43,25 @@
     .param p3, "event"    # Landroid/view/KeyEvent;
 
     .prologue
-    .line 2477
+    .line 2474
     const/16 v0, 0xa4
 
     if-ne p2, v0, :cond_0
 
-    .line 2478
+    .line 2475
     iget-object v0, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStateMachine$6;->this$1:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStateMachine;
 
     const v1, 0x23002
 
     invoke-virtual {v0, v1}, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStateMachine;->sendMessage(I)V
 
-    .line 2479
+    .line 2476
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 2480
+    .line 2477
     const/4 v0, 0x1
 
-    .line 2482
+    .line 2479
     :goto_0
     return v0
 

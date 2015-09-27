@@ -56,7 +56,7 @@
 
 .field public static final IMS_PHONE:I = 0x5
 
-.field public static final INVALID_PARAMETER:I = 0x1c
+.field public static final INVALID_PARAMETER:I = 0x1d
 
 .field public static final LTE_ON_CDMA_FALSE:I = 0x0
 
@@ -226,8 +226,6 @@
 
 .field public static final RIL_REQUEST_EXPLICIT_CALL_TRANSFER:I = 0x48
 
-.field public static final RIL_REQUEST_GET_3G_CAPABILITY:I = 0x82
-
 .field public static final RIL_REQUEST_GET_CELL_INFO_LIST:I = 0x6d
 
 .field public static final RIL_REQUEST_GET_CLIR:I = 0x1f
@@ -251,6 +249,8 @@
 .field public static final RIL_REQUEST_GET_NEIGHBORING_CELL_IDS:I = 0x4b
 
 .field public static final RIL_REQUEST_GET_PREFERRED_NETWORK_TYPE:I = 0x4a
+
+.field public static final RIL_REQUEST_GET_RADIO_CAPABILITY:I = 0x82
 
 .field public static final RIL_REQUEST_GET_SIM_STATUS:I = 0x1
 
@@ -328,8 +328,6 @@
 
 .field public static final RIL_REQUEST_SETUP_DATA_CALL:I = 0x1b
 
-.field public static final RIL_REQUEST_SET_3G_CAPABILITY:I = 0x83
-
 .field public static final RIL_REQUEST_SET_BAND_MODE:I = 0x41
 
 .field public static final RIL_REQUEST_SET_CALL_FORWARD:I = 0x22
@@ -355,6 +353,8 @@
 .field public static final RIL_REQUEST_SET_NETWORK_SELECTION_MANUAL:I = 0x2f
 
 .field public static final RIL_REQUEST_SET_PREFERRED_NETWORK_TYPE:I = 0x49
+
+.field public static final RIL_REQUEST_SET_RADIO_CAPABILITY:I = 0x83
 
 .field public static final RIL_REQUEST_SET_SMSC_ADDRESS:I = 0x65
 
@@ -499,6 +499,8 @@
 .field public static final RIL_UNSOL_STK_EVENT_NOTIFY:I = 0x3f6
 
 .field public static final RIL_UNSOL_STK_PROACTIVE_COMMAND:I = 0x3f5
+
+.field public static final RIL_UNSOL_STK_SEND_SMS_RESULT:I = 0x2afa
 
 .field public static final RIL_UNSOL_STK_SESSION_END:I = 0x3f4
 

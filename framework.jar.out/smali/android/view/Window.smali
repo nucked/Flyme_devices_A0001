@@ -189,18 +189,18 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1309
+    .line 1320
     const/4 v0, 0x0
 
-    .line 1311
+    .line 1322
     .local v0, "features":I
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 1312
+    .line 1323
     .local v1, "res":Landroid/content/res/Resources;
-    const v2, 0x11200a9
+    const v2, 0x11200ad
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -208,12 +208,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 1313
+    .line 1324
     or-int/lit8 v0, v0, 0x1
 
-    .line 1316
+    .line 1327
     :cond_0
-    const v2, 0x11200aa
+    const v2, 0x11200ae
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -221,10 +221,10 @@
 
     if-eqz v2, :cond_1
 
-    .line 1317
+    .line 1328
     or-int/lit8 v0, v0, 0x40
 
-    .line 1320
+    .line 1331
     :cond_1
     return v0
 .end method
@@ -235,14 +235,14 @@
     .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 935
+    .line 946
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v4
 
     float-to-int v2, v4
 
-    .line 936
+    .line 947
     .local v2, "x":I
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
@@ -250,7 +250,7 @@
 
     float-to-int v3, v4
 
-    .line 937
+    .line 948
     .local v3, "y":I
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -260,13 +260,13 @@
 
     move-result v1
 
-    .line 938
+    .line 949
     .local v1, "slop":I
     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
     move-result-object v0
 
-    .line 939
+    .line 950
     .local v0, "decorView":Landroid/view/View;
     neg-int v4, v1
 
@@ -305,17 +305,36 @@
 .end method
 
 .method private setPrivateFlags(II)V
-    .locals 3
+    .locals 4
     .param p1, "flags"    # I
     .param p2, "mask"    # I
 
     .prologue
-    .line 822
+    .line 829
+    and-int v1, p1, p2
+
+    const/high16 v2, 0x20000000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_0
+
+    .line 830
+    iget-object v1, p0, Landroid/view/Window;->mContext:Landroid/content/Context;
+
+    const-string v2, "android.permission.PREVENT_POWER_KEY"
+
+    const-string v3, "No permission to prevent power key"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 833
+    :cond_0
     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 823
+    .line 834
     .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
@@ -329,10 +348,10 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 824
+    .line 835
     invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 825
+    .line 836
     return-void
 .end method
 
@@ -629,12 +648,12 @@
     .param p1, "flags"    # I
 
     .prologue
-    .line 787
+    .line 794
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0, p1}, Landroid/view/Window;->setFlags(II)V
 
-    .line 788
+    .line 795
     return-void
 .end method
 
@@ -643,12 +662,12 @@
     .param p1, "flags"    # I
 
     .prologue
-    .line 792
+    .line 799
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, p1}, Landroid/view/Window;->setPrivateFlags(II)V
 
-    .line 793
+    .line 800
     return-void
 .end method
 
@@ -695,17 +714,17 @@
     .param p1, "attrs"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
-    .line 840
+    .line 851
     iget-object v0, p0, Landroid/view/Window;->mCallback:Landroid/view/Window$Callback;
 
     if-eqz v0, :cond_0
 
-    .line 841
+    .line 852
     iget-object v0, p0, Landroid/view/Window;->mCallback:Landroid/view/Window$Callback;
 
     invoke-interface {v0, p1}, Landroid/view/Window$Callback;->onWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 843
+    .line 854
     :cond_0
     return-void
 .end method
@@ -715,7 +734,7 @@
     .param p1, "id"    # I
 
     .prologue
-    .line 995
+    .line 1006
     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
     move-result-object v0
@@ -731,7 +750,7 @@
     .locals 1
 
     .prologue
-    .line 1746
+    .line 1757
     const/4 v0, 0x1
 
     return v0
@@ -741,7 +760,7 @@
     .locals 1
 
     .prologue
-    .line 1786
+    .line 1797
     invoke-virtual {p0}, Landroid/view/Window;->getAllowReturnTransitionOverlap()Z
 
     move-result v0
@@ -753,7 +772,7 @@
     .locals 1
 
     .prologue
-    .line 1780
+    .line 1791
     const/4 v0, 0x1
 
     return v0
@@ -763,7 +782,7 @@
     .locals 1
 
     .prologue
-    .line 882
+    .line 893
     iget-object v0, p0, Landroid/view/Window;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
 
     return-object v0
@@ -793,7 +812,7 @@
     .locals 1
 
     .prologue
-    .line 1509
+    .line 1520
     const/4 v0, 0x0
 
     return-object v0
@@ -819,7 +838,7 @@
     .locals 1
 
     .prologue
-    .line 1583
+    .line 1594
     const/4 v0, 0x0
 
     return-object v0
@@ -829,7 +848,7 @@
     .locals 1
 
     .prologue
-    .line 1612
+    .line 1623
     const/4 v0, 0x0
 
     return-object v0
@@ -839,7 +858,7 @@
     .locals 1
 
     .prologue
-    .line 1301
+    .line 1312
     iget v0, p0, Landroid/view/Window;->mFeatures:I
 
     return v0
@@ -849,7 +868,7 @@
     .locals 1
 
     .prologue
-    .line 890
+    .line 901
     iget v0, p0, Landroid/view/Window;->mForcedWindowFlags:I
 
     return v0
@@ -862,7 +881,7 @@
     .locals 1
 
     .prologue
-    .line 1342
+    .line 1353
     iget v0, p0, Landroid/view/Window;->mLocalFeatures:I
 
     return v0
@@ -872,7 +891,7 @@
     .locals 1
 
     .prologue
-    .line 1410
+    .line 1421
     const/4 v0, 0x0
 
     return-object v0
@@ -885,7 +904,7 @@
     .locals 1
 
     .prologue
-    .line 1626
+    .line 1637
     const/4 v0, 0x0
 
     return-object v0
@@ -895,7 +914,7 @@
     .locals 1
 
     .prologue
-    .line 1598
+    .line 1609
     const/4 v0, 0x0
 
     return-object v0
@@ -905,7 +924,7 @@
     .locals 1
 
     .prologue
-    .line 1663
+    .line 1674
     const/4 v0, 0x0
 
     return-object v0
@@ -915,7 +934,7 @@
     .locals 1
 
     .prologue
-    .line 1709
+    .line 1720
     const/4 v0, 0x0
 
     return-object v0
@@ -925,7 +944,7 @@
     .locals 1
 
     .prologue
-    .line 1720
+    .line 1731
     const/4 v0, 0x0
 
     return-object v0
@@ -935,7 +954,7 @@
     .locals 1
 
     .prologue
-    .line 1672
+    .line 1683
     const/4 v0, 0x0
 
     return-object v0
@@ -945,7 +964,7 @@
     .locals 1
 
     .prologue
-    .line 1825
+    .line 1836
     const/4 v0, 0x1
 
     return v0
@@ -958,7 +977,7 @@
     .locals 2
 
     .prologue
-    .line 1799
+    .line 1810
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -968,7 +987,7 @@
     .locals 1
 
     .prologue
-    .line 1486
+    .line 1497
     const/4 v0, 0x0
 
     return-object v0
@@ -1047,7 +1066,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 1330
+    .line 1341
     invoke-virtual {p0}, Landroid/view/Window;->getFeatures()I
 
     move-result v1
@@ -1071,7 +1090,7 @@
     .locals 1
 
     .prologue
-    .line 897
+    .line 908
     iget-boolean v0, p0, Landroid/view/Window;->mHasSoftInputMode:Z
 
     return v0
@@ -1081,7 +1100,7 @@
     .locals 1
 
     .prologue
-    .line 1366
+    .line 1377
     iget-boolean v0, p0, Landroid/view/Window;->mHaveDimAmount:Z
 
     return v0
@@ -1092,7 +1111,7 @@
     .param p1, "event"    # Landroid/view/InputEvent;
 
     .prologue
-    .line 1473
+    .line 1484
     return-void
 .end method
 
@@ -1103,7 +1122,7 @@
     .locals 1
 
     .prologue
-    .line 983
+    .line 994
     iget-boolean v0, p0, Landroid/view/Window;->mIsActive:Z
 
     return v0
@@ -1129,19 +1148,19 @@
     .locals 2
 
     .prologue
-    .line 971
+    .line 982
     iget-object v0, p0, Landroid/view/Window;->mContainer:Landroid/view/Window;
 
     if-eqz v0, :cond_1
 
-    .line 972
+    .line 983
     iget-object v0, p0, Landroid/view/Window;->mContainer:Landroid/view/Window;
 
     iget-object v0, v0, Landroid/view/Window;->mActiveChild:Landroid/view/Window;
 
     if-eqz v0, :cond_0
 
-    .line 973
+    .line 984
     iget-object v0, p0, Landroid/view/Window;->mContainer:Landroid/view/Window;
 
     iget-object v0, v0, Landroid/view/Window;->mActiveChild:Landroid/view/Window;
@@ -1150,22 +1169,22 @@
 
     iput-boolean v1, v0, Landroid/view/Window;->mIsActive:Z
 
-    .line 975
+    .line 986
     :cond_0
     iget-object v0, p0, Landroid/view/Window;->mContainer:Landroid/view/Window;
 
     iput-object p0, v0, Landroid/view/Window;->mActiveChild:Landroid/view/Window;
 
-    .line 977
+    .line 988
     :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/view/Window;->mIsActive:Z
 
-    .line 978
+    .line 989
     invoke-virtual {p0}, Landroid/view/Window;->onActive()V
 
-    .line 979
+    .line 990
     return-void
 .end method
 
@@ -1195,12 +1214,12 @@
     .param p1, "featureId"    # I
 
     .prologue
-    .line 965
+    .line 976
     const/4 v1, 0x1
 
     shl-int v0, v1, p1
 
-    .line 966
+    .line 977
     .local v0, "flag":I
     iget v1, p0, Landroid/view/Window;->mFeatures:I
 
@@ -1210,7 +1229,7 @@
 
     iput v1, p0, Landroid/view/Window;->mFeatures:I
 
-    .line 967
+    .line 978
     iget v1, p0, Landroid/view/Window;->mLocalFeatures:I
 
     iget-object v2, p0, Landroid/view/Window;->mContainer:Landroid/view/Window;
@@ -1233,7 +1252,7 @@
 
     iput v1, p0, Landroid/view/Window;->mLocalFeatures:I
 
-    .line 968
+    .line 979
     return-void
 .end method
 
@@ -1244,10 +1263,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 955
+    .line 966
     shl-int v0, v2, p1
 
-    .line 956
+    .line 967
     .local v0, "flag":I
     iget v1, p0, Landroid/view/Window;->mFeatures:I
 
@@ -1255,7 +1274,7 @@
 
     iput v1, p0, Landroid/view/Window;->mFeatures:I
 
-    .line 957
+    .line 968
     iget v3, p0, Landroid/view/Window;->mLocalFeatures:I
 
     iget-object v1, p0, Landroid/view/Window;->mContainer:Landroid/view/Window;
@@ -1275,7 +1294,7 @@
 
     iput v1, p0, Landroid/view/Window;->mLocalFeatures:I
 
-    .line 958
+    .line 969
     iget v1, p0, Landroid/view/Window;->mFeatures:I
 
     and-int/2addr v1, v0
@@ -1290,10 +1309,10 @@
     :cond_0
     move v1, v0
 
-    .line 957
+    .line 968
     goto :goto_0
 
-    .line 958
+    .line 969
     :cond_1
     const/4 v1, 0x0
 
@@ -1311,7 +1330,7 @@
     .param p1, "allow"    # Z
 
     .prologue
-    .line 1733
+    .line 1744
     return-void
 .end method
 
@@ -1320,10 +1339,10 @@
     .param p1, "allow"    # Z
 
     .prologue
-    .line 1766
+    .line 1777
     invoke-virtual {p0, p1}, Landroid/view/Window;->setAllowReturnTransitionOverlap(Z)V
 
-    .line 1767
+    .line 1778
     return-void
 .end method
 
@@ -1332,7 +1351,7 @@
     .param p1, "allow"    # Z
 
     .prologue
-    .line 1759
+    .line 1770
     return-void
 .end method
 
@@ -1341,17 +1360,17 @@
     .param p1, "a"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
-    .line 871
+    .line 882
     iget-object v0, p0, Landroid/view/Window;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
 
     invoke-virtual {v0, p1}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
 
-    .line 872
+    .line 883
     iget-object v0, p0, Landroid/view/Window;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 873
+    .line 884
     return-void
 .end method
 
@@ -1363,7 +1382,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1138
+    .line 1149
     iget-object v0, p0, Landroid/view/Window;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1372,7 +1391,28 @@
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1139
+    .line 1150
+    return-void
+.end method
+
+.method public setBlurMaskAlphaThreshold(F)V
+    .locals 1
+    .param p1, "alpha"    # F
+
+    .prologue
+    .line 781
+    invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    .line 782
+    .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
+    iput p1, v0, Landroid/view/WindowManager$LayoutParams;->blurMaskAlphaThreshold:F
+
+    .line 783
+    invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
+
+    .line 784
     return-void
 .end method
 
@@ -1399,7 +1439,7 @@
     .param p1, "clipToOutline"    # Z
 
     .prologue
-    .line 1126
+    .line 1137
     return-void
 .end method
 
@@ -1408,15 +1448,15 @@
     .param p1, "close"    # Z
 
     .prologue
-    .line 902
+    .line 913
     iput-boolean p1, p0, Landroid/view/Window;->mCloseOnTouchOutside:Z
 
-    .line 903
+    .line 914
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/view/Window;->mSetCloseOnTouchOutside:Z
 
-    .line 904
+    .line 915
     return-void
 .end method
 
@@ -1425,20 +1465,20 @@
     .param p1, "close"    # Z
 
     .prologue
-    .line 908
+    .line 919
     iget-boolean v0, p0, Landroid/view/Window;->mSetCloseOnTouchOutside:Z
 
     if-nez v0, :cond_0
 
-    .line 909
+    .line 920
     iput-boolean p1, p0, Landroid/view/Window;->mCloseOnTouchOutside:Z
 
-    .line 910
+    .line 921
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/view/Window;->mSetCloseOnTouchOutside:Z
 
-    .line 912
+    .line 923
     :cond_0
     return-void
 .end method
@@ -1492,7 +1532,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1441
+    .line 1452
     return-void
 .end method
 
@@ -1501,7 +1541,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1459
+    .line 1470
     return-void
 .end method
 
@@ -1510,27 +1550,27 @@
     .param p1, "format"    # I
 
     .prologue
-    .line 1356
+    .line 1367
     iput p1, p0, Landroid/view/Window;->mDefaultWindowFormat:I
 
-    .line 1357
+    .line 1368
     iget-boolean v1, p0, Landroid/view/Window;->mHaveWindowFormat:Z
 
     if-nez v1, :cond_0
 
-    .line 1358
+    .line 1369
     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 1359
+    .line 1370
     .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     iput p1, v0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1360
+    .line 1371
     invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 1362
+    .line 1373
     .end local v0    # "attrs":Landroid/view/WindowManager$LayoutParams;
     :cond_0
     return-void
@@ -1541,24 +1581,24 @@
     .param p1, "amount"    # F
 
     .prologue
-    .line 854
+    .line 865
     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 855
+    .line 866
     .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     iput p1, v0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 856
+    .line 867
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/view/Window;->mHaveDimAmount:Z
 
-    .line 857
+    .line 868
     invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 858
+    .line 869
     return-void
 .end method
 
@@ -1569,7 +1609,7 @@
     .prologue
     const/16 v1, 0x800
 
-    .line 917
+    .line 928
     if-eqz p1, :cond_0
 
     move v0, v1
@@ -1577,10 +1617,10 @@
     :goto_0
     invoke-direct {p0, v0, v1}, Landroid/view/Window;->setPrivateFlags(II)V
 
-    .line 920
+    .line 931
     return-void
 
-    .line 917
+    .line 928
     :cond_0
     const/4 v0, 0x0
 
@@ -1592,7 +1632,7 @@
     .param p1, "elevation"    # F
 
     .prologue
-    .line 1115
+    .line 1126
     return-void
 .end method
 
@@ -1601,7 +1641,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1523
+    .line 1534
     return-void
 .end method
 
@@ -1610,7 +1650,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1554
+    .line 1565
     return-void
 .end method
 
@@ -1635,12 +1675,12 @@
     .param p2, "mask"    # I
 
     .prologue
-    .line 815
+    .line 822
     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 816
+    .line 823
     .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -1654,17 +1694,17 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 817
+    .line 824
     iget v1, p0, Landroid/view/Window;->mForcedWindowFlags:I
 
     or-int/2addr v1, p2
 
     iput v1, p0, Landroid/view/Window;->mForcedWindowFlags:I
 
-    .line 818
+    .line 825
     invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 819
+    .line 826
     return-void
 .end method
 
@@ -1737,7 +1777,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1432
+    .line 1443
     return-void
 .end method
 
@@ -1772,7 +1812,7 @@
     .param p2, "inTouchMode"    # Z
 
     .prologue
-    .line 1467
+    .line 1478
     return-void
 .end method
 
@@ -1781,7 +1821,7 @@
     .param p1, "resId"    # I
 
     .prologue
-    .line 1450
+    .line 1461
     return-void
 .end method
 
@@ -1790,7 +1830,7 @@
     .param p1, "controller"    # Landroid/media/session/MediaController;
 
     .prologue
-    .line 1400
+    .line 1411
     return-void
 .end method
 
@@ -1802,19 +1842,19 @@
     .param p1, "value"    # I
 
     .prologue
-    .line 831
+    .line 842
     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 832
+    .line 843
     .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     iput p1, v0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
-    .line 833
+    .line 844
     invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 834
+    .line 845
     return-void
 .end method
 
@@ -1835,7 +1875,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1570
+    .line 1581
     return-void
 .end method
 
@@ -1844,7 +1884,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1540
+    .line 1551
     return-void
 .end method
 
@@ -1853,7 +1893,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1639
+    .line 1650
     return-void
 .end method
 
@@ -1862,7 +1902,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1685
+    .line 1696
     return-void
 .end method
 
@@ -1871,7 +1911,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1698
+    .line 1709
     return-void
 .end method
 
@@ -1880,7 +1920,7 @@
     .param p1, "transition"    # Landroid/transition/Transition;
 
     .prologue
-    .line 1654
+    .line 1665
     return-void
 .end method
 
@@ -1889,7 +1929,7 @@
     .param p1, "sharedElementsUseOverlay"    # Z
 
     .prologue
-    .line 1836
+    .line 1847
     return-void
 .end method
 
@@ -1947,7 +1987,7 @@
     .param p1, "fadeDurationMillis"    # J
 
     .prologue
-    .line 1813
+    .line 1824
     return-void
 .end method
 
@@ -1956,7 +1996,7 @@
     .param p1, "tm"    # Landroid/transition/TransitionManager;
 
     .prologue
-    .line 1497
+    .line 1508
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -1990,7 +2030,7 @@
     .param p1, "uiOptions"    # I
 
     .prologue
-    .line 1417
+    .line 1428
     return-void
 .end method
 
@@ -2000,7 +2040,7 @@
     .param p2, "mask"    # I
 
     .prologue
-    .line 1425
+    .line 1436
     return-void
 .end method
 
@@ -2114,7 +2154,7 @@
     .param p2, "event"    # Landroid/view/MotionEvent;
 
     .prologue
-    .line 927
+    .line 938
     iget-boolean v0, p0, Landroid/view/Window;->mCloseOnTouchOutside:Z
 
     if-eqz v0, :cond_0
@@ -2137,10 +2177,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 929
+    .line 940
     const/4 v0, 0x1
 
-    .line 931
+    .line 942
     :goto_0
     return v0
 

@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.os.IHardwareService"
 
-.field static final TRANSACTION_getFlashlightEnabled:I = 0x1
+.field static final TRANSACTION_getFlashlightEnabled_0:I = 0x1
 
-.field static final TRANSACTION_setFlashlightEnabled:I = 0x2
+.field static final TRANSACTION_setFlashlightEnabled_1:I = 0x2
 
 
 # direct methods

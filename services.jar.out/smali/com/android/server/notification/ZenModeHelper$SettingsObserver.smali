@@ -15,6 +15,10 @@
 
 
 # instance fields
+.field private final ALLOW_LIGHTS:Landroid/net/Uri;
+
+.field private final NONE_IS_SILENT:Landroid/net/Uri;
+
 .field private final ZEN_MODE:Landroid/net/Uri;
 
 .field final synthetic this$0:Lcom/android/server/notification/ZenModeHelper;
@@ -26,13 +30,13 @@
     .param p2, "handler"    # Landroid/os/Handler;
 
     .prologue
-    .line 512
+    .line 542
     iput-object p1, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    .line 513
+    .line 543
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 510
+    .line 538
     const-string v0, "zen_mode"
 
     invoke-static {v0}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -41,7 +45,25 @@
 
     iput-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->ZEN_MODE:Landroid/net/Uri;
 
-    .line 514
+    .line 539
+    const-string v0, "none_is_silent"
+
+    invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->NONE_IS_SILENT:Landroid/net/Uri;
+
+    .line 540
+    const-string v0, "allow_lights"
+
+    invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->ALLOW_LIGHTS:Landroid/net/Uri;
+
+    .line 544
     return-void
 .end method
 
@@ -51,7 +73,9 @@
     .locals 3
 
     .prologue
-    .line 517
+    const/4 v2, 0x0
+
+    .line 547
     iget-object v1, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
     # getter for: Lcom/android/server/notification/ZenModeHelper;->mContext:Landroid/content/Context;
@@ -63,20 +87,28 @@
 
     move-result-object v0
 
-    .line 518
+    .line 548
     .local v0, "resolver":Landroid/content/ContentResolver;
     iget-object v1, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->ZEN_MODE:Landroid/net/Uri;
 
-    const/4 v2, 0x0
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    .line 549
+    iget-object v1, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->NONE_IS_SILENT:Landroid/net/Uri;
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 519
+    .line 550
+    iget-object v1, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->ALLOW_LIGHTS:Landroid/net/Uri;
+
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    .line 551
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->update(Landroid/net/Uri;)V
 
-    .line 520
+    .line 552
     return-void
 .end method
 
@@ -86,10 +118,10 @@
     .param p2, "uri"    # Landroid/net/Uri;
 
     .prologue
-    .line 524
+    .line 556
     invoke-virtual {p0, p2}, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->update(Landroid/net/Uri;)V
 
-    .line 525
+    .line 557
     return-void
 .end method
 
@@ -98,8 +130,45 @@
     .param p1, "uri"    # Landroid/net/Uri;
 
     .prologue
-    .line 528
+    .line 560
     iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->ZEN_MODE:Landroid/net/Uri;
+
+    invoke-virtual {v0, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 561
+    iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
+
+    invoke-virtual {v0}, Lcom/android/server/notification/ZenModeHelper;->readZenModeFromSetting()V
+
+    .line 567
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 562
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->NONE_IS_SILENT:Landroid/net/Uri;
+
+    invoke-virtual {v0, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 563
+    iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
+
+    invoke-virtual {v0}, Lcom/android/server/notification/ZenModeHelper;->readSilentModeFromSetting()V
+
+    goto :goto_0
+
+    .line 564
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->ALLOW_LIGHTS:Landroid/net/Uri;
 
     invoke-virtual {v0, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
@@ -107,12 +176,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 529
+    .line 565
     iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-virtual {v0}, Lcom/android/server/notification/ZenModeHelper;->readZenModeFromSetting()V
+    invoke-virtual {v0}, Lcom/android/server/notification/ZenModeHelper;->readLightsAllowedModeFromSetting()V
 
-    .line 531
-    :cond_0
-    return-void
+    goto :goto_0
 .end method

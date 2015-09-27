@@ -161,7 +161,7 @@
     .line 103
     const/4 v1, 0x5
 
-    const v2, 0x1090022
+    const v2, 0x109001f
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -226,7 +226,7 @@
 
     .line 192
     .local v2, "inflater":Landroid/view/LayoutInflater;
-    const v3, 0x109001b
+    const v3, 0x109001a
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

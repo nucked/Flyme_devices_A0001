@@ -16,6 +16,9 @@
 
 
 # virtual methods
+.method public abstract isDozing()Z
+.end method
+
 .method public abstract isDreaming()Z
 .end method
 

@@ -43,11 +43,13 @@
 
     const/4 v2, 0x0
 
+    # setter for: Landroid/app/ActivityTransitionCoordinator;->mIsStartingTransition:Z
     invoke-static {v1, v2}, Landroid/app/ActivityTransitionCoordinator;->access$102(Landroid/app/ActivityTransitionCoordinator;Z)Z
 
     .line 901
     iget-object v1, p0, Landroid/app/ActivityTransitionCoordinator$ContinueTransitionListener;->this$0:Landroid/app/ActivityTransitionCoordinator;
 
+    # getter for: Landroid/app/ActivityTransitionCoordinator;->mPendingTransition:Ljava/lang/Runnable;
     invoke-static {v1}, Landroid/app/ActivityTransitionCoordinator;->access$200(Landroid/app/ActivityTransitionCoordinator;)Ljava/lang/Runnable;
 
     move-result-object v0
@@ -58,6 +60,7 @@
 
     const/4 v2, 0x0
 
+    # setter for: Landroid/app/ActivityTransitionCoordinator;->mPendingTransition:Ljava/lang/Runnable;
     invoke-static {v1, v2}, Landroid/app/ActivityTransitionCoordinator;->access$202(Landroid/app/ActivityTransitionCoordinator;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
     .line 903

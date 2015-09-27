@@ -30,9 +30,9 @@
 
 .field static final TRANSACTION_disableScoring:I = 0x4
 
-.field static final TRANSACTION_registerNetworkScoreCache:I = 0x5
+.field static final TRANSACTION_registerNetworkScoreCache_4:I = 0x5
 
-.field static final TRANSACTION_setActiveScorer:I = 0x3
+.field static final TRANSACTION_setActiveScorer_2:I = 0x3
 
 .field static final TRANSACTION_updateScores:I = 0x1
 

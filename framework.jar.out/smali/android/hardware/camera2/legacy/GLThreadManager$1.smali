@@ -65,7 +65,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 130
+    .line 129
     :goto_0
     :pswitch_0
     return v5
@@ -134,6 +134,16 @@
     const-string v3, "Received exception on GL render thread: "
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 127
+    iget-object v2, p0, Landroid/hardware/camera2/legacy/GLThreadManager$1;->this$0:Landroid/hardware/camera2/legacy/GLThreadManager;
+
+    # getter for: Landroid/hardware/camera2/legacy/GLThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
+    invoke-static {v2}, Landroid/hardware/camera2/legacy/GLThreadManager;->access$500(Landroid/hardware/camera2/legacy/GLThreadManager;)Landroid/hardware/camera2/legacy/CameraDeviceState;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v5}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
 
     goto :goto_0
 
@@ -314,8 +324,6 @@
     goto/16 :goto_0
 
     .line 85
-    nop
-
     :pswitch_data_0
     .packed-switch -0x1
         :pswitch_0

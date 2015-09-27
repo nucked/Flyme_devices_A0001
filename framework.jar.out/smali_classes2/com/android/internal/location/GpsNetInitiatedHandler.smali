@@ -636,7 +636,7 @@
 
     .prologue
     .line 584
-    const v1, 0x10405bf
+    const v1, 0x1040655
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -690,7 +690,7 @@
 
     .prologue
     .line 568
-    const v1, 0x10405bd
+    const v1, 0x1040653
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -744,7 +744,7 @@
 
     .prologue
     .line 577
-    const v1, 0x10405be
+    const v1, 0x1040654
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1236,7 +1236,7 @@
     .line 373
     iget-object v5, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mNiNotification:Landroid/app/Notification;
 
-    const v6, 0x10806af
+    const v6, 0x1080687
 
     iput v6, v5, Landroid/app/Notification;->icon:I
 
@@ -1313,7 +1313,7 @@
 
     move-result-object v6
 
-    const v7, 0x1060059
+    const v7, 0x106005c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 

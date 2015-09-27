@@ -446,6 +446,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 104
+    iget-object v6, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;->mCamera:Landroid/hardware/Camera;
+
+    invoke-virtual {v6}, Landroid/hardware/Camera;->cancelAutoFocus()V
+
     .line 107
     :cond_1
     iput-object v0, p0, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;->mAfModePrevious:Ljava/lang/String;
@@ -870,8 +875,6 @@
     .catchall {:try_start_a .. :try_end_a} :catchall_3
 
     .line 160
-    nop
-
     :sswitch_data_0
     .sparse-switch
         -0xb99cbc3 -> :sswitch_3

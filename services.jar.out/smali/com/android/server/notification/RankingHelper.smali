@@ -7,6 +7,8 @@
 
 
 # static fields
+.field private static final ATT_KEYGUARD:Ljava/lang/String; = "keyguard"
+
 .field private static final ATT_NAME:Ljava/lang/String; = "name"
 
 .field private static final ATT_PRIORITY:Ljava/lang/String; = "priority"
@@ -32,6 +34,18 @@
 .field private final mContext:Landroid/content/Context;
 
 .field private final mFinalComparator:Lcom/android/server/notification/GlobalSortKeyComparator;
+
+.field private final mPackageOnKeyguard:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Landroid/util/SparseIntArray;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mPackagePriorities:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -84,60 +98,67 @@
     .param p3, "extractorNames"    # [Ljava/lang/String;
 
     .prologue
-    .line 68
+    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
+    .line 58
     new-instance v5, Lcom/android/server/notification/NotificationComparator;
 
     invoke-direct {v5}, Lcom/android/server/notification/NotificationComparator;-><init>()V
 
     iput-object v5, p0, Lcom/android/server/notification/RankingHelper;->mPreliminaryComparator:Lcom/android/server/notification/NotificationComparator;
 
-    .line 58
+    .line 59
     new-instance v5, Lcom/android/server/notification/GlobalSortKeyComparator;
 
     invoke-direct {v5}, Lcom/android/server/notification/GlobalSortKeyComparator;-><init>()V
 
     iput-object v5, p0, Lcom/android/server/notification/RankingHelper;->mFinalComparator:Lcom/android/server/notification/GlobalSortKeyComparator;
 
-    .line 69
+    .line 71
     iput-object p1, p0, Lcom/android/server/notification/RankingHelper;->mContext:Landroid/content/Context;
 
-    .line 70
+    .line 72
     iput-object p2, p0, Lcom/android/server/notification/RankingHelper;->mRankingHandler:Landroid/os/Handler;
 
-    .line 71
+    .line 73
     new-instance v5, Landroid/util/ArrayMap;
 
     invoke-direct {v5}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v5, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
-    .line 72
+    .line 74
     new-instance v5, Landroid/util/ArrayMap;
 
     invoke-direct {v5}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v5, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
 
-    .line 74
+    .line 75
+    new-instance v5, Landroid/util/ArrayMap;
+
+    invoke-direct {v5}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v5, p0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
+
+    .line 77
     array-length v0, p3
 
-    .line 75
+    .line 78
     .local v0, "N":I
     new-array v5, v0, [Lcom/android/server/notification/NotificationSignalExtractor;
 
     iput-object v5, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
-    .line 76
+    .line 79
     const/4 v4, 0x0
 
     .local v4, "i":I
     :goto_0
     if-ge v4, v0, :cond_0
 
-    .line 78
+    .line 81
     :try_start_0
     iget-object v5, p0, Lcom/android/server/notification/RankingHelper;->mContext:Landroid/content/Context;
 
@@ -151,7 +172,7 @@
 
     move-result-object v3
 
-    .line 79
+    .line 82
     .local v3, "extractorClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {v3}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
@@ -159,16 +180,16 @@
 
     check-cast v2, Lcom/android/server/notification/NotificationSignalExtractor;
 
-    .line 81
+    .line 84
     .local v2, "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     iget-object v5, p0, Lcom/android/server/notification/RankingHelper;->mContext:Landroid/content/Context;
 
     invoke-interface {v2, v5}, Lcom/android/server/notification/NotificationSignalExtractor;->initialize(Landroid/content/Context;)V
 
-    .line 82
+    .line 85
     invoke-interface {v2, p0}, Lcom/android/server/notification/NotificationSignalExtractor;->setConfig(Lcom/android/server/notification/RankingConfig;)V
 
-    .line 83
+    .line 86
     iget-object v5, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     aput-object v2, v5, v4
@@ -177,7 +198,7 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 76
+    .line 79
     .end local v2    # "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     .end local v3    # "extractorClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :goto_1
@@ -185,11 +206,11 @@
 
     goto :goto_0
 
-    .line 84
+    .line 87
     :catch_0
     move-exception v1
 
-    .line 85
+    .line 88
     .local v1, "e":Ljava/lang/ClassNotFoundException;
     const-string v5, "RankingHelper"
 
@@ -223,12 +244,12 @@
 
     goto :goto_1
 
-    .line 86
+    .line 89
     .end local v1    # "e":Ljava/lang/ClassNotFoundException;
     :catch_1
     move-exception v1
 
-    .line 87
+    .line 90
     .local v1, "e":Ljava/lang/InstantiationException;
     const-string v5, "RankingHelper"
 
@@ -262,12 +283,12 @@
 
     goto :goto_1
 
-    .line 88
+    .line 91
     .end local v1    # "e":Ljava/lang/InstantiationException;
     :catch_2
     move-exception v1
 
-    .line 89
+    .line 92
     .local v1, "e":Ljava/lang/IllegalAccessException;
     const-string v5, "RankingHelper"
 
@@ -301,7 +322,7 @@
 
     goto :goto_1
 
-    .line 92
+    .line 95
     .end local v1    # "e":Ljava/lang/IllegalAccessException;
     :cond_0
     new-instance v5, Landroid/util/ArrayMap;
@@ -310,7 +331,7 @@
 
     iput-object v5, p0, Lcom/android/server/notification/RankingHelper;->mProxyByGroupTmp:Landroid/util/ArrayMap;
 
-    .line 93
+    .line 96
     return-void
 .end method
 
@@ -321,14 +342,14 @@
     .param p2, "defValue"    # I
 
     .prologue
-    .line 286
+    .line 314
     const/4 v1, 0x0
 
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 287
+    .line 315
     .local v0, "val":Ljava/lang/String;
     invoke-static {v0, p2}, Lcom/android/server/notification/RankingHelper;->tryParseInt(Ljava/lang/String;I)I
 
@@ -343,19 +364,19 @@
     .param p1, "defValue"    # I
 
     .prologue
-    .line 291
+    .line 319
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 295
+    .line 323
     .end local p1    # "defValue":I
     :goto_0
     return p1
 
-    .line 293
+    .line 321
     .restart local p1    # "defValue":I
     :cond_0
     :try_start_0
@@ -371,11 +392,11 @@
 
     goto :goto_0
 
-    .line 294
+    .line 322
     :catch_0
     move-exception v0
 
-    .line 295
+    .line 323
     .local v0, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
@@ -384,12 +405,12 @@
     .locals 4
 
     .prologue
-    .line 216
+    .line 244
     iget-object v2, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     array-length v0, v2
 
-    .line 217
+    .line 245
     .local v0, "N":I
     const/4 v1, 0x0
 
@@ -397,19 +418,19 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 218
+    .line 246
     iget-object v2, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     aget-object v2, v2, v1
 
     invoke-interface {v2, p0}, Lcom/android/server/notification/NotificationSignalExtractor;->setConfig(Lcom/android/server/notification/RankingConfig;)V
 
-    .line 217
+    .line 245
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 220
+    .line 248
     :cond_0
     iget-object v2, p0, Lcom/android/server/notification/RankingHelper;->mRankingHandler:Landroid/os/Handler;
 
@@ -417,7 +438,7 @@
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 221
+    .line 249
     return-void
 .end method
 
@@ -430,54 +451,54 @@
     .param p3, "filter"    # Lcom/android/server/notification/NotificationManagerService$DumpFilter;
 
     .prologue
-    .line 349
+    .line 402
     if-nez p3, :cond_0
 
-    .line 350
+    .line 403
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     array-length v1, v8
 
-    .line 351
+    .line 404
     .local v1, "N":I
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 352
+    .line 405
     const-string v8, "mSignalExtractors.length = "
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 353
+    .line 406
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 354
+    .line 407
     const/4 v2, 0x0
 
     .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_0
 
-    .line 355
+    .line 408
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 356
+    .line 409
     const-string v8, "  "
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 357
+    .line 410
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     aget-object v8, v8, v2
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 354
+    .line 407
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 360
+    .line 413
     .end local v1    # "N":I
     .end local v2    # "i":I
     :cond_0
@@ -487,19 +508,19 @@
 
     move-result v1
 
-    .line 361
+    .line 414
     .restart local v1    # "N":I
     if-nez p3, :cond_1
 
-    .line 362
+    .line 415
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 363
+    .line 416
     const-string v8, "package priorities:"
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 365
+    .line 418
     :cond_1
     const/4 v2, 0x0
 
@@ -507,7 +528,7 @@
     :goto_1
     if-ge v2, v1, :cond_4
 
-    .line 366
+    .line 419
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
     invoke-virtual {v8, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
@@ -516,7 +537,7 @@
 
     check-cast v4, Ljava/lang/String;
 
-    .line 367
+    .line 420
     .local v4, "name":Ljava/lang/String;
     if-eqz p3, :cond_2
 
@@ -526,7 +547,7 @@
 
     if-eqz v8, :cond_3
 
-    .line 368
+    .line 421
     :cond_2
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
@@ -536,13 +557,13 @@
 
     check-cast v6, Landroid/util/SparseIntArray;
 
-    .line 369
+    .line 422
     .local v6, "priorityByUid":Landroid/util/SparseIntArray;
     invoke-virtual {v6}, Landroid/util/SparseIntArray;->size()I
 
     move-result v0
 
-    .line 370
+    .line 423
     .local v0, "M":I
     const/4 v3, 0x0
 
@@ -550,51 +571,51 @@
     :goto_2
     if-ge v3, v0, :cond_3
 
-    .line 371
+    .line 424
     invoke-virtual {v6, v3}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v7
 
-    .line 372
+    .line 425
     .local v7, "uid":I
     invoke-virtual {v6, v7}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result v5
 
-    .line 373
+    .line 426
     .local v5, "priority":I
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 374
+    .line 427
     const-string v8, "  "
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 375
+    .line 428
     invoke-virtual {p1, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 376
+    .line 429
     const-string v8, " ("
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 377
+    .line 430
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 378
+    .line 431
     const-string v8, ") has priority: "
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 379
+    .line 432
     invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 370
+    .line 423
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 365
+    .line 418
     .end local v0    # "M":I
     .end local v3    # "j":I
     .end local v5    # "priority":I
@@ -605,7 +626,7 @@
 
     goto :goto_1
 
-    .line 383
+    .line 436
     .end local v4    # "name":Ljava/lang/String;
     :cond_4
     return-void
@@ -616,12 +637,12 @@
     .param p1, "r"    # Lcom/android/server/notification/NotificationRecord;
 
     .prologue
-    .line 107
+    .line 110
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     array-length v0, v8
 
-    .line 108
+    .line 111
     .local v0, "N":I
     const/4 v4, 0x0
 
@@ -629,23 +650,23 @@
     :goto_0
     if-ge v4, v0, :cond_1
 
-    .line 109
+    .line 112
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     aget-object v1, v8, v4
 
-    .line 111
+    .line 114
     .local v1, "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     :try_start_0
     invoke-interface {v1, p1}, Lcom/android/server/notification/NotificationSignalExtractor;->process(Lcom/android/server/notification/NotificationRecord;)Lcom/android/server/notification/RankingReconsideration;
 
     move-result-object v6
 
-    .line 112
+    .line 115
     .local v6, "recon":Lcom/android/server/notification/RankingReconsideration;
     if-eqz v6, :cond_0
 
-    .line 113
+    .line 116
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mRankingHandler:Landroid/os/Handler;
 
     const/4 v9, 0x4
@@ -654,7 +675,7 @@
 
     move-result-object v5
 
-    .line 115
+    .line 118
     .local v5, "m":Landroid/os/Message;
     sget-object v8, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -662,7 +683,7 @@
 
     move-result-wide v2
 
-    .line 116
+    .line 119
     .local v2, "delay":J
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mRankingHandler:Landroid/os/Handler;
 
@@ -670,7 +691,7 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 108
+    .line 111
     .end local v2    # "delay":J
     .end local v5    # "m":Landroid/os/Message;
     .end local v6    # "recon":Lcom/android/server/notification/RankingReconsideration;
@@ -680,11 +701,11 @@
 
     goto :goto_0
 
-    .line 118
+    .line 121
     :catch_0
     move-exception v7
 
-    .line 119
+    .line 122
     .local v7, "t":Ljava/lang/Throwable;
     const-string v8, "RankingHelper"
 
@@ -694,7 +715,7 @@
 
     goto :goto_1
 
-    .line 122
+    .line 125
     .end local v1    # "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     .end local v7    # "t":Ljava/lang/Throwable;
     :cond_1
@@ -714,13 +735,13 @@
     .end annotation
 
     .prologue
-    .line 96
+    .line 99
     .local p1, "extractorClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v3, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     array-length v0, v3
 
-    .line 97
+    .line 100
     .local v0, "N":I
     const/4 v2, 0x0
 
@@ -728,12 +749,12 @@
     :goto_0
     if-ge v2, v0, :cond_1
 
-    .line 98
+    .line 101
     iget-object v3, p0, Lcom/android/server/notification/RankingHelper;->mSignalExtractors:[Lcom/android/server/notification/NotificationSignalExtractor;
 
     aget-object v1, v3, v2
 
-    .line 99
+    .line 102
     .local v1, "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -745,19 +766,19 @@
 
     if-eqz v3, :cond_0
 
-    .line 103
+    .line 106
     .end local v1    # "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     :goto_1
     return-object v1
 
-    .line 97
+    .line 100
     .restart local v1    # "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 103
+    .line 106
     .end local v1    # "extractor":Lcom/android/server/notification/NotificationSignalExtractor;
     :cond_1
     const/4 v1, 0x0
@@ -771,10 +792,10 @@
     .param p2, "uid"    # I
 
     .prologue
-    .line 301
+    .line 329
     const/4 v0, 0x0
 
-    .line 302
+    .line 330
     .local v0, "priority":I
     iget-object v2, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
@@ -784,18 +805,18 @@
 
     check-cast v1, Landroid/util/SparseIntArray;
 
-    .line 303
+    .line 331
     .local v1, "priorityByUid":Landroid/util/SparseIntArray;
     if-eqz v1, :cond_0
 
-    .line 304
+    .line 332
     const/4 v2, 0x0
 
     invoke-virtual {v1, p2, v2}, Landroid/util/SparseIntArray;->get(II)I
 
     move-result v0
 
-    .line 306
+    .line 334
     :cond_0
     return v0
 .end method
@@ -806,10 +827,10 @@
     .param p2, "uid"    # I
 
     .prologue
-    .line 325
+    .line 353
     const/16 v0, -0x3e8
 
-    .line 326
+    .line 354
     .local v0, "visibility":I
     iget-object v2, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
 
@@ -819,18 +840,53 @@
 
     check-cast v1, Landroid/util/SparseIntArray;
 
-    .line 327
+    .line 355
     .local v1, "visibilityByUid":Landroid/util/SparseIntArray;
     if-eqz v1, :cond_0
 
-    .line 328
+    .line 356
     const/16 v2, -0x3e8
 
     invoke-virtual {v1, p2, v2}, Landroid/util/SparseIntArray;->get(II)I
 
     move-result v0
 
-    .line 331
+    .line 359
+    :cond_0
+    return v0
+.end method
+
+.method public getShowNotificationForPackageOnKeyguard(Ljava/lang/String;I)I
+    .locals 3
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+
+    .prologue
+    .line 378
+    const/4 v0, 0x1
+
+    .line 379
+    .local v0, "keyguard":I
+    iget-object v2, p0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/util/SparseIntArray;
+
+    .line 380
+    .local v1, "keyguardByUid":Landroid/util/SparseIntArray;
+    if-eqz v1, :cond_0
+
+    .line 381
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, p2, v2}, Landroid/util/SparseIntArray;->get(II)I
+
+    move-result v0
+
+    .line 383
     :cond_0
     return v0
 .end method
@@ -851,7 +907,7 @@
     .end annotation
 
     .prologue
-    .line 282
+    .line 310
     .local p1, "notificationList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/notification/NotificationRecord;>;"
     iget-object v0, p0, Lcom/android/server/notification/RankingHelper;->mFinalComparator:Lcom/android/server/notification/GlobalSortKeyComparator;
 
@@ -863,7 +919,7 @@
 .end method
 
 .method public readXml(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 14
+    .locals 13
     .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -873,221 +929,274 @@
     .end annotation
 
     .prologue
-    const/4 v13, 0x2
-
-    const/4 v12, 0x1
-
-    const/16 v11, -0x3e8
-
-    .line 125
-    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
-
-    move-result v4
-
-    .line 126
-    .local v4, "type":I
-    if-eq v4, v13, :cond_1
-
-    .line 134
-    :cond_0
-    return-void
-
-    .line 127
-    :cond_1
-    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
     .line 128
-    .local v3, "tag":Ljava/lang/String;
-    const-string v9, "ranking"
-
-    invoke-virtual {v9, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    .line 129
-    iget-object v9, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
-
-    invoke-virtual {v9}, Landroid/util/ArrayMap;->clear()V
-
-    .line 130
-    const-string v9, "version"
-
-    invoke-static {p1, v9, v12}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v6
 
+    .line 129
+    .local v6, "type":I
+    const/4 v11, 0x2
+
+    if-eq v6, v11, :cond_1
+
+    .line 137
+    :cond_0
+    return-void
+
+    .line 130
+    :cond_1
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
     .line 131
-    .local v6, "version":I
+    .local v5, "tag":Ljava/lang/String;
+    const-string v11, "ranking"
+
+    invoke-virtual {v11, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
+
+    .line 132
+    iget-object v11, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
+
+    invoke-virtual {v11}, Landroid/util/ArrayMap;->clear()V
+
+    .line 133
+    const-string v11, "version"
+
+    const/4 v12, 0x1
+
+    invoke-static {p1, v11, v12}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
+
+    move-result v8
+
+    .line 134
+    .local v8, "version":I
     :cond_2
     :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v4
+    move-result v6
 
-    if-eq v4, v12, :cond_7
+    const/4 v11, 0x1
 
-    .line 132
+    if-eq v6, v11, :cond_9
+
+    .line 135
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
-
-    .line 133
-    const/4 v9, 0x3
-
-    if-ne v4, v9, :cond_3
-
-    const-string v9, "ranking"
-
-    invoke-virtual {v9, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_0
+    move-result-object v5
 
     .line 136
-    :cond_3
-    if-ne v4, v13, :cond_2
+    const/4 v11, 0x3
 
-    .line 137
-    const-string v9, "package"
+    if-ne v6, v11, :cond_3
 
-    invoke-virtual {v9, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v11, "ranking"
 
-    move-result v9
+    invoke-virtual {v11, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v9, :cond_2
+    move-result v11
 
-    .line 138
-    const-string v9, "uid"
-
-    const/4 v10, -0x1
-
-    invoke-static {p1, v9, v10}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
-
-    move-result v5
+    if-nez v11, :cond_0
 
     .line 139
-    .local v5, "uid":I
-    const-string v9, "priority"
+    :cond_3
+    const/4 v11, 0x2
 
-    const/4 v10, 0x0
-
-    invoke-static {p1, v9, v10}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
-
-    move-result v1
+    if-ne v6, v11, :cond_2
 
     .line 140
-    .local v1, "priority":I
-    const-string v9, "visibility"
+    const-string v11, "package"
 
-    invoke-static {p1, v9, v11}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
+    invoke-virtual {v11, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_2
+
+    .line 141
+    const-string v11, "uid"
+
+    const/4 v12, -0x1
+
+    invoke-static {p1, v11, v12}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
 
     move-result v7
 
     .line 142
-    .local v7, "vis":I
-    const/4 v9, 0x0
+    .local v7, "uid":I
+    const-string v11, "priority"
 
-    const-string v10, "name"
+    const/4 v12, 0x0
 
-    invoke-interface {p1, v9, v10}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, v11, v12}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
 
-    move-result-object v0
+    move-result v3
 
-    .line 144
-    .local v0, "name":Ljava/lang/String;
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .line 143
+    .local v3, "priority":I
+    const-string v11, "visibility"
+
+    const/16 v12, -0x3e8
+
+    invoke-static {p1, v11, v12}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
 
     move-result v9
 
-    if-nez v9, :cond_2
-
     .line 145
-    if-eqz v1, :cond_5
+    .local v9, "vis":I
+    const-string v11, "keyguard"
 
-    .line 146
-    iget-object v9, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
+    const/4 v12, 0x1
 
-    invoke-virtual {v9, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v11, v12}, Lcom/android/server/notification/RankingHelper;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 147
+    .local v0, "keyguard":I
+    const/4 v11, 0x0
+
+    const-string v12, "name"
+
+    invoke-interface {p1, v11, v12}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    check-cast v2, Landroid/util/SparseIntArray;
-
-    .line 147
-    .local v2, "priorityByUid":Landroid/util/SparseIntArray;
-    if-nez v2, :cond_4
-
-    .line 148
-    new-instance v2, Landroid/util/SparseIntArray;
-
-    .end local v2    # "priorityByUid":Landroid/util/SparseIntArray;
-    invoke-direct {v2}, Landroid/util/SparseIntArray;-><init>()V
-
     .line 149
-    .restart local v2    # "priorityByUid":Landroid/util/SparseIntArray;
-    iget-object v9, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
+    .local v2, "name":Ljava/lang/String;
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v9, v0, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result v11
+
+    if-nez v11, :cond_2
+
+    .line 150
+    if-eqz v3, :cond_5
 
     .line 151
-    :cond_4
-    invoke-virtual {v2, v5, v1}, Landroid/util/SparseIntArray;->put(II)V
+    iget-object v11, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
+
+    invoke-virtual {v11, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/util/SparseIntArray;
+
+    .line 152
+    .local v4, "priorityByUid":Landroid/util/SparseIntArray;
+    if-nez v4, :cond_4
 
     .line 153
-    .end local v2    # "priorityByUid":Landroid/util/SparseIntArray;
-    :cond_5
-    if-eq v7, v11, :cond_2
+    new-instance v4, Landroid/util/SparseIntArray;
+
+    .end local v4    # "priorityByUid":Landroid/util/SparseIntArray;
+    invoke-direct {v4}, Landroid/util/SparseIntArray;-><init>()V
 
     .line 154
-    iget-object v9, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
+    .restart local v4    # "priorityByUid":Landroid/util/SparseIntArray;
+    iget-object v11, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
-    invoke-virtual {v9, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/util/SparseIntArray;
-
-    .line 155
-    .local v8, "visibilityByUid":Landroid/util/SparseIntArray;
-    if-nez v8, :cond_6
+    invoke-virtual {v11, v2, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 156
-    new-instance v8, Landroid/util/SparseIntArray;
+    :cond_4
+    invoke-virtual {v4, v7, v3}, Landroid/util/SparseIntArray;->put(II)V
 
-    .end local v8    # "visibilityByUid":Landroid/util/SparseIntArray;
-    invoke-direct {v8}, Landroid/util/SparseIntArray;-><init>()V
+    .line 158
+    .end local v4    # "priorityByUid":Landroid/util/SparseIntArray;
+    :cond_5
+    const/16 v11, -0x3e8
 
-    .line 157
-    .restart local v8    # "visibilityByUid":Landroid/util/SparseIntArray;
-    iget-object v9, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
-
-    invoke-virtual {v9, v0, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    if-eq v9, v11, :cond_7
 
     .line 159
+    iget-object v11, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
+
+    invoke-virtual {v11, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/util/SparseIntArray;
+
+    .line 160
+    .local v10, "visibilityByUid":Landroid/util/SparseIntArray;
+    if-nez v10, :cond_6
+
+    .line 161
+    new-instance v10, Landroid/util/SparseIntArray;
+
+    .end local v10    # "visibilityByUid":Landroid/util/SparseIntArray;
+    invoke-direct {v10}, Landroid/util/SparseIntArray;-><init>()V
+
+    .line 162
+    .restart local v10    # "visibilityByUid":Landroid/util/SparseIntArray;
+    iget-object v11, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
+
+    invoke-virtual {v11, v2, v10}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 164
     :cond_6
-    invoke-virtual {v8, v5, v7}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v10, v7, v9}, Landroid/util/SparseIntArray;->put(II)V
 
-    goto :goto_0
-
-    .line 165
-    .end local v0    # "name":Ljava/lang/String;
-    .end local v1    # "priority":I
-    .end local v5    # "uid":I
-    .end local v7    # "vis":I
-    .end local v8    # "visibilityByUid":Landroid/util/SparseIntArray;
+    .line 166
+    .end local v10    # "visibilityByUid":Landroid/util/SparseIntArray;
     :cond_7
-    new-instance v9, Ljava/lang/IllegalStateException;
+    const/4 v11, 0x1
 
-    const-string v10, "Failed to reach END_DOCUMENT"
+    if-eq v0, v11, :cond_2
 
-    invoke-direct {v9, v10}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    .line 167
+    iget-object v11, p0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
 
-    throw v9
+    invoke-virtual {v11, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/util/SparseIntArray;
+
+    .line 168
+    .local v1, "keyguardByUid":Landroid/util/SparseIntArray;
+    if-nez v1, :cond_8
+
+    .line 169
+    new-instance v1, Landroid/util/SparseIntArray;
+
+    .end local v1    # "keyguardByUid":Landroid/util/SparseIntArray;
+    invoke-direct {v1}, Landroid/util/SparseIntArray;-><init>()V
+
+    .line 170
+    .restart local v1    # "keyguardByUid":Landroid/util/SparseIntArray;
+    iget-object v11, p0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
+
+    invoke-virtual {v11, v2, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 172
+    :cond_8
+    invoke-virtual {v1, v7, v0}, Landroid/util/SparseIntArray;->put(II)V
+
+    goto/16 :goto_0
+
+    .line 178
+    .end local v0    # "keyguard":I
+    .end local v1    # "keyguardByUid":Landroid/util/SparseIntArray;
+    .end local v2    # "name":Ljava/lang/String;
+    .end local v3    # "priority":I
+    .end local v7    # "uid":I
+    .end local v9    # "vis":I
+    :cond_9
+    new-instance v11, Ljava/lang/IllegalStateException;
+
+    const-string v12, "Failed to reach END_DOCUMENT"
+
+    invoke-direct {v11, v12}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v11
 .end method
 
 .method public setPackagePriority(Ljava/lang/String;II)V
@@ -1097,18 +1206,18 @@
     .param p3, "priority"    # I
 
     .prologue
-    .line 311
+    .line 339
     invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/RankingHelper;->getPackagePriority(Ljava/lang/String;I)I
 
     move-result v1
 
     if-ne p3, v1, :cond_0
 
-    .line 321
+    .line 349
     :goto_0
     return-void
 
-    .line 314
+    .line 342
     :cond_0
     iget-object v1, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
@@ -1118,27 +1227,27 @@
 
     check-cast v0, Landroid/util/SparseIntArray;
 
-    .line 315
+    .line 343
     .local v0, "priorityByUid":Landroid/util/SparseIntArray;
     if-nez v0, :cond_1
 
-    .line 316
+    .line 344
     new-instance v0, Landroid/util/SparseIntArray;
 
     .end local v0    # "priorityByUid":Landroid/util/SparseIntArray;
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 317
+    .line 345
     .restart local v0    # "priorityByUid":Landroid/util/SparseIntArray;
     iget-object v1, p0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 319
+    .line 347
     :cond_1
     invoke-virtual {v0, p2, p3}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 320
+    .line 348
     invoke-direct {p0}, Lcom/android/server/notification/RankingHelper;->updateConfig()V
 
     goto :goto_0
@@ -1151,18 +1260,18 @@
     .param p3, "visibility"    # I
 
     .prologue
-    .line 336
+    .line 364
     invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/RankingHelper;->getPackageVisibilityOverride(Ljava/lang/String;I)I
 
     move-result v1
 
     if-ne p3, v1, :cond_0
 
-    .line 346
+    .line 374
     :goto_0
     return-void
 
-    .line 339
+    .line 367
     :cond_0
     iget-object v1, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
 
@@ -1172,27 +1281,81 @@
 
     check-cast v0, Landroid/util/SparseIntArray;
 
-    .line 340
+    .line 368
     .local v0, "visibilityByUid":Landroid/util/SparseIntArray;
     if-nez v0, :cond_1
 
-    .line 341
+    .line 369
     new-instance v0, Landroid/util/SparseIntArray;
 
     .end local v0    # "visibilityByUid":Landroid/util/SparseIntArray;
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 342
+    .line 370
     .restart local v0    # "visibilityByUid":Landroid/util/SparseIntArray;
     iget-object v1, p0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 344
+    .line 372
     :cond_1
     invoke-virtual {v0, p2, p3}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 345
+    .line 373
+    invoke-direct {p0}, Lcom/android/server/notification/RankingHelper;->updateConfig()V
+
+    goto :goto_0
+.end method
+
+.method public setShowNotificationForPackageOnKeyguard(Ljava/lang/String;II)V
+    .locals 2
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "keyguard"    # I
+
+    .prologue
+    .line 389
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/RankingHelper;->getShowNotificationForPackageOnKeyguard(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-ne p3, v1, :cond_0
+
+    .line 399
+    :goto_0
+    return-void
+
+    .line 392
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/SparseIntArray;
+
+    .line 393
+    .local v0, "keyguardByUid":Landroid/util/SparseIntArray;
+    if-nez v0, :cond_1
+
+    .line 394
+    new-instance v0, Landroid/util/SparseIntArray;
+
+    .end local v0    # "keyguardByUid":Landroid/util/SparseIntArray;
+    invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
+
+    .line 395
+    .restart local v0    # "keyguardByUid":Landroid/util/SparseIntArray;
+    iget-object v1, p0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 397
+    :cond_1
+    invoke-virtual {v0, p2, p3}, Landroid/util/SparseIntArray;->put(II)V
+
+    .line 398
     invoke-direct {p0}, Lcom/android/server/notification/RankingHelper;->updateConfig()V
 
     goto :goto_0
@@ -1211,13 +1374,13 @@
     .end annotation
 
     .prologue
-    .line 224
+    .line 252
     .local p1, "notificationList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/notification/NotificationRecord;>;"
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 226
+    .line 254
     .local v0, "N":I
     add-int/lit8 v5, v0, -0x1
 
@@ -1225,7 +1388,7 @@
     :goto_0
     if-ltz v5, :cond_0
 
-    .line 227
+    .line 255
     invoke-virtual {p1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v8
@@ -1236,29 +1399,29 @@
 
     invoke-virtual {v8, v9}, Lcom/android/server/notification/NotificationRecord;->setGlobalSortKey(Ljava/lang/String;)V
 
-    .line 226
+    .line 254
     add-int/lit8 v5, v5, -0x1
 
     goto :goto_0
 
-    .line 231
+    .line 259
     :cond_0
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mPreliminaryComparator:Lcom/android/server/notification/NotificationComparator;
 
     invoke-static {p1, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 233
+    .line 261
     iget-object v9, p0, Lcom/android/server/notification/RankingHelper;->mProxyByGroupTmp:Landroid/util/ArrayMap;
 
     monitor-enter v9
 
-    .line 235
+    .line 263
     add-int/lit8 v5, v0, -0x1
 
     :goto_1
     if-ltz v5, :cond_3
 
-    .line 236
+    .line 264
     :try_start_0
     invoke-virtual {p1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -1266,16 +1429,16 @@
 
     check-cast v7, Lcom/android/server/notification/NotificationRecord;
 
-    .line 237
+    .line 265
     .local v7, "record":Lcom/android/server/notification/NotificationRecord;
     invoke-virtual {v7, v5}, Lcom/android/server/notification/NotificationRecord;->setAuthoritativeRank(I)V
 
-    .line 238
+    .line 266
     invoke-virtual {v7}, Lcom/android/server/notification/NotificationRecord;->getGroupKey()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 239
+    .line 267
     .local v1, "groupKey":Ljava/lang/String;
     invoke-virtual {v7}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
 
@@ -1285,7 +1448,7 @@
 
     move-result v6
 
-    .line 240
+    .line 268
     .local v6, "isGroupSummary":Z
     if-nez v6, :cond_1
 
@@ -1297,19 +1460,19 @@
 
     if-nez v8, :cond_2
 
-    .line 241
+    .line 269
     :cond_1
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mProxyByGroupTmp:Landroid/util/ArrayMap;
 
     invoke-virtual {v8, v1, v7}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 235
+    .line 263
     :cond_2
     add-int/lit8 v5, v5, -0x1
 
     goto :goto_1
 
-    .line 246
+    .line 274
     .end local v1    # "groupKey":Ljava/lang/String;
     .end local v6    # "isGroupSummary":Z
     .end local v7    # "record":Lcom/android/server/notification/NotificationRecord;
@@ -1319,14 +1482,14 @@
     :goto_2
     if-ge v5, v0, :cond_8
 
-    .line 247
+    .line 275
     invoke-virtual {p1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Lcom/android/server/notification/NotificationRecord;
 
-    .line 248
+    .line 276
     .restart local v7    # "record":Lcom/android/server/notification/NotificationRecord;
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mProxyByGroupTmp:Landroid/util/ArrayMap;
 
@@ -1340,7 +1503,7 @@
 
     check-cast v2, Lcom/android/server/notification/NotificationRecord;
 
-    .line 249
+    .line 277
     .local v2, "groupProxy":Lcom/android/server/notification/NotificationRecord;
     invoke-virtual {v7}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
 
@@ -1350,14 +1513,14 @@
 
     move-result-object v3
 
-    .line 257
+    .line 285
     .local v3, "groupSortKey":Ljava/lang/String;
     if-nez v3, :cond_4
 
-    .line 258
+    .line 286
     const-string v4, "nsk"
 
-    .line 265
+    .line 293
     .local v4, "groupSortKeyPortion":Ljava/lang/String;
     :goto_3
     invoke-virtual {v7}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
@@ -1368,7 +1531,7 @@
 
     move-result v6
 
-    .line 266
+    .line 294
     .restart local v6    # "isGroupSummary":Z
     const-string v10, "intrsv=%c:grnk=0x%04x:gsmry=%c:%s:rnk=0x%04x"
 
@@ -1440,12 +1603,12 @@
 
     invoke-virtual {v7, v8}, Lcom/android/server/notification/NotificationRecord;->setGlobalSortKey(Ljava/lang/String;)V
 
-    .line 246
+    .line 274
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_2
 
-    .line 259
+    .line 287
     .end local v4    # "groupSortKeyPortion":Ljava/lang/String;
     .end local v6    # "isGroupSummary":Z
     :cond_4
@@ -1457,13 +1620,13 @@
 
     if-eqz v8, :cond_5
 
-    .line 260
+    .line 288
     const-string v4, "esk"
 
     .restart local v4    # "groupSortKeyPortion":Ljava/lang/String;
     goto :goto_3
 
-    .line 262
+    .line 290
     .end local v4    # "groupSortKeyPortion":Ljava/lang/String;
     :cond_5
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1487,7 +1650,7 @@
     .restart local v4    # "groupSortKeyPortion":Ljava/lang/String;
     goto :goto_3
 
-    .line 266
+    .line 294
     .restart local v6    # "isGroupSummary":Z
     :cond_6
     const/16 v8, 0x31
@@ -1499,7 +1662,7 @@
 
     goto :goto_5
 
-    .line 274
+    .line 302
     .end local v2    # "groupProxy":Lcom/android/server/notification/NotificationRecord;
     .end local v3    # "groupSortKey":Ljava/lang/String;
     .end local v4    # "groupSortKeyPortion":Ljava/lang/String;
@@ -1510,20 +1673,20 @@
 
     invoke-virtual {v8}, Landroid/util/ArrayMap;->clear()V
 
-    .line 275
+    .line 303
     monitor-exit v9
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 278
+    .line 306
     iget-object v8, p0, Lcom/android/server/notification/RankingHelper;->mFinalComparator:Lcom/android/server/notification/GlobalSortKeyComparator;
 
     invoke-static {p1, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 279
+    .line 307
     return-void
 
-    .line 275
+    .line 303
     :catchall_0
     move-exception v8
 
@@ -1536,7 +1699,7 @@
 .end method
 
 .method public writeXml(Lorg/xmlpull/v1/XmlSerializer;)V
-    .locals 16
+    .locals 21
     .param p1, "out"    # Lorg/xmlpull/v1/XmlSerializer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1545,343 +1708,533 @@
     .end annotation
 
     .prologue
-    .line 169
-    const/4 v13, 0x0
+    .line 182
+    const/16 v18, 0x0
 
-    const-string v14, "ranking"
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v13, v14}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 170
-    const/4 v13, 0x0
-
-    const-string v14, "version"
-
-    const/4 v15, 0x1
-
-    invoke-static {v15}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v15
+    const-string v19, "ranking"
 
     move-object/from16 v0, p1
 
-    invoke-interface {v0, v13, v14, v15}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    move-object/from16 v1, v18
 
-    .line 172
-    new-instance v6, Landroid/util/ArraySet;
+    move-object/from16 v2, v19
+
+    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 183
+    const/16 v18, 0x0
+
+    const-string v19, "version"
+
+    const/16 v20, 0x1
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    move-object/from16 v3, v20
+
+    invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 185
+    new-instance v11, Landroid/util/ArraySet;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
-    invoke-virtual {v13}, Landroid/util/ArrayMap;->size()I
+    move-object/from16 v18, v0
 
-    move-result v13
+    invoke-virtual/range {v18 .. v18}, Landroid/util/ArrayMap;->size()I
+
+    move-result v18
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
 
-    invoke-virtual {v14}, Landroid/util/ArrayMap;->size()I
+    move-object/from16 v19, v0
 
-    move-result v14
+    invoke-virtual/range {v19 .. v19}, Landroid/util/ArrayMap;->size()I
 
-    add-int/2addr v13, v14
+    move-result v19
 
-    invoke-direct {v6, v13}, Landroid/util/ArraySet;-><init>(I)V
+    add-int v18, v18, v19
 
-    .line 174
-    .local v6, "packageNames":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    move/from16 v0, v18
+
+    invoke-direct {v11, v0}, Landroid/util/ArraySet;-><init>(I)V
+
+    .line 187
+    .local v11, "packageNames":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
-    invoke-virtual {v13}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+    move-object/from16 v18, v0
 
-    move-result-object v13
+    invoke-virtual/range {v18 .. v18}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
 
-    invoke-interface {v6, v13}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    move-result-object v18
 
-    .line 175
+    move-object/from16 v0, v18
+
+    invoke-interface {v11, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    .line 188
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
 
-    invoke-virtual {v13}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+    move-object/from16 v18, v0
 
-    move-result-object v13
+    invoke-virtual/range {v18 .. v18}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
 
-    invoke-interface {v6, v13}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    move-result-object v18
 
-    .line 176
-    new-instance v7, Landroid/util/ArraySet;
+    move-object/from16 v0, v18
 
-    invoke-direct {v7}, Landroid/util/ArraySet;-><init>()V
+    invoke-interface {v11, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    .line 177
-    .local v7, "packageUids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
-    invoke-interface {v6}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    .line 189
+    move-object/from16 v0, p0
 
-    move-result-object v2
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
 
-    :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    move-object/from16 v18, v0
 
-    move-result v13
+    invoke-virtual/range {v18 .. v18}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
 
-    if-eqz v13, :cond_5
+    move-result-object v18
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-object/from16 v0, v18
+
+    invoke-interface {v11, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    .line 190
+    new-instance v12, Landroid/util/ArraySet;
+
+    invoke-direct {v12}, Landroid/util/ArraySet;-><init>()V
+
+    .line 191
+    .local v12, "packageUids":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
+    invoke-interface {v11}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    check-cast v5, Ljava/lang/String;
+    :cond_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    .line 178
-    .local v5, "packageName":Ljava/lang/String;
-    invoke-interface {v7}, Ljava/util/Set;->clear()V
+    move-result v18
 
-    .line 179
+    if-eqz v18, :cond_7
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Ljava/lang/String;
+
+    .line 192
+    .local v10, "packageName":Ljava/lang/String;
+    invoke-interface {v12}, Ljava/util/Set;->clear()V
+
+    .line 193
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackagePriorities:Landroid/util/ArrayMap;
 
-    invoke-virtual {v13, v5}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v10}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Landroid/util/SparseIntArray;
+
+    .line 194
+    .local v14, "priorityByUid":Landroid/util/SparseIntArray;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v10}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Landroid/util/SparseIntArray;
+
+    .line 195
+    .local v17, "visibilityByUid":Landroid/util/SparseIntArray;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/notification/RankingHelper;->mPackageOnKeyguard:Landroid/util/ArrayMap;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v10}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v9
 
     check-cast v9, Landroid/util/SparseIntArray;
 
-    .line 180
-    .local v9, "priorityByUid":Landroid/util/SparseIntArray;
-    move-object/from16 v0, p0
+    .line 197
+    .local v9, "keyguardByUid":Landroid/util/SparseIntArray;
+    if-eqz v14, :cond_1
 
-    iget-object v13, v0, Lcom/android/server/notification/RankingHelper;->mPackageVisibilities:Landroid/util/ArrayMap;
+    .line 198
+    invoke-virtual {v14}, Landroid/util/SparseIntArray;->size()I
 
-    invoke-virtual {v13, v5}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result v4
 
-    move-result-object v12
+    .line 199
+    .local v4, "M":I
+    const/4 v7, 0x0
 
-    check-cast v12, Landroid/util/SparseIntArray;
-
-    .line 181
-    .local v12, "visibilityByUid":Landroid/util/SparseIntArray;
-    if-eqz v9, :cond_1
-
-    .line 182
-    invoke-virtual {v9}, Landroid/util/SparseIntArray;->size()I
-
-    move-result v1
-
-    .line 183
-    .local v1, "M":I
-    const/4 v4, 0x0
-
-    .local v4, "j":I
+    .local v7, "j":I
     :goto_0
-    if-ge v4, v1, :cond_1
+    if-ge v7, v4, :cond_1
 
-    .line 184
-    invoke-virtual {v9, v4}, Landroid/util/SparseIntArray;->keyAt(I)I
+    .line 200
+    invoke-virtual {v14, v7}, Landroid/util/SparseIntArray;->keyAt(I)I
 
-    move-result v13
+    move-result v18
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v13
+    move-result-object v18
 
-    invoke-interface {v7, v13}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    move-object/from16 v0, v18
 
-    .line 183
-    add-int/lit8 v4, v4, 0x1
+    invoke-interface {v12, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    .line 199
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
-    .line 187
-    .end local v1    # "M":I
-    .end local v4    # "j":I
+    .line 203
+    .end local v4    # "M":I
+    .end local v7    # "j":I
     :cond_1
-    if-eqz v12, :cond_2
+    if-eqz v17, :cond_2
 
-    .line 188
-    invoke-virtual {v12}, Landroid/util/SparseIntArray;->size()I
+    .line 204
+    invoke-virtual/range {v17 .. v17}, Landroid/util/SparseIntArray;->size()I
 
-    move-result v1
+    move-result v4
 
-    .line 189
-    .restart local v1    # "M":I
-    const/4 v4, 0x0
+    .line 205
+    .restart local v4    # "M":I
+    const/4 v7, 0x0
 
-    .restart local v4    # "j":I
+    .restart local v7    # "j":I
     :goto_1
-    if-ge v4, v1, :cond_2
+    if-ge v7, v4, :cond_2
 
-    .line 190
-    invoke-virtual {v12, v4}, Landroid/util/SparseIntArray;->keyAt(I)I
+    .line 206
+    move-object/from16 v0, v17
 
-    move-result v13
+    invoke-virtual {v0, v7}, Landroid/util/SparseIntArray;->keyAt(I)I
 
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v18
 
-    move-result-object v13
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-interface {v7, v13}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    move-result-object v18
 
-    .line 189
-    add-int/lit8 v4, v4, 0x1
+    move-object/from16 v0, v18
+
+    invoke-interface {v12, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    .line 205
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
-    .line 193
-    .end local v1    # "M":I
-    .end local v4    # "j":I
+    .line 209
+    .end local v4    # "M":I
+    .end local v7    # "j":I
     :cond_2
-    invoke-interface {v7}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    .local v3, "i$":Ljava/util/Iterator;
-    :goto_2
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Ljava/lang/Integer;
-
-    .line 194
-    .local v10, "uid":Ljava/lang/Integer;
-    const/4 v13, 0x0
-
-    const-string v14, "package"
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v13, v14}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 195
-    const/4 v13, 0x0
-
-    const-string v14, "name"
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v13, v14, v5}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 196
     if-eqz v9, :cond_3
 
-    .line 197
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    .line 210
+    invoke-virtual {v9}, Landroid/util/SparseIntArray;->size()I
 
-    move-result v13
+    move-result v4
 
-    invoke-virtual {v9, v13}, Landroid/util/SparseIntArray;->get(I)I
+    .line 211
+    .restart local v4    # "M":I
+    const/4 v7, 0x0
 
-    move-result v8
+    .restart local v7    # "j":I
+    :goto_2
+    if-ge v7, v4, :cond_3
 
-    .line 198
-    .local v8, "priority":I
-    if-eqz v8, :cond_3
+    .line 212
+    invoke-virtual {v9, v7}, Landroid/util/SparseIntArray;->keyAt(I)I
 
-    .line 199
-    const/4 v13, 0x0
+    move-result v18
 
-    const-string v14, "priority"
+    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v8}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-result-object v18
 
-    move-result-object v15
+    move-object/from16 v0, v18
 
-    move-object/from16 v0, p1
+    invoke-interface {v12, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v13, v14, v15}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 202
-    .end local v8    # "priority":I
-    :cond_3
-    if-eqz v12, :cond_4
-
-    .line 203
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
-
-    move-result v13
-
-    invoke-virtual {v12, v13}, Landroid/util/SparseIntArray;->get(I)I
-
-    move-result v11
-
-    .line 204
-    .local v11, "visibility":I
-    const/16 v13, -0x3e8
-
-    if-eq v11, v13, :cond_4
-
-    .line 205
-    const/4 v13, 0x0
-
-    const-string v14, "visibility"
-
-    invoke-static {v11}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v15
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v13, v14, v15}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 208
-    .end local v11    # "visibility":I
-    :cond_4
-    const/4 v13, 0x0
-
-    const-string v14, "uid"
-
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
-
-    move-result v15
-
-    invoke-static {v15}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v15
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v13, v14, v15}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    .line 209
-    const/4 v13, 0x0
-
-    const-string v14, "package"
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v13, v14}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    .line 211
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
-    .line 212
-    .end local v3    # "i$":Ljava/util/Iterator;
-    .end local v5    # "packageName":Ljava/lang/String;
-    .end local v9    # "priorityByUid":Landroid/util/SparseIntArray;
-    .end local v10    # "uid":Ljava/lang/Integer;
-    .end local v12    # "visibilityByUid":Landroid/util/SparseIntArray;
-    :cond_5
-    const/4 v13, 0x0
+    .line 215
+    .end local v4    # "M":I
+    .end local v7    # "j":I
+    :cond_3
+    invoke-interface {v12}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    const-string v14, "ranking"
+    move-result-object v6
+
+    .local v6, "i$":Ljava/util/Iterator;
+    :goto_3
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_0
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Ljava/lang/Integer;
+
+    .line 216
+    .local v15, "uid":Ljava/lang/Integer;
+    const/16 v18, 0x0
+
+    const-string v19, "package"
 
     move-object/from16 v0, p1
 
-    invoke-interface {v0, v13, v14}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    move-object/from16 v1, v18
 
-    .line 213
+    move-object/from16 v2, v19
+
+    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 217
+    const/16 v18, 0x0
+
+    const-string v19, "name"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-interface {v0, v1, v2, v10}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 218
+    if-eqz v14, :cond_4
+
+    .line 219
+    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    invoke-virtual {v14, v0}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v13
+
+    .line 220
+    .local v13, "priority":I
+    if-eqz v13, :cond_4
+
+    .line 221
+    const/16 v18, 0x0
+
+    const-string v19, "priority"
+
+    invoke-static {v13}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    move-object/from16 v3, v20
+
+    invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 224
+    .end local v13    # "priority":I
+    :cond_4
+    if-eqz v17, :cond_5
+
+    .line 225
+    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+
+    move-result v18
+
+    invoke-virtual/range {v17 .. v18}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v16
+
+    .line 226
+    .local v16, "visibility":I
+    const/16 v18, -0x3e8
+
+    move/from16 v0, v16
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_5
+
+    .line 227
+    const/16 v18, 0x0
+
+    const-string v19, "visibility"
+
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    move-object/from16 v3, v20
+
+    invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 230
+    .end local v16    # "visibility":I
+    :cond_5
+    if-eqz v9, :cond_6
+
+    .line 231
+    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    invoke-virtual {v9, v0}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v8
+
+    .line 232
+    .local v8, "keyguard":I
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    if-eq v8, v0, :cond_6
+
+    .line 233
+    const/16 v18, 0x0
+
+    const-string v19, "keyguard"
+
+    invoke-static {v8}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    move-object/from16 v3, v20
+
+    invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 236
+    .end local v8    # "keyguard":I
+    :cond_6
+    const/16 v18, 0x0
+
+    const-string v19, "uid"
+
+    invoke-virtual {v15}, Ljava/lang/Integer;->intValue()I
+
+    move-result v20
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    move-object/from16 v3, v20
+
+    invoke-interface {v0, v1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 237
+    const/16 v18, 0x0
+
+    const-string v19, "package"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    goto/16 :goto_3
+
+    .line 240
+    .end local v6    # "i$":Ljava/util/Iterator;
+    .end local v9    # "keyguardByUid":Landroid/util/SparseIntArray;
+    .end local v10    # "packageName":Ljava/lang/String;
+    .end local v14    # "priorityByUid":Landroid/util/SparseIntArray;
+    .end local v15    # "uid":Ljava/lang/Integer;
+    .end local v17    # "visibilityByUid":Landroid/util/SparseIntArray;
+    :cond_7
+    const/16 v18, 0x0
+
+    const-string v19, "ranking"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    move-object/from16 v2, v19
+
+    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    .line 241
     return-void
 .end method

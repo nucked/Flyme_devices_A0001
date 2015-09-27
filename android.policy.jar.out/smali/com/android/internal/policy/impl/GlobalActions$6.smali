@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/GlobalActions;->addUsersToMenu(Ljava/util/ArrayList;)V
+    value = Lcom/android/internal/policy/impl/GlobalActions;->getBugReportAction()Lcom/android/internal/policy/impl/GlobalActions$Action;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,87 +17,143 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-.field final synthetic val$user:Landroid/content/pm/UserInfo;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Landroid/content/pm/UserInfo;)V
+.method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
     .locals 0
     .param p2, "x0"    # I
-    .param p3, "x1"    # Landroid/graphics/drawable/Drawable;
-    .param p4, "x2"    # Ljava/lang/CharSequence;
+    .param p3, "x1"    # I
 
     .prologue
-    .line 533
+    .line 566
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    iput-object p5, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->val$user:Landroid/content/pm/UserInfo;
-
-    invoke-direct {p0, p2, p3, p4}, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;-><init>(ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;)V
+    invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;-><init>(II)V
 
     return-void
 .end method
 
 
 # virtual methods
+.method public bridge synthetic getStatus()Ljava/lang/CharSequence;
+    .locals 1
+
+    .prologue
+    .line 566
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/GlobalActions$6;->getStatus()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getStatus()Ljava/lang/String;
+    .locals 5
+
+    .prologue
+    .line 611
+    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x10401e5
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    sget-object v4, Landroid/os/Build;->ID:Ljava/lang/String;
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public onPress()V
     .locals 4
 
     .prologue
-    .line 536
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    .line 569
+    new-instance v0, Landroid/app/AlertDialog$Builder;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .line 570
+    .local v0, "builder":Landroid/app/AlertDialog$Builder;
+    const v2, 0x10401e3
+
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    .line 571
+    const v2, 0x10401e4
+
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    .line 572
+    const/high16 v2, 0x1040000
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 573
+    const v2, 0x104056d
+
+    new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$6$1;
+
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlobalActions$6$1;-><init>(Lcom/android/internal/policy/impl/GlobalActions$6;)V
+
+    invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    .line 596
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->val$user:Landroid/content/pm/UserInfo;
+    .line 597
+    .local v1, "dialog":Landroid/app/AlertDialog;
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    iget v2, v2, Landroid/content/pm/UserInfo;->id:I
+    move-result-object v2
 
-    invoke-interface {v1, v2}, Landroid/app/IActivityManager;->switchUser(I)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    const/16 v3, 0x7d9
 
-    .line 540
-    :goto_0
+    invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
+
+    .line 598
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+
+    .line 599
     return-void
-
-    .line 537
-    :catch_0
-    move-exception v0
-
-    .line 538
-    .local v0, "re":Landroid/os/RemoteException;
-    const-string v1, "GlobalActions"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Couldn\'t switch user "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public showBeforeProvisioning()Z
     .locals 1
 
     .prologue
-    .line 547
+    .line 606
     const/4 v0, 0x0
 
     return v0
@@ -107,7 +163,7 @@
     .locals 1
 
     .prologue
-    .line 543
+    .line 602
     const/4 v0, 0x1
 
     return v0

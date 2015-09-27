@@ -112,7 +112,7 @@
 
     if-eq v0, p0, :cond_0
 
-    .line 172
+    .line 174
     :goto_0
     return-void
 
@@ -126,6 +126,11 @@
     iput-object v2, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
 
     .line 166
+    iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
+
+    invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->close()V
+
+    .line 168
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->this$0:Landroid/inputmethodservice/ExtractEditLayout;
 
     iget-object v0, v0, Landroid/inputmethodservice/ExtractEditLayout;->mExtractActionButton:Landroid/widget/Button;
@@ -134,7 +139,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 167
+    .line 169
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->this$0:Landroid/inputmethodservice/ExtractEditLayout;
 
     iget-object v0, v0, Landroid/inputmethodservice/ExtractEditLayout;->mEditButton:Landroid/widget/Button;
@@ -143,14 +148,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 169
+    .line 171
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->this$0:Landroid/inputmethodservice/ExtractEditLayout;
 
     const/16 v1, 0x20
 
     invoke-virtual {v0, v1}, Landroid/inputmethodservice/ExtractEditLayout;->sendAccessibilityEvent(I)V
 
-    .line 171
+    .line 173
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->this$0:Landroid/inputmethodservice/ExtractEditLayout;
 
     iput-object v2, v0, Landroid/inputmethodservice/ExtractEditLayout;->mActionMode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
@@ -162,7 +167,7 @@
     .locals 1
 
     .prologue
-    .line 191
+    .line 193
     const/4 v0, 0x0
 
     return-object v0
@@ -172,7 +177,7 @@
     .locals 1
 
     .prologue
-    .line 176
+    .line 178
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     return-object v0
@@ -182,7 +187,7 @@
     .locals 2
 
     .prologue
-    .line 196
+    .line 198
     new-instance v0, Landroid/view/MenuInflater;
 
     iget-object v1, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->this$0:Landroid/inputmethodservice/ExtractEditLayout;
@@ -200,7 +205,7 @@
     .locals 1
 
     .prologue
-    .line 186
+    .line 188
     const/4 v0, 0x0
 
     return-object v0
@@ -210,7 +215,7 @@
     .locals 1
 
     .prologue
-    .line 181
+    .line 183
     const/4 v0, 0x0
 
     return-object v0
@@ -270,19 +275,19 @@
     .param p2, "item"    # Landroid/view/MenuItem;
 
     .prologue
-    .line 201
+    .line 203
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
 
     if-eqz v0, :cond_0
 
-    .line 202
+    .line 204
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
 
     invoke-interface {v0, p0, p2}, Landroid/view/ActionMode$Callback;->onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
 
     move-result v0
 
-    .line 204
+    .line 206
     :goto_0
     return v0
 
@@ -297,7 +302,7 @@
     .param p1, "menu"    # Lcom/android/internal/view/menu/MenuBuilder;
 
     .prologue
-    .line 209
+    .line 211
     return-void
 .end method
 

@@ -26,51 +26,51 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.backup.IBackupTransport"
 
-.field static final TRANSACTION_abortFullRestore:I = 0x17
+.field static final TRANSACTION_abortFullRestore_22:I = 0x17
 
 .field static final TRANSACTION_cancelFullBackup:I = 0x15
 
-.field static final TRANSACTION_clearBackupData:I = 0xa
+.field static final TRANSACTION_clearBackupData_9:I = 0xa
 
-.field static final TRANSACTION_configurationIntent:I = 0x2
+.field static final TRANSACTION_configurationIntent_1:I = 0x2
 
-.field static final TRANSACTION_currentDestinationString:I = 0x3
+.field static final TRANSACTION_currentDestinationString_2:I = 0x3
 
-.field static final TRANSACTION_dataManagementIntent:I = 0x4
+.field static final TRANSACTION_dataManagementIntent_3:I = 0x4
 
-.field static final TRANSACTION_dataManagementLabel:I = 0x5
+.field static final TRANSACTION_dataManagementLabel_4:I = 0x5
 
-.field static final TRANSACTION_finishBackup:I = 0xb
+.field static final TRANSACTION_finishBackup_10:I = 0xb
 
-.field static final TRANSACTION_finishRestore:I = 0x11
+.field static final TRANSACTION_finishRestore_16:I = 0x11
 
-.field static final TRANSACTION_getAvailableRestoreSets:I = 0xc
+.field static final TRANSACTION_getAvailableRestoreSets_11:I = 0xc
 
-.field static final TRANSACTION_getCurrentRestoreSet:I = 0xd
+.field static final TRANSACTION_getCurrentRestoreSet_12:I = 0xd
 
-.field static final TRANSACTION_getNextFullRestoreDataChunk:I = 0x16
+.field static final TRANSACTION_getNextFullRestoreDataChunk_21:I = 0x16
 
-.field static final TRANSACTION_getRestoreData:I = 0x10
+.field static final TRANSACTION_getRestoreData_15:I = 0x10
 
-.field static final TRANSACTION_initializeDevice:I = 0x8
+.field static final TRANSACTION_initializeDevice_7:I = 0x8
 
 .field static final TRANSACTION_name:I = 0x1
 
-.field static final TRANSACTION_nextRestorePackage:I = 0xf
+.field static final TRANSACTION_nextRestorePackage_14:I = 0xf
 
-.field static final TRANSACTION_performBackup:I = 0x9
+.field static final TRANSACTION_performBackup_8:I = 0x9
 
-.field static final TRANSACTION_performFullBackup:I = 0x13
+.field static final TRANSACTION_performFullBackup_18:I = 0x13
 
-.field static final TRANSACTION_requestBackupTime:I = 0x7
+.field static final TRANSACTION_requestBackupTime_6:I = 0x7
 
-.field static final TRANSACTION_requestFullBackupTime:I = 0x12
+.field static final TRANSACTION_requestFullBackupTime_17:I = 0x12
 
-.field static final TRANSACTION_sendBackupData:I = 0x14
+.field static final TRANSACTION_sendBackupData_19:I = 0x14
 
-.field static final TRANSACTION_startRestore:I = 0xe
+.field static final TRANSACTION_startRestore_13:I = 0xe
 
-.field static final TRANSACTION_transportDirName:I = 0x6
+.field static final TRANSACTION_transportDirName_5:I = 0x6
 
 
 # direct methods

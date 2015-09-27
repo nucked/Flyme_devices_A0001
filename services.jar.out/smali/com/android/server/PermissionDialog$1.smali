@@ -1,11 +1,11 @@
 .class Lcom/android/server/PermissionDialog$1;
-.super Ljava/util/TimerTask;
+.super Landroid/os/Handler;
 .source "PermissionDialog.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/PermissionDialog;->updateText()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/PermissionDialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,88 +17,116 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/PermissionDialog;
 
-.field final synthetic val$button:Landroid/widget/Button;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/PermissionDialog;Landroid/widget/Button;)V
+.method constructor <init>(Lcom/android/server/PermissionDialog;)V
     .locals 0
 
     .prologue
-    .line 166
+    .line 121
     iput-object p1, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
 
-    iput-object p2, p0, Lcom/android/server/PermissionDialog$1;->val$button:Landroid/widget/Button;
-
-    invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public handleMessage(Landroid/os/Message;)V
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 170
-    # getter for: Lcom/android/server/PermissionDialog;->mCountDown:I
-    invoke-static {}, Lcom/android/server/PermissionDialog;->access$100()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    # setter for: Lcom/android/server/PermissionDialog;->mCountDown:I
-    invoke-static {v0}, Lcom/android/server/PermissionDialog;->access$102(I)I
-
-    .line 171
+    .line 124
     iget-object v0, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
 
-    # getter for: Lcom/android/server/PermissionDialog;->uiHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lcom/android/server/PermissionDialog;->access$200(Lcom/android/server/PermissionDialog;)Landroid/os/Handler;
+    # getter for: Lcom/android/server/PermissionDialog;->mChoice:Landroid/widget/CheckBox;
+    invoke-static {v0}, Lcom/android/server/PermissionDialog;->access$000(Lcom/android/server/PermissionDialog;)Landroid/widget/CheckBox;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/PermissionDialog$UpdateRunnable;
-
-    iget-object v2, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
-
-    iget-object v3, p0, Lcom/android/server/PermissionDialog$1;->val$button:Landroid/widget/Button;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "("
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    # getter for: Lcom/android/server/PermissionDialog;->mCountDown:I
-    invoke-static {}, Lcom/android/server/PermissionDialog;->access$100()I
+    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
     move-result v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    .line 125
+    .local v5, "remember":Z
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    move-result-object v4
+    packed-switch v0, :pswitch_data_0
 
-    const-string v5, ")"
+    .line 133
+    :pswitch_0
+    const/4 v4, 0x1
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 134
+    .local v4, "mode":I
+    const/4 v5, 0x0
 
-    move-result-object v4
+    .line 136
+    :goto_0
+    iget-object v0, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    # getter for: Lcom/android/server/PermissionDialog;->mService:Lcom/android/server/AppOpsService;
+    invoke-static {v0}, Lcom/android/server/PermissionDialog;->access$400(Lcom/android/server/PermissionDialog;)Lcom/android/server/AppOpsService;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/PermissionDialog$UpdateRunnable;-><init>(Lcom/android/server/PermissionDialog;Landroid/widget/Button;Ljava/lang/String;)V
+    iget-object v1, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    # getter for: Lcom/android/server/PermissionDialog;->mCode:I
+    invoke-static {v1}, Lcom/android/server/PermissionDialog;->access$100(Lcom/android/server/PermissionDialog;)I
 
-    .line 172
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
+
+    # getter for: Lcom/android/server/PermissionDialog;->mUid:I
+    invoke-static {v2}, Lcom/android/server/PermissionDialog;->access$200(Lcom/android/server/PermissionDialog;)I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
+
+    # getter for: Lcom/android/server/PermissionDialog;->mPackageName:Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/PermissionDialog;->access$300(Lcom/android/server/PermissionDialog;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/AppOpsService;->notifyOperation(IILjava/lang/String;IZ)V
+
+    .line 138
+    iget-object v0, p0, Lcom/android/server/PermissionDialog$1;->this$0:Lcom/android/server/PermissionDialog;
+
+    invoke-virtual {v0}, Lcom/android/server/PermissionDialog;->dismiss()V
+
+    .line 139
     return-void
+
+    .line 127
+    .end local v4    # "mode":I
+    :pswitch_1
+    const/4 v4, 0x0
+
+    .line 128
+    .restart local v4    # "mode":I
+    goto :goto_0
+
+    .line 130
+    .end local v4    # "mode":I
+    :pswitch_2
+    const/4 v4, 0x1
+
+    .line 131
+    .restart local v4    # "mode":I
+    goto :goto_0
+
+    .line 125
+    :pswitch_data_0
+    .packed-switch 0x2
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+    .end packed-switch
 .end method

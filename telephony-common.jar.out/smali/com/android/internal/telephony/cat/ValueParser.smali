@@ -125,7 +125,7 @@
 
     .line 302
     .local v4, "resource":Landroid/content/res/Resources;
-    const v7, 0x112007c
+    const v7, 0x1120083
 
     :try_start_1
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
@@ -740,6 +740,245 @@
     goto :goto_2
 .end method
 
+.method static retrieveSMSCaddress(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Ljava/lang/String;
+    .locals 8
+    .param p0, "ctlv"    # Lcom/android/internal/telephony/cat/ComprehensionTlv;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/internal/telephony/cat/ResultException;
+        }
+    .end annotation
+
+    .prologue
+    .line 379
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getRawValue()[B
+
+    move-result-object v4
+
+    .line 380
+    .local v4, "rawValue":[B
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getValueIndex()I
+
+    move-result v5
+
+    .line 381
+    .local v5, "valueIndex":I
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getLength()I
+
+    move-result v2
+
+    .line 382
+    .local v2, "length":I
+    add-int/lit8 v6, v2, 0x1
+
+    new-array v3, v6, [B
+
+    .line 384
+    .local v3, "outputValue":[B
+    const/4 v1, 0x0
+
+    .local v1, "k":I
+    :goto_0
+    if-gt v1, v2, :cond_0
+
+    .line 386
+    add-int/lit8 v6, v5, -0x1
+
+    add-int/2addr v6, v1
+
+    :try_start_0
+    aget-byte v6, v4, v6
+
+    aput-byte v6, v3, v1
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 384
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    .line 388
+    :catch_0
+    move-exception v0
+
+    .line 389
+    .local v0, "indexoutofboundsexception":Ljava/lang/IndexOutOfBoundsException;
+    new-instance v6, Lcom/android/internal/telephony/cat/ResultException;
+
+    sget-object v7, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
+
+    invoke-direct {v6, v7}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
+
+    throw v6
+
+    .line 392
+    .end local v0    # "indexoutofboundsexception":Ljava/lang/IndexOutOfBoundsException;
+    :cond_0
+    if-eqz v2, :cond_1
+
+    .line 393
+    invoke-static {v3}, Lcom/android/internal/telephony/uicc/IccUtils;->bytesToHexString([B)Ljava/lang/String;
+
+    move-result-object v6
+
+    return-object v6
+
+    .line 395
+    :cond_1
+    new-instance v6, Lcom/android/internal/telephony/cat/ResultException;
+
+    sget-object v7, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
+
+    invoke-direct {v6, v7}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
+
+    throw v6
+.end method
+
+.method static retrieveSMSTPDU(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Ljava/lang/String;
+    .locals 10
+    .param p0, "ctlv"    # Lcom/android/internal/telephony/cat/ComprehensionTlv;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/internal/telephony/cat/ResultException;
+        }
+    .end annotation
+
+    .prologue
+    .line 407
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getRawValue()[B
+
+    move-result-object v5
+
+    .line 408
+    .local v5, "rawValue":[B
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getValueIndex()I
+
+    move-result v7
+
+    .line 409
+    .local v7, "valueIndex":I
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getLength()I
+
+    move-result v4
+
+    .line 413
+    .local v4, "pduLength":I
+    add-int/lit8 v8, v7, 0x2
+
+    aget-byte v8, v5, v8
+
+    rem-int/lit8 v8, v8, 0x2
+
+    if-nez v8, :cond_0
+
+    .line 414
+    add-int/lit8 v8, v7, 0x2
+
+    aget-byte v8, v5, v8
+
+    div-int/lit8 v1, v8, 0x2
+
+    .line 418
+    .local v1, "k":I
+    :goto_0
+    add-int/lit8 v8, v1, 0x6
+
+    if-ne v4, v8, :cond_1
+
+    .line 419
+    add-int/lit8 v8, v4, 0x1
+
+    new-array v3, v8, [B
+
+    .line 423
+    .local v3, "outputValue":[B
+    :goto_1
+    const/4 v2, 0x0
+
+    .local v2, "l":I
+    :goto_2
+    if-ge v2, v4, :cond_2
+
+    .line 425
+    add-int v8, v7, v2
+
+    :try_start_0
+    aget-byte v8, v5, v8
+
+    aput-byte v8, v3, v2
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 423
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_2
+
+    .line 416
+    .end local v1    # "k":I
+    .end local v2    # "l":I
+    .end local v3    # "outputValue":[B
+    :cond_0
+    add-int/lit8 v8, v7, 0x2
+
+    aget-byte v8, v5, v8
+
+    add-int/lit8 v8, v8, 0x1
+
+    div-int/lit8 v1, v8, 0x2
+
+    .restart local v1    # "k":I
+    goto :goto_0
+
+    .line 421
+    :cond_1
+    new-array v3, v4, [B
+
+    .restart local v3    # "outputValue":[B
+    goto :goto_1
+
+    .line 427
+    .restart local v2    # "l":I
+    :catch_0
+    move-exception v0
+
+    .line 428
+    .local v0, "ex":Ljava/lang/IndexOutOfBoundsException;
+    new-instance v8, Lcom/android/internal/telephony/cat/ResultException;
+
+    sget-object v9, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
+
+    invoke-direct {v8, v9}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
+
+    throw v8
+
+    .line 431
+    .end local v0    # "ex":Ljava/lang/IndexOutOfBoundsException;
+    :cond_2
+    if-eqz v4, :cond_3
+
+    .line 432
+    invoke-static {v3}, Lcom/android/internal/telephony/uicc/IccUtils;->bytesToHexString([B)Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 436
+    .local v6, "result":Ljava/lang/String;
+    return-object v6
+
+    .line 434
+    .end local v6    # "result":Ljava/lang/String;
+    :cond_3
+    new-instance v8, Lcom/android/internal/telephony/cat/ResultException;
+
+    sget-object v9, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
+
+    invoke-direct {v8, v9}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
+
+    throw v8
+.end method
+
 .method static retrieveTarget(Lcom/android/internal/telephony/cat/ComprehensionTlv;)I
     .locals 6
     .param p0, "ctlv"    # Lcom/android/internal/telephony/cat/ComprehensionTlv;
@@ -1223,4 +1462,93 @@
     invoke-direct {v7, v8}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
 
     throw v7
+.end method
+
+.method static retrieveUSSDString(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Ljava/lang/String;
+    .locals 6
+    .param p0, "ctlv"    # Lcom/android/internal/telephony/cat/ComprehensionTlv;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/internal/telephony/cat/ResultException;
+        }
+    .end annotation
+
+    .prologue
+    .line 447
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getRawValue()[B
+
+    move-result-object v2
+
+    .line 448
+    .local v2, "rawValue":[B
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getValueIndex()I
+
+    move-result v3
+
+    .line 449
+    .local v3, "valueIndex":I
+    invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getLength()I
+
+    move-result v1
+
+    .line 452
+    .local v1, "length":I
+    if-nez v1, :cond_0
+
+    .line 453
+    const/4 v4, 0x0
+
+    .line 462
+    :goto_0
+    return-object v4
+
+    .line 457
+    :cond_0
+    aget-byte v4, v2, v3
+
+    const/16 v5, 0xf
+
+    if-eq v4, v5, :cond_1
+
+    .line 458
+    new-instance v4, Lcom/android/internal/telephony/cat/ResultException;
+
+    sget-object v5, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
+
+    invoke-direct {v4, v5}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
+
+    throw v4
+
+    .line 462
+    :cond_1
+    add-int/lit8 v4, v3, 0x1
+
+    add-int/lit8 v5, v1, -0x1
+
+    mul-int/lit8 v5, v5, 0x8
+
+    :try_start_0
+    div-int/lit8 v5, v5, 0x7
+
+    invoke-static {v2, v4, v5}, Lcom/android/internal/telephony/GsmAlphabet;->gsm7BitPackedToString([BII)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v4
+
+    goto :goto_0
+
+    .line 464
+    :catch_0
+    move-exception v0
+
+    .line 465
+    .local v0, "e":Ljava/lang/IndexOutOfBoundsException;
+    new-instance v4, Lcom/android/internal/telephony/cat/ResultException;
+
+    sget-object v5, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
+
+    invoke-direct {v4, v5}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
+
+    throw v4
 .end method

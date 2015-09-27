@@ -11,6 +11,8 @@
 
 .field public static final EXTRA_ALWAYS_RESET:Ljava/lang/String; = "always_reset"
 
+.field public static final EXTRA_WIPE_MEDIA:Ljava/lang/String; = "wipe_media"
+
 .field public static final FORMAT_AND_FACTORY_RESET:Ljava/lang/String; = "com.android.internal.os.storage.FORMAT_AND_FACTORY_RESET"
 
 .field public static final FORMAT_ONLY:Ljava/lang/String; = "com.android.internal.os.storage.FORMAT_ONLY"
@@ -39,13 +41,15 @@
 
 .field private mWakeLock:Landroid/os/PowerManager$WakeLock;
 
+.field private mWipeInternalStorage:Z
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
 
     .prologue
-    .line 48
+    .line 49
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v1, "android"
@@ -74,28 +78,31 @@
     .line 36
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 52
-    iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mMountService:Landroid/os/storage/IMountService;
+    .line 53
+    iput-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mMountService:Landroid/os/storage/IMountService;
 
-    .line 54
-    iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
+    .line 55
+    iput-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    .line 58
-    iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
-
-    .line 60
-    iput-boolean v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mFactoryReset:Z
+    .line 59
+    iput-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     .line 61
-    iput-boolean v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mAlwaysReset:Z
+    iput-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mFactoryReset:Z
 
     .line 62
-    iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mReason:Ljava/lang/String;
+    iput-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mAlwaysReset:Z
 
     .line 63
-    iput-boolean v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mIsFormatSuccess:Z
+    iput-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mWipeInternalStorage:Z
+
+    .line 64
+    iput-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mReason:Ljava/lang/String;
 
     .line 65
+    iput-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mIsFormatSuccess:Z
+
+    .line 67
     new-instance v0, Lcom/android/internal/os/storage/ExternalStorageFormatter$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter$1;-><init>(Lcom/android/internal/os/storage/ExternalStorageFormatter;)V
@@ -156,6 +163,17 @@
 
     .prologue
     .line 36
+    iget-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mWipeInternalStorage:Z
+
+    return v0
+.end method
+
+.method static synthetic access$500(Lcom/android/internal/os/storage/ExternalStorageFormatter;)Z
+    .locals 1
+    .param p0, "x0"    # Lcom/android/internal/os/storage/ExternalStorageFormatter;
+
+    .prologue
+    .line 36
     iget-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mAlwaysReset:Z
 
     return v0
@@ -168,7 +186,7 @@
     .param p1, "msg"    # I
 
     .prologue
-    .line 162
+    .line 165
     const/4 v1, 0x1
 
     invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -177,40 +195,40 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 163
+    .line 166
     iget-boolean v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mAlwaysReset:Z
 
     if-eqz v1, :cond_0
 
-    .line 164
+    .line 167
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.MASTER_CLEAR"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 165
+    .line 168
     .local v0, "intent":Landroid/content/Intent;
     const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 166
+    .line 169
     const-string v1, "android.intent.extra.REASON"
 
     iget-object v2, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mReason:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 167
+    .line 170
     invoke-virtual {p0, v0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 169
+    .line 172
     .end local v0    # "intent":Landroid/content/Intent;
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->stopSelf()V
 
-    .line 170
+    .line 173
     return-void
 .end method
 
@@ -218,30 +236,30 @@
     .locals 3
 
     .prologue
-    .line 336
+    .line 348
     iget-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mMountService:Landroid/os/storage/IMountService;
 
     if-nez v1, :cond_0
 
-    .line 337
+    .line 349
     const-string v1, "mount"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 338
+    .line 350
     .local v0, "service":Landroid/os/IBinder;
     if-eqz v0, :cond_1
 
-    .line 339
+    .line 351
     invoke-static {v0}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mMountService:Landroid/os/storage/IMountService;
 
-    .line 344
+    .line 356
     .end local v0    # "service":Landroid/os/IBinder;
     :cond_0
     :goto_0
@@ -249,7 +267,7 @@
 
     return-object v1
 
-    .line 341
+    .line 353
     .restart local v0    # "service":Landroid/os/IBinder;
     :cond_1
     const-string v1, "ExternalStorageFormatter"
@@ -266,7 +284,7 @@
     .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 130
+    .line 133
     const/4 v0, 0x0
 
     return-object v0
@@ -277,59 +295,59 @@
     .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     .prologue
-    .line 135
+    .line 138
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->getMountService()Landroid/os/storage/IMountService;
 
     move-result-object v2
 
-    .line 137
+    .line 140
     .local v2, "mountService":Landroid/os/storage/IMountService;
     :try_start_0
     invoke-interface {v2}, Landroid/os/storage/IMountService;->getVolumeList()[Landroid/os/storage/StorageVolume;
 
     move-result-object v5
 
-    .line 138
+    .line 141
     .local v5, "volumes":[Landroid/os/storage/StorageVolume;
     invoke-static {v5}, Landroid/os/storage/StorageManager;->getPhysicalExternalVolume([Landroid/os/storage/StorageVolume;)Ljava/util/ArrayList;
 
     move-result-object v4
 
-    .line 139
+    .line 142
     .local v4, "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
     const/4 v1, 0x0
 
-    .line 141
+    .line 144
     .local v1, "extStoragePath":Ljava/lang/String;
     iget-object v6, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
 
     if-nez v6, :cond_1
 
-    .line 142
+    .line 145
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v6
 
     if-nez v6, :cond_0
 
-    .line 143
-    const v6, 0x10405b0
+    .line 146
+    const v6, 0x104008d
 
     invoke-virtual {p0, v6}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 158
+    .line 161
     .end local v1    # "extStoragePath":Ljava/lang/String;
     .end local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
     .end local v5    # "volumes":[Landroid/os/storage/StorageVolume;
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->stopSelf()V
 
-    .line 159
+    .line 162
     return-void
 
-    .line 145
+    .line 148
     .restart local v1    # "extStoragePath":Ljava/lang/String;
     .restart local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
     .restart local v5    # "volumes":[Landroid/os/storage/StorageVolume;
@@ -343,20 +361,20 @@
 
     check-cast v3, Landroid/os/storage/StorageVolume;
 
-    .line 146
+    .line 149
     .local v3, "physicalVol":Landroid/os/storage/StorageVolume;
     invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 147
+    .line 150
     invoke-interface {v2, v1}, Landroid/os/storage/IMountService;->mountVolume(Ljava/lang/String;)I
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 
-    .line 155
+    .line 158
     .end local v1    # "extStoragePath":Ljava/lang/String;
     .end local v3    # "physicalVol":Landroid/os/storage/StorageVolume;
     .end local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
@@ -364,7 +382,7 @@
     :catch_0
     move-exception v0
 
-    .line 156
+    .line 159
     .local v0, "e":Landroid/os/RemoteException;
     const-string v6, "ExternalStorageFormatter"
 
@@ -374,7 +392,7 @@
 
     goto :goto_0
 
-    .line 152
+    .line 155
     .end local v0    # "e":Landroid/os/RemoteException;
     .restart local v1    # "extStoragePath":Ljava/lang/String;
     .restart local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
@@ -387,7 +405,7 @@
 
     move-result-object v1
 
-    .line 153
+    .line 156
     invoke-interface {v2, v1}, Landroid/os/storage/IMountService;->mountVolume(Ljava/lang/String;)I
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
@@ -399,15 +417,15 @@
     .locals 3
 
     .prologue
-    .line 77
+    .line 79
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    .line 79
+    .line 81
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
     if-nez v0, :cond_0
 
-    .line 80
+    .line 82
     const-string v0, "storage"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -418,14 +436,14 @@
 
     iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    .line 81
+    .line 83
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
     iget-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageListener:Landroid/os/storage/StorageEventListener;
 
     invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->registerListener(Landroid/os/storage/StorageEventListener;)V
 
-    .line 84
+    .line 86
     :cond_0
     const-string v0, "power"
 
@@ -445,12 +463,12 @@
 
     iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 86
+    .line 88
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 87
+    .line 89
     return-void
 .end method
 
@@ -458,52 +476,54 @@
     .locals 2
 
     .prologue
-    .line 118
+    .line 121
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
     if-eqz v0, :cond_0
 
-    .line 119
+    .line 122
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
     iget-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageListener:Landroid/os/storage/StorageEventListener;
 
     invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->unregisterListener(Landroid/os/storage/StorageEventListener;)V
 
-    .line 121
+    .line 124
     :cond_0
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     if-eqz v0, :cond_1
 
-    .line 122
+    .line 125
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
 
-    .line 124
+    .line 127
     :cond_1
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 125
+    .line 128
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    .line 126
+    .line 129
     return-void
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 3
+    .locals 4
     .param p1, "intent"    # Landroid/content/Intent;
     .param p2, "flags"    # I
     .param p3, "startId"    # I
 
     .prologue
+    const/4 v3, 0x0
+
     const/4 v2, 0x1
 
-    .line 91
+    .line 93
     const-string v0, "com.android.internal.os.storage.FORMAT_AND_FACTORY_RESET"
 
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -516,26 +536,33 @@
 
     if-eqz v0, :cond_0
 
-    .line 92
+    .line 94
     iput-boolean v2, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mFactoryReset:Z
 
-    .line 94
+    .line 96
     :cond_0
     const-string v0, "always_reset"
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p1, v0, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 95
+    .line 97
     iput-boolean v2, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mAlwaysReset:Z
 
-    .line 98
+    .line 99
     :cond_1
+    const-string v0, "wipe_media"
+
+    invoke-virtual {p1, v0, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mWipeInternalStorage:Z
+
+    .line 101
     const-string v0, "android.intent.extra.REASON"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -544,7 +571,7 @@
 
     iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mReason:Ljava/lang/String;
 
-    .line 99
+    .line 102
     const-string v0, "storage_volume"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -555,29 +582,29 @@
 
     iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
 
-    .line 101
+    .line 104
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     if-nez v0, :cond_3
 
-    .line 102
+    .line 105
     new-instance v0, Landroid/app/ProgressDialog;
 
     invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 103
+    .line 106
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0, v2}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
-    .line 104
+    .line 107
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0, v2}, Landroid/app/ProgressDialog;->setCancelable(Z)V
 
-    .line 105
+    .line 108
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
@@ -588,26 +615,26 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
 
-    .line 106
+    .line 109
     iget-boolean v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mAlwaysReset:Z
 
     if-nez v0, :cond_2
 
-    .line 107
+    .line 110
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0, p0}, Landroid/app/ProgressDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
-    .line 109
+    .line 112
     :cond_2
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressState()V
 
-    .line 110
+    .line 113
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
 
-    .line 113
+    .line 116
     :cond_3
     const/4 v0, 0x3
 
@@ -619,33 +646,33 @@
     .param p1, "msg"    # I
 
     .prologue
-    .line 324
+    .line 336
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     if-nez v0, :cond_0
 
-    .line 325
+    .line 337
     new-instance v0, Landroid/app/ProgressDialog;
 
     invoke-direct {v0, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 326
+    .line 338
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
-    .line 327
+    .line 339
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setCancelable(Z)V
 
-    .line 328
+    .line 340
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
@@ -656,12 +683,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
 
-    .line 329
+    .line 341
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
 
-    .line 332
+    .line 344
     :cond_0
     iget-object v0, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mProgressDialog:Landroid/app/ProgressDialog;
 
@@ -671,462 +698,574 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 333
+    .line 345
     return-void
 .end method
 
 .method updateProgressState()V
-    .locals 10
+    .locals 14
 
     .prologue
-    .line 175
-    const/4 v5, 0x0
+    const v13, 0x1040686
 
-    .line 176
-    .local v5, "status":Ljava/lang/String;
-    const/4 v1, 0x0
+    const/4 v9, 0x1
+
+    const/4 v10, 0x0
+
+    .line 178
+    const/4 v6, 0x0
 
     .line 179
+    .local v6, "status":Ljava/lang/String;
+    const/4 v1, 0x0
+
+    .line 181
     .local v1, "extStoragePath":Ljava/lang/String;
+    const/4 v2, 0x0
+
+    .line 183
+    .local v2, "isUsbStorage":Z
     :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->getMountService()Landroid/os/storage/IMountService;
 
-    move-result-object v2
-
-    .line 180
-    .local v2, "mountService":Landroid/os/storage/IMountService;
-    invoke-interface {v2}, Landroid/os/storage/IMountService;->getVolumeList()[Landroid/os/storage/StorageVolume;
-
-    move-result-object v6
-
-    .line 181
-    .local v6, "volumes":[Landroid/os/storage/StorageVolume;
-    invoke-static {v6}, Landroid/os/storage/StorageManager;->getPhysicalExternalVolume([Landroid/os/storage/StorageVolume;)Ljava/util/ArrayList;
-
-    move-result-object v4
-
-    .line 183
-    .local v4, "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    iget-object v7, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
-
-    if-nez v7, :cond_3
+    move-result-object v3
 
     .line 184
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    .local v3, "mountService":Landroid/os/storage/IMountService;
+    invoke-interface {v3}, Landroid/os/storage/IMountService;->getVolumeList()[Landroid/os/storage/StorageVolume;
 
-    move-result v7
-
-    if-nez v7, :cond_1
+    move-result-object v8
 
     .line 185
-    const v7, 0x10405b0
+    .local v8, "volumes":[Landroid/os/storage/StorageVolume;
+    invoke-static {v8}, Landroid/os/storage/StorageManager;->getPhysicalExternalVolume([Landroid/os/storage/StorageVolume;)Ljava/util/ArrayList;
 
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
+    move-result-object v5
 
-    .line 321
-    .end local v2    # "mountService":Landroid/os/storage/IMountService;
-    .end local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .end local v6    # "volumes":[Landroid/os/storage/StorageVolume;
+    .line 187
+    .local v5, "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    iget-object v11, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
+
+    if-nez v11, :cond_4
+
+    .line 188
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+
+    move-result v11
+
+    if-nez v11, :cond_1
+
+    .line 189
+    const v9, 0x104008d
+
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
+
+    .line 333
+    .end local v3    # "mountService":Landroid/os/storage/IMountService;
+    .end local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .end local v8    # "volumes":[Landroid/os/storage/StorageVolume;
     :cond_0
     :goto_0
     return-void
 
-    .line 188
-    .restart local v2    # "mountService":Landroid/os/storage/IMountService;
-    .restart local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .restart local v6    # "volumes":[Landroid/os/storage/StorageVolume;
+    .line 192
+    .restart local v3    # "mountService":Landroid/os/storage/IMountService;
+    .restart local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .restart local v8    # "volumes":[Landroid/os/storage/StorageVolume;
     :cond_1
-    const/4 v7, 0x0
+    const/4 v11, 0x0
 
-    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/os/storage/StorageVolume;
-
-    .line 189
-    .local v3, "physicalVol":Landroid/os/storage/StorageVolume;
-    iget-object v7, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-result-object v5
-
-    .line 200
-    .end local v2    # "mountService":Landroid/os/storage/IMountService;
-    .end local v3    # "physicalVol":Landroid/os/storage/StorageVolume;
-    .end local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .end local v6    # "volumes":[Landroid/os/storage/StorageVolume;
-    :goto_1
-    const-string v7, "mounted"
-
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_2
-
-    const-string v7, "mounted_ro"
-
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    .line 202
-    :cond_2
-    const v7, 0x10405af
-
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
-
-    .line 204
-    :try_start_1
-    iget-boolean v7, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mIsFormatSuccess:Z
-
-    if-nez v7, :cond_0
-
-    .line 205
-    invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->getMountService()Landroid/os/storage/IMountService;
-
-    move-result-object v2
-
-    .line 206
-    .restart local v2    # "mountService":Landroid/os/storage/IMountService;
-    invoke-interface {v2}, Landroid/os/storage/IMountService;->getVolumeList()[Landroid/os/storage/StorageVolume;
-
-    move-result-object v6
-
-    .line 207
-    .restart local v6    # "volumes":[Landroid/os/storage/StorageVolume;
-    invoke-static {v6}, Landroid/os/storage/StorageManager;->getPhysicalExternalVolume([Landroid/os/storage/StorageVolume;)Ljava/util/ArrayList;
+    invoke-virtual {v5, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
-    .line 209
-    .restart local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    iget-object v7, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
+    check-cast v4, Landroid/os/storage/StorageVolume;
 
-    if-nez v7, :cond_5
+    .line 193
+    .local v4, "physicalVol":Landroid/os/storage/StorageVolume;
+    iget-object v11, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    .line 210
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
 
-    move-result v7
+    move-result-object v12
 
-    if-nez v7, :cond_4
+    invoke-virtual {v11, v12}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 194
+    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getDescriptionId()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result v11
+
+    if-ne v11, v13, :cond_3
+
+    move v2, v9
+
+    .line 206
+    .end local v3    # "mountService":Landroid/os/storage/IMountService;
+    .end local v4    # "physicalVol":Landroid/os/storage/StorageVolume;
+    .end local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .end local v8    # "volumes":[Landroid/os/storage/StorageVolume;
+    :goto_1
+    const-string v9, "mounted"
+
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_2
+
+    const-string v9, "mounted_ro"
+
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_9
+
+    .line 208
+    :cond_2
+    if-eqz v2, :cond_6
+
+    const v9, 0x10400ad
+
+    :goto_2
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
 
     .line 211
-    const v7, 0x10405b0
+    :try_start_1
+    iget-boolean v9, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mIsFormatSuccess:Z
 
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
+    if-nez v9, :cond_0
+
+    .line 212
+    invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->getMountService()Landroid/os/storage/IMountService;
+
+    move-result-object v3
+
+    .line 213
+    .restart local v3    # "mountService":Landroid/os/storage/IMountService;
+    invoke-interface {v3}, Landroid/os/storage/IMountService;->getVolumeList()[Landroid/os/storage/StorageVolume;
+
+    move-result-object v8
+
+    .line 214
+    .restart local v8    # "volumes":[Landroid/os/storage/StorageVolume;
+    invoke-static {v8}, Landroid/os/storage/StorageManager;->getPhysicalExternalVolume([Landroid/os/storage/StorageVolume;)Ljava/util/ArrayList;
+
+    move-result-object v5
+
+    .line 216
+    .restart local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    iget-object v9, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
+
+    if-nez v9, :cond_8
+
+    .line 217
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+
+    move-result v9
+
+    if-nez v9, :cond_7
+
+    .line 218
+    const v9, 0x104008d
+
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 
-    .line 226
-    .end local v2    # "mountService":Landroid/os/storage/IMountService;
-    .end local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .end local v6    # "volumes":[Landroid/os/storage/StorageVolume;
+    .line 233
+    .end local v3    # "mountService":Landroid/os/storage/IMountService;
+    .end local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .end local v8    # "volumes":[Landroid/os/storage/StorageVolume;
     :catch_0
     move-exception v0
 
-    .line 227
+    .line 234
     .local v0, "e":Landroid/os/RemoteException;
-    const-string v7, "ExternalStorageFormatter"
+    const-string v9, "ExternalStorageFormatter"
 
-    const-string v8, "Failed talking with mount service"
+    const-string v10, "Failed talking with mount service"
 
-    invoke-static {v7, v8, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v9, v10, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 194
     .end local v0    # "e":Landroid/os/RemoteException;
-    .restart local v2    # "mountService":Landroid/os/storage/IMountService;
-    .restart local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .restart local v6    # "volumes":[Landroid/os/storage/StorageVolume;
+    .restart local v3    # "mountService":Landroid/os/storage/IMountService;
+    .restart local v4    # "physicalVol":Landroid/os/storage/StorageVolume;
+    .restart local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .restart local v8    # "volumes":[Landroid/os/storage/StorageVolume;
     :cond_3
+    move v2, v10
+
+    .line 194
+    goto :goto_1
+
+    .line 199
+    .end local v4    # "physicalVol":Landroid/os/storage/StorageVolume;
+    :cond_4
     :try_start_2
-    iget-object v7, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
+    iget-object v11, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    iget-object v8, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
+    iget-object v12, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
 
-    invoke-virtual {v8}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+    invoke-virtual {v12}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v12
 
-    invoke-virtual {v7, v8}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v11, v12}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 200
+    iget-object v11, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
+
+    invoke-virtual {v11}, Landroid/os/storage/StorageVolume;->getDescriptionId()I
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
-    move-result-object v5
+    move-result v11
 
+    if-ne v11, v13, :cond_5
+
+    move v2, v9
+
+    :goto_3
     goto :goto_1
 
-    .line 197
-    .end local v2    # "mountService":Landroid/os/storage/IMountService;
-    .end local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .end local v6    # "volumes":[Landroid/os/storage/StorageVolume;
+    :cond_5
+    move v2, v10
+
+    goto :goto_3
+
+    .line 203
+    .end local v3    # "mountService":Landroid/os/storage/IMountService;
+    .end local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .end local v8    # "volumes":[Landroid/os/storage/StorageVolume;
     :catch_1
     move-exception v0
 
-    .line 198
+    .line 204
     .restart local v0    # "e":Landroid/os/RemoteException;
-    const-string v7, "ExternalStorageFormatter"
+    const-string v9, "ExternalStorageFormatter"
 
-    const-string v8, "Failed talking with mount service"
+    const-string v10, "Failed talking with mount service"
 
-    invoke-static {v7, v8, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v9, v10, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 
-    .line 214
+    .line 208
     .end local v0    # "e":Landroid/os/RemoteException;
-    .restart local v2    # "mountService":Landroid/os/storage/IMountService;
-    .restart local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .restart local v6    # "volumes":[Landroid/os/storage/StorageVolume;
-    :cond_4
-    const/4 v7, 0x0
+    :cond_6
+    const v9, 0x10400a6
+
+    goto :goto_2
+
+    .line 221
+    .restart local v3    # "mountService":Landroid/os/storage/IMountService;
+    .restart local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .restart local v8    # "volumes":[Landroid/os/storage/StorageVolume;
+    :cond_7
+    const/4 v9, 0x0
 
     :try_start_3
-    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/os/storage/StorageVolume;
-
-    .line 215
-    .restart local v3    # "physicalVol":Landroid/os/storage/StorageVolume;
-    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 216
-    const-string v7, "ExternalStorageFormatter"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "physicalVol : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 217
-    const/4 v7, 0x1
-
-    iget-boolean v8, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mFactoryReset:Z
-
-    invoke-interface {v2, v1, v7, v8}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
-
-    goto/16 :goto_0
+    check-cast v4, Landroid/os/storage/StorageVolume;
 
     .line 222
-    .end local v3    # "physicalVol":Landroid/os/storage/StorageVolume;
-    :cond_5
-    iget-object v7, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
-
-    invoke-virtual {v7}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+    .restart local v4    # "physicalVol":Landroid/os/storage/StorageVolume;
+    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
 
     move-result-object v1
 
     .line 223
-    const/4 v7, 0x1
+    const-string v9, "ExternalStorageFormatter"
 
-    iget-boolean v8, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mFactoryReset:Z
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-interface {v2, v1, v7, v8}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "physicalVol : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 224
+    const/4 v9, 0x1
+
+    iget-boolean v10, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mFactoryReset:Z
+
+    invoke-interface {v3, v1, v9, v10}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
+
+    goto/16 :goto_0
+
+    .line 229
+    .end local v4    # "physicalVol":Landroid/os/storage/StorageVolume;
+    :cond_8
+    iget-object v9, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
+
+    invoke-virtual {v9}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 230
+    const/4 v9, 0x1
+
+    iget-boolean v10, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter;->mFactoryReset:Z
+
+    invoke-interface {v3, v1, v9, v10}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
     goto/16 :goto_0
 
-    .line 230
-    .end local v2    # "mountService":Landroid/os/storage/IMountService;
-    .end local v4    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
-    .end local v6    # "volumes":[Landroid/os/storage/StorageVolume;
-    :cond_6
-    const-string v7, "nofs"
+    .line 237
+    .end local v3    # "mountService":Landroid/os/storage/IMountService;
+    .end local v5    # "physicalVols":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/os/storage/StorageVolume;>;"
+    .end local v8    # "volumes":[Landroid/os/storage/StorageVolume;
+    :cond_9
+    const-string v9, "nofs"
 
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-nez v7, :cond_7
+    if-nez v9, :cond_a
 
-    const-string v7, "unmounted"
+    const-string v9, "unmounted"
 
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-nez v7, :cond_7
+    if-nez v9, :cond_a
 
-    const-string v7, "unmountable"
+    const-string v9, "unmountable"
 
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_9
+    if-eqz v9, :cond_e
 
-    .line 233
-    :cond_7
-    const v7, 0x10405b1
+    .line 240
+    :cond_a
+    if-eqz v2, :cond_b
 
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
+    const v9, 0x10400ae
 
-    .line 234
+    :goto_4
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressDialog(I)V
+
+    .line 242
+    if-eqz v2, :cond_c
+
+    const v7, 0x10400af
+
+    .line 244
+    .local v7, "toastTextResId":I
+    :goto_5
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->getMountService()Landroid/os/storage/IMountService;
 
-    move-result-object v2
+    move-result-object v3
 
-    .line 235
-    .restart local v2    # "mountService":Landroid/os/storage/IMountService;
-    if-eqz v2, :cond_8
+    .line 245
+    .restart local v3    # "mountService":Landroid/os/storage/IMountService;
+    if-eqz v3, :cond_d
 
-    .line 236
-    new-instance v7, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;
+    .line 246
+    new-instance v9, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;
 
-    invoke-direct {v7, p0, v2}, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;-><init>(Lcom/android/internal/os/storage/ExternalStorageFormatter;Landroid/os/storage/IMountService;)V
+    invoke-direct {v9, p0, v3, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;-><init>(Lcom/android/internal/os/storage/ExternalStorageFormatter;Landroid/os/storage/IMountService;I)V
 
-    invoke-virtual {v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;->start()V
-
-    goto/16 :goto_0
-
-    .line 306
-    :cond_8
-    const-string v7, "ExternalStorageFormatter"
-
-    const-string v8, "Unable to locate IMountService"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter$2;->start()V
 
     goto/16 :goto_0
 
-    .line 308
-    .end local v2    # "mountService":Landroid/os/storage/IMountService;
-    :cond_9
-    const-string v7, "bad_removal"
-
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_a
-
-    .line 309
-    const v7, 0x10405b3
-
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
-
-    goto/16 :goto_0
-
-    .line 310
-    :cond_a
-    const-string v7, "checking"
-
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_b
-
-    .line 311
-    const v7, 0x10405b4
-
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
-
-    goto/16 :goto_0
-
-    .line 312
+    .line 240
+    .end local v3    # "mountService":Landroid/os/storage/IMountService;
+    .end local v7    # "toastTextResId":I
     :cond_b
-    const-string v7, "removed"
+    const v9, 0x10400a7
 
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    goto :goto_4
 
-    move-result v7
-
-    if-eqz v7, :cond_c
-
-    .line 313
-    const v7, 0x10405b5
-
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
-
-    goto/16 :goto_0
-
-    .line 314
+    .line 242
     :cond_c
-    const-string v7, "shared"
+    const v7, 0x10400a8
 
-    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_d
-
-    .line 315
-    const v7, 0x10405b6
-
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
-
-    goto/16 :goto_0
-
-    .line 317
-    :cond_d
-    const v7, 0x10405b7
-
-    invoke-virtual {p0, v7}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
+    goto :goto_5
 
     .line 318
-    const-string v7, "ExternalStorageFormatter"
+    .restart local v3    # "mountService":Landroid/os/storage/IMountService;
+    .restart local v7    # "toastTextResId":I
+    :cond_d
+    const-string v9, "ExternalStorageFormatter"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    const-string v10, "Unable to locate IMountService"
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v9, "Unknown storage state: "
+    goto/16 :goto_0
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 320
+    .end local v3    # "mountService":Landroid/os/storage/IMountService;
+    .end local v7    # "toastTextResId":I
+    :cond_e
+    const-string v9, "bad_removal"
 
-    move-result-object v8
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v9
 
-    move-result-object v8
+    if-eqz v9, :cond_10
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 321
+    if-eqz v2, :cond_f
 
-    move-result-object v8
+    const v9, 0x10400b0
 
-    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :goto_6
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
 
-    .line 319
+    goto/16 :goto_0
+
+    :cond_f
+    const v9, 0x10400a9
+
+    goto :goto_6
+
+    .line 322
+    :cond_10
+    const-string v9, "checking"
+
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_12
+
+    .line 323
+    if-eqz v2, :cond_11
+
+    const v9, 0x10400b1
+
+    :goto_7
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
+
+    goto/16 :goto_0
+
+    :cond_11
+    const v9, 0x10400aa
+
+    goto :goto_7
+
+    .line 324
+    :cond_12
+    const-string v9, "removed"
+
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_14
+
+    .line 325
+    if-eqz v2, :cond_13
+
+    const v9, 0x10400b2
+
+    :goto_8
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
+
+    goto/16 :goto_0
+
+    :cond_13
+    const v9, 0x10400ab
+
+    goto :goto_8
+
+    .line 326
+    :cond_14
+    const-string v9, "shared"
+
+    invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_16
+
+    .line 327
+    if-eqz v2, :cond_15
+
+    const v9, 0x10400b3
+
+    :goto_9
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
+
+    goto/16 :goto_0
+
+    :cond_15
+    const v9, 0x10400ac
+
+    goto :goto_9
+
+    .line 329
+    :cond_16
+    const v9, 0x104064d
+
+    invoke-virtual {p0, v9}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->fail(I)V
+
+    .line 330
+    const-string v9, "ExternalStorageFormatter"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "Unknown storage state: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 331
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->stopSelf()V
 
     goto/16 :goto_0

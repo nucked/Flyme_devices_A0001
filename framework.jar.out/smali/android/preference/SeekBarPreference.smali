@@ -111,7 +111,7 @@
     .line 50
     const/4 v2, 0x0
 
-    const v3, 0x10900aa
+    const v3, 0x10900a4
 
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -203,7 +203,7 @@
     invoke-super {p0, p1}, Landroid/preference/Preference;->onBindView(Landroid/view/View;)V
 
     .line 73
-    const v1, 0x1020371
+    const v1, 0x1020363
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

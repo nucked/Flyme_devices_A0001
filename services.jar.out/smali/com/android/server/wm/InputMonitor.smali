@@ -631,7 +631,7 @@
 
     .line 109
     :cond_1
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_3
 
     .line 110
     const-string v9, "WindowManager"
@@ -689,7 +689,7 @@
     .local v5, "systemAlertLayer":I
     iget v9, v8, Lcom/android/server/wm/WindowState;->mBaseLayer:I
 
-    if-le v9, v5, :cond_3
+    if-le v9, v5, :cond_2
 
     const/4 v3, 0x1
 
@@ -708,11 +708,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 131
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     iget-object v9, v4, Lcom/android/server/wm/AppWindowToken;->appToken:Landroid/view/IApplicationToken;
 
-    if-eqz v9, :cond_6
+    if-eqz v9, :cond_5
 
     .line 135
     :try_start_1
@@ -726,30 +726,29 @@
 
     .line 136
     .local v2, "abort":Z
-    if-nez v2, :cond_7
+    if-nez v2, :cond_6
 
     .line 139
-    iget-wide v6, v4, Lcom/android/server/wm/AppWindowToken;->inputDispatchingTimeoutNanos:J
+    iget-wide v10, v4, Lcom/android/server/wm/AppWindowToken;->inputDispatchingTimeoutNanos:J
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 157
     .end local v2    # "abort":Z
-    :cond_2
     :goto_1
-    return-wide v6
+    return-wide v10
 
     .line 118
     .restart local v5    # "systemAlertLayer":I
-    :cond_3
+    :cond_2
     const/4 v3, 0x0
 
     goto :goto_0
 
     .line 119
     .end local v5    # "systemAlertLayer":I
-    :cond_4
-    if-eqz v4, :cond_5
+    :cond_3
+    if-eqz v4, :cond_4
 
     .line 120
     :try_start_2
@@ -802,7 +801,7 @@
     throw v9
 
     .line 124
-    :cond_5
+    :cond_4
     :try_start_3
     const-string v9, "WindowManager"
 
@@ -833,8 +832,8 @@
     goto :goto_0
 
     .line 143
-    :cond_6
-    if-eqz v8, :cond_7
+    :cond_5
+    if-eqz v8, :cond_6
 
     .line 147
     :try_start_4
@@ -860,21 +859,26 @@
 
     cmp-long v9, v6, v10
 
-    if-gez v9, :cond_2
+    if-ltz v9, :cond_6
 
-    .line 157
-    .end local v6    # "timeout":J
-    :cond_7
-    :goto_2
-    const-wide/16 v6, 0x0
+    .line 152
+    const-wide/32 v10, 0xf4240
+
+    mul-long/2addr v10, v6
 
     goto :goto_1
 
     .line 154
+    .end local v6    # "timeout":J
     :catch_0
     move-exception v9
 
-    goto :goto_2
+    .line 157
+    :cond_6
+    :goto_2
+    const-wide/16 v10, 0x0
+
+    goto :goto_1
 
     .line 141
     :catch_1

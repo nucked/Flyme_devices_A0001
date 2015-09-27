@@ -124,6 +124,7 @@
     <attr name="state_accessibility_focused" format="boolean" />
     <attr name="initialActivityCount" format="string" />
     <attr name="expandActivityOverflowButtonDrawable" format="reference" />
+    <attr name="dialogStyle" format="reference" />
     <attr name="keyboardViewStyle" format="reference" />
     <attr name="targetDrawables" format="reference" />
     <attr name="handleDrawable" format="reference" />
@@ -207,27 +208,6 @@
     <attr name="layout_ignoreOffset" format="boolean" />
     <attr name="neverEncrypt" format="boolean" />
     <attr name="cantSaveState" format="boolean" />
+    <attr name="allowViaWhitelist" format="boolean" />
     <attr name="primaryUserOnly" format="boolean" />
-    <attr name="border_width" format="dimension" />
-    <attr name="border_color" format="color" />
-    <attr name="avatarPosition">
-        <enum name="end" value="0" />
-        <enum name="start" value="1" />
-    </attr>
-    <attr name="chipBackground" format="reference" />
-    <attr name="chipBackgroundPressed" format="reference" />
-    <attr name="chipDelete" format="reference" />
-    <attr name="chipFontSize" format="reference" />
-    <attr name="chipHeight" format="reference" />
-    <attr name="chipPadding" format="reference" />
-    <attr name="disableDelete" format="boolean" />
-    <attr name="invalidChipBackground" format="reference" />
-    <attr name="imageSpanAlignment">
-        <enum name="bottom" value="0" />
-        <enum name="baseline" value="1" />
-    </attr>
-    <attr name="demo_int" format="dimension" />
-    <attr name="demo_color" format="reference|color" />
-    <attr name="ucSwitchStyle" format="reference" />
-    <attr name="colorAccentCategory" format="color" />
 </resources>

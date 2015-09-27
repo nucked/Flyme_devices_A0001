@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 77
+    .line 88
     iput-object p1, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 79
+    .line 90
     iget-object v0, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
 
     # getter for: Landroid/service/fingerprint/FingerprintManager;->mClientReceiver:Landroid/service/fingerprint/FingerprintManagerReceiver;
@@ -48,17 +48,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 80
+    .line 91
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 97
+    .line 112
     :cond_0
     :goto_0
     return-void
 
-    .line 82
+    .line 93
     :pswitch_0
     iget-object v0, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
 
@@ -75,7 +75,7 @@
 
     goto :goto_0
 
-    .line 85
+    .line 96
     :pswitch_1
     iget-object v0, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
 
@@ -90,7 +90,7 @@
 
     goto :goto_0
 
-    .line 88
+    .line 99
     :pswitch_2
     iget-object v0, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
 
@@ -105,7 +105,7 @@
 
     goto :goto_0
 
-    .line 91
+    .line 102
     :pswitch_3
     iget-object v0, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
 
@@ -120,7 +120,7 @@
 
     goto :goto_0
 
-    .line 94
+    .line 105
     :pswitch_4
     iget-object v0, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
 
@@ -135,7 +135,22 @@
 
     goto :goto_0
 
-    .line 80
+    .line 108
+    :pswitch_5
+    iget-object v0, p0, Landroid/service/fingerprint/FingerprintManager$1;->this$0:Landroid/service/fingerprint/FingerprintManager;
+
+    # getter for: Landroid/service/fingerprint/FingerprintManager;->mClientReceiver:Landroid/service/fingerprint/FingerprintManagerReceiver;
+    invoke-static {v0}, Landroid/service/fingerprint/FingerprintManager;->access$000(Landroid/service/fingerprint/FingerprintManager;)Landroid/service/fingerprint/FingerprintManagerReceiver;
+
+    move-result-object v0
+
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {v0, v1}, Landroid/service/fingerprint/FingerprintManagerReceiver;->onStateChanged(I)V
+
+    goto :goto_0
+
+    .line 91
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0
@@ -143,5 +158,6 @@
         :pswitch_2
         :pswitch_3
         :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method

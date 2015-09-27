@@ -54,3 +54,11 @@
         }
     .end annotation
 .end method
+
+.method public abstract onStateChanged(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method

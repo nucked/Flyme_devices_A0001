@@ -67,8 +67,6 @@
 
 .field public static final default_gap:I = 0x1050048
 
-.field public static final demo_paddingTop:I = 0x1050104
-
 .field public static final dialog_min_width_major:I = 0x1050003
 
 .field public static final dialog_min_width_minor:I = 0x1050004
@@ -77,7 +75,15 @@
 
 .field public static final dropdownitem_text_padding_left:I = 0x1050049
 
+.field public static final edge_gesture_perpendicular_distance:I = 0x10500a9
+
+.field public static final edge_gesture_trigger_distance:I = 0x10500a8
+
+.field public static final edge_gesture_trigger_thickness:I = 0x10500aa
+
 .field public static final fast_scroller_minimum_touch_target:I = 0x105009b
+
+.field public static final global_actions_avatar_size:I = 0x10500ab
 
 .field public static final immersive_mode_cling_width:I = 0x105009c
 
@@ -85,9 +91,7 @@
 
 .field public static final lock_pattern_dot_size:I = 0x10500a0
 
-.field public static final lock_pattern_dot_size_activated:I = 0x10500a2
-
-.field public static final lock_pattern_dot_width:I = 0x10500a1
+.field public static final lock_pattern_dot_size_activated:I = 0x10500a1
 
 .field public static final navigation_bar_height:I = 0x1050012
 
@@ -117,8 +121,6 @@
 
 .field public static final notification_top_pad_narrow:I = 0x1050058
 
-.field public static final op_button_text_width:I = 0x10500a9
-
 .field public static final password_keyboard_spacebar_vertical_correction:I = 0x105001b
 
 .field public static final preference_fragment_padding_bottom:I = 0x1050024
@@ -139,9 +141,9 @@
 
 .field public static final subtitle_shadow_radius:I = 0x105007d
 
-.field public static final text_handle_min_size:I = 0x10500a3
+.field public static final text_handle_min_size:I = 0x10500a2
 
-.field public static final text_size_small_material:I = 0x10500ef
+.field public static final text_size_small_material:I = 0x10500f1
 
 .field public static final textview_error_popup_default_width:I = 0x105004c
 
@@ -151,19 +153,13 @@
 
 .field public static final toast_y_offset:I = 0x1050010
 
-.field public static final uc_listview_touch_slop:I = 0x1050106
-
-.field public static final uc_listview_undo_bottom_offset:I = 0x1050105
-
-.field public static final uc_preference_fragment_padding_side_material:I = 0x1050107
-
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 14873
+    .line 14935
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

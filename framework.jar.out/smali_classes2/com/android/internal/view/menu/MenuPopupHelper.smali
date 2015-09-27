@@ -20,7 +20,7 @@
 
 
 # static fields
-.field static final ITEM_LAYOUT:I = 0x1090093
+.field static final ITEM_LAYOUT:I = 0x109008d
 
 .field private static final TAG:Ljava/lang/String; = "MenuPopupHelper"
 

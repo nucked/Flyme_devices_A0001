@@ -1,14 +1,11 @@
 .class Lcom/android/server/am/ActivityManagerService$24;
-.super Ljava/lang/Object;
+.super Landroid/content/IIntentReceiver$Stub;
 .source "ActivityManagerService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->updateOomAdjLocked()V
+    value = Lcom/android/server/am/ActivityManagerService;->startUser(IZ)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,52 +17,62 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
+.field final synthetic val$foreground:Z
+
+.field final synthetic val$oldUserId:I
+
+.field final synthetic val$userId:I
+
+.field final synthetic val$uss:Lcom/android/server/am/UserStartedState;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/UserStartedState;ZII)V
     .locals 0
 
     .prologue
-    .line 19093
+    .line 19340
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$24;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$24;->val$uss:Lcom/android/server/am/UserStartedState;
+
+    iput-boolean p3, p0, Lcom/android/server/am/ActivityManagerService$24;->val$foreground:Z
+
+    iput p4, p0, Lcom/android/server/am/ActivityManagerService$24;->val$oldUserId:I
+
+    iput p5, p0, Lcom/android/server/am/ActivityManagerService$24;->val$userId:I
+
+    invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
+    .locals 5
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
 
     .prologue
-    .line 19095
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$24;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    monitor-enter v1
-
-    .line 19096
-    :try_start_0
+    .line 19344
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$24;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcessStats:Lcom/android/server/am/ProcessStatsService;
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$24;->val$uss:Lcom/android/server/am/UserStartedState;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessStatsService;->writeStateAsyncLocked()V
+    iget-boolean v2, p0, Lcom/android/server/am/ActivityManagerService$24;->val$foreground:Z
 
-    .line 19097
-    monitor-exit v1
+    iget v3, p0, Lcom/android/server/am/ActivityManagerService$24;->val$oldUserId:I
 
-    .line 19098
+    iget v4, p0, Lcom/android/server/am/ActivityManagerService$24;->val$userId:I
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/am/ActivityManagerService;->onUserInitialized(Lcom/android/server/am/UserStartedState;ZII)V
+
+    .line 19345
     return-void
-
-    .line 19097
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method

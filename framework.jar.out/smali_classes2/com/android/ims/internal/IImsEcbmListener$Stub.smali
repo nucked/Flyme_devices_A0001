@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.ims.internal.IImsEcbmListener"
 
-.field static final TRANSACTION_enteredECBM:I = 0x1
+.field static final TRANSACTION_enteredECBM_0:I = 0x1
 
-.field static final TRANSACTION_exitedECBM:I = 0x2
+.field static final TRANSACTION_exitedECBM_1:I = 0x2
 
 
 # direct methods

@@ -41,6 +41,7 @@
     .line 522
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$8;->this$0:Landroid/app/EnterTransitionCoordinator;
 
+    # invokes: Landroid/app/EnterTransitionCoordinator;->makeOpaque()V
     invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->access$600(Landroid/app/EnterTransitionCoordinator;)V
 
     .line 523

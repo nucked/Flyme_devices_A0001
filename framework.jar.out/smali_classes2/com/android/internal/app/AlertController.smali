@@ -14,12 +14,6 @@
 .end annotation
 
 
-# static fields
-.field static final OriginName:[Ljava/lang/String;
-
-.field static final ShowName:[I
-
-
 # instance fields
 .field private mAdapter:Landroid/widget/ListAdapter;
 
@@ -105,241 +99,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
-
-    .prologue
-    const/16 v3, 0x1e
-
-    .line 890
-    new-array v0, v3, [Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    const-string v2, "oneplus_tune"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x1
-
-    const-string v2, "longing"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x2
-
-    const-string v2, "Innocence"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x3
-
-    const-string v2, "Journey"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x4
-
-    const-string v2, "capriccioso"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x5
-
-    const-string v2, "beep"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x6
-
-    const-string v2, "In_high_spirit"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x7
-
-    const-string v2, "echo"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x8
-
-    const-string v2, "Talk_about"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x9
-
-    const-string v2, "Rotation"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xa
-
-    const-string v2, "Cloud"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xb
-
-    const-string v2, "Old_telephone"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xc
-
-    const-string v2, "Free"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xd
-
-    const-string v2, "harp"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xe
-
-    const-string v2, "Ding"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0xf
-
-    const-string v2, "surprise"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x10
-
-    const-string v2, "Drops"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x11
-
-    const-string v2, "Linger"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x12
-
-    const-string v2, "Meet"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x13
-
-    const-string v2, "Distant"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x14
-
-    const-string v2, "Quickly"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x15
-
-    const-string v2, "Tactfully"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x16
-
-    const-string v2, "Wind_chime"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x17
-
-    const-string v2, "Elegant"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x18
-
-    const-string v2, "Spring"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x19
-
-    const-string v2, "Walking_in_the_rain"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x1a
-
-    const-string v2, "alarm_clock1"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x1b
-
-    const-string v2, "alarm_clock2"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x1c
-
-    const-string v2, "flyer"
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x1d
-
-    const-string v2, "A_starry_night"
-
-    aput-object v2, v0, v1
-
-    sput-object v0, Lcom/android/internal/app/AlertController;->OriginName:[Ljava/lang/String;
-
-    .line 904
-    new-array v0, v3, [I
-
-    fill-array-data v0, :array_0
-
-    sput-object v0, Lcom/android/internal/app/AlertController;->ShowName:[I
-
-    return-void
-
-    :array_0
-    .array-data 4
-        0x1040053
-        0x1040048
-        0x1040054
-        0x1040052
-        0x104004d
-        0x1040051
-        0x104004b
-        0x1040049
-        0x1040055
-        0x104004f
-        0x1040050
-        0x104004a
-        0x1040041
-        0x1040059
-        0x1040056
-        0x104003f
-        0x1040057
-        0x1040040
-        0x104005a
-        0x1040058
-        0x104005c
-        0x1040042
-        0x104005b
-        0x1040044
-        0x1040060
-        0x1040061
-        0x104005e
-        0x104005f
-        0x104003a
-        0x104005d
-    .end array-data
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/content/DialogInterface;Landroid/view/Window;)V
     .locals 5
     .param p1, "context"    # Landroid/content/Context;
@@ -404,7 +163,7 @@
     .local v0, "a":Landroid/content/res/TypedArray;
     const/16 v1, 0xa
 
-    const v2, 0x1090029
+    const v2, 0x1090026
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -424,7 +183,7 @@
     .line 193
     const/16 v1, 0xc
 
-    const v2, 0x10900c9
+    const v2, 0x10900c3
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -989,31 +748,31 @@
     if-eqz v15, :cond_0
 
     .line 755
-    const v10, 0x1080585
+    const v10, 0x108055d
 
     .line 756
-    const v19, 0x1080593
+    const v19, 0x108056b
 
     .line 757
-    const v7, 0x1080582
+    const v7, 0x108055a
 
     .line 758
-    const v4, 0x108057f
+    const v4, 0x1080557
 
     .line 759
-    const v9, 0x1080584
+    const v9, 0x108055c
 
     .line 760
-    const v18, 0x1080592
+    const v18, 0x108056a
 
     .line 761
-    const v6, 0x1080581
+    const v6, 0x1080559
 
     .line 762
-    const v3, 0x108057e
+    const v3, 0x1080556
 
     .line 763
-    const v5, 0x1080580
+    const v5, 0x1080558
 
     .line 766
     :cond_0

@@ -3704,25 +3704,17 @@
 
     .line 448
     .local v0, "current":Landroid/os/Parcel;
-    iget-object v7, p0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
-
-    .line 450
-    :try_start_0
     iget-object v8, p0, Lcom/android/server/am/ProcessStatsService;->mAm:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v8
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 451
-    :try_start_1
+    .line 449
+    :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 452
+    .line 450
     .local v4, "now":J
     iget-object v7, p0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
@@ -3732,22 +3724,27 @@
 
     iput-wide v10, v7, Lcom/android/internal/app/ProcessStats;->mTimePeriodEndRealtime:J
 
-    .line 453
+    .line 451
     iget-object v7, p0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
     iput-wide v4, v7, Lcom/android/internal/app/ProcessStats;->mTimePeriodEndUptime:J
 
-    .line 454
+    .line 452
     iget-object v7, p0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
 
     const/4 v9, 0x0
 
     invoke-virtual {v7, v0, v4, v5, v9}, Lcom/android/internal/app/ProcessStats;->writeToParcel(Landroid/os/Parcel;JI)V
 
-    .line 455
+    .line 453
     monitor-exit v8
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 454
+    iget-object v7, p0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 456
     if-eqz p1, :cond_0
@@ -3759,7 +3756,7 @@
 
     const/4 v9, 0x1
 
-    :try_start_2
+    :try_start_1
     invoke-direct {p0, v7, v8, v9}, Lcom/android/server/am/ProcessStatsService;->getCommittedFiles(IZZ)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -3770,8 +3767,8 @@
 
     .line 459
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     move-result v7
 
@@ -3782,7 +3779,7 @@
     if-ltz v3, :cond_0
 
     .line 461
-    :try_start_3
+    :try_start_2
     new-instance v8, Ljava/io/File;
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -3802,9 +3799,9 @@
     .line 463
     .local v6, "pfd":Landroid/os/ParcelFileDescriptor;
     invoke-interface {p1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 459
     .end local v6    # "pfd":Landroid/os/ParcelFileDescriptor;
@@ -3813,30 +3810,17 @@
 
     goto :goto_0
 
-    .line 455
+    .line 453
     .end local v2    # "files":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v3    # "i":I
     .end local v4    # "now":J
     :catchall_0
     move-exception v7
 
-    :try_start_4
+    :try_start_3
     monitor-exit v8
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :try_start_5
-    throw v7
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    .line 471
-    :catchall_1
-    move-exception v7
-
-    iget-object v8, p0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {v8}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v7
 
@@ -3849,7 +3833,7 @@
 
     .line 465
     .local v1, "e":Ljava/io/IOException;
-    :try_start_6
+    :try_start_4
     const-string v8, "ProcessStatsService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -3877,8 +3861,8 @@
     move-result-object v7
 
     invoke-static {v8, v7, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     goto :goto_1
 
@@ -3886,6 +3870,15 @@
     .end local v1    # "e":Ljava/io/IOException;
     .end local v2    # "files":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v3    # "i":I
+    :catchall_1
+    move-exception v7
+
+    iget-object v8, p0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {v8}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    throw v7
+
     :cond_0
     iget-object v7, p0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
 
@@ -3997,21 +3990,11 @@
     invoke-virtual/range {v19 .. v21}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 479
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
-
-    .line 481
-    :try_start_0
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v6
 
-    .line 483
+    .line 481
     .local v6, "current":Landroid/os/Parcel;
     move-object/from16 v0, p0
 
@@ -4020,17 +4003,14 @@
     move-object/from16 v20, v0
 
     monitor-enter v20
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 484
-    :try_start_1
+    .line 482
+    :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v14
 
-    .line 485
+    .line 483
     .local v14, "now":J
     move-object/from16 v0, p0
 
@@ -4048,7 +4028,7 @@
 
     iput-wide v0, v2, Lcom/android/internal/app/ProcessStats;->mTimePeriodEndRealtime:J
 
-    .line 486
+    .line 484
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
@@ -4059,7 +4039,7 @@
 
     iput-wide v14, v0, Lcom/android/internal/app/ProcessStats;->mTimePeriodEndUptime:J
 
-    .line 487
+    .line 485
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
@@ -4074,7 +4054,7 @@
 
     invoke-virtual {v0, v6, v14, v15, v1}, Lcom/android/internal/app/ProcessStats;->writeToParcel(Landroid/os/Parcel;JI)V
 
-    .line 488
+    .line 486
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/ProcessStats;
@@ -4101,11 +4081,20 @@
 
     sub-long v4, v22, v24
 
-    .line 490
+    .line 488
     .local v4, "curTime":J
     monitor-exit v20
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 489
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 491
     cmp-long v19, v4, p1
@@ -4119,7 +4108,7 @@
 
     const/16 v21, 0x1
 
-    :try_start_2
+    :try_start_1
     move-object/from16 v0, p0
 
     move/from16 v1, v19
@@ -4306,20 +4295,17 @@
     move-result-object v20
 
     invoke-static/range {v19 .. v20}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto/16 :goto_0
 
     .line 540
-    .end local v4    # "curTime":J
-    .end local v6    # "current":Landroid/os/Parcel;
     .end local v9    # "file":Landroid/util/AtomicFile;
     .end local v10    # "files":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .end local v11    # "i":I
     .end local v12    # "moreStats":Lcom/android/internal/app/ProcessStats;
-    .end local v14    # "now":J
     .end local v16    # "sb":Ljava/lang/StringBuilder;
     .end local v17    # "stats":Lcom/android/internal/app/ProcessStats;
     :catch_0
@@ -4327,7 +4313,7 @@
 
     .line 541
     .local v7, "e":Ljava/io/IOException;
-    :try_start_3
+    :try_start_2
     const-string v19, "ProcessStatsService"
 
     const-string v20, "Failed building output pipe"
@@ -4337,8 +4323,8 @@
     move-object/from16 v1, v20
 
     invoke-static {v0, v1, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 543
     move-object/from16 v0, p0
@@ -4356,40 +4342,21 @@
     :goto_1
     return-object v19
 
-    .line 490
-    .restart local v6    # "current":Landroid/os/Parcel;
+    .line 488
+    .end local v4    # "curTime":J
+    .end local v14    # "now":J
     :catchall_0
     move-exception v19
 
-    :try_start_4
+    :try_start_3
     monitor-exit v20
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :try_start_5
-    throw v19
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    .line 543
-    .end local v6    # "current":Landroid/os/Parcel;
-    :catchall_1
-    move-exception v19
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v19
 
     .line 515
     .restart local v4    # "curTime":J
-    .restart local v6    # "current":Landroid/os/Parcel;
     .restart local v9    # "file":Landroid/util/AtomicFile;
     .restart local v10    # "files":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .restart local v11    # "i":I
@@ -4397,7 +4364,7 @@
     .restart local v14    # "now":J
     .restart local v17    # "stats":Lcom/android/internal/app/ProcessStats;
     :cond_0
-    :try_start_6
+    :try_start_4
     const-string v20, "ProcessStatsService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -4463,13 +4430,37 @@
     move-object/from16 v1, v19
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     goto/16 :goto_0
 
-    .line 520
+    .line 543
     .end local v9    # "file":Landroid/util/AtomicFile;
+    .end local v10    # "files":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v11    # "i":I
     .end local v12    # "moreStats":Lcom/android/internal/app/ProcessStats;
+    .end local v17    # "stats":Lcom/android/internal/app/ProcessStats;
+    :catchall_1
+    move-exception v19
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mWriteLock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    throw v19
+
+    .line 520
+    .restart local v10    # "files":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v11    # "i":I
+    .restart local v17    # "stats":Lcom/android/internal/app/ProcessStats;
     :cond_1
+    :try_start_5
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v6
@@ -4523,9 +4514,9 @@
     const/16 v19, 0x0
 
     aget-object v19, v8, v19
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     .line 543
     move-object/from16 v0, p0

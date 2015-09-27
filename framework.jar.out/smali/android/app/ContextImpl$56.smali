@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 710
+    .line 715
     invoke-direct {p0}, Landroid/app/ContextImpl$ServiceFetcher;-><init>()V
 
     return-void
@@ -32,20 +32,20 @@
     .param p1, "ctx"    # Landroid/app/ContextImpl;
 
     .prologue
-    .line 712
+    .line 717
     const-string v2, "fingerprint"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 713
+    .line 718
     .local v0, "binder":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/service/fingerprint/IFingerprintService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/fingerprint/IFingerprintService;
 
     move-result-object v1
 
-    .line 714
+    .line 719
     .local v1, "service":Landroid/service/fingerprint/IFingerprintService;
     new-instance v2, Landroid/service/fingerprint/FingerprintManager;
 

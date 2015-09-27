@@ -32,6 +32,7 @@
         Landroid/provider/ContactsContract$CommonDataKinds$Phone;,
         Landroid/provider/ContactsContract$CommonDataKinds$Nickname;,
         Landroid/provider/ContactsContract$CommonDataKinds$StructuredName;,
+        Landroid/provider/ContactsContract$CommonDataKinds$LocalGroup;,
         Landroid/provider/ContactsContract$CommonDataKinds$CommonColumns;,
         Landroid/provider/ContactsContract$CommonDataKinds$BaseTypes;
     }
@@ -47,7 +48,7 @@
     .locals 0
 
     .prologue
-    .line 5419
+    .line 5427
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

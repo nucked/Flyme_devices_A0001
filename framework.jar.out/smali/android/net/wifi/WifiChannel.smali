@@ -32,6 +32,8 @@
 
 .field public freqMHz:I
 
+.field public ibssAllowed:Z
+
 .field public isDFS:Z
 
 
@@ -40,7 +42,7 @@
     .locals 1
 
     .prologue
-    .line 71
+    .line 75
     new-instance v0, Landroid/net/wifi/WifiChannel$1;
 
     invoke-direct {v0}, Landroid/net/wifi/WifiChannel$1;-><init>()V
@@ -54,7 +56,7 @@
     .locals 0
 
     .prologue
-    .line 47
+    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -66,7 +68,7 @@
     .locals 1
 
     .prologue
-    .line 59
+    .line 62
     const/4 v0, 0x0
 
     return v0
@@ -80,7 +82,7 @@
 
     const/4 v1, 0x0
 
-    .line 51
+    .line 54
     iget v2, p0, Landroid/net/wifi/WifiChannel;->freqMHz:I
 
     const/16 v3, 0x96c
@@ -96,12 +98,12 @@
     :cond_0
     move v0, v1
 
-    .line 53
+    .line 56
     :cond_1
     :goto_0
     return v0
 
-    .line 52
+    .line 55
     :cond_2
     iget v2, p0, Landroid/net/wifi/WifiChannel;->channelNum:I
 
@@ -120,37 +122,55 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 3
     .param p1, "out"    # Landroid/os/Parcel;
     .param p2, "flags"    # I
 
     .prologue
-    .line 65
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 68
     iget v0, p0, Landroid/net/wifi/WifiChannel;->freqMHz:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 66
+    .line 69
     iget v0, p0, Landroid/net/wifi/WifiChannel;->channelNum:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 67
+    .line 70
     iget-boolean v0, p0, Landroid/net/wifi/WifiChannel;->isDFS:Z
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 68
+    .line 71
+    iget-boolean v0, p0, Landroid/net/wifi/WifiChannel;->ibssAllowed:Z
+
+    if-eqz v0, :cond_1
+
+    :goto_1
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 72
     return-void
 
-    .line 67
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
+    .line 70
     goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    .line 71
+    goto :goto_1
 .end method

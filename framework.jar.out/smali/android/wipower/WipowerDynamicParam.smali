@@ -463,7 +463,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "mOptValidity "
+    const-string/jumbo v2, "mOptValidity "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -511,7 +511,7 @@
 
     move-result-object v1
 
-    const-string v2, "mOutputVoltage "
+    const-string/jumbo v2, "mOutputVoltage "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -545,7 +545,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "mOutputCurrent "
+    const-string/jumbo v2, "mOutputCurrent "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -577,7 +577,7 @@
 
     move-result-object v1
 
-    const-string v2, "mMinRectVoltageDyn "
+    const-string/jumbo v2, "mMinRectVoltageDyn "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -593,7 +593,7 @@
 
     move-result-object v1
 
-    const-string v2, "mMaxRectVoltageDyn "
+    const-string/jumbo v2, "mMaxRectVoltageDyn "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -50,6 +50,7 @@
     .line 1907
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityGoing;->this$0:Landroid/app/Instrumentation;
 
+    # getter for: Landroid/app/Instrumentation;->mSync:Ljava/lang/Object;
     invoke-static {v0}, Landroid/app/Instrumentation;->access$200(Landroid/app/Instrumentation;)Ljava/lang/Object;
 
     move-result-object v1
@@ -60,6 +61,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityGoing;->this$0:Landroid/app/Instrumentation;
 
+    # getter for: Landroid/app/Instrumentation;->mWaitingActivities:Ljava/util/List;
     invoke-static {v0}, Landroid/app/Instrumentation;->access$300(Landroid/app/Instrumentation;)Ljava/util/List;
 
     move-result-object v0
@@ -71,6 +73,7 @@
     .line 1909
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityGoing;->this$0:Landroid/app/Instrumentation;
 
+    # getter for: Landroid/app/Instrumentation;->mSync:Ljava/lang/Object;
     invoke-static {v0}, Landroid/app/Instrumentation;->access$200(Landroid/app/Instrumentation;)Ljava/lang/Object;
 
     move-result-object v0

@@ -174,7 +174,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
-    const v4, 0x10406c0
+    const v4, 0x1040755
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -188,7 +188,7 @@
     .restart local v0    # "enableInput":Z
     iget-object v3, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
-    const v4, 0x10406b9
+    const v4, 0x104074e
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -227,7 +227,7 @@
 
     .line 62
     .local v0, "ap":Lcom/android/internal/app/AlertController$AlertParams;
-    const v2, 0x10406b7
+    const v2, 0x104074c
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/RestrictionsPinActivity;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     .line 65
     .local v1, "inflater":Landroid/view/LayoutInflater;
-    const v2, 0x10900b8
+    const v2, 0x10900b2
 
     const/4 v3, 0x0
 
@@ -259,7 +259,7 @@
     .line 67
     iget-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v3, 0x1020380
+    const v3, 0x1020373
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -272,7 +272,7 @@
     .line 68
     iget-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v3, 0x102037f
+    const v3, 0x1020372
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -285,7 +285,7 @@
     .line 69
     iget-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v3, 0x1020382
+    const v3, 0x1020375
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -298,7 +298,7 @@
     .line 70
     iget-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v3, 0x1020381
+    const v3, 0x1020374
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -565,7 +565,7 @@
     .line 136
     iget-object v1, p0, Lcom/android/internal/app/RestrictionsPinActivity;->mPinErrorMessage:Landroid/widget/TextView;
 
-    const v2, 0x10406b9
+    const v2, 0x104074e
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

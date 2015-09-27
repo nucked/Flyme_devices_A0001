@@ -24,13 +24,13 @@
     .param p2, "l"    # Landroid/os/Looper;
 
     .prologue
-    .line 310
+    .line 260
     iput-object p1, p0, Lcom/android/server/NetworkTimeUpdateService$MyHandler;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
-    .line 311
+    .line 261
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 312
+    .line 262
     return-void
 .end method
 
@@ -41,16 +41,16 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 316
+    .line 266
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 323
+    .line 273
     :goto_0
     return-void
 
-    .line 320
+    .line 270
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$MyHandler;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
@@ -61,7 +61,7 @@
 
     goto :goto_0
 
-    .line 316
+    .line 266
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

@@ -168,9 +168,6 @@
 .method public abstract getAvailableNetworks(Landroid/os/Message;)V
 .end method
 
-.method public abstract getBandMode(Landroid/os/Message;)V
-.end method
-
 .method public abstract getBasebandVersion(Landroid/os/Message;)V
 .end method
 
@@ -240,6 +237,9 @@
 .end method
 
 .method public abstract getLteOnCdmaMode()I
+.end method
+
+.method public abstract getLteOnGsmMode()I
 .end method
 
 .method public abstract getModemCapability(Landroid/os/Message;)V
@@ -322,6 +322,9 @@
 .method public abstract invokeOemRilRequestStrings([Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
+.method public abstract needsOldRilFeature(Ljava/lang/String;)Z
+.end method
+
 .method public abstract nvReadItem(ILandroid/os/Message;)V
 .end method
 
@@ -332,24 +335,6 @@
 .end method
 
 .method public abstract nvWriteItem(ILjava/lang/String;Landroid/os/Message;)V
-.end method
-
-.method public abstract oemGetEMMode()Z
-.end method
-
-.method public abstract oemGetMdmBaseBand(Landroid/os/Message;)V
-.end method
-
-.method public abstract oemGetRffeDevInfo(ILandroid/os/Message;)V
-.end method
-
-.method public abstract oemRegisterForEmCallStatusChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-.end method
-
-.method public abstract oemSetEMMode(Z)V
-.end method
-
-.method public abstract oemUnregisterForEmCallStatusChanged(Landroid/os/Handler;)V
 .end method
 
 .method public abstract queryAvailableBandMode(Landroid/os/Message;)V
@@ -484,13 +469,7 @@
 .method public abstract registerForWwanIwlanCoexistence(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
-.method public abstract registerNVbackupresp(Landroid/os/Handler;ILjava/lang/Object;)V
-.end method
-
 .method public abstract rejectCall(Landroid/os/Message;)V
-.end method
-
-.method public abstract reportBootupNVRestoreState(Landroid/os/Message;)V
 .end method
 
 .method public abstract reportSmsMemoryStatus(ZLandroid/os/Message;)V
@@ -592,12 +571,6 @@
 .method public abstract setFacilityLockForApp(Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;Landroid/os/Message;)V
 .end method
 
-.method public abstract setFactoryModeModemGPIO(IILandroid/os/Message;)V
-.end method
-
-.method public abstract setFactoryModeNvProcess(ILandroid/os/Message;)V
-.end method
-
 .method public abstract setGsmBroadcastActivation(ZLandroid/os/Message;)V
 .end method
 
@@ -611,9 +584,6 @@
 .end method
 
 .method public abstract setLocationUpdates(ZLandroid/os/Message;)V
-.end method
-
-.method public abstract setModemCrash(Landroid/os/Message;)V
 .end method
 
 .method public abstract setMute(ZLandroid/os/Message;)V
@@ -638,6 +608,9 @@
 .end method
 
 .method public abstract setOnCatProactiveCmd(Landroid/os/Handler;ILjava/lang/Object;)V
+.end method
+
+.method public abstract setOnCatSendSmsResult(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
 .method public abstract setOnCatSessionEnd(Landroid/os/Handler;ILjava/lang/Object;)V
@@ -764,6 +737,9 @@
 .end method
 
 .method public abstract unSetOnCatProactiveCmd(Landroid/os/Handler;)V
+.end method
+
+.method public abstract unSetOnCatSendSmsResult(Landroid/os/Handler;)V
 .end method
 
 .method public abstract unSetOnCatSessionEnd(Landroid/os/Handler;)V
@@ -914,9 +890,6 @@
 .end method
 
 .method public abstract unregisterForWwanIwlanCoexistence(Landroid/os/Handler;)V
-.end method
-
-.method public abstract unregisterNVbackupresp(Landroid/os/Handler;)V
 .end method
 
 .method public abstract unsetOnIccRefresh(Landroid/os/Handler;)V

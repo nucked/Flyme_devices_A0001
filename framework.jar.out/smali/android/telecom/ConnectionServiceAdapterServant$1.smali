@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 70
+    .line 71
     iput-object p1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method private internalHandleMessage(Landroid/os/Message;)V
-    .locals 7
+    .locals 6
     .param p1, "msg"    # Landroid/os/Message;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -41,876 +41,848 @@
     .end annotation
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    .line 81
-    iget v0, p1, Landroid/os/Message;->what:I
+    .line 82
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
-    .line 264
+    .line 257
     :goto_0
+    :pswitch_0
     return-void
 
-    .line 83
-    :pswitch_0
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .line 84
+    :pswitch_1
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    .line 85
-    .local v6, "args":Lcom/android/internal/os/SomeArgs;
+    .line 86
+    .local v0, "args":Lcom/android/internal/os/SomeArgs;
     :try_start_0
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v1, Landroid/telecom/ConnectionRequest;
+    check-cast v2, Landroid/telecom/ConnectionRequest;
 
-    iget-object v2, v6, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    check-cast v2, Landroid/telecom/ParcelableConnection;
+    check-cast v3, Landroid/telecom/ParcelableConnection;
 
-    invoke-interface {v3, v0, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->handleCreateConnectionComplete(Ljava/lang/String;Landroid/telecom/ConnectionRequest;Landroid/telecom/ParcelableConnection;)V
+    invoke-interface {v4, v1, v2, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->handleCreateConnectionComplete(Ljava/lang/String;Landroid/telecom/ConnectionRequest;Landroid/telecom/ParcelableConnection;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 90
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 91
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 95
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_1
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-interface {v1, v0}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setActive(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 98
+    .line 96
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_2
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 100
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_1
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
     move-result-object v2
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setActive(Ljava/lang/String;)V
 
-    check-cast v1, Landroid/os/Bundle;
+    goto :goto_0
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setExtras(Ljava/lang/String;Landroid/os/Bundle;)V
+    .line 99
+    :pswitch_3
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 101
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_1
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Landroid/os/Bundle;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setExtras(Ljava/lang/String;Landroid/os/Bundle;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 103
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 104
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto :goto_0
 
     :catchall_1
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 108
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_3
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-interface {v1, v0}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setRinging(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 111
+    .line 109
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_4
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-interface {v1, v0}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setDialing(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 114
-    :pswitch_5
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 116
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_2
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
     move-result-object v2
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setRinging(Ljava/lang/String;)V
 
-    check-cast v1, Landroid/telecom/DisconnectCause;
+    goto :goto_0
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setDisconnected(Ljava/lang/String;Landroid/telecom/DisconnectCause;)V
+    .line 112
+    :pswitch_5
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v2
+
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-interface {v2, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setDialing(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 115
+    :pswitch_6
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 117
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_2
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Landroid/telecom/DisconnectCause;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setDisconnected(Ljava/lang/String;Landroid/telecom/DisconnectCause;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    .line 118
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 119
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_2
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 123
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_6
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 125
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_3
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    .line 124
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_7
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/String;
 
-    iget v2, v6, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iget-object v3, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v3, Ljava/lang/String;
-
-    iget v4, v6, Lcom/android/internal/os/SomeArgs;->argi2:I
-
-    iget v5, v6, Lcom/android/internal/os/SomeArgs;->argi3:I
-
-    invoke-interface/range {v0 .. v5}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setDisconnectedWithSsNotification(Ljava/lang/String;ILjava/lang/String;II)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
-
-    .line 129
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-interface {v2, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setOnHold(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :catchall_3
-    move-exception v0
-
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    throw v0
-
-    .line 134
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_7
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-interface {v1, v0}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setOnHold(Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    .line 137
+    .line 127
     :pswitch_8
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget v4, p1, Landroid/os/Message;->arg1:I
+    iget v5, p1, Landroid/os/Message;->arg1:I
 
-    if-ne v4, v1, :cond_0
+    if-ne v5, v2, :cond_0
 
     :goto_1
-    invoke-interface {v3, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setRingbackRequested(Ljava/lang/String;Z)V
+    invoke-interface {v4, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setRingbackRequested(Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 
     :cond_0
-    move v1, v2
+    move v2, v3
 
     goto :goto_1
 
-    .line 140
+    .line 130
     :pswitch_9
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget v2, p1, Landroid/os/Message;->arg1:I
-
-    invoke-interface {v1, v0, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setConnectionCapabilities(Ljava/lang/String;I)V
-
-    goto/16 :goto_0
-
-    .line 143
-    :pswitch_a
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 145
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_4
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
     move-result-object v2
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setIsConferenced(Ljava/lang/String;Ljava/lang/String;)V
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    invoke-interface {v2, v1, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setConnectionCapabilities(Ljava/lang/String;I)V
+
+    goto/16 :goto_0
+
+    .line 133
+    :pswitch_a
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v2
+
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    invoke-interface {v2, v1, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setCallProperties(Ljava/lang/String;I)V
+
+    goto/16 :goto_0
+
+    .line 136
+    :pswitch_b
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 138
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_3
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setIsConferenced(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+
+    .line 140
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    goto/16 :goto_0
+
+    :catchall_3
+    move-exception v1
+
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    throw v1
+
+    .line 145
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_c
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 147
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_4
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Landroid/telecom/ParcelableConference;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->addConferenceCall(Ljava/lang/String;Landroid/telecom/ParcelableConference;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_4
 
-    .line 147
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 150
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_4
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 152
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_b
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 154
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_5
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    .line 155
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_d
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
     move-result-object v2
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->removeCall(Ljava/lang/String;)V
 
-    check-cast v1, Landroid/telecom/ParcelableConference;
+    goto/16 :goto_0
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->addConferenceCall(Ljava/lang/String;Landroid/telecom/ParcelableConference;)V
+    .line 158
+    :pswitch_e
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 160
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_5
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->onPostDialWait(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_5
 
-    .line 157
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 162
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_5
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
-
-    .line 162
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_c
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-interface {v1, v0}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->removeCall(Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    .line 165
-    :pswitch_d
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
+    throw v1
 
     .line 167
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_f
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 169
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_6
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
     move-result-object v2
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->onPostDialWait(Ljava/lang/String;Ljava/lang/String;)V
+    iget v3, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    int-to-char v3, v3
+
+    invoke-interface {v2, v1, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->onPostDialChar(Ljava/lang/String;C)V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_6
 
-    .line 169
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 171
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_6
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
-
-    .line 174
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_e
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
+    throw v1
 
     .line 176
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_7
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_10
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Lcom/android/internal/telecom/RemoteServiceCallback;
 
-    iget v2, v6, Lcom/android/internal/os/SomeArgs;->argi1:I
+    invoke-interface {v2, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->queryRemoteConnectionServices(Lcom/android/internal/telecom/RemoteServiceCallback;)V
 
-    int-to-char v2, v2
+    goto/16 :goto_0
 
-    invoke-interface {v1, v0, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->onPostDialChar(Ljava/lang/String;C)V
+    .line 179
+    :pswitch_11
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v2
+
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    invoke-interface {v2, v1, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setVideoState(Ljava/lang/String;I)V
+
+    goto/16 :goto_0
+
+    .line 182
+    :pswitch_12
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 184
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_7
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Lcom/android/internal/telecom/IVideoProvider;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setVideoProvider(Ljava/lang/String;Lcom/android/internal/telecom/IVideoProvider;)V
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_7
 
-    .line 178
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 187
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_7
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 183
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_f
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/internal/telecom/RemoteServiceCallback;
-
-    invoke-interface {v1, v0}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->queryRemoteConnectionServices(Lcom/android/internal/telecom/RemoteServiceCallback;)V
-
-    goto/16 :goto_0
-
-    .line 186
-    :pswitch_10
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    .line 192
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_13
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v1
+    move-result-object v4
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget v2, p1, Landroid/os/Message;->arg1:I
+    iget v5, p1, Landroid/os/Message;->arg1:I
 
-    invoke-interface {v1, v0, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setVideoState(Ljava/lang/String;I)V
-
-    goto/16 :goto_0
-
-    .line 189
-    :pswitch_11
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 191
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_8
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v2
-
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v1, Lcom/android/internal/telecom/IVideoProvider;
-
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setVideoProvider(Ljava/lang/String;Lcom/android/internal/telecom/IVideoProvider;)V
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_8
-
-    .line 194
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    goto/16 :goto_0
-
-    :catchall_8
-    move-exception v0
-
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    throw v0
-
-    .line 199
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_12
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v3
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    if-ne v4, v1, :cond_1
+    if-ne v5, v2, :cond_1
 
     :goto_2
-    invoke-interface {v3, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setIsVoipAudioMode(Ljava/lang/String;Z)V
+    invoke-interface {v4, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setIsVoipAudioMode(Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 
     :cond_1
-    move v1, v2
+    move v2, v3
 
     goto :goto_2
 
-    .line 202
-    :pswitch_13
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .line 195
+    :pswitch_14
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    .line 204
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_9
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    .line 197
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_8
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v1, Landroid/telecom/StatusHints;
+    check-cast v2, Landroid/telecom/StatusHints;
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setStatusHints(Ljava/lang/String;Landroid/telecom/StatusHints;)V
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setStatusHints(Ljava/lang/String;Landroid/telecom/StatusHints;)V
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_8
+
+    .line 199
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    goto/16 :goto_0
+
+    :catchall_8
+    move-exception v1
+
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    throw v1
+
+    .line 204
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_15
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 206
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_9
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Landroid/net/Uri;
+
+    iget v4, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    invoke-interface {v3, v1, v2, v4}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setAddress(Ljava/lang/String;Landroid/net/Uri;I)V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_9
 
-    .line 206
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 208
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_9
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
-
-    .line 211
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_14
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
+    throw v1
 
     .line 213
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_16
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 215
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_a
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v1, Landroid/net/Uri;
+    check-cast v2, Ljava/lang/String;
 
-    iget v3, v6, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iget v4, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    invoke-interface {v2, v0, v1, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setAddress(Ljava/lang/String;Landroid/net/Uri;I)V
+    invoke-interface {v3, v1, v2, v4}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setCallerDisplayName(Ljava/lang/String;Ljava/lang/String;I)V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_a
 
-    .line 215
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 218
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_a
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 220
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_15
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .line 223
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_17
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    .line 222
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
+    .line 225
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_b
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/String;
 
-    iget v3, v6, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    invoke-interface {v2, v0, v1, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setCallerDisplayName(Ljava/lang/String;Ljava/lang/String;I)V
+    check-cast v2, Ljava/util/List;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setConferenceableConnections(Ljava/lang/String;Ljava/util/List;)V
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_b
 
-    .line 225
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 228
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_b
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 230
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_16
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .line 233
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_18
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    .line 232
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
+    .line 235
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_c
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v1, Ljava/util/List;
+    check-cast v2, Landroid/telecom/PhoneAccountHandle;
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setConferenceableConnections(Ljava/lang/String;Ljava/util/List;)V
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setPhoneAccountHandle(Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;)V
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_c
 
-    .line 235
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 238
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_c
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 240
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_17
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 242
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_d
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+    .line 243
+    .end local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :pswitch_19
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
 
     # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
     move-result-object v2
 
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget v3, p1, Landroid/os/Message;->arg1:I
 
-    check-cast v1, Landroid/telecom/PhoneAccountHandle;
+    invoke-interface {v2, v1, v3}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setCallSubstate(Ljava/lang/String;I)V
 
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setPhoneAccountHandle(Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;)V
+    goto/16 :goto_0
+
+    .line 247
+    :pswitch_1a
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    .line 249
+    .restart local v0    # "args":Lcom/android/internal/os/SomeArgs;
+    :try_start_d
+    iget-object v1, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
+
+    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
+    invoke-static {v1}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
+
+    move-result-object v3
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v2, Landroid/telecom/ParcelableConnection;
+
+    invoke-interface {v3, v1, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->addExistingConnection(Ljava/lang/String;Landroid/telecom/ParcelableConnection;)V
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_d
 
-    .line 245
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    .line 252
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
     :catchall_d
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    throw v0
+    throw v1
 
-    .line 250
-    .end local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :pswitch_18
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget v2, p1, Landroid/os/Message;->arg1:I
-
-    invoke-interface {v1, v0, v2}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->setCallSubstate(Ljava/lang/String;I)V
-
-    goto/16 :goto_0
-
-    .line 254
-    :pswitch_19
-    iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Lcom/android/internal/os/SomeArgs;
-
-    .line 256
-    .restart local v6    # "args":Lcom/android/internal/os/SomeArgs;
-    :try_start_e
-    iget-object v0, p0, Landroid/telecom/ConnectionServiceAdapterServant$1;->this$0:Landroid/telecom/ConnectionServiceAdapterServant;
-
-    # getter for: Landroid/telecom/ConnectionServiceAdapterServant;->mDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
-    invoke-static {v0}, Landroid/telecom/ConnectionServiceAdapterServant;->access$000(Landroid/telecom/ConnectionServiceAdapterServant;)Lcom/android/internal/telecom/IConnectionServiceAdapter;
-
-    move-result-object v2
-
-    iget-object v0, v6, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, v6, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v1, Landroid/telecom/ParcelableConnection;
-
-    invoke-interface {v2, v0, v1}, Lcom/android/internal/telecom/IConnectionServiceAdapter;->addExistingConnection(Ljava/lang/String;Landroid/telecom/ParcelableConnection;)V
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_e
-
-    .line 259
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    goto/16 :goto_0
-
-    :catchall_e
-    move-exception v0
-
-    invoke-virtual {v6}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    throw v0
-
-    .line 81
+    .line 82
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_0
         :pswitch_1
-        :pswitch_3
+        :pswitch_2
         :pswitch_4
         :pswitch_5
+        :pswitch_6
         :pswitch_7
         :pswitch_8
         :pswitch_9
-        :pswitch_a
         :pswitch_b
         :pswitch_c
         :pswitch_d
-        :pswitch_f
+        :pswitch_e
         :pswitch_10
         :pswitch_11
         :pswitch_12
@@ -918,12 +890,14 @@
         :pswitch_14
         :pswitch_15
         :pswitch_16
-        :pswitch_19
-        :pswitch_e
-        :pswitch_6
         :pswitch_17
+        :pswitch_1a
+        :pswitch_f
+        :pswitch_0
         :pswitch_18
-        :pswitch_2
+        :pswitch_19
+        :pswitch_3
+        :pswitch_a
     .end packed-switch
 .end method
 
@@ -934,17 +908,17 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 74
+    .line 75
     :try_start_0
     invoke-direct {p0, p1}, Landroid/telecom/ConnectionServiceAdapterServant$1;->internalHandleMessage(Landroid/os/Message;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 77
+    .line 78
     :goto_0
     return-void
 
-    .line 75
+    .line 76
     :catch_0
     move-exception v0
 

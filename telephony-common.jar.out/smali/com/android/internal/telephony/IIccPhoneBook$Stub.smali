@@ -34,9 +34,9 @@
 
 .field static final TRANSACTION_getAdnRecordsInEfForSubscriber:I = 0x2
 
-.field static final TRANSACTION_getAdnRecordsSize:I = 0x9
+.field static final TRANSACTION_getAdnRecordsSizeForSubscriber_9:I = 0xa
 
-.field static final TRANSACTION_getAdnRecordsSizeForSubscriber:I = 0xa
+.field static final TRANSACTION_getAdnRecordsSize_8:I = 0x9
 
 .field static final TRANSACTION_getAnrCount:I = 0xd
 
@@ -54,17 +54,17 @@
 
 .field static final TRANSACTION_getSpareEmailCountUsingSubId:I = 0x14
 
-.field static final TRANSACTION_updateAdnRecordsInEfByIndex:I = 0x7
+.field static final TRANSACTION_updateAdnRecordsInEfByIndexForSubscriber_7:I = 0x8
 
-.field static final TRANSACTION_updateAdnRecordsInEfByIndexForSubscriber:I = 0x8
+.field static final TRANSACTION_updateAdnRecordsInEfByIndex_6:I = 0x7
 
-.field static final TRANSACTION_updateAdnRecordsInEfBySearch:I = 0x3
+.field static final TRANSACTION_updateAdnRecordsInEfBySearchForSubscriber_3:I = 0x4
 
-.field static final TRANSACTION_updateAdnRecordsInEfBySearchForSubscriber:I = 0x4
-
-.field static final TRANSACTION_updateAdnRecordsWithContentValuesInEfBySearch:I = 0x5
+.field static final TRANSACTION_updateAdnRecordsInEfBySearch_2:I = 0x3
 
 .field static final TRANSACTION_updateAdnRecordsWithContentValuesInEfBySearchUsingSubId:I = 0x6
+
+.field static final TRANSACTION_updateAdnRecordsWithContentValuesInEfBySearch_4:I = 0x5
 
 
 # direct methods

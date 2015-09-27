@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final MAX_SUPPLICANT_LOOP_ITERATIONS:I = 0xa
+.field private static final MAX_SUPPLICANT_LOOP_ITERATIONS:I = 0x4
 
 
 # instance fields
@@ -190,7 +190,7 @@
     :cond_2
     iget v2, p0, Lcom/android/server/wifi/SupplicantStateTracker$HandshakeState;->mLoopDetectCount:I
 
-    const/16 v3, 0xa
+    const/4 v3, 0x4
 
     if-le v2, v3, :cond_3
 
@@ -256,6 +256,8 @@
     goto :goto_0
 
     .line 330
+    nop
+
     :pswitch_data_0
     .packed-switch 0x24006
         :pswitch_0

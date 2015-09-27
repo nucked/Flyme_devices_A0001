@@ -1,11 +1,11 @@
 .class Lcom/android/server/pm/PackageManagerService$12;
-.super Landroid/content/IIntentReceiver$Stub;
+.super Landroid/content/pm/IPackageInstallObserver2$Stub;
 .source "PackageManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->unloadMediaPackages(Landroid/util/ArrayMap;[IZ)V
+    value = Lcom/android/server/pm/PackageManagerService;->movePackage(Ljava/lang/String;Landroid/content/pm/IPackageMoveObserver;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,39 +17,36 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
-.field final synthetic val$keys:Ljava/util/Set;
+.field final synthetic val$observer:Landroid/content/pm/IPackageMoveObserver;
 
-.field final synthetic val$reportStatus:Z
+.field final synthetic val$packageName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZLjava/util/Set;)V
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Landroid/content/pm/IPackageMoveObserver;)V
     .locals 0
 
     .prologue
-    .line 13353
+    .line 14122
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$12;->val$reportStatus:Z
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$12;->val$packageName:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$12;->val$keys:Ljava/util/Set;
+    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$12;->val$observer:Landroid/content/pm/IPackageMoveObserver;
 
-    invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/content/pm/IPackageInstallObserver2$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
-    .locals 6
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Ljava/lang/String;
+.method public onPackageInstalled(Ljava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
+    .locals 5
+    .param p1, "basePackageName"    # Ljava/lang/String;
+    .param p2, "returnCode"    # I
+    .param p3, "msg"    # Ljava/lang/String;
     .param p4, "extras"    # Landroid/os/Bundle;
-    .param p5, "ordered"    # Z
-    .param p6, "sticky"    # Z
-    .param p7, "sendingUser"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -57,43 +54,152 @@
     .end annotation
 
     .prologue
-    const/4 v2, 0x1
+    .line 14131
+    const-string v2, "PackageManager"
 
-    .line 13357
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    iget-object v3, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v4, 0xc
+    const-string v4, "Install result for move: "
 
-    iget-boolean v1, p0, Lcom/android/server/pm/PackageManagerService$12;->val$reportStatus:Z
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_0
+    move-result-object v3
 
-    move v1, v2
+    invoke-static {p2, p3}, Landroid/content/pm/PackageManager;->installStatusToString(ILjava/lang/String;)Ljava/lang/String;
 
-    :goto_0
-    iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$12;->val$keys:Ljava/util/Set;
+    move-result-object v4
 
-    invoke-virtual {v3, v4, v1, v2, v5}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 14137
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v3, v2, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+
+    monitor-enter v3
+
+    .line 14138
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v2, v2, Lcom/android/server/pm/PackageManagerService;->mPackages:Landroid/util/ArrayMap;
+
+    iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$12;->val$packageName:Ljava/lang/String;
+
+    invoke-virtual {v2, v4}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 13359
-    .local v0, "msg":Landroid/os/Message;
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$12;->this$0:Lcom/android/server/pm/PackageManagerService;
+    check-cast v0, Landroid/content/pm/PackageParser$Package;
 
-    iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+    .line 14139
+    .local v0, "pkg":Landroid/content/pm/PackageParser$Package;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1, v0}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessage(Landroid/os/Message;)Z
+    .line 14140
+    const/4 v2, 0x0
 
-    .line 13360
+    iput-boolean v2, v0, Landroid/content/pm/PackageParser$Package;->mOperationPending:Z
+
+    .line 14142
+    :cond_0
+    monitor-exit v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 14144
+    invoke-static {p2}, Landroid/content/pm/PackageManager;->installStatusToPublicStatus(I)I
+
+    move-result v1
+
+    .line 14145
+    .local v1, "status":I
+    sparse-switch v1, :sswitch_data_0
+
+    .line 14153
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$12;->val$observer:Landroid/content/pm/IPackageMoveObserver;
+
+    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$12;->val$packageName:Ljava/lang/String;
+
+    const/4 v4, -0x6
+
+    invoke-interface {v2, v3, v4}, Landroid/content/pm/IPackageMoveObserver;->packageMoved(Ljava/lang/String;I)V
+
+    .line 14156
+    :goto_0
     return-void
 
-    .line 13357
-    .end local v0    # "msg":Landroid/os/Message;
-    :cond_0
-    const/4 v1, 0x0
+    .line 14142
+    .end local v0    # "pkg":Landroid/content/pm/PackageParser$Package;
+    .end local v1    # "status":I
+    :catchall_0
+    move-exception v2
+
+    :try_start_1
+    monitor-exit v3
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v2
+
+    .line 14147
+    .restart local v0    # "pkg":Landroid/content/pm/PackageParser$Package;
+    .restart local v1    # "status":I
+    :sswitch_0
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$12;->val$observer:Landroid/content/pm/IPackageMoveObserver;
+
+    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$12;->val$packageName:Ljava/lang/String;
+
+    const/4 v4, 0x1
+
+    invoke-interface {v2, v3, v4}, Landroid/content/pm/IPackageMoveObserver;->packageMoved(Ljava/lang/String;I)V
 
     goto :goto_0
+
+    .line 14150
+    :sswitch_1
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$12;->val$observer:Landroid/content/pm/IPackageMoveObserver;
+
+    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$12;->val$packageName:Ljava/lang/String;
+
+    const/4 v4, -0x1
+
+    invoke-interface {v2, v3, v4}, Landroid/content/pm/IPackageMoveObserver;->packageMoved(Ljava/lang/String;I)V
+
+    goto :goto_0
+
+    .line 14145
+    :sswitch_data_0
+    .sparse-switch
+        0x0 -> :sswitch_0
+        0x6 -> :sswitch_1
+    .end sparse-switch
+.end method
+
+.method public onUserActionRequired(Landroid/content/Intent;)V
+    .locals 1
+    .param p1, "intent"    # Landroid/content/Intent;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 14125
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+
+    throw v0
 .end method

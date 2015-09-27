@@ -30,13 +30,15 @@
 
 .field static final TRANSACTION_registrationDisconnected:I = 0x3
 
-.field static final TRANSACTION_registrationFeatureCapabilityChanged:I = 0x7
+.field static final TRANSACTION_registrationDisconnected_8:I = 0x9
+
+.field static final TRANSACTION_registrationFeatureCapabilityChanged_6:I = 0x7
 
 .field static final TRANSACTION_registrationProgressing:I = 0x2
 
 .field static final TRANSACTION_registrationResumed:I = 0x4
 
-.field static final TRANSACTION_registrationServiceCapabilityChanged:I = 0x6
+.field static final TRANSACTION_registrationServiceCapabilityChanged_5:I = 0x6
 
 .field static final TRANSACTION_registrationSuspended:I = 0x5
 
@@ -134,7 +136,7 @@
     .line 44
     sparse-switch p1, :sswitch_data_0
 
-    .line 141
+    .line 148
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v5
@@ -372,9 +374,22 @@
 
     goto/16 :goto_0
 
-    .line 44
-    nop
+    .line 142
+    .end local v0    # "_arg0":I
+    :sswitch_9
+    const-string v6, "com.android.ims.internal.IImsRegistrationListener"
 
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 143
+    invoke-virtual {p0}, Lcom/android/ims/internal/IImsRegistrationListener$Stub;->registrationDisconnected()V
+
+    .line 144
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .line 44
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -385,6 +400,7 @@
         0x6 -> :sswitch_6
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

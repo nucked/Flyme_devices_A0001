@@ -24,7 +24,7 @@
     .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
-    .line 252
+    .line 249
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$3;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -39,12 +39,12 @@
     .param p1, "selfChange"    # Z
 
     .prologue
-    .line 255
+    .line 252
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$3;->this$0:Lcom/android/server/wifi/WifiController;
 
     # invokes: Lcom/android/server/wifi/WifiController;->readWifiIdleTime()V
     invoke-static {v0}, Lcom/android/server/wifi/WifiController;->access$100(Lcom/android/server/wifi/WifiController;)V
 
-    .line 256
+    .line 253
     return-void
 .end method

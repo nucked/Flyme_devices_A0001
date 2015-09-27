@@ -87,6 +87,14 @@
     .end annotation
 .end method
 
+.method public abstract setCallProperties(Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setCallSubstate(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -139,14 +147,6 @@
 .end method
 
 .method public abstract setDisconnected(Ljava/lang/String;Landroid/telecom/DisconnectCause;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setDisconnectedWithSsNotification(Ljava/lang/String;ILjava/lang/String;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

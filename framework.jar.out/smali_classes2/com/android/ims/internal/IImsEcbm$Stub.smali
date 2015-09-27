@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.ims.internal.IImsEcbm"
 
-.field static final TRANSACTION_exitEmergencyCallbackMode:I = 0x2
+.field static final TRANSACTION_exitEmergencyCallbackMode_1:I = 0x2
 
-.field static final TRANSACTION_setListener:I = 0x1
+.field static final TRANSACTION_setListener_0:I = 0x1
 
 
 # direct methods

@@ -983,7 +983,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040122
+    const v3, 0x10401c3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1004,7 +1004,7 @@
     .local v9, "contextForUser":Landroid/content/Context;
     new-instance v10, Landroid/app/Notification;
 
-    const v2, 0x1080684
+    const v2, 0x108065c
 
     move-object/from16 v0, p0
 
@@ -1015,7 +1015,7 @@
 
     move-result-object v3
 
-    const v5, 0x1040120
+    const v5, 0x10401c1
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1033,7 +1033,7 @@
 
     move-result-object v2
 
-    const v3, 0x1060059
+    const v3, 0x106005c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1042,7 +1042,7 @@
     iput v2, v10, Landroid/app/Notification;->color:I
 
     .line 3124
-    const v2, 0x1040121
+    const v2, 0x10401c2
 
     invoke-virtual {v9, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2448,7 +2448,7 @@
 
     cmp-long v20, v6, v20
 
-    if-gez v20, :cond_d
+    if-eqz v20, :cond_d
 
     .line 3056
     :cond_c

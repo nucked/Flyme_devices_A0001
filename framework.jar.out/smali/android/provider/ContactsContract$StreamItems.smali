@@ -64,7 +64,7 @@
     .locals 2
 
     .prologue
-    .line 3311
+    .line 3319
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "stream_items"
@@ -75,7 +75,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 3330
+    .line 3338
     sget-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "photo"
@@ -86,7 +86,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_PHOTO_URI:Landroid/net/Uri;
 
-    .line 3340
+    .line 3348
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "stream_items_limit"
@@ -106,9 +106,9 @@
     .end annotation
 
     .prologue
-    .line 3300
+    .line 3308
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3301
+    .line 3309
     return-void
 .end method

@@ -32,17 +32,17 @@
 
 .field static final TRANSACTION_enablePowerApply:I = 0x8
 
-.field static final TRANSACTION_getCurrentLimit:I = 0x5
+.field static final TRANSACTION_getCurrentLimit_4:I = 0x5
 
-.field static final TRANSACTION_getState:I = 0x1
+.field static final TRANSACTION_getState_0:I = 0x1
 
 .field static final TRANSACTION_registerCallback:I = 0x9
 
-.field static final TRANSACTION_setCurrentLimit:I = 0x4
+.field static final TRANSACTION_setCurrentLimit_3:I = 0x4
 
-.field static final TRANSACTION_startCharging:I = 0x2
+.field static final TRANSACTION_startCharging_1:I = 0x2
 
-.field static final TRANSACTION_stopCharging:I = 0x3
+.field static final TRANSACTION_stopCharging_2:I = 0x3
 
 .field static final TRANSACTION_unregisterCallback:I = 0xa
 

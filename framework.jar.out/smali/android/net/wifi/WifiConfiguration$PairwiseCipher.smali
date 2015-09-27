@@ -31,8 +31,8 @@
     .locals 3
 
     .prologue
-    .line 160
-    const/4 v0, 0x4
+    .line 145
+    const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -54,12 +54,6 @@
 
     aput-object v2, v0, v1
 
-    const/4 v1, 0x3
-
-    const-string v2, "SMS4"
-
-    aput-object v2, v0, v1
-
     sput-object v0, Landroid/net/wifi/WifiConfiguration$PairwiseCipher;->strings:[Ljava/lang/String;
 
     return-void
@@ -69,7 +63,7 @@
     .locals 0
 
     .prologue
-    .line 149
+    .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

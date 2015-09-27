@@ -16,6 +16,9 @@
     <color name="holo_orange_dark">#ffff8800</color>
     <color name="holo_purple">#ffaa66cc</color>
     <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="notification_mtrl_action_textcolor">@color/secondary_text_material_light</color>
+    <color name="notification_mtrl_big_picture_bg">#cceeeeee</color>
+    <color name="resolver_list_bg">@color/white</color>
     <color name="safe_mode_text">#80ffffff</color>
     <color name="bright_foreground_dark">@color/background_light</color>
     <color name="bright_foreground_light">@color/background_dark</color>
@@ -62,9 +65,9 @@
     <color name="kg_multi_user_text_active">#ffffffff</color>
     <color name="kg_multi_user_text_inactive">#ff808080</color>
     <color name="kg_widget_pager_gradient">#ffffffff</color>
-    <color name="lock_pattern_view_regular_color">#66ffffff</color>
-    <color name="lock_pattern_view_success_color">#66ffffff</color>
-    <color name="lock_pattern_view_error_color">#66ec6941</color>
+    <color name="lock_pattern_view_regular_color">#ffffffff</color>
+    <color name="lock_pattern_view_success_color">#ffffffff</color>
+    <color name="lock_pattern_view_error_color">#fff4511e</color>
     <color name="facelock_spotlight_mask">#cc000000</color>
     <color name="micro_text_light">#ff434343</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
@@ -229,8 +232,8 @@
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="primary_text_default_material_dark">#ffffffff</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
-    <color name="material_deep_teal_200">#ff23a3f5</color>
-    <color name="material_deep_teal_500">#ff23a3f5</color>
+    <color name="material_deep_teal_200">#ff80cbc4</color>
+    <color name="material_deep_teal_500">#ff009688</color>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -256,21 +259,5 @@
     <color name="datepicker_default_circle_background_color_material_dark">@color/material_deep_teal_200</color>
     <color name="datepicker_default_view_animator_color_material_light">#fff2f2f2</color>
     <color name="datepicker_default_view_animator_color_material_dark">#ff303030</color>
-    <color name="config_defaultNotificationColor">#ff00ff00</color>
-    <color name="oneplus_orange">#ffff7c00</color>
-    <color name="uc_list_btn_pressed">#ff33b5e5</color>
-    <color name="uc_list_btn_focused">#ff0099cc</color>
-    <color name="uc_list_btn_normal">#00000000</color>
-    <color name="uc_list_popup_bg_color">#ee666666</color>
-    <color name="uc_list_separator_color">#ffbbbbbb</color>
-    <color name="uc_list_popup_text_color">#ffffffff</color>
-    <color name="uc_bamboo_colorAccent">#fff8d985</color>
-    <color name="uc_accent_material_light">@color/uc_material_deep_teal_500</color>
-    <color name="uc_material_deep_teal_500">#ff23a3f5</color>
-    <color name="uc_accent_material_dark">@color/uc_material_deep_teal_200</color>
-    <color name="uc_material_deep_teal_200">#ff23a3f5</color>
-    <color name="uc_link_text_material_light">@color/uc_material_deep_teal_500</color>
-    <color name="uc_link_text_material_dark">@color/uc_material_deep_teal_200</color>
-    <color name="uc_seekbar_color">#ffdfdfdf</color>
-    <color name="material_white_grey_1050">#89000000</color>
+    <color name="config_defaultNotificationColor">#ffffffff</color>
 </resources>

@@ -1,11 +1,14 @@
 .class Lcom/android/internal/policy/impl/GlobalActions$3;
-.super Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;
+.super Ljava/lang/Object;
 .source "GlobalActions.java"
+
+# interfaces
+.implements Landroid/widget/AdapterView$OnItemLongClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/GlobalActions;->getBugReportAction()Lcom/android/internal/policy/impl/GlobalActions$Action;
+    value = Lcom/android/internal/policy/impl/GlobalActions;->createDialog()Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,140 +22,70 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
+.method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;)V
     .locals 0
-    .param p2, "x0"    # I
-    .param p3, "x1"    # I
 
     .prologue
-    .line 404
+    .line 388
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;-><init>(II)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getStatus()Ljava/lang/String;
-    .locals 5
+.method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
+    .locals 2
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/widget/AdapterView",
+            "<*>;",
+            "Landroid/view/View;",
+            "IJ)Z"
+        }
+    .end annotation
 
     .prologue
-    .line 449
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+    .line 392
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
+    iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/content/Context;
-
-    move-result-object v0
-
-    const v1, 0x1040147
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    sget-object v4, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
-
-    aput-object v4, v2, v3
-
-    const/4 v3, 0x1
-
-    sget-object v4, Landroid/os/Build;->ID:Ljava/lang/String;
-
-    aput-object v4, v2, v3
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public onPress()V
-    .locals 4
-
-    .prologue
-    .line 407
-    new-instance v0, Landroid/app/AlertDialog$Builder;
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
-
-    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    .line 408
-    .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const v2, 0x1040145
-
-    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
-
-    .line 409
-    const v2, 0x1040146
-
-    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
-
-    .line 410
-    const/high16 v2, 0x1040000
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    .line 411
-    const v2, 0x10404d1
-
-    new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$3$1;
-
-    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/GlobalActions$3$1;-><init>(Lcom/android/internal/policy/impl/GlobalActions$3;)V
-
-    invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    .line 434
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$900(Lcom/android/internal/policy/impl/GlobalActions;)Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
 
     move-result-object v1
 
-    .line 435
-    .local v1, "dialog":Landroid/app/AlertDialog;
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1, p3}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->getItem(I)Lcom/android/internal/policy/impl/GlobalActions$Action;
 
-    move-result-object v2
+    move-result-object v0
 
-    const/16 v3, 0x7d9
+    .line 393
+    .local v0, "action":Lcom/android/internal/policy/impl/GlobalActions$Action;
+    instance-of v1, v0, Lcom/android/internal/policy/impl/GlobalActions$LongPressAction;
 
-    invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
+    if-eqz v1, :cond_0
 
-    .line 436
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    .line 394
+    check-cast v0, Lcom/android/internal/policy/impl/GlobalActions$LongPressAction;
 
-    .line 437
-    return-void
-.end method
+    .end local v0    # "action":Lcom/android/internal/policy/impl/GlobalActions$Action;
+    invoke-interface {v0}, Lcom/android/internal/policy/impl/GlobalActions$LongPressAction;->onLongPress()Z
 
-.method public showBeforeProvisioning()Z
-    .locals 1
+    move-result v1
 
-    .prologue
-    .line 444
-    const/4 v0, 0x0
+    .line 396
+    :goto_0
+    return v1
 
-    return v0
-.end method
+    .restart local v0    # "action":Lcom/android/internal/policy/impl/GlobalActions$Action;
+    :cond_0
+    const/4 v1, 0x0
 
-.method public showDuringKeyguard()Z
-    .locals 1
-
-    .prologue
-    .line 440
-    const/4 v0, 0x1
-
-    return v0
+    goto :goto_0
 .end method

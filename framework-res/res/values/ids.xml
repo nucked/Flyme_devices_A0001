@@ -158,7 +158,6 @@
     <item type="id" name="new_app_action">false</item>
     <item type="id" name="new_app_description">false</item>
     <item type="id" name="icon_menu">false</item>
-    <item type="id" name="imei_no">false</item>
     <item type="id" name="ok">false</item>
     <item type="id" name="fullscreenArea">false</item>
     <item type="id" name="inputExtractAccessories">false</item>
@@ -223,19 +222,6 @@
     <item type="id" name="increment">false</item>
     <item type="id" name="numberpicker_input">false</item>
     <item type="id" name="decrement">false</item>
-    <item type="id" name="textView1">false</item>
-    <item type="id" name="tv_my_item">false</item>
-    <item type="id" name="search_bar">false</item>
-    <item type="id" name="search_badge">false</item>
-    <item type="id" name="search_button">false</item>
-    <item type="id" name="search_edit_frame">false</item>
-    <item type="id" name="search_mag_icon">false</item>
-    <item type="id" name="search_plate">false</item>
-    <item type="id" name="search_src_text">false</item>
-    <item type="id" name="search_close_btn">false</item>
-    <item type="id" name="submit_area">false</item>
-    <item type="id" name="search_go_btn">false</item>
-    <item type="id" name="search_voice_btn">false</item>
     <item type="id" name="overlay_display_window_texture">false</item>
     <item type="id" name="overlay_display_window_title">false</item>
     <item type="id" name="permission_text">false</item>
@@ -271,6 +257,7 @@
     <item type="id" name="resolver_list">false</item>
     <item type="id" name="button_once">false</item>
     <item type="id" name="button_always">false</item>
+    <item type="id" name="filtered_item_container">false</item>
     <item type="id" name="pin_text">false</item>
     <item type="id" name="pin_error_message">false</item>
     <item type="id" name="pin_cancel_button">false</item>
@@ -288,9 +275,20 @@
     <item type="id" name="action_bar">false</item>
     <item type="id" name="action_context_bar">false</item>
     <item type="id" name="split_action_bar">false</item>
+    <item type="id" name="search_bar">false</item>
     <item type="id" name="search_app_icon">false</item>
     <item type="id" name="search_view">false</item>
     <item type="id" name="edit_query">false</item>
+    <item type="id" name="search_badge">false</item>
+    <item type="id" name="search_button">false</item>
+    <item type="id" name="search_edit_frame">false</item>
+    <item type="id" name="search_mag_icon">false</item>
+    <item type="id" name="search_plate">false</item>
+    <item type="id" name="search_src_text">false</item>
+    <item type="id" name="search_close_btn">false</item>
+    <item type="id" name="submit_area">false</item>
+    <item type="id" name="search_go_btn">false</item>
+    <item type="id" name="search_voice_btn">false</item>
     <item type="id" name="select_dialog_listview">false</item>
     <item type="id" name="sms_short_code_confirm_message">false</item>
     <item type="id" name="sms_short_code_detail_layout">false</item>
@@ -354,33 +352,6 @@
     <item type="id" name="eight">false</item>
     <item type="id" name="nine">false</item>
     <item type="id" name="zero">false</item>
-    <item type="id" name="uc_parentPanel">false</item>
-    <item type="id" name="uc_topPanel">false</item>
-    <item type="id" name="uc_title_template">false</item>
-    <item type="id" name="uc_icon">false</item>
-    <item type="id" name="uc_alertTitle">false</item>
-    <item type="id" name="uc_contentPanel">false</item>
-    <item type="id" name="uc_scrollView">false</item>
-    <item type="id" name="uc_message">false</item>
-    <item type="id" name="uc_textSpacerNoButtons">false</item>
-    <item type="id" name="uc_customPanel">false</item>
-    <item type="id" name="uc_custom">false</item>
-    <item type="id" name="uc_buttonPanel">false</item>
-    <item type="id" name="uc_button3">false</item>
-    <item type="id" name="uc_SpacerButton3">false</item>
-    <item type="id" name="uc_button2">false</item>
-    <item type="id" name="uc_SpacerButton2">false</item>
-    <item type="id" name="uc_button1">false</item>
-    <item type="id" name="uc_undo_text">false</item>
-    <item type="id" name="uc_undo">false</item>
-    <item type="id" name="uc_btn_check_parent">false</item>
-    <item type="id" name="uc_btn_parent">false</item>
-    <item type="id" name="bg_bottom2">false</item>
-    <item type="id" name="top_view2">false</item>
-    <item type="id" name="img_top2">false</item>
-    <item type="id" name="img_top_img2">false</item>
-    <item type="id" name="uc_power_text">false</item>
-    <item type="id" name="uc_select_dialog_listview">false</item>
     <item type="id" name="main">false</item>
     <item type="id" name="banner">false</item>
     <item type="id" name="mount_button">false</item>

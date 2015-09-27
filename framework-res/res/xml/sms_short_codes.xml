@@ -23,6 +23,7 @@
     <shortcode country="ge" pattern="\\d{4}" premium="801[234]|888[239]" />
     <shortcode country="gr" pattern="\\d{5}" premium="54\\d{3}|19[0-5]\\d{2}" free="116\\d{3}" />
     <shortcode country="hu" pattern="[01](?:\\d{3}|\\d{9})" premium="0691227910|1784" free="116\\d{3}" />
+    <shortcode country="id" pattern="\\d{2,4}" free="11|123|1233|1234|2233|228|261|2619|355|388|4444|551|807|808|888|995|999" />
     <shortcode country="ie" pattern="\\d{5}" premium="5[3-9]\\d{3}" free="50\\d{3}|116\\d{3}" standard="5[12]\\d{3}" />
     <shortcode country="il" pattern="\\d{4}" premium="4422|4545" />
     <shortcode country="it" pattern="\\d{5}" premium="4\\d{4}" free="116\\d{3}" />

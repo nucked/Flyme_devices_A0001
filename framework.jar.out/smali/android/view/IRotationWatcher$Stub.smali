@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.view.IRotationWatcher"
 
-.field static final TRANSACTION_onRotationChanged:I = 0x1
+.field static final TRANSACTION_onRotationChanged_0:I = 0x1
 
 
 # direct methods

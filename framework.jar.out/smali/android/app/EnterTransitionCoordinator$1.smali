@@ -47,6 +47,7 @@
     .line 77
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$1;->this$0:Landroid/app/EnterTransitionCoordinator;
 
+    # getter for: Landroid/app/EnterTransitionCoordinator;->mIsReadyForTransition:Z
     invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->access$000(Landroid/app/EnterTransitionCoordinator;)Z
 
     move-result v0
@@ -66,6 +67,7 @@
     :cond_0
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$1;->this$0:Landroid/app/EnterTransitionCoordinator;
 
+    # getter for: Landroid/app/EnterTransitionCoordinator;->mIsReadyForTransition:Z
     invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->access$000(Landroid/app/EnterTransitionCoordinator;)Z
 
     move-result v0

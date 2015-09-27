@@ -399,28 +399,6 @@
 
 .field public static final ThemeOverlay_Material_Light:I = 0x103024a
 
-.field public static final ThemeOverlay_Oneplus:I = 0x103fff5
-
-.field public static final ThemeOverlay_Oneplus_Bamboo:I = 0x1030444
-
-.field public static final ThemeOverlay_Oneplus_Bamboo_ActionBar:I = 0x1030445
-
-.field public static final ThemeOverlay_Oneplus_Bamboo_Dark:I = 0x1030447
-
-.field public static final ThemeOverlay_Oneplus_Bamboo_Dark_ActionBar:I = 0x1030448
-
-.field public static final ThemeOverlay_Oneplus_Bamboo_Light:I = 0x1030446
-
-.field public static final ThemeOverlay_Oneplus_Material:I = 0x103fff6
-
-.field public static final ThemeOverlay_Oneplus_Material_ActionBar:I = 0x103fff7
-
-.field public static final ThemeOverlay_Oneplus_Material_Dark:I = 0x103fff9
-
-.field public static final ThemeOverlay_Oneplus_Material_Dark_ActionBar:I = 0x103fffa
-
-.field public static final ThemeOverlay_Oneplus_Material_Light:I = 0x103fff8
-
 .field public static final Theme_Black:I = 0x1030008
 
 .field public static final Theme_Black_NoTitleBar:I = 0x1030009
@@ -639,144 +617,6 @@
 
 .field public static final Theme_NoTitleBar_OverlayActionModes:I = 0x103006a
 
-.field public static final Theme_Oneplus_Bamboo:I = 0x1030420
-
-.field public static final Theme_Oneplus_Bamboo_Dialog:I = 0x1030421
-
-.field public static final Theme_Oneplus_Bamboo_DialogWhenLarge_NoActionBar:I = 0x1030428
-
-.field public static final Theme_Oneplus_Bamboo_Dialog_Alert:I = 0x1030422
-
-.field public static final Theme_Oneplus_Bamboo_Dialog_MinWidth:I = 0x1030423
-
-.field public static final Theme_Oneplus_Bamboo_Dialog_NoActionBar:I = 0x1030424
-
-.field public static final Theme_Oneplus_Bamboo_Dialog_NoActionBar_MinWidth:I = 0x1030425
-
-.field public static final Theme_Oneplus_Bamboo_Dialog_Presentation:I = 0x1030426
-
-.field public static final Theme_Oneplus_Bamboo_InputMethod:I = 0x1030429
-
-.field public static final Theme_Oneplus_Bamboo_Light:I = 0x1030433
-
-.field public static final Theme_Oneplus_Bamboo_Light_DarkActionBar:I = 0x1030434
-
-.field public static final Theme_Oneplus_Bamboo_Light_Dialog:I = 0x1030435
-
-.field public static final Theme_Oneplus_Bamboo_Light_DialogWhenLarge:I = 0x103043b
-
-.field public static final Theme_Oneplus_Bamboo_Light_DialogWhenLarge_NoActionBar:I = 0x103043c
-
-.field public static final Theme_Oneplus_Bamboo_Light_Dialog_Alert:I = 0x1030436
-
-.field public static final Theme_Oneplus_Bamboo_Light_Dialog_MinWidth:I = 0x1030437
-
-.field public static final Theme_Oneplus_Bamboo_Light_Dialog_NoActionBar:I = 0x1030438
-
-.field public static final Theme_Oneplus_Bamboo_Light_Dialog_NoActionBar_MinWidth:I = 0x1030439
-
-.field public static final Theme_Oneplus_Bamboo_Light_Dialog_Presentation:I = 0x103043a
-
-.field public static final Theme_Oneplus_Bamboo_Light_NoActionBar:I = 0x103043d
-
-.field public static final Theme_Oneplus_Bamboo_Light_NoActionBar_Fullscreen:I = 0x103043e
-
-.field public static final Theme_Oneplus_Bamboo_Light_NoActionBar_Overscan:I = 0x103043f
-
-.field public static final Theme_Oneplus_Bamboo_Light_NoActionBar_TranslucentDecor:I = 0x1030440
-
-.field public static final Theme_Oneplus_Bamboo_Light_Panel:I = 0x1030441
-
-.field public static final Theme_Oneplus_Bamboo_Light_Voice:I = 0x1030442
-
-.field public static final Theme_Oneplus_Bamboo_NoActionBar:I = 0x103042a
-
-.field public static final Theme_Oneplus_Bamboo_NoActionBar_Fullscreen:I = 0x103042b
-
-.field public static final Theme_Oneplus_Bamboo_NoActionBar_Overscan:I = 0x103042c
-
-.field public static final Theme_Oneplus_Bamboo_NoActionBar_TranslucentDecor:I = 0x103042d
-
-.field public static final Theme_Oneplus_Bamboo_Panel:I = 0x103042e
-
-.field public static final Theme_Oneplus_Bamboo_Settings:I = 0x103042f
-
-.field public static final Theme_Oneplus_Bamboo_Voice:I = 0x1030430
-
-.field public static final Theme_Oneplus_Bamboo_Wallpaper:I = 0x1030431
-
-.field public static final Theme_Oneplus_Bamboo_Wallpaper_NoTitleBar:I = 0x1030432
-
-.field public static final Theme_Oneplus_Material:I = 0x103ffd1
-
-.field public static final Theme_Oneplus_Material_Dialog:I = 0x103ffd2
-
-.field public static final Theme_Oneplus_Material_DialogWhenLarge:I = 0x103ffd8
-
-.field public static final Theme_Oneplus_Material_DialogWhenLarge_NoActionBar:I = 0x103ffd9
-
-.field public static final Theme_Oneplus_Material_Dialog_Alert:I = 0x103ffd3
-
-.field public static final Theme_Oneplus_Material_Dialog_MinWidth:I = 0x103ffd4
-
-.field public static final Theme_Oneplus_Material_Dialog_NoActionBar:I = 0x103ffd5
-
-.field public static final Theme_Oneplus_Material_Dialog_NoActionBar_MinWidth:I = 0x103ffd6
-
-.field public static final Theme_Oneplus_Material_Dialog_Presentation:I = 0x103ffd7
-
-.field public static final Theme_Oneplus_Material_InputMethod:I = 0x103ffda
-
-.field public static final Theme_Oneplus_Material_Light:I = 0x103ffe4
-
-.field public static final Theme_Oneplus_Material_Light_DarkActionBar:I = 0x103ffe5
-
-.field public static final Theme_Oneplus_Material_Light_Dialog:I = 0x103ffe6
-
-.field public static final Theme_Oneplus_Material_Light_DialogWhenLarge:I = 0x103ffec
-
-.field public static final Theme_Oneplus_Material_Light_DialogWhenLarge_NoActionBar:I = 0x103ffed
-
-.field public static final Theme_Oneplus_Material_Light_Dialog_Alert:I = 0x103ffe7
-
-.field public static final Theme_Oneplus_Material_Light_Dialog_MinWidth:I = 0x103ffe8
-
-.field public static final Theme_Oneplus_Material_Light_Dialog_NoActionBar:I = 0x103ffe9
-
-.field public static final Theme_Oneplus_Material_Light_Dialog_NoActionBar_MinWidth:I = 0x103ffea
-
-.field public static final Theme_Oneplus_Material_Light_Dialog_Presentation:I = 0x103ffeb
-
-.field public static final Theme_Oneplus_Material_Light_NoActionBar:I = 0x103ffef
-
-.field public static final Theme_Oneplus_Material_Light_NoActionBar_Fullscreen:I = 0x103fff0
-
-.field public static final Theme_Oneplus_Material_Light_NoActionBar_Overscan:I = 0x103fff1
-
-.field public static final Theme_Oneplus_Material_Light_NoActionBar_TranslucentDecor:I = 0x103fff2
-
-.field public static final Theme_Oneplus_Material_Light_Panel:I = 0x103fff3
-
-.field public static final Theme_Oneplus_Material_Light_Voice:I = 0x103fff4
-
-.field public static final Theme_Oneplus_Material_NoActionBar:I = 0x103ffdb
-
-.field public static final Theme_Oneplus_Material_NoActionBar_Fullscreen:I = 0x103ffdc
-
-.field public static final Theme_Oneplus_Material_NoActionBar_Overscan:I = 0x103ffdd
-
-.field public static final Theme_Oneplus_Material_NoActionBar_TranslucentDecor:I = 0x103ffde
-
-.field public static final Theme_Oneplus_Material_Panel:I = 0x103ffdf
-
-.field public static final Theme_Oneplus_Material_Settings:I = 0x103ffe0
-
-.field public static final Theme_Oneplus_Material_Voice:I = 0x103ffe1
-
-.field public static final Theme_Oneplus_Material_Wallpaper:I = 0x103ffe2
-
-.field public static final Theme_Oneplus_Material_Wallpaper_NoTitleBar:I = 0x103ffe3
-
 .field public static final Theme_Panel:I = 0x1030059
 
 .field public static final Theme_Translucent:I = 0x103000f
@@ -794,10 +634,6 @@
 .field public static final Theme_Wallpaper_NoTitleBar_Fullscreen:I = 0x1030060
 
 .field public static final Theme_WithActionBar:I = 0x1030069
-
-.field public static final UCWidget_Material_ActionBar_Solid:I = 0x10303fb
-
-.field public static final UCWidget_Material_DatePicker:I = 0x10303fc
 
 .field public static final Widget:I = 0x1030012
 
@@ -1652,15 +1488,13 @@
 
 .field public static final Widget_WebView:I = 0x1030033
 
-.field public static final uc_Widget_Material_Light_SeekBar:I = 0x10303fd
-
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 14336
+    .line 13503
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

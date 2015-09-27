@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.policy.IKeyguardShowCallback"
 
-.field static final TRANSACTION_onShown:I = 0x1
+.field static final TRANSACTION_onShown_0:I = 0x1
 
 
 # direct methods

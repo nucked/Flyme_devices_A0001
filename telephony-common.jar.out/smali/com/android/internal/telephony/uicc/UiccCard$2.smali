@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 348
+    .line 352
     iput-object p1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 351
+    .line 355
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
     # getter for: Lcom/android/internal/telephony/uicc/UiccCard;->mDestroyed:Z
@@ -48,7 +48,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 352
+    .line 356
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -90,17 +90,17 @@
     # invokes: Lcom/android/internal/telephony/uicc/UiccCard;->loge(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/internal/telephony/uicc/UiccCard;->access$300(Lcom/android/internal/telephony/uicc/UiccCard;Ljava/lang/String;)V
 
-    .line 384
+    .line 388
     :goto_0
     return-void
 
-    .line 357
+    .line 361
     :cond_0
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 382
+    .line 386
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -128,7 +128,7 @@
 
     goto :goto_0
 
-    .line 359
+    .line 363
     :pswitch_0
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
@@ -139,7 +139,7 @@
 
     goto :goto_0
 
-    .line 362
+    .line 366
     :pswitch_1
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
@@ -150,19 +150,19 @@
 
     goto :goto_0
 
-    .line 370
+    .line 374
     :pswitch_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 371
+    .line 375
     .local v0, "ar":Landroid/os/AsyncResult;
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v1, :cond_1
 
-    .line 373
+    .line 377
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -187,7 +187,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/telephony/uicc/UiccCard;->log(Ljava/lang/String;)V
 
-    .line 375
+    .line 379
     :cond_1
     iget-object v1, v0, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
@@ -199,7 +199,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 376
+    .line 380
     iget-object v1, v0, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Message;
@@ -208,7 +208,7 @@
 
     goto :goto_0
 
-    .line 379
+    .line 383
     .end local v0    # "ar":Landroid/os/AsyncResult;
     :pswitch_3
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccCard$2;->this$0:Lcom/android/internal/telephony/uicc/UiccCard;
@@ -218,7 +218,7 @@
 
     goto :goto_0
 
-    .line 357
+    .line 361
     :pswitch_data_0
     .packed-switch 0xd
         :pswitch_0

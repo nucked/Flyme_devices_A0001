@@ -30,11 +30,11 @@
 
 .field static final TRANSACTION_keyDispatchingTimedOut:I = 0x4
 
-.field static final TRANSACTION_windowsDrawn:I = 0x1
+.field static final TRANSACTION_windowsDrawn_0:I = 0x1
 
-.field static final TRANSACTION_windowsGone:I = 0x3
+.field static final TRANSACTION_windowsGone_2:I = 0x3
 
-.field static final TRANSACTION_windowsVisible:I = 0x2
+.field static final TRANSACTION_windowsVisible_1:I = 0x2
 
 
 # direct methods

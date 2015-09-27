@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_isFocused:I = 0x3
 
-.field static final TRANSACTION_registerFocusObserver:I = 0x1
+.field static final TRANSACTION_registerFocusObserver_0:I = 0x1
 
 .field static final TRANSACTION_unregisterFocusObserver:I = 0x2
 

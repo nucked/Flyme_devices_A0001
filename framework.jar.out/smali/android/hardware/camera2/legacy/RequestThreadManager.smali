@@ -72,8 +72,6 @@
 
 .field private mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-.field private mHalPreviewRunning:Z
-
 .field private final mIdleLock:Ljava/lang/Object;
 
 .field private mIntermediateBufferSize:Landroid/util/Size;
@@ -128,8 +126,6 @@
 
 .field private final mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-.field private mVideoOutput:Landroid/view/Surface;
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -169,27 +165,22 @@
     .param p4, "deviceState"    # Landroid/hardware/camera2/legacy/CameraDeviceState;
 
     .prologue
-    const/4 v3, 0x0
-
     const/4 v4, 0x0
 
-    .line 1037
+    .line 941
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 91
     iput-boolean v4, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
     .line 93
-    iput-boolean v4, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mHalPreviewRunning:Z
-
-    .line 96
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewOutputs:Ljava/util/List;
 
-    .line 97
+    .line 94
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -197,16 +188,13 @@
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCallbackOutputs:Ljava/util/List;
 
     .line 99
-    iput-object v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mVideoOutput:Landroid/view/Surface;
-
-    .line 105
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegSurfaceIds:Ljava/util/List;
 
-    .line 109
+    .line 103
     new-instance v1, Landroid/hardware/camera2/legacy/RequestQueue;
 
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegSurfaceIds:Ljava/util/List;
@@ -215,17 +203,19 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestQueue:Landroid/hardware/camera2/legacy/RequestQueue;
 
-    .line 110
-    iput-object v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mLastRequest:Landroid/hardware/camera2/legacy/LegacyRequest;
+    .line 104
+    const/4 v1, 0x0
 
-    .line 114
+    iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mLastRequest:Landroid/hardware/camera2/legacy/LegacyRequest;
+
+    .line 108
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct {v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIdleLock:Ljava/lang/Object;
 
-    .line 115
+    .line 109
     new-instance v1, Landroid/hardware/camera2/legacy/RequestThreadManager$FpsCounter;
 
     const-string v2, "Incoming Preview"
@@ -234,7 +224,7 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPrevCounter:Landroid/hardware/camera2/legacy/RequestThreadManager$FpsCounter;
 
-    .line 116
+    .line 110
     new-instance v1, Landroid/hardware/camera2/legacy/RequestThreadManager$FpsCounter;
 
     const-string v2, "Incoming Requests"
@@ -243,56 +233,56 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestCounter:Landroid/hardware/camera2/legacy/RequestThreadManager$FpsCounter;
 
-    .line 118
+    .line 112
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v1, v4}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mQuit:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 197
+    .line 191
     new-instance v1, Landroid/hardware/camera2/legacy/RequestThreadManager$1;
 
     invoke-direct {v1, p0}, Landroid/hardware/camera2/legacy/RequestThreadManager$1;-><init>(Landroid/hardware/camera2/legacy/RequestThreadManager;)V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mErrorCallback:Landroid/hardware/Camera$ErrorCallback;
 
-    .line 205
+    .line 199
     new-instance v1, Landroid/os/ConditionVariable;
 
     invoke-direct {v1, v4}, Landroid/os/ConditionVariable;-><init>(Z)V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mReceivedJpeg:Landroid/os/ConditionVariable;
 
-    .line 207
+    .line 201
     new-instance v1, Landroid/hardware/camera2/legacy/RequestThreadManager$2;
 
     invoke-direct {v1, p0}, Landroid/hardware/camera2/legacy/RequestThreadManager$2;-><init>(Landroid/hardware/camera2/legacy/RequestThreadManager;)V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegCallback:Landroid/hardware/Camera$PictureCallback;
 
-    .line 252
+    .line 246
     new-instance v1, Landroid/hardware/camera2/legacy/RequestThreadManager$3;
 
     invoke-direct {v1, p0}, Landroid/hardware/camera2/legacy/RequestThreadManager$3;-><init>(Landroid/hardware/camera2/legacy/RequestThreadManager;)V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegShutterCallback:Landroid/hardware/Camera$ShutterCallback;
 
-    .line 259
+    .line 253
     new-instance v1, Landroid/hardware/camera2/legacy/RequestThreadManager$4;
 
     invoke-direct {v1, p0}, Landroid/hardware/camera2/legacy/RequestThreadManager$4;-><init>(Landroid/hardware/camera2/legacy/RequestThreadManager;)V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewCallback:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
-    .line 735
+    .line 639
     new-instance v1, Landroid/hardware/camera2/legacy/RequestThreadManager$5;
 
     invoke-direct {v1, p0}, Landroid/hardware/camera2/legacy/RequestThreadManager$5;-><init>(Landroid/hardware/camera2/legacy/RequestThreadManager;)V
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestHandlerCb:Landroid/os/Handler$Callback;
 
-    .line 1038
+    .line 942
     const-string v1, "camera must not be null"
 
     invoke-static {p2, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -303,10 +293,10 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
-    .line 1039
+    .line 943
     iput p1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCameraId:I
 
-    .line 1040
+    .line 944
     const-string v1, "characteristics must not be null"
 
     invoke-static {p3, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -317,7 +307,7 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCharacteristics:Landroid/hardware/camera2/CameraCharacteristics;
 
-    .line 1041
+    .line 945
     const-string v1, "RequestThread-%d"
 
     const/4 v2, 0x1
@@ -334,11 +324,11 @@
 
     move-result-object v0
 
-    .line 1042
+    .line 946
     .local v0, "name":Ljava/lang/String;
     iput-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
-    .line 1043
+    .line 947
     const-string v1, "deviceState must not be null"
 
     invoke-static {p4, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -349,7 +339,7 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
 
-    .line 1044
+    .line 948
     new-instance v1, Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;
 
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
@@ -358,7 +348,7 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mFocusStateMapper:Landroid/hardware/camera2/legacy/LegacyFocusStateMapper;
 
-    .line 1045
+    .line 949
     new-instance v1, Landroid/hardware/camera2/legacy/LegacyFaceDetectMapper;
 
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
@@ -369,7 +359,7 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mFaceDetectMapper:Landroid/hardware/camera2/legacy/LegacyFaceDetectMapper;
 
-    .line 1046
+    .line 950
     new-instance v1, Landroid/hardware/camera2/legacy/CaptureCollector;
 
     const/4 v2, 0x2
@@ -380,7 +370,7 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCaptureCollector:Landroid/hardware/camera2/legacy/CaptureCollector;
 
-    .line 1047
+    .line 951
     new-instance v1, Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestHandlerCb:Landroid/os/Handler$Callback;
@@ -389,14 +379,14 @@
 
     iput-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    .line 1048
+    .line 952
     iget-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mErrorCallback:Landroid/hardware/Camera$ErrorCallback;
 
     invoke-virtual {v1, v2}, Landroid/hardware/Camera;->setErrorCallback(Landroid/hardware/Camera$ErrorCallback;)V
 
-    .line 1049
+    .line 953
     return-void
 .end method
 
@@ -614,7 +604,18 @@
     return-object v0
 .end method
 
-.method static synthetic access$2200(Landroid/hardware/camera2/legacy/RequestThreadManager;)Ljava/util/List;
+.method static synthetic access$2200(Landroid/hardware/camera2/legacy/RequestThreadManager;)Landroid/graphics/SurfaceTexture;
+    .locals 1
+    .param p0, "x0"    # Landroid/hardware/camera2/legacy/RequestThreadManager;
+
+    .prologue
+    .line 63
+    iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2300(Landroid/hardware/camera2/legacy/RequestThreadManager;)Ljava/util/List;
     .locals 1
     .param p0, "x0"    # Landroid/hardware/camera2/legacy/RequestThreadManager;
 
@@ -625,7 +626,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2300(Landroid/hardware/camera2/legacy/RequestThreadManager;Ljava/util/Collection;)V
+.method static synthetic access$2400(Landroid/hardware/camera2/legacy/RequestThreadManager;Ljava/util/Collection;)V
     .locals 0
     .param p0, "x0"    # Landroid/hardware/camera2/legacy/RequestThreadManager;
     .param p1, "x1"    # Ljava/util/Collection;
@@ -747,7 +748,7 @@
     .end annotation
 
     .prologue
-    .line 634
+    .line 538
     .local p1, "callbackOutputs":Ljava/util/List;, "Ljava/util/List<Landroid/view/Surface;>;"
     .local p2, "callbackSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
@@ -760,7 +761,7 @@
 
     if-eq v13, v14, :cond_0
 
-    .line 635
+    .line 539
     new-instance v13, Ljava/lang/IllegalStateException;
 
     const-string v14, "Input collections must be same length"
@@ -769,19 +770,19 @@
 
     throw v13
 
-    .line 637
+    .line 541
     :cond_0
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 638
+    .line 542
     .local v3, "configuredJpegSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     invoke-interface/range {p2 .. p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v8
 
-    .line 639
+    .line 543
     .local v8, "sizeIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/util/Size;>;"
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -802,7 +803,7 @@
 
     check-cast v1, Landroid/view/Surface;
 
-    .line 640
+    .line 544
     .local v1, "callbackSurface":Landroid/view/Surface;
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -810,7 +811,7 @@
 
     check-cast v5, Landroid/util/Size;
 
-    .line 641
+    .line 545
     .local v5, "jpegSize":Landroid/util/Size;
     move-object/from16 v0, p0
 
@@ -822,12 +823,12 @@
 
     if-eqz v13, :cond_1
 
-    .line 645
+    .line 549
     invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 647
+    .line 551
     .end local v1    # "callbackSurface":Landroid/view/Surface;
     .end local v5    # "jpegSize":Landroid/util/Size;
     :cond_2
@@ -837,14 +838,14 @@
 
     if-nez v13, :cond_a
 
-    .line 655
+    .line 559
     const/4 v7, -0x1
 
-    .line 656
+    .line 560
     .local v7, "maxConfiguredJpegWidth":I
     const/4 v6, -0x1
 
-    .line 657
+    .line 561
     .local v6, "maxConfiguredJpegHeight":I
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -863,7 +864,7 @@
 
     check-cast v5, Landroid/util/Size;
 
-    .line 658
+    .line 562
     .restart local v5    # "jpegSize":Landroid/util/Size;
     invoke-virtual {v5}, Landroid/util/Size;->getWidth()I
 
@@ -875,7 +876,7 @@
 
     move-result v7
 
-    .line 660
+    .line 564
     :cond_3
     invoke-virtual {v5}, Landroid/util/Size;->getHeight()I
 
@@ -887,18 +888,18 @@
 
     move-result v6
 
-    .line 662
+    .line 566
     :cond_4
     goto :goto_1
 
-    .line 663
+    .line 567
     .end local v5    # "jpegSize":Landroid/util/Size;
     :cond_5
     new-instance v9, Landroid/util/Size;
 
     invoke-direct {v9, v7, v6}, Landroid/util/Size;-><init>(II)V
 
-    .line 665
+    .line 569
     .local v9, "smallestBoundJpegSize":Landroid/util/Size;
     invoke-virtual/range {p3 .. p3}, Landroid/hardware/Camera$Parameters;->getSupportedPictureSizes()Ljava/util/List;
 
@@ -908,13 +909,13 @@
 
     move-result-object v12
 
-    .line 672
+    .line 576
     .local v12, "supportedJpegSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 673
+    .line 577
     .local v2, "candidateSupportedJpegSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     invoke-interface {v12}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -934,7 +935,7 @@
 
     check-cast v11, Landroid/util/Size;
 
-    .line 674
+    .line 578
     .local v11, "supportedJpegSize":Landroid/util/Size;
     invoke-virtual {v11}, Landroid/util/Size;->getWidth()I
 
@@ -948,12 +949,12 @@
 
     if-lt v13, v6, :cond_6
 
-    .line 676
+    .line 580
     invoke-interface {v2, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    .line 680
+    .line 584
     .end local v11    # "supportedJpegSize":Landroid/util/Size;
     :cond_7
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
@@ -962,7 +963,7 @@
 
     if-eqz v13, :cond_8
 
-    .line 681
+    .line 585
     new-instance v13, Ljava/lang/AssertionError;
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -987,7 +988,7 @@
 
     throw v13
 
-    .line 686
+    .line 590
     :cond_8
     new-instance v13, Landroid/hardware/camera2/utils/SizeAreaComparator;
 
@@ -999,7 +1000,7 @@
 
     check-cast v10, Landroid/util/Size;
 
-    .line 689
+    .line 593
     .local v10, "smallestSupportedJpegSize":Landroid/util/Size;
     invoke-virtual {v10, v9}, Landroid/util/Size;->equals(Ljava/lang/Object;)Z
 
@@ -1007,7 +1008,7 @@
 
     if-nez v13, :cond_9
 
-    .line 690
+    .line 594
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
@@ -1032,7 +1033,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 700
+    .line 604
     .end local v2    # "candidateSupportedJpegSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     .end local v6    # "maxConfiguredJpegHeight":I
     .end local v7    # "maxConfiguredJpegWidth":I
@@ -1055,7 +1056,7 @@
     .param p1, "b"    # Landroid/util/Size;
 
     .prologue
-    .line 704
+    .line 608
     invoke-virtual {p0}, Landroid/util/Size;->getWidth()I
 
     move-result v2
@@ -1070,7 +1071,7 @@
 
     div-float v0, v2, v3
 
-    .line 705
+    .line 609
     .local v0, "aAspect":F
     invoke-virtual {p1}, Landroid/util/Size;->getWidth()I
 
@@ -1086,7 +1087,7 @@
 
     div-float v1, v2, v3
 
-    .line 707
+    .line 611
     .local v1, "bAspect":F
     sub-float v2, v0, v1
 
@@ -1112,7 +1113,7 @@
 .end method
 
 .method private configureOutputs(Ljava/util/Collection;)V
-    .locals 38
+    .locals 36
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1127,1701 +1128,1266 @@
     .end annotation
 
     .prologue
-    .line 340
+    .line 326
     .local p1, "outputs":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;>;"
-    sget-boolean v34, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
+    sget-boolean v31, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
 
-    if-eqz v34, :cond_0
+    if-eqz v31, :cond_0
 
-    .line 341
+    .line 327
     if-nez p1, :cond_2
 
-    const-string/jumbo v23, "null"
+    const-string/jumbo v22, "null"
 
-    .line 342
-    .local v23, "outputsStr":Ljava/lang/String;
+    .line 328
+    .local v22, "outputsStr":Ljava/lang/String;
     :goto_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v36, "configureOutputs with "
+    const-string v33, "configureOutputs with "
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v32
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v35
+    move-result-object v32
 
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 346
-    .end local v23    # "outputsStr":Ljava/lang/String;
+    .line 332
+    .end local v22    # "outputsStr":Ljava/lang/String;
     :cond_0
     :try_start_0
     invoke-direct/range {p0 .. p0}, Landroid/hardware/camera2/legacy/RequestThreadManager;->stopPreview()V
     :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 360
+    .line 346
     :try_start_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    const/16 v35, 0x0
+    const/16 v32, 0x0
 
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/Camera;->setPreviewTexture(Landroid/graphics/SurfaceTexture;)V
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/Camera;->setPreviewTexture(Landroid/graphics/SurfaceTexture;)V
     :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_3
 
-    .line 370
+    .line 356
     :goto_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    if-eqz v34, :cond_1
+    if-eqz v31, :cond_1
 
-    .line 371
+    .line 357
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/camera2/legacy/GLThreadManager;->waitUntilStarted()V
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/camera2/legacy/GLThreadManager;->waitUntilStarted()V
 
-    .line 372
+    .line 358
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/camera2/legacy/GLThreadManager;->ignoreNewFrames()V
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/camera2/legacy/GLThreadManager;->ignoreNewFrames()V
 
-    .line 373
+    .line 359
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/camera2/legacy/GLThreadManager;->waitUntilIdle()V
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/camera2/legacy/GLThreadManager;->waitUntilIdle()V
 
-    .line 375
+    .line 361
     :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCallbackOutputs:Ljava/util/List;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v31
 
     invoke-direct {v0, v1}, Landroid/hardware/camera2/legacy/RequestThreadManager;->resetJpegSurfaceFormats(Ljava/util/Collection;)V
 
-    .line 376
+    .line 362
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewOutputs:Ljava/util/List;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-interface/range {v34 .. v34}, Ljava/util/List;->clear()V
+    invoke-interface/range {v31 .. v31}, Ljava/util/List;->clear()V
 
-    .line 378
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mVideoOutput:Landroid/view/Surface;
-
-    .line 380
+    .line 363
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCallbackOutputs:Ljava/util/List;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-interface/range {v34 .. v34}, Ljava/util/List;->clear()V
+    invoke-interface/range {v31 .. v31}, Ljava/util/List;->clear()V
 
-    .line 381
+    .line 364
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegSurfaceIds:Ljava/util/List;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-interface/range {v34 .. v34}, Ljava/util/List;->clear()V
+    invoke-interface/range {v31 .. v31}, Ljava/util/List;->clear()V
 
-    .line 382
-    const/16 v34, 0x0
+    .line 365
+    const/16 v31, 0x0
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
 
-    .line 384
-    new-instance v25, Ljava/util/ArrayList;
+    .line 367
+    new-instance v24, Ljava/util/ArrayList;
 
-    invoke-direct/range {v25 .. v25}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/util/ArrayList;-><init>()V
 
-    .line 385
-    .local v25, "previewOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    new-instance v9, Ljava/util/ArrayList;
+    .line 368
+    .local v24, "previewOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    new-instance v8, Ljava/util/ArrayList;
 
-    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    .line 387
-    .local v9, "callbackOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    const/16 v33, 0x0
-
-    .line 390
-    .local v33, "videoOutputSize":Landroid/util/Size;
+    .line 370
+    .local v8, "callbackOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCharacteristics:Landroid/hardware/camera2/CameraCharacteristics;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    sget-object v35, Landroid/hardware/camera2/CameraCharacteristics;->LENS_FACING:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    sget-object v32, Landroid/hardware/camera2/CameraCharacteristics;->LENS_FACING:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
 
-    move-result-object v34
+    move-result-object v31
 
-    check-cast v34, Ljava/lang/Integer;
+    check-cast v31, Ljava/lang/Integer;
 
-    invoke-virtual/range {v34 .. v34}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/Integer;->intValue()I
 
-    move-result v13
+    move-result v12
 
-    .line 391
-    .local v13, "facing":I
+    .line 371
+    .local v12, "facing":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCharacteristics:Landroid/hardware/camera2/CameraCharacteristics;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    sget-object v35, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_ORIENTATION:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    sget-object v32, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_ORIENTATION:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
 
-    move-result-object v34
+    move-result-object v31
 
-    check-cast v34, Ljava/lang/Integer;
+    check-cast v31, Ljava/lang/Integer;
 
-    invoke-virtual/range {v34 .. v34}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/Integer;->intValue()I
 
-    move-result v20
+    move-result v17
 
-    .line 392
-    .local v20, "orientation":I
-    if-eqz p1, :cond_4
+    .line 372
+    .local v17, "orientation":I
+    if-eqz p1, :cond_3
 
-    .line 393
+    .line 373
     invoke-interface/range {p1 .. p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v14
 
-    .local v15, "i$":Ljava/util/Iterator;
+    .local v14, "i$":Ljava/util/Iterator;
     :goto_2
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v34
+    move-result v31
 
-    if-eqz v34, :cond_4
+    if-eqz v31, :cond_3
 
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v20
 
-    check-cast v21, Landroid/util/Pair;
+    check-cast v20, Landroid/util/Pair;
 
-    .line 394
-    .local v21, "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
-    move-object/from16 v0, v21
+    .line 374
+    .local v20, "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
+    move-object/from16 v0, v20
 
     iget-object v0, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    check-cast v28, Landroid/view/Surface;
+    check-cast v27, Landroid/view/Surface;
 
-    .line 395
-    .local v28, "s":Landroid/view/Surface;
-    move-object/from16 v0, v21
+    .line 375
+    .local v27, "s":Landroid/view/Surface;
+    move-object/from16 v0, v20
 
     iget-object v0, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    move-object/from16 v22, v0
+    move-object/from16 v21, v0
 
-    check-cast v22, Landroid/util/Size;
+    check-cast v21, Landroid/util/Size;
 
-    .line 397
-    .local v22, "outSize":Landroid/util/Size;
+    .line 377
+    .local v21, "outSize":Landroid/util/Size;
     :try_start_2
-    invoke-static/range {v28 .. v28}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceType(Landroid/view/Surface;)I
+    invoke-static/range {v27 .. v27}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceType(Landroid/view/Surface;)I
 
-    move-result v14
+    move-result v13
 
-    .line 398
-    .local v14, "format":I
-    move-object/from16 v0, v28
+    .line 378
+    .local v13, "format":I
+    move-object/from16 v0, v27
 
-    move/from16 v1, v20
+    move/from16 v1, v17
 
-    invoke-static {v0, v13, v1}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceOrientation(Landroid/view/Surface;II)V
+    invoke-static {v0, v12, v1}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceOrientation(Landroid/view/Surface;II)V
 
-    .line 399
-    packed-switch v14, :pswitch_data_0
+    .line 379
+    packed-switch v13, :pswitch_data_0
 
-    .line 413
-    invoke-static/range {v28 .. v28}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceUsageFlags(Landroid/view/Surface;)I
-
-    move-result v34
-
-    const/high16 v35, 0x10000
-
-    and-int v34, v34, v35
-
-    if-eqz v34, :cond_3
-
-    .line 414
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mVideoOutput:Landroid/view/Surface;
-    :try_end_2
-    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_2 .. :try_end_2} :catch_3
-
-    .line 415
-    move-object/from16 v33, v22
-
-    goto :goto_2
-
-    .line 341
-    .end local v9    # "callbackOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    .end local v13    # "facing":I
-    .end local v14    # "format":I
-    .end local v15    # "i$":Ljava/util/Iterator;
-    .end local v20    # "orientation":I
-    .end local v21    # "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
-    .end local v22    # "outSize":Landroid/util/Size;
-    .end local v25    # "previewOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    .end local v28    # "s":Landroid/view/Surface;
-    .end local v33    # "videoOutputSize":Landroid/util/Size;
-    :cond_2
-    new-instance v34, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-interface/range {p1 .. p1}, Ljava/util/Collection;->size()I
-
-    move-result v35
-
-    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v34
-
-    const-string v35, " surfaces"
-
-    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v34
-
-    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v23
-
-    goto/16 :goto_0
-
-    .line 347
-    :catch_0
-    move-exception v12
-
-    .line 348
-    .local v12, "e":Ljava/lang/RuntimeException;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    const-string v35, "Received device exception in configure call: "
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v35
-
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 349
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
-
-    move-object/from16 v34, v0
-
-    const/16 v35, 0x1
-
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
-
-    .line 593
-    .end local v12    # "e":Ljava/lang/RuntimeException;
-    :goto_3
-    return-void
-
-    .line 361
-    :catch_1
-    move-exception v12
-
-    .line 362
-    .local v12, "e":Ljava/io/IOException;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    const-string v35, "Failed to clear prior SurfaceTexture, may cause GL deadlock: "
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v35
-
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_1
-
-    .line 363
-    .end local v12    # "e":Ljava/io/IOException;
-    :catch_2
-    move-exception v12
-
-    .line 364
-    .local v12, "e":Ljava/lang/RuntimeException;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    const-string v35, "Received device exception in configure call: "
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v35
-
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 365
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
-
-    move-object/from16 v34, v0
-
-    const/16 v35, 0x1
-
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
-
-    goto :goto_3
-
-    .line 403
-    .end local v12    # "e":Ljava/lang/RuntimeException;
-    .restart local v9    # "callbackOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    .restart local v13    # "facing":I
-    .restart local v14    # "format":I
-    .restart local v15    # "i$":Ljava/util/Iterator;
-    .restart local v20    # "orientation":I
-    .restart local v21    # "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
-    .restart local v22    # "outSize":Landroid/util/Size;
-    .restart local v25    # "previewOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    .restart local v28    # "s":Landroid/view/Surface;
-    .restart local v33    # "videoOutputSize":Landroid/util/Size;
-    :pswitch_0
-    const/16 v34, 0x1
-
-    :try_start_3
-    move-object/from16 v0, v28
-
-    move/from16 v1, v34
-
-    invoke-static {v0, v1}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceFormat(Landroid/view/Surface;I)V
-
-    .line 406
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegSurfaceIds:Ljava/util/List;
-
-    move-object/from16 v34, v0
-
-    invoke-static/range {v28 .. v28}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->getSurfaceId(Landroid/view/Surface;)J
-
-    move-result-wide v36
-
-    invoke-static/range {v36 .. v37}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v35
-
-    invoke-interface/range {v34 .. v35}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 407
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCallbackOutputs:Ljava/util/List;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v28
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 408
-    move-object/from16 v0, v22
-
-    invoke-interface {v9, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_3
-    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_3 .. :try_end_3} :catch_3
-
-    goto/16 :goto_2
-
-    .line 423
-    .end local v14    # "format":I
-    :catch_3
-    move-exception v12
-
-    .line 424
-    .local v12, "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    const-string v35, "Surface abandoned, skipping..."
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v35
-
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_2
-
-    .line 417
-    .end local v12    # "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
-    .restart local v14    # "format":I
-    :cond_3
-    :try_start_4
+    .line 391
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewOutputs:Ljava/util/List;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v27
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 392
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v21
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_2
+    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_2 .. :try_end_2} :catch_0
+
+    goto :goto_2
+
+    .line 395
+    .end local v13    # "format":I
+    :catch_0
+    move-exception v9
+
+    .line 396
+    .local v9, "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+
+    move-object/from16 v31, v0
+
+    const-string v32, "Surface abandoned, skipping..."
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    .line 327
+    .end local v8    # "callbackOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    .end local v9    # "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
+    .end local v12    # "facing":I
+    .end local v14    # "i$":Ljava/util/Iterator;
+    .end local v17    # "orientation":I
+    .end local v20    # "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
+    .end local v21    # "outSize":Landroid/util/Size;
+    .end local v24    # "previewOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    .end local v27    # "s":Landroid/view/Surface;
+    :cond_2
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-interface/range {p1 .. p1}, Ljava/util/Collection;->size()I
+
+    move-result v32
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string v32, " surfaces"
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    goto/16 :goto_0
+
+    .line 333
+    :catch_1
+    move-exception v9
+
+    .line 334
+    .local v9, "e":Ljava/lang/RuntimeException;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+
+    move-object/from16 v31, v0
+
+    const-string v32, "Received device exception in configure call: "
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 335
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
+
+    move-object/from16 v31, v0
+
+    const/16 v32, 0x1
+
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
+
+    .line 497
+    .end local v9    # "e":Ljava/lang/RuntimeException;
+    :goto_3
+    return-void
+
+    .line 347
+    :catch_2
+    move-exception v9
+
+    .line 348
+    .local v9, "e":Ljava/io/IOException;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+
+    move-object/from16 v31, v0
+
+    const-string v32, "Failed to clear prior SurfaceTexture, may cause GL deadlock: "
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto/16 :goto_1
+
+    .line 349
+    .end local v9    # "e":Ljava/io/IOException;
+    :catch_3
+    move-exception v9
+
+    .line 350
+    .local v9, "e":Ljava/lang/RuntimeException;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+
+    move-object/from16 v31, v0
+
+    const-string v32, "Received device exception in configure call: "
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v32
+
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 351
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
+
+    move-object/from16 v31, v0
+
+    const/16 v32, 0x1
+
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
+
+    goto :goto_3
+
+    .line 383
+    .end local v9    # "e":Ljava/lang/RuntimeException;
+    .restart local v8    # "callbackOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    .restart local v12    # "facing":I
+    .restart local v13    # "format":I
+    .restart local v14    # "i$":Ljava/util/Iterator;
+    .restart local v17    # "orientation":I
+    .restart local v20    # "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
+    .restart local v21    # "outSize":Landroid/util/Size;
+    .restart local v24    # "previewOutputSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    .restart local v27    # "s":Landroid/view/Surface;
+    :pswitch_0
+    const/16 v31, 0x1
+
+    :try_start_3
+    move-object/from16 v0, v27
+
+    move/from16 v1, v31
+
+    invoke-static {v0, v1}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceFormat(Landroid/view/Surface;I)V
+
+    .line 386
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegSurfaceIds:Ljava/util/List;
+
+    move-object/from16 v31, v0
+
+    invoke-static/range {v27 .. v27}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->getSurfaceId(Landroid/view/Surface;)J
+
+    move-result-wide v32
+
+    invoke-static/range {v32 .. v33}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v32
+
+    invoke-interface/range {v31 .. v32}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 387
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCallbackOutputs:Ljava/util/List;
+
+    move-object/from16 v31, v0
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v27
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 418
-    move-object/from16 v0, v25
+    .line 388
+    move-object/from16 v0, v21
 
-    move-object/from16 v1, v22
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_4
-    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_4 .. :try_end_4} :catch_3
+    invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_3
+    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_3 .. :try_end_3} :catch_0
 
     goto/16 :goto_2
 
-    .line 429
-    .end local v14    # "format":I
-    .end local v15    # "i$":Ljava/util/Iterator;
-    .end local v21    # "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
-    .end local v22    # "outSize":Landroid/util/Size;
-    .end local v28    # "s":Landroid/view/Surface;
-    :cond_4
-    :try_start_5
+    .line 401
+    .end local v13    # "format":I
+    .end local v14    # "i$":Ljava/util/Iterator;
+    .end local v20    # "outPair":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
+    .end local v21    # "outSize":Landroid/util/Size;
+    .end local v27    # "s":Landroid/view/Surface;
+    :cond_3
+    :try_start_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
 
-    move-result-object v34
+    move-result-object v31
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
-    :try_end_5
-    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_4
+    :try_end_4
+    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_4
 
-    .line 437
+    .line 409
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewFpsRange()Ljava/util/List;
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewFpsRange()Ljava/util/List;
 
-    move-result-object v30
+    move-result-object v29
 
-    .line 438
-    .local v30, "supportedFpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
+    .line 410
+    .local v29, "supportedFpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1}, Landroid/hardware/camera2/legacy/RequestThreadManager;->getPhotoPreviewFpsRange(Ljava/util/List;)[I
 
     move-result-object v7
 
-    .line 439
+    .line 411
     .local v7, "bestRange":[I
-    sget-boolean v34, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
+    sget-boolean v31, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
 
-    if-eqz v34, :cond_5
+    if-eqz v31, :cond_4
 
-    .line 440
+    .line 412
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v36, "doPreviewCapture - Selected range ["
+    const-string v33, "doPreviewCapture - Selected range ["
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    const/16 v36, 0x0
+    const/16 v33, 0x0
 
-    aget v36, v7, v36
+    aget v33, v7, v33
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    const-string v36, ","
+    const-string v33, ","
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    const/16 v36, 0x1
+    const/16 v33, 0x1
 
-    aget v36, v7, v36
+    aget v33, v7, v33
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    const-string v36, "]"
+    const-string v33, "]"
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v35
+    move-result-object v32
 
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 444
-    :cond_5
+    .line 416
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    const/16 v35, 0x0
+    const/16 v32, 0x0
 
-    aget v35, v7, v35
+    aget v32, v7, v32
 
-    const/16 v36, 0x1
+    const/16 v33, 0x1
 
-    aget v36, v7, v36
+    aget v33, v7, v33
 
-    invoke-virtual/range {v34 .. v36}, Landroid/hardware/Camera$Parameters;->setPreviewFpsRange(II)V
+    invoke-virtual/range {v31 .. v33}, Landroid/hardware/Camera$Parameters;->setPreviewFpsRange(II)V
 
-    .line 450
-    move-object/from16 v0, p0
+    .line 419
+    invoke-interface/range {v24 .. v24}, Ljava/util/List;->size()I
 
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCallbackOutputs:Ljava/util/List;
+    move-result v31
 
-    move-object/from16 v34, v0
+    if-lez v31, :cond_a
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v34
-
-    move-object/from16 v2, v35
-
-    invoke-direct {v0, v1, v9, v2}, Landroid/hardware/camera2/legacy/RequestThreadManager;->calculatePictureSize(Ljava/util/List;Ljava/util/List;Landroid/hardware/Camera$Parameters;)Landroid/util/Size;
-
-    move-result-object v29
-
-    .line 452
-    .local v29, "smallestSupportedJpegSize":Landroid/util/Size;
-    if-eqz v29, :cond_6
-
-    .line 458
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    new-instance v35, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v36, "configureOutputs - set take picture size to "
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, v35
-
-    move-object/from16 v1, v29
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 459
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v29 .. v29}, Landroid/util/Size;->getWidth()I
-
-    move-result v35
-
-    invoke-virtual/range {v29 .. v29}, Landroid/util/Size;->getHeight()I
-
-    move-result v36
-
-    invoke-virtual/range {v34 .. v36}, Landroid/hardware/Camera$Parameters;->setPictureSize(II)V
-
-    .line 464
-    :cond_6
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->size()I
-
-    move-result v34
-
-    if-lez v34, :cond_c
-
-    .line 466
-    invoke-static/range {v25 .. v25}, Landroid/hardware/camera2/utils/SizeAreaComparator;->findLargestByArea(Ljava/util/List;)Landroid/util/Size;
-
-    move-result-object v17
-
-    .line 469
-    .local v17, "largestOutput":Landroid/util/Size;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
-
-    move-object/from16 v34, v0
-
-    invoke-static/range {v34 .. v34}, Landroid/hardware/camera2/legacy/ParameterUtils;->getLargestSupportedJpegSizeByArea(Landroid/hardware/Camera$Parameters;)Landroid/util/Size;
+    .line 421
+    invoke-static/range {v24 .. v24}, Landroid/hardware/camera2/utils/SizeAreaComparator;->findLargestByArea(Ljava/util/List;)Landroid/util/Size;
 
     move-result-object v16
 
-    .line 471
-    .local v16, "largestJpegDimen":Landroid/util/Size;
+    .line 424
+    .local v16, "largestOutput":Landroid/util/Size;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewSizes()Ljava/util/List;
+    invoke-static/range {v31 .. v31}, Landroid/hardware/camera2/legacy/ParameterUtils;->getLargestSupportedJpegSizeByArea(Landroid/hardware/Camera$Parameters;)Landroid/util/Size;
 
-    move-result-object v34
+    move-result-object v15
 
-    invoke-static/range {v34 .. v34}, Landroid/hardware/camera2/legacy/ParameterUtils;->convertSizeList(Ljava/util/List;)Ljava/util/List;
+    .line 426
+    .local v15, "largestJpegDimen":Landroid/util/Size;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
+
+    move-object/from16 v31, v0
+
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/Camera$Parameters;->getSupportedPreviewSizes()Ljava/util/List;
 
     move-result-object v31
 
-    .line 477
-    .local v31, "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    invoke-virtual/range {v17 .. v17}, Landroid/util/Size;->getHeight()I
+    invoke-static/range {v31 .. v31}, Landroid/hardware/camera2/legacy/ParameterUtils;->convertSizeList(Ljava/util/List;)Ljava/util/List;
 
-    move-result v34
+    move-result-object v30
 
-    move/from16 v0, v34
+    .line 432
+    .local v30, "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    invoke-virtual/range {v16 .. v16}, Landroid/util/Size;->getHeight()I
+
+    move-result v31
+
+    move/from16 v0, v31
+
+    int-to-long v0, v0
+
+    move-wide/from16 v32, v0
+
+    invoke-virtual/range {v16 .. v16}, Landroid/util/Size;->getWidth()I
+
+    move-result v31
+
+    move/from16 v0, v31
 
     int-to-long v0, v0
 
     move-wide/from16 v34, v0
 
-    invoke-virtual/range {v17 .. v17}, Landroid/util/Size;->getWidth()I
+    mul-long v18, v32, v34
 
-    move-result v36
-
-    move/from16 v0, v36
-
-    int-to-long v0, v0
-
-    move-wide/from16 v36, v0
-
-    mul-long v18, v34, v36
-
-    .line 478
+    .line 433
     .local v18, "largestOutputArea":J
-    invoke-static/range {v31 .. v31}, Landroid/hardware/camera2/utils/SizeAreaComparator;->findLargestByArea(Ljava/util/List;)Landroid/util/Size;
+    invoke-static/range {v30 .. v30}, Landroid/hardware/camera2/utils/SizeAreaComparator;->findLargestByArea(Ljava/util/List;)Landroid/util/Size;
 
     move-result-object v6
 
-    .line 479
+    .line 434
     .local v6, "bestPreviewDimen":Landroid/util/Size;
-    invoke-interface/range {v31 .. v31}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v30 .. v30}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v14
 
-    .restart local v15    # "i$":Ljava/util/Iterator;
-    :cond_7
+    .restart local v14    # "i$":Ljava/util/Iterator;
+    :cond_5
     :goto_4
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v34
+    move-result v31
 
-    if-eqz v34, :cond_9
+    if-eqz v31, :cond_6
 
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v28
+    move-result-object v27
 
-    check-cast v28, Landroid/util/Size;
+    check-cast v27, Landroid/util/Size;
 
-    .line 480
-    .local v28, "s":Landroid/util/Size;
-    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getWidth()I
+    .line 435
+    .local v27, "s":Landroid/util/Size;
+    invoke-virtual/range {v27 .. v27}, Landroid/util/Size;->getWidth()I
 
-    move-result v34
+    move-result v31
 
-    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getHeight()I
+    invoke-virtual/range {v27 .. v27}, Landroid/util/Size;->getHeight()I
 
-    move-result v35
+    move-result v32
 
-    mul-int v34, v34, v35
+    mul-int v31, v31, v32
 
-    move/from16 v0, v34
+    move/from16 v0, v31
 
     int-to-long v10, v0
 
-    .line 481
+    .line 436
     .local v10, "currArea":J
     invoke-virtual {v6}, Landroid/util/Size;->getWidth()I
 
-    move-result v34
+    move-result v31
 
     invoke-virtual {v6}, Landroid/util/Size;->getHeight()I
 
-    move-result v35
+    move-result v32
 
-    mul-int v34, v34, v35
+    mul-int v31, v31, v32
 
-    move/from16 v0, v34
+    move/from16 v0, v31
 
     int-to-long v4, v0
 
-    .line 486
+    .line 437
     .local v4, "bestArea":J
-    if-eqz v29, :cond_8
+    move-object/from16 v0, v27
 
-    .line 487
-    move-object/from16 v0, v29
+    invoke-static {v15, v0}, Landroid/hardware/camera2/legacy/RequestThreadManager;->checkAspectRatiosMatch(Landroid/util/Size;Landroid/util/Size;)Z
 
-    move-object/from16 v1, v28
+    move-result v31
 
-    invoke-static {v0, v1}, Landroid/hardware/camera2/legacy/RequestThreadManager;->checkAspectRatiosMatch(Landroid/util/Size;Landroid/util/Size;)Z
+    if-eqz v31, :cond_5
 
-    move-result v34
+    cmp-long v31, v10, v4
 
-    if-eqz v34, :cond_7
+    if-gez v31, :cond_5
 
-    cmp-long v34, v10, v4
+    cmp-long v31, v10, v18
 
-    if-gez v34, :cond_7
+    if-ltz v31, :cond_5
 
-    cmp-long v34, v10, v18
-
-    if-ltz v34, :cond_7
-
-    .line 489
-    move-object/from16 v6, v28
+    .line 439
+    move-object/from16 v6, v27
 
     goto :goto_4
 
-    .line 430
+    .line 402
     .end local v4    # "bestArea":J
     .end local v6    # "bestPreviewDimen":Landroid/util/Size;
     .end local v7    # "bestRange":[I
     .end local v10    # "currArea":J
-    .end local v15    # "i$":Ljava/util/Iterator;
-    .end local v16    # "largestJpegDimen":Landroid/util/Size;
-    .end local v17    # "largestOutput":Landroid/util/Size;
+    .end local v14    # "i$":Ljava/util/Iterator;
+    .end local v15    # "largestJpegDimen":Landroid/util/Size;
+    .end local v16    # "largestOutput":Landroid/util/Size;
     .end local v18    # "largestOutputArea":J
-    .end local v28    # "s":Landroid/util/Size;
-    .end local v29    # "smallestSupportedJpegSize":Landroid/util/Size;
-    .end local v30    # "supportedFpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
-    .end local v31    # "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    .end local v27    # "s":Landroid/util/Size;
+    .end local v29    # "supportedFpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
+    .end local v30    # "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     :catch_4
-    move-exception v12
+    move-exception v9
 
-    .line 431
-    .local v12, "e":Ljava/lang/RuntimeException;
+    .line 403
+    .restart local v9    # "e":Ljava/lang/RuntimeException;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    const-string v35, "Received device exception: "
+    const-string v32, "Received device exception: "
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v35
+    move-object/from16 v1, v32
 
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 432
+    .line 404
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    const/16 v35, 0x1
+    const/16 v32, 0x1
 
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
 
     goto/16 :goto_3
 
-    .line 492
-    .end local v12    # "e":Ljava/lang/RuntimeException;
-    .restart local v4    # "bestArea":J
+    .line 443
+    .end local v9    # "e":Ljava/lang/RuntimeException;
     .restart local v6    # "bestPreviewDimen":Landroid/util/Size;
     .restart local v7    # "bestRange":[I
-    .restart local v10    # "currArea":J
-    .restart local v15    # "i$":Ljava/util/Iterator;
-    .restart local v16    # "largestJpegDimen":Landroid/util/Size;
-    .restart local v17    # "largestOutput":Landroid/util/Size;
+    .restart local v14    # "i$":Ljava/util/Iterator;
+    .restart local v15    # "largestJpegDimen":Landroid/util/Size;
+    .restart local v16    # "largestOutput":Landroid/util/Size;
     .restart local v18    # "largestOutputArea":J
-    .restart local v28    # "s":Landroid/util/Size;
-    .restart local v29    # "smallestSupportedJpegSize":Landroid/util/Size;
-    .restart local v30    # "supportedFpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
-    .restart local v31    # "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    :cond_8
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v28
-
-    invoke-static {v0, v1}, Landroid/hardware/camera2/legacy/RequestThreadManager;->checkAspectRatiosMatch(Landroid/util/Size;Landroid/util/Size;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_7
-
-    cmp-long v34, v10, v4
-
-    if-gez v34, :cond_7
-
-    cmp-long v34, v10, v18
-
-    if-ltz v34, :cond_7
-
-    .line 494
-    move-object/from16 v6, v28
-
-    goto :goto_4
-
-    .line 500
-    .end local v4    # "bestArea":J
-    .end local v10    # "currArea":J
-    .end local v28    # "s":Landroid/util/Size;
-    :cond_9
+    .restart local v29    # "supportedFpsRanges":Ljava/util/List;, "Ljava/util/List<[I>;"
+    .restart local v30    # "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    :cond_6
     move-object/from16 v0, p0
 
     iput-object v6, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
 
-    .line 501
+    .line 444
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
 
-    move-object/from16 v35, v0
+    move-object/from16 v32, v0
 
-    invoke-virtual/range {v35 .. v35}, Landroid/util/Size;->getWidth()I
+    invoke-virtual/range {v32 .. v32}, Landroid/util/Size;->getWidth()I
 
-    move-result v35
+    move-result v32
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
 
-    move-object/from16 v36, v0
+    move-object/from16 v33, v0
 
-    invoke-virtual/range {v36 .. v36}, Landroid/util/Size;->getHeight()I
+    invoke-virtual/range {v33 .. v33}, Landroid/util/Size;->getHeight()I
 
-    move-result v36
+    move-result v33
 
-    invoke-virtual/range {v34 .. v36}, Landroid/hardware/Camera$Parameters;->setPreviewSize(II)V
+    invoke-virtual/range {v31 .. v33}, Landroid/hardware/Camera$Parameters;->setPreviewSize(II)V
 
-    .line 504
-    sget-boolean v34, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
+    .line 447
+    sget-boolean v31, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
 
-    if-eqz v34, :cond_a
+    if-eqz v31, :cond_7
 
-    .line 505
+    .line 448
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v36, "Intermediate buffer selected with dimens: "
+    const-string v33, "Intermediate buffer selected with dimens: "
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual {v6}, Landroid/util/Size;->toString()Ljava/lang/String;
-
-    move-result-object v36
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 515
-    .end local v6    # "bestPreviewDimen":Landroid/util/Size;
-    .end local v15    # "i$":Ljava/util/Iterator;
-    .end local v16    # "largestJpegDimen":Landroid/util/Size;
-    .end local v17    # "largestOutput":Landroid/util/Size;
-    .end local v18    # "largestOutputArea":J
-    .end local v31    # "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    :cond_a
-    :goto_5
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/Camera$Parameters;->getSupportedVideoSizes()Ljava/util/List;
-
-    move-result-object v34
-
-    invoke-static/range {v34 .. v34}, Landroid/hardware/camera2/legacy/ParameterUtils;->convertSizeList(Ljava/util/List;)Ljava/util/List;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v32
 
-    .line 516
-    .local v32, "supportedVideoSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    invoke-static/range {v32 .. v32}, Landroid/hardware/camera2/utils/SizeAreaComparator;->findLargestByArea(Ljava/util/List;)Landroid/util/Size;
+    invoke-virtual {v6}, Landroid/util/Size;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v33
 
-    .line 517
-    .local v8, "bestVideoDimen":Landroid/util/Size;
-    move-object/from16 v0, p0
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mVideoOutput:Landroid/view/Surface;
+    move-result-object v32
 
-    move-object/from16 v34, v0
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-eqz v34, :cond_d
+    move-result-object v32
 
-    .line 518
-    invoke-virtual/range {v33 .. v33}, Landroid/util/Size;->getHeight()I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v34
-
-    move/from16 v0, v34
-
-    int-to-long v0, v0
-
-    move-wide/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v33}, Landroid/util/Size;->getWidth()I
-
-    move-result v36
-
-    move/from16 v0, v36
-
-    int-to-long v0, v0
-
-    move-wide/from16 v36, v0
-
-    mul-long v18, v34, v36
-
-    .line 519
-    .restart local v18    # "largestOutputArea":J
-    invoke-interface/range {v32 .. v32}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v15
-
-    .restart local v15    # "i$":Ljava/util/Iterator;
-    :cond_b
-    :goto_6
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v34
-
-    if-eqz v34, :cond_f
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v28
-
-    check-cast v28, Landroid/util/Size;
-
-    .line 520
-    .restart local v28    # "s":Landroid/util/Size;
-    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getWidth()I
-
-    move-result v34
-
-    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getHeight()I
-
-    move-result v35
-
-    mul-int v34, v34, v35
-
-    move/from16 v0, v34
-
-    int-to-long v10, v0
-
-    .line 521
-    .restart local v10    # "currArea":J
-    invoke-virtual {v8}, Landroid/util/Size;->getWidth()I
-
-    move-result v34
-
-    invoke-virtual {v8}, Landroid/util/Size;->getHeight()I
-
-    move-result v35
-
-    mul-int v34, v34, v35
-
-    move/from16 v0, v34
-
-    int-to-long v4, v0
-
-    .line 522
-    .restart local v4    # "bestArea":J
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v28
-
-    invoke-static {v0, v1}, Landroid/hardware/camera2/legacy/RequestThreadManager;->checkAspectRatiosMatch(Landroid/util/Size;Landroid/util/Size;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_b
-
-    cmp-long v34, v10, v4
-
-    if-gez v34, :cond_b
-
-    cmp-long v34, v10, v18
-
-    if-ltz v34, :cond_b
-
-    .line 523
-    move-object/from16 v8, v28
-
-    goto :goto_6
-
-    .line 509
-    .end local v4    # "bestArea":J
-    .end local v8    # "bestVideoDimen":Landroid/util/Size;
-    .end local v10    # "currArea":J
-    .end local v15    # "i$":Ljava/util/Iterator;
+    .line 458
+    .end local v6    # "bestPreviewDimen":Landroid/util/Size;
+    .end local v14    # "i$":Ljava/util/Iterator;
+    .end local v15    # "largestJpegDimen":Landroid/util/Size;
+    .end local v16    # "largestOutput":Landroid/util/Size;
     .end local v18    # "largestOutputArea":J
-    .end local v28    # "s":Landroid/util/Size;
-    .end local v32    # "supportedVideoSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    :cond_c
-    const/16 v34, 0x0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
-
-    .line 510
-    sget-boolean v34, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
-
-    if-eqz v34, :cond_a
-
-    .line 511
+    .end local v30    # "supportedPreviewSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
+    :cond_7
+    :goto_5
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCallbackOutputs:Ljava/util/List;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    const-string v35, "No Intermediate buffer selected, no preview outputs were configured"
-
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_5
-
-    .line 526
-    .restart local v8    # "bestVideoDimen":Landroid/util/Size;
-    .restart local v32    # "supportedVideoSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    :cond_d
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
-
-    move-object/from16 v34, v0
-
-    if-eqz v34, :cond_f
-
-    .line 527
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v34 .. v34}, Landroid/util/Size;->getHeight()I
-
-    move-result v34
-
-    move/from16 v0, v34
-
-    int-to-long v0, v0
-
-    move-wide/from16 v34, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
-
-    move-object/from16 v36, v0
-
-    invoke-virtual/range {v36 .. v36}, Landroid/util/Size;->getWidth()I
-
-    move-result v36
-
-    move/from16 v0, v36
-
-    int-to-long v0, v0
-
-    move-wide/from16 v36, v0
-
-    mul-long v18, v34, v36
-
-    .line 528
-    .restart local v18    # "largestOutputArea":J
-    invoke-interface/range {v32 .. v32}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v15
-
-    .restart local v15    # "i$":Ljava/util/Iterator;
-    :cond_e
-    :goto_7
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v34
-
-    if-eqz v34, :cond_f
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v28
-
-    check-cast v28, Landroid/util/Size;
-
-    .line 529
-    .restart local v28    # "s":Landroid/util/Size;
-    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getWidth()I
-
-    move-result v34
-
-    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getHeight()I
-
-    move-result v35
-
-    mul-int v34, v34, v35
-
-    move/from16 v0, v34
-
-    int-to-long v10, v0
-
-    .line 530
-    .restart local v10    # "currArea":J
-    invoke-virtual {v8}, Landroid/util/Size;->getWidth()I
-
-    move-result v34
-
-    invoke-virtual {v8}, Landroid/util/Size;->getHeight()I
-
-    move-result v35
-
-    mul-int v34, v34, v35
-
-    move/from16 v0, v34
-
-    int-to-long v4, v0
-
-    .line 531
-    .restart local v4    # "bestArea":J
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v28
-
-    invoke-static {v0, v1}, Landroid/hardware/camera2/legacy/RequestThreadManager;->checkAspectRatiosMatch(Landroid/util/Size;Landroid/util/Size;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_e
-
-    cmp-long v34, v10, v4
-
-    if-gez v34, :cond_e
-
-    cmp-long v34, v10, v18
-
-    if-ltz v34, :cond_e
-
-    .line 532
-    move-object/from16 v8, v28
-
-    goto :goto_7
-
-    .line 536
-    .end local v4    # "bestArea":J
-    .end local v10    # "currArea":J
-    .end local v15    # "i$":Ljava/util/Iterator;
-    .end local v18    # "largestOutputArea":J
-    .end local v28    # "s":Landroid/util/Size;
-    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
 
-    move-object/from16 v34, v0
+    move-object/from16 v32, v0
 
-    invoke-virtual {v8}, Landroid/util/Size;->getWidth()I
+    move-object/from16 v0, p0
 
-    move-result v35
+    move-object/from16 v1, v31
 
-    invoke-virtual {v8}, Landroid/util/Size;->getHeight()I
+    move-object/from16 v2, v32
 
-    move-result v36
+    invoke-direct {v0, v1, v8, v2}, Landroid/hardware/camera2/legacy/RequestThreadManager;->calculatePictureSize(Ljava/util/List;Ljava/util/List;Landroid/hardware/Camera$Parameters;)Landroid/util/Size;
 
-    invoke-virtual/range {v34 .. v36}, Landroid/hardware/Camera$Parameters;->setVideoSize(II)V
+    move-result-object v28
 
-    .line 537
-    sget-boolean v34, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
+    .line 460
+    .local v28, "smallestSupportedJpegSize":Landroid/util/Size;
+    if-eqz v28, :cond_8
 
-    if-eqz v34, :cond_10
-
-    .line 538
+    .line 466
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    new-instance v35, Ljava/lang/StringBuilder;
+    new-instance v32, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v36, "VideoSize selected with dimens: "
+    const-string v33, "configureOutputs - set take picture size to "
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    invoke-virtual {v8}, Landroid/util/Size;->toString()Ljava/lang/String;
+    move-object/from16 v0, v32
 
-    move-result-object v36
+    move-object/from16 v1, v28
 
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v35
+    move-result-object v32
 
-    invoke-virtual/range {v35 .. v35}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v35
+    move-result-object v32
 
-    invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 563
-    :cond_10
+    .line 467
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
+
+    move-object/from16 v31, v0
+
+    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getWidth()I
+
+    move-result v32
+
+    invoke-virtual/range {v28 .. v28}, Landroid/util/Size;->getHeight()I
+
+    move-result v33
+
+    invoke-virtual/range {v31 .. v33}, Landroid/hardware/Camera$Parameters;->setPictureSize(II)V
+
+    .line 472
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    if-nez v34, :cond_11
+    if-nez v31, :cond_9
 
-    .line 564
-    new-instance v34, Landroid/hardware/camera2/legacy/GLThreadManager;
+    .line 473
+    new-instance v31, Landroid/hardware/camera2/legacy/GLThreadManager;
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCameraId:I
 
-    move/from16 v35, v0
+    move/from16 v32, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
 
-    move-object/from16 v36, v0
+    move-object/from16 v33, v0
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
-    move/from16 v1, v35
+    move/from16 v1, v32
 
-    move-object/from16 v2, v36
+    move-object/from16 v2, v33
 
-    invoke-direct {v0, v1, v13, v2}, Landroid/hardware/camera2/legacy/GLThreadManager;-><init>(IILandroid/hardware/camera2/legacy/CameraDeviceState;)V
+    invoke-direct {v0, v1, v12, v2}, Landroid/hardware/camera2/legacy/GLThreadManager;-><init>(IILandroid/hardware/camera2/legacy/CameraDeviceState;)V
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    .line 565
+    .line 474
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/camera2/legacy/GLThreadManager;->start()V
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/camera2/legacy/GLThreadManager;->start()V
 
-    .line 567
-    :cond_11
+    .line 476
+    :cond_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/camera2/legacy/GLThreadManager;->waitUntilStarted()V
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/camera2/legacy/GLThreadManager;->waitUntilStarted()V
 
-    .line 568
-    new-instance v27, Ljava/util/ArrayList;
+    .line 477
+    new-instance v26, Ljava/util/ArrayList;
 
-    invoke-direct/range {v27 .. v27}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/util/ArrayList;-><init>()V
 
-    .line 569
-    .local v27, "previews":Ljava/util/List;, "Ljava/util/List<Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;>;"
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    .line 478
+    .local v26, "previews":Ljava/util/List;, "Ljava/util/List<Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;>;"
+    invoke-interface/range {v24 .. v24}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v26
+    move-result-object v25
 
-    .line 570
-    .local v26, "previewSizeIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/util/Size;>;"
+    .line 479
+    .local v25, "previewSizeIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/util/Size;>;"
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewOutputs:Ljava/util/List;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-interface/range {v34 .. v34}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v31 .. v31}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v14
 
-    .restart local v15    # "i$":Ljava/util/Iterator;
-    :goto_8
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    .restart local v14    # "i$":Ljava/util/Iterator;
+    :goto_6
+    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v34
+    move-result v31
 
-    if-eqz v34, :cond_12
+    if-eqz v31, :cond_b
 
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v24
+    move-result-object v23
 
-    check-cast v24, Landroid/view/Surface;
+    check-cast v23, Landroid/view/Surface;
 
-    .line 571
-    .local v24, "p":Landroid/view/Surface;
-    new-instance v34, Landroid/util/Pair;
+    .line 480
+    .local v23, "p":Landroid/view/Surface;
+    new-instance v31, Landroid/util/Pair;
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v35
+    move-result-object v32
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v23
 
-    move-object/from16 v2, v35
-
-    invoke-direct {v0, v1, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    move-object/from16 v0, v27
-
-    move-object/from16 v1, v34
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_8
-
-    .line 574
-    .end local v24    # "p":Landroid/view/Surface;
-    :cond_12
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mVideoOutput:Landroid/view/Surface;
-
-    move-object/from16 v34, v0
-
-    if-eqz v34, :cond_13
-
-    .line 575
-    new-instance v34, Landroid/util/Pair;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mVideoOutput:Landroid/view/Surface;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, v34
-
-    move-object/from16 v1, v35
-
-    move-object/from16 v2, v33
+    move-object/from16 v2, v32
 
     invoke-direct {v0, v1, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v31
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 578
-    :cond_13
+    goto :goto_6
+
+    .line 452
+    .end local v14    # "i$":Ljava/util/Iterator;
+    .end local v23    # "p":Landroid/view/Surface;
+    .end local v25    # "previewSizeIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/util/Size;>;"
+    .end local v26    # "previews":Ljava/util/List;, "Ljava/util/List<Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;>;"
+    .end local v28    # "smallestSupportedJpegSize":Landroid/util/Size;
+    :cond_a
+    const/16 v31, 0x0
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIntermediateBufferSize:Landroid/util/Size;
+
+    .line 453
+    sget-boolean v31, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
+
+    if-eqz v31, :cond_7
+
+    .line 454
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+
+    move-object/from16 v31, v0
+
+    const-string v32, "No Intermediate buffer selected, no preview outputs were configured"
+
+    invoke-static/range {v31 .. v32}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_5
+
+    .line 482
+    .restart local v14    # "i$":Ljava/util/Iterator;
+    .restart local v25    # "previewSizeIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/util/Size;>;"
+    .restart local v26    # "previews":Ljava/util/List;, "Ljava/util/List<Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;>;"
+    .restart local v28    # "smallestSupportedJpegSize":Landroid/util/Size;
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCaptureCollector:Landroid/hardware/camera2/legacy/CaptureCollector;
 
-    move-object/from16 v35, v0
+    move-object/from16 v32, v0
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v26
 
-    move-object/from16 v2, v35
+    move-object/from16 v2, v32
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/legacy/GLThreadManager;->setConfigurationAndWait(Ljava/util/Collection;Landroid/hardware/camera2/legacy/CaptureCollector;)V
 
-    .line 579
+    .line 483
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/camera2/legacy/GLThreadManager;->allowNewFrames()V
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/camera2/legacy/GLThreadManager;->allowNewFrames()V
 
-    .line 580
+    .line 484
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mGLThreadManager:Landroid/hardware/camera2/legacy/GLThreadManager;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    invoke-virtual/range {v34 .. v34}, Landroid/hardware/camera2/legacy/GLThreadManager;->getCurrentSurfaceTexture()Landroid/graphics/SurfaceTexture;
+    invoke-virtual/range {v31 .. v31}, Landroid/hardware/camera2/legacy/GLThreadManager;->getCurrentSurfaceTexture()Landroid/graphics/SurfaceTexture;
 
-    move-result-object v34
+    move-result-object v31
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
 
-    .line 581
+    .line 485
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    if-eqz v34, :cond_14
+    if-eqz v31, :cond_c
 
-    .line 582
+    .line 486
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewCallback:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
-    move-object/from16 v35, v0
+    move-object/from16 v32, v0
 
-    invoke-virtual/range {v34 .. v35}, Landroid/graphics/SurfaceTexture;->setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
+    invoke-virtual/range {v31 .. v32}, Landroid/graphics/SurfaceTexture;->setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
 
-    .line 586
-    :cond_14
-    :try_start_6
+    .line 490
+    :cond_c
+    :try_start_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mParams:Landroid/hardware/Camera$Parameters;
 
-    move-object/from16 v35, v0
+    move-object/from16 v32, v0
 
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/Camera;->setParameters(Landroid/hardware/Camera$Parameters;)V
-    :try_end_6
-    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_6} :catch_5
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/Camera;->setParameters(Landroid/hardware/Camera$Parameters;)V
+    :try_end_5
+    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_5
 
     goto/16 :goto_3
 
-    .line 587
+    .line 491
     :catch_5
-    move-exception v12
+    move-exception v9
 
-    .line 588
-    .restart local v12    # "e":Ljava/lang/RuntimeException;
+    .line 492
+    .restart local v9    # "e":Ljava/lang/RuntimeException;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    const-string v35, "Received device exception while configuring: "
+    const-string v32, "Received device exception while configuring: "
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v31
 
-    move-object/from16 v1, v35
+    move-object/from16 v1, v32
 
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 589
+    .line 493
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDeviceState:Landroid/hardware/camera2/legacy/CameraDeviceState;
 
-    move-object/from16 v34, v0
+    move-object/from16 v31, v0
 
-    const/16 v35, 0x1
+    const/16 v32, 0x1
 
-    invoke-virtual/range {v34 .. v35}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
+    invoke-virtual/range {v31 .. v32}, Landroid/hardware/camera2/legacy/CameraDeviceState;->setError(I)V
 
     goto/16 :goto_3
 
-    .line 399
+    .line 379
+    nop
+
     :pswitch_data_0
     .packed-switch 0x21
         :pswitch_0
@@ -2832,7 +2398,7 @@
     .locals 3
 
     .prologue
-    .line 189
+    .line 183
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDummyTexture:Landroid/graphics/SurfaceTexture;
 
     if-eqz v0, :cond_0
@@ -2841,7 +2407,7 @@
 
     if-nez v0, :cond_1
 
-    .line 190
+    .line 184
     :cond_0
     new-instance v0, Landroid/graphics/SurfaceTexture;
 
@@ -2851,7 +2417,7 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDummyTexture:Landroid/graphics/SurfaceTexture;
 
-    .line 192
+    .line 186
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDummyTexture:Landroid/graphics/SurfaceTexture;
 
     const/16 v1, 0x280
@@ -2860,7 +2426,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/SurfaceTexture;->setDefaultBufferSize(II)V
 
-    .line 193
+    .line 187
     new-instance v0, Landroid/view/Surface;
 
     iget-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDummyTexture:Landroid/graphics/SurfaceTexture;
@@ -2869,7 +2435,7 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDummySurface:Landroid/view/Surface;
 
-    .line 195
+    .line 189
     :cond_1
     return-void
 .end method
@@ -2879,7 +2445,7 @@
     .param p1, "request"    # Landroid/hardware/camera2/legacy/RequestHolder;
 
     .prologue
-    .line 312
+    .line 298
     sget-boolean v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -2890,7 +2456,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 314
+    .line 300
     :cond_0
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
@@ -2902,12 +2468,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/Camera;->takePicture(Landroid/hardware/Camera$ShutterCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;)V
 
-    .line 315
+    .line 301
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
-    .line 316
+    .line 302
     return-void
 .end method
 
@@ -2921,7 +2487,7 @@
     .end annotation
 
     .prologue
-    .line 300
+    .line 286
     sget-boolean v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -2950,13 +2516,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 302
+    .line 288
     :cond_0
     iget-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
     if-nez v0, :cond_2
 
-    .line 303
+    .line 289
     sget-boolean v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->DEBUG:Z
 
     if-eqz v0, :cond_1
@@ -2967,21 +2533,21 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 305
+    .line 291
     :cond_1
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/RequestThreadManager;->createDummySurface()V
 
-    .line 306
+    .line 292
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
     iget-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mDummyTexture:Landroid/graphics/SurfaceTexture;
 
     invoke-virtual {v0, v1}, Landroid/hardware/Camera;->setPreviewTexture(Landroid/graphics/SurfaceTexture;)V
 
-    .line 307
+    .line 293
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/RequestThreadManager;->startPreview()V
 
-    .line 309
+    .line 295
     :cond_2
     return-void
 .end method
@@ -2996,12 +2562,12 @@
     .end annotation
 
     .prologue
-    .line 319
+    .line 305
     sget-boolean v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->VERBOSE:Z
 
     if-eqz v0, :cond_0
 
-    .line 320
+    .line 306
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3026,23 +2592,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 323
+    .line 309
     :cond_0
     iget-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
     if-eqz v0, :cond_1
 
-    .line 337
+    .line 323
     :goto_0
     return-void
 
-    .line 327
+    .line 313
     :cond_1
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
 
     if-nez v0, :cond_2
 
-    .line 328
+    .line 314
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Preview capture called with no preview surfaces configured."
@@ -3051,7 +2617,7 @@
 
     throw v0
 
-    .line 332
+    .line 318
     :cond_2
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
 
@@ -3069,14 +2635,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/SurfaceTexture;->setDefaultBufferSize(II)V
 
-    .line 334
+    .line 320
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
     iget-object v1, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewTexture:Landroid/graphics/SurfaceTexture;
 
     invoke-virtual {v0, v1}, Landroid/hardware/Camera;->setPreviewTexture(Landroid/graphics/SurfaceTexture;)V
 
-    .line 336
+    .line 322
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/RequestThreadManager;->startPreview()V
 
     goto :goto_0
@@ -3093,7 +2659,7 @@
     .end annotation
 
     .prologue
-    .line 712
+    .line 616
     .local p1, "frameRates":Ljava/util/List;, "Ljava/util/List<[I>;"
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -3101,37 +2667,37 @@
 
     if-nez v8, :cond_0
 
-    .line 713
+    .line 617
     iget-object v8, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
     const-string v9, "No supported frame rates returned!"
 
     invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 714
+    .line 618
     const/4 v8, 0x0
 
-    .line 732
+    .line 636
     :goto_0
     return-object v8
 
-    .line 717
+    .line 621
     :cond_0
     const/4 v2, 0x0
 
-    .line 718
+    .line 622
     .local v2, "bestMin":I
     const/4 v1, 0x0
 
-    .line 719
+    .line 623
     .local v1, "bestMax":I
     const/4 v0, 0x0
 
-    .line 720
+    .line 624
     .local v0, "bestIndex":I
     const/4 v4, 0x0
 
-    .line 721
+    .line 625
     .local v4, "index":I
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3151,19 +2717,19 @@
 
     check-cast v7, [I
 
-    .line 722
+    .line 626
     .local v7, "rate":[I
     const/4 v8, 0x0
 
     aget v6, v7, v8
 
-    .line 723
+    .line 627
     .local v6, "minFps":I
     const/4 v8, 0x1
 
     aget v5, v7, v8
 
-    .line 724
+    .line 628
     .local v5, "maxFps":I
     if-gt v5, v1, :cond_1
 
@@ -3171,24 +2737,24 @@
 
     if-le v6, v2, :cond_2
 
-    .line 725
+    .line 629
     :cond_1
     move v2, v6
 
-    .line 726
+    .line 630
     move v1, v5
 
-    .line 727
+    .line 631
     move v0, v4
 
-    .line 729
+    .line 633
     :cond_2
     add-int/lit8 v4, v4, 0x1
 
-    .line 730
+    .line 634
     goto :goto_1
 
-    .line 732
+    .line 636
     .end local v5    # "maxFps":I
     .end local v6    # "minFps":I
     .end local v7    # "rate":[I
@@ -3215,15 +2781,15 @@
     .end annotation
 
     .prologue
-    .line 596
+    .line 500
     .local p1, "surfaces":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/view/Surface;>;"
     if-nez p1, :cond_1
 
-    .line 606
+    .line 510
     :cond_0
     return-void
 
-    .line 599
+    .line 503
     :cond_1
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -3243,7 +2809,7 @@
 
     check-cast v2, Landroid/view/Surface;
 
-    .line 601
+    .line 505
     .local v2, "s":Landroid/view/Surface;
     const/16 v3, 0x21
 
@@ -3254,11 +2820,11 @@
 
     goto :goto_0
 
-    .line 602
+    .line 506
     :catch_0
     move-exception v0
 
-    .line 603
+    .line 507
     .local v0, "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
     iget-object v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
@@ -3270,17 +2836,15 @@
 .end method
 
 .method private startPreview()V
-    .locals 4
+    .locals 3
 
     .prologue
-    const/4 v3, 0x1
-
-    .line 286
+    .line 275
     sget-boolean v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->VERBOSE:Z
 
     if-eqz v0, :cond_0
 
-    .line 287
+    .line 276
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3305,40 +2869,37 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 289
+    .line 278
     :cond_0
     iget-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
     if-nez v0, :cond_1
 
-    .line 291
+    .line 280
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->startPreview()V
 
-    .line 292
-    iput-boolean v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
+    .line 281
+    const/4 v0, 0x1
 
-    .line 294
-    iput-boolean v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mHalPreviewRunning:Z
+    iput-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
-    .line 297
+    .line 283
     :cond_1
     return-void
 .end method
 
 .method private stopPreview()V
-    .locals 4
+    .locals 3
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 271
+    .line 265
     sget-boolean v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->VERBOSE:Z
 
     if-eqz v0, :cond_0
 
-    .line 272
+    .line 266
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3363,30 +2924,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 275
+    .line 268
     :cond_0
     iget-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mHalPreviewRunning:Z
-
-    if-eqz v0, :cond_2
-
-    .line 277
-    :cond_1
+    .line 269
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCamera:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->stopPreview()V
 
-    .line 278
-    iput-boolean v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
+    .line 270
+    const/4 v0, 0x0
 
-    .line 280
-    iput-boolean v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mHalPreviewRunning:Z
+    iput-boolean v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mPreviewRunning:Z
 
-    .line 283
-    :cond_2
+    .line 272
+    :cond_1
     return-void
 .end method
 
@@ -3397,7 +2952,7 @@
     .param p1, "requestId"    # I
 
     .prologue
-    .line 1119
+    .line 1023
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestQueue:Landroid/hardware/camera2/legacy/RequestQueue;
 
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/legacy/RequestQueue;->stopRepeating(I)J
@@ -3426,26 +2981,26 @@
     .local p1, "outputs":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;>;"
     const/4 v4, 0x0
 
-    .line 1134
+    .line 1038
     iget-object v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
     invoke-virtual {v3}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->waitAndGetHandler()Landroid/os/Handler;
 
     move-result-object v1
 
-    .line 1135
+    .line 1039
     .local v1, "handler":Landroid/os/Handler;
     new-instance v0, Landroid/os/ConditionVariable;
 
     invoke-direct {v0, v4}, Landroid/os/ConditionVariable;-><init>(Z)V
 
-    .line 1136
+    .line 1040
     .local v0, "condition":Landroid/os/ConditionVariable;
     new-instance v2, Landroid/hardware/camera2/legacy/RequestThreadManager$ConfigureHolder;
 
     invoke-direct {v2, v0, p1}, Landroid/hardware/camera2/legacy/RequestThreadManager$ConfigureHolder;-><init>(Landroid/os/ConditionVariable;Ljava/util/Collection;)V
 
-    .line 1137
+    .line 1041
     .local v2, "holder":Landroid/hardware/camera2/legacy/RequestThreadManager$ConfigureHolder;
     const/4 v3, 0x1
 
@@ -3455,10 +3010,10 @@
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 1138
+    .line 1042
     invoke-virtual {v0}, Landroid/os/ConditionVariable;->block()V
 
-    .line 1139
+    .line 1043
     return-void
 .end method
 
@@ -3466,27 +3021,27 @@
     .locals 4
 
     .prologue
-    .line 1064
+    .line 968
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
     const-string v3, "Flushing all pending requests."
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1065
+    .line 969
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestQueue:Landroid/hardware/camera2/legacy/RequestQueue;
 
     invoke-virtual {v2}, Landroid/hardware/camera2/legacy/RequestQueue;->stopRepeating()J
 
     move-result-wide v0
 
-    .line 1066
+    .line 970
     .local v0, "lastFrame":J
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mCaptureCollector:Landroid/hardware/camera2/legacy/CaptureCollector;
 
     invoke-virtual {v2}, Landroid/hardware/camera2/legacy/CaptureCollector;->failAll()V
 
-    .line 1067
+    .line 971
     return-wide v0
 .end method
 
@@ -3496,7 +3051,7 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 1074
+    .line 978
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mQuit:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v2, v8}, Ljava/util/concurrent/atomic/AtomicBoolean;->getAndSet(Z)Z
@@ -3505,14 +3060,14 @@
 
     if-nez v2, :cond_0
 
-    .line 1075
+    .line 979
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
     invoke-virtual {v2}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->waitAndGetHandler()Landroid/os/Handler;
 
     move-result-object v1
 
-    .line 1076
+    .line 980
     .local v1, "handler":Landroid/os/Handler;
     const/4 v2, 0x3
 
@@ -3522,12 +3077,12 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessageAtFrontOfQueue(Landroid/os/Message;)Z
 
-    .line 1077
+    .line 981
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
     invoke-virtual {v2}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->quitSafely()Z
 
-    .line 1079
+    .line 983
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
@@ -3535,18 +3090,18 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1085
+    .line 989
     .end local v1    # "handler":Landroid/os/Handler;
     :cond_0
     :goto_0
     return-void
 
-    .line 1080
+    .line 984
     .restart local v1    # "handler":Landroid/os/Handler;
     :catch_0
     move-exception v0
 
-    .line 1081
+    .line 985
     .local v0, "e":Ljava/lang/InterruptedException;
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
 
@@ -3591,12 +3146,12 @@
     .locals 1
 
     .prologue
-    .line 1055
+    .line 959
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
     invoke-virtual {v0}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->start()V
 
-    .line 1056
+    .line 960
     return-void
 .end method
 
@@ -3617,7 +3172,7 @@
     .end annotation
 
     .prologue
-    .line 1102
+    .line 1006
     .local p1, "requests":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CaptureRequest;>;"
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
@@ -3625,13 +3180,13 @@
 
     move-result-object v0
 
-    .line 1104
+    .line 1008
     .local v0, "handler":Landroid/os/Handler;
     iget-object v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mIdleLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1105
+    .line 1009
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestQueue:Landroid/hardware/camera2/legacy/RequestQueue;
 
@@ -3639,19 +3194,19 @@
 
     move-result v1
 
-    .line 1106
+    .line 1010
     .local v1, "ret":I
     const/4 v2, 0x2
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 1107
+    .line 1011
     monitor-exit v3
 
-    .line 1108
+    .line 1012
     return v1
 
-    .line 1107
+    .line 1011
     .end local v1    # "ret":I
     :catchall_0
     move-exception v2

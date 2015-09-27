@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.view.IWindowFocusObserver"
 
-.field static final TRANSACTION_focusGained:I = 0x1
+.field static final TRANSACTION_focusGained_0:I = 0x1
 
 .field static final TRANSACTION_focusLost:I = 0x2
 

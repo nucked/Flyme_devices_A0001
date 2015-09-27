@@ -220,15 +220,6 @@
     return-void
 .end method
 
-.method public getBandMode(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 604
-    return-void
-.end method
-
 .method public getBasebandVersion(Landroid/os/Message;)V
     .locals 0
     .param p1, "response"    # Landroid/os/Message;
@@ -615,6 +606,17 @@
     return-void
 .end method
 
+.method public needsOldRilFeature(Ljava/lang/String;)Z
+    .locals 1
+    .param p1, "feature"    # Ljava/lang/String;
+
+    .prologue
+    .line 589
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public nvReadItem(ILandroid/os/Message;)V
     .locals 0
     .param p1, "itemID"    # I
@@ -653,25 +655,6 @@
 
     .prologue
     .line 574
-    return-void
-.end method
-
-.method public oemGetMdmBaseBand(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 610
-    return-void
-.end method
-
-.method public oemGetRffeDevInfo(ILandroid/os/Message;)V
-    .locals 0
-    .param p1, "rf_tech"    # I
-    .param p2, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 593
     return-void
 .end method
 
@@ -764,15 +747,6 @@
 
     .prologue
     .line 154
-    return-void
-.end method
-
-.method public reportBootupNVRestoreState(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "result"    # Landroid/os/Message;
-
-    .prologue
-    .line 613
     return-void
 .end method
 
@@ -1106,25 +1080,6 @@
     return-void
 .end method
 
-.method public setFactoryModeModemGPIO(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "result"    # Landroid/os/Message;
-
-    .prologue
-    .line 597
-    return-void
-.end method
-
-.method public setFactoryModeNvProcess(ILandroid/os/Message;)V
-    .locals 0
-    .param p1, "cmd"    # I
-    .param p2, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 607
-    return-void
-.end method
-
 .method public setGsmBroadcastActivation(ZLandroid/os/Message;)V
     .locals 0
     .param p1, "activate"    # Z
@@ -1166,15 +1121,6 @@
 
     .prologue
     .line 429
-    return-void
-.end method
-
-.method public setModemCrash(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 601
     return-void
 .end method
 

@@ -50,8 +50,6 @@
 
 .field public static final ACTION_SUBSCRIPTION_SET_UICC_RESULT:Ljava/lang/String; = "org.codeaurora.intent.action.ACTION_SUBSCRIPTION_SET_UICC_RESULT"
 
-.field public static final ACTION_VOICEMAIL_NUMBER_CHANGED:Ljava/lang/String; = "android.intent.action.VOICEMAIL_NUMBER_CHANGED"
-
 .field public static final EXTRA_COLUMN_NAME:Ljava/lang/String; = "columnName"
 
 .field public static final EXTRA_INT_CONTENT:Ljava/lang/String; = "intContent"

@@ -1,11 +1,14 @@
 .class Lcom/android/server/VibratorService$3;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "VibratorService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/VibratorService;->systemReady()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/VibratorService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -23,34 +26,56 @@
     .locals 0
 
     .prologue
-    .line 211
+    .line 350
     iput-object p1, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public run()V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 214
+    .line 353
     iget-object v0, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
 
-    const-string v1, "switch_state"
-
-    invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    # getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
+    invoke-static {v0}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
 
     move-result-object v1
 
-    # setter for: Lcom/android/server/VibratorService;->mThreeState:Ljava/lang/String;
-    invoke-static {v0, v1}, Lcom/android/server/VibratorService;->access$502(Lcom/android/server/VibratorService;Ljava/lang/String;)Ljava/lang/String;
+    monitor-enter v1
 
-    .line 215
+    .line 354
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
+
+    # invokes: Lcom/android/server/VibratorService;->doCancelVibrateLocked()V
+    invoke-static {v0}, Lcom/android/server/VibratorService;->access$200(Lcom/android/server/VibratorService;)V
+
+    .line 355
+    iget-object v0, p0, Lcom/android/server/VibratorService$3;->this$0:Lcom/android/server/VibratorService;
+
+    # invokes: Lcom/android/server/VibratorService;->startNextVibrationLocked()V
+    invoke-static {v0}, Lcom/android/server/VibratorService;->access$300(Lcom/android/server/VibratorService;)V
+
+    .line 356
+    monitor-exit v1
+
+    .line 357
     return-void
+
+    .line 356
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
 .end method

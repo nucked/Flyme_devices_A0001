@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/provider/Telephony$Blacklist;,
         Landroid/provider/Telephony$CellBroadcasts;,
         Landroid/provider/Telephony$Carriers;,
         Landroid/provider/Telephony$MmsSms;,
@@ -29,9 +30,9 @@
     .locals 0
 
     .prologue
-    .line 113
+    .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 114
+    .line 116
     return-void
 .end method

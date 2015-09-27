@@ -13,7 +13,7 @@
 
 
 # static fields
-.field private static final ICON_NETWORKS_AVAILABLE:I = 0x1080685
+.field private static final ICON_NETWORKS_AVAILABLE:I = 0x108065d
 
 .field private static final NUM_SCANS_BEFORE_ACTUALLY_SCANNING:I = 0x3
 
@@ -455,7 +455,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x1080685
+    const v8, 0x108065d
 
     .line 217
     if-nez p1, :cond_1
@@ -599,7 +599,7 @@
 
     move-result-object v4
 
-    const v5, 0x1060059
+    const v5, 0x106005c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 

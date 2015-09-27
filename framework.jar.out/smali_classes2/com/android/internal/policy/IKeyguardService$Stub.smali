@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.policy.IKeyguardService"
 
-.field static final TRANSACTION_addStateMonitorCallback:I = 0x9
+.field static final TRANSACTION_addStateMonitorCallback_8:I = 0x9
 
 .field static final TRANSACTION_dismiss:I = 0xa
 
@@ -64,7 +64,7 @@
 
 .field static final TRANSACTION_setKeyguardEnabled:I = 0xf
 
-.field static final TRANSACTION_setOccluded:I = 0x8
+.field static final TRANSACTION_setOccluded_7:I = 0x8
 
 .field static final TRANSACTION_showAssistant:I = 0x13
 

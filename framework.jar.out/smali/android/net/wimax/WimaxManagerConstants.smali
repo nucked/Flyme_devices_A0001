@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final CURRENT_WIMAX_ENABLED_STATE:Ljava/lang/String; = "curWimaxEnabledState"
+
 .field public static final EXTRA_4G_STATE:Ljava/lang/String; = "4g_state"
 
 .field public static final EXTRA_NEW_SIGNAL_LEVEL:Ljava/lang/String; = "newSignalLevel"
@@ -14,19 +16,23 @@
 
 .field public static final EXTRA_WIMAX_STATE_INT:Ljava/lang/String; = "WimaxStateInt"
 
-.field public static final EXTRA_WIMAX_STATUS:Ljava/lang/String; = "wimax_status"
-
 .field public static final NET_4G_STATE_CHANGED_ACTION:Ljava/lang/String; = "android.net.fourG.NET_4G_STATE_CHANGED"
 
 .field public static final NET_4G_STATE_DISABLED:I = 0x1
 
+.field public static final NET_4G_STATE_DISABLING:I = 0x0
+
 .field public static final NET_4G_STATE_ENABLED:I = 0x3
+
+.field public static final NET_4G_STATE_ENABLING:I = 0x2
 
 .field public static final NET_4G_STATE_UNKNOWN:I = 0x4
 
 .field public static final SIGNAL_LEVEL_CHANGED_ACTION:Ljava/lang/String; = "android.net.wimax.SIGNAL_LEVEL_CHANGED"
 
 .field public static final WIMAX_DEREGISTRATION:I = 0x8
+
+.field public static final WIMAX_ENABLED_CHANGED_ACTION:Ljava/lang/String; = "com.htc.net.wimax.WIMAX_ENABLED_CHANGED"
 
 .field public static final WIMAX_IDLE:I = 0x6
 
@@ -46,7 +52,7 @@
     .locals 0
 
     .prologue
-    .line 6
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

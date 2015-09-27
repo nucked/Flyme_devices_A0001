@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract addProtectedSmsAddress(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract answerRingingCall()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -415,6 +423,14 @@
     .end annotation
 .end method
 
+.method public abstract getLteOnGsmMode()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getNeighboringCellInfo(Ljava/lang/String;)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -659,6 +675,14 @@
     .end annotation
 .end method
 
+.method public abstract isImsRegistered()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isOffhook()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -764,6 +788,14 @@
 .end method
 
 .method public abstract nvWriteItem(ILjava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract revokeProtectedSmsAddress(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -962,6 +994,14 @@
 .end method
 
 .method public abstract supplyPukReportResultForSubscriber(ILjava/lang/String;Ljava/lang/String;)[I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract toggleLTE(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

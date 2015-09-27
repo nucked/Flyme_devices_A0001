@@ -54,7 +54,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
     invoke-static {v0, v1}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->access$402(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Z)Z
 
     .line 512
@@ -77,7 +76,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
     invoke-static {v0, v1}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->access$402(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Z)Z
 
     .line 518

@@ -14,7 +14,7 @@
 
 .field static final LOG_TAG:Ljava/lang/String; = "CdmaSSM"
 
-.field public static final PREFERRED_CDMA_SUBSCRIPTION:I = 0x0
+.field public static final PREFERRED_CDMA_SUBSCRIPTION:I = 0x1
 
 .field private static final SUBSCRIPTION_ACTIVATED:I = 0x1
 
@@ -46,14 +46,14 @@
     .locals 1
 
     .prologue
-    .line 53
+    .line 50
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCountMonitor:Ljava/lang/Object;
 
-    .line 54
+    .line 51
     const/4 v0, 0x0
 
     sput v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCount:I
@@ -67,66 +67,64 @@
     .param p2, "ci"    # Lcom/android/internal/telephony/CommandsInterface;
 
     .prologue
+    const/4 v2, 0x1
+
     const/4 v3, 0x0
 
-    .line 68
+    .line 62
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 59
+    .line 56
     new-instance v1, Landroid/os/RegistrantList;
 
     invoke-direct {v1}, Landroid/os/RegistrantList;-><init>()V
 
     iput-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSourceChangedRegistrants:Landroid/os/RegistrantList;
 
-    .line 64
+    .line 59
     new-instance v1, Ljava/util/concurrent/atomic/AtomicInteger;
-
-    const/4 v2, 0x0
 
     invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
     iput-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSource:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 69
+    .line 63
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mContext:Landroid/content/Context;
 
-    .line 70
+    .line 64
     iput-object p2, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
-    .line 71
+    .line 65
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
-
-    const/4 v2, 0x1
 
     invoke-interface {v1, p0, v2, v3}, Lcom/android/internal/telephony/CommandsInterface;->registerForCdmaSubscriptionChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 72
+    .line 66
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     const/4 v2, 0x3
 
     invoke-interface {v1, p0, v2, v3}, Lcom/android/internal/telephony/CommandsInterface;->registerForOn(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 73
+    .line 67
     invoke-static {p1}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->getDefault(Landroid/content/Context;)I
 
     move-result v0
 
-    .line 74
+    .line 68
     .local v0, "subscriptionSource":I
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSource:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v1, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    .line 75
+    .line 69
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     const/4 v2, 0x4
 
     invoke-interface {v1, p0, v2, v3}, Lcom/android/internal/telephony/CommandsInterface;->registerForSubscriptionStatusChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 76
+    .line 70
     return-void
 .end method
 
@@ -135,20 +133,20 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 169
+    .line 163
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
     const-string v2, "subscription_mode"
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 171
+    .line 165
     .local v0, "subscriptionSource":I
     return v0
 .end method
@@ -162,25 +160,25 @@
     .param p4, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 85
+    .line 79
     sget-object v1, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCountMonitor:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 86
+    .line 80
     :try_start_0
     sget-object v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sInstance:Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;
 
     if-nez v0, :cond_0
 
-    .line 87
+    .line 81
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;
 
     invoke-direct {v0, p0, p1}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
 
     sput-object v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sInstance:Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;
 
-    .line 89
+    .line 83
     :cond_0
     sget v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCount:I
 
@@ -188,22 +186,22 @@
 
     sput v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCount:I
 
-    .line 90
+    .line 84
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 91
+    .line 85
     sget-object v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sInstance:Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;
 
     invoke-direct {v0, p2, p3, p4}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->registerForCdmaSubscriptionSourceChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 92
+    .line 86
     sget-object v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sInstance:Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;
 
     return-object v0
 
-    .line 90
+    .line 84
     :catchall_0
     move-exception v0
 
@@ -222,7 +220,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 190
+    .line 184
     iget-object v1, p1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v1, :cond_1
@@ -231,7 +229,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 191
+    .line 185
     iget-object v1, p1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -242,7 +240,7 @@
 
     aget v0, v1, v2
 
-    .line 193
+    .line 187
     .local v0, "newSubscriptionSource":I
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSource:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -252,7 +250,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 194
+    .line 188
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -285,12 +283,12 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->log(Ljava/lang/String;)V
 
-    .line 196
+    .line 190
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSource:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v1, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    .line 199
+    .line 193
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSourceChangedRegistrants:Landroid/os/RegistrantList;
 
     new-instance v2, Landroid/os/AsyncResult;
@@ -299,13 +297,13 @@
 
     invoke-virtual {v1, v2}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
-    .line 210
+    .line 204
     .end local v0    # "newSubscriptionSource":I
     :cond_0
     :goto_0
     return-void
 
-    .line 207
+    .line 201
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -349,12 +347,12 @@
     .param p1, "s"    # Ljava/lang/String;
 
     .prologue
-    .line 213
+    .line 207
     const-string v0, "CdmaSSM"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 214
+    .line 208
     return-void
 .end method
 
@@ -363,12 +361,12 @@
     .param p1, "s"    # Ljava/lang/String;
 
     .prologue
-    .line 217
+    .line 211
     const-string v0, "CdmaSSM"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 218
+    .line 212
     return-void
 .end method
 
@@ -379,18 +377,18 @@
     .param p3, "obj"    # Ljava/lang/Object;
 
     .prologue
-    .line 179
+    .line 173
     new-instance v0, Landroid/os/Registrant;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 180
+    .line 174
     .local v0, "r":Landroid/os/Registrant;
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSourceChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
 
-    .line 181
+    .line 175
     return-void
 .end method
 
@@ -401,17 +399,17 @@
     .param p1, "h"    # Landroid/os/Handler;
 
     .prologue
-    .line 99
+    .line 93
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSourceChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 100
+    .line 94
     sget-object v1, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCountMonitor:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 101
+    .line 95
     :try_start_0
     sget v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCount:I
 
@@ -419,39 +417,39 @@
 
     sput v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCount:I
 
-    .line 102
+    .line 96
     sget v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sReferenceCount:I
 
     if-gtz v0, :cond_0
 
-    .line 103
+    .line 97
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v0, p0}, Lcom/android/internal/telephony/CommandsInterface;->unregisterForCdmaSubscriptionChanged(Landroid/os/Handler;)V
 
-    .line 104
+    .line 98
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v0, p0}, Lcom/android/internal/telephony/CommandsInterface;->unregisterForOn(Landroid/os/Handler;)V
 
-    .line 105
+    .line 99
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v0, p0}, Lcom/android/internal/telephony/CommandsInterface;->unregisterForSubscriptionStatusChanged(Landroid/os/Handler;)V
 
-    .line 106
+    .line 100
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->sInstance:Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;
 
-    .line 108
+    .line 102
     :cond_0
     monitor-exit v1
 
-    .line 109
+    .line 103
     return-void
 
-    .line 108
+    .line 102
     :catchall_0
     move-exception v0
 
@@ -466,7 +464,7 @@
     .locals 1
 
     .prologue
-    .line 159
+    .line 153
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCdmaSubscriptionSource:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
@@ -483,20 +481,20 @@
     .prologue
     const/4 v4, 0x2
 
-    .line 118
+    .line 112
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 150
+    .line 144
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 152
+    .line 146
     :cond_0
     :goto_0
     return-void
 
-    .line 122
+    .line 116
     :pswitch_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -520,18 +518,18 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->log(Ljava/lang/String;)V
 
-    .line 123
+    .line 117
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
 
-    .line 124
+    .line 118
     .local v1, "ar":Landroid/os/AsyncResult;
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->handleGetCdmaSubscriptionSource(Landroid/os/AsyncResult;)V
 
     goto :goto_0
 
-    .line 128
+    .line 122
     .end local v1    # "ar":Landroid/os/AsyncResult;
     :pswitch_1
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
@@ -544,24 +542,24 @@
 
     goto :goto_0
 
-    .line 132
+    .line 126
     :pswitch_2
     const-string v2, "EVENT_SUBSCRIPTION_STATUS_CHANGED"
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->log(Ljava/lang/String;)V
 
-    .line 133
+    .line 127
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
 
-    .line 134
+    .line 128
     .restart local v1    # "ar":Landroid/os/AsyncResult;
     iget-object v2, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_1
 
-    .line 135
+    .line 129
     iget-object v2, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v2, [I
@@ -572,7 +570,7 @@
 
     aget v0, v2, v3
 
-    .line 136
+    .line 130
     .local v0, "actStatus":I
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -594,19 +592,19 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->log(Ljava/lang/String;)V
 
-    .line 137
+    .line 131
     const/4 v2, 0x1
 
     if-ne v0, v2, :cond_0
 
-    .line 140
+    .line 134
     const-string v2, "CdmaSSM"
 
     const-string v3, "get Cdma Subscription Source"
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
+    .line 135
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-virtual {p0, v4}, Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;->obtainMessage(I)Landroid/os/Message;
@@ -617,7 +615,7 @@
 
     goto :goto_0
 
-    .line 145
+    .line 139
     .end local v0    # "actStatus":I
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
@@ -644,7 +642,7 @@
 
     goto/16 :goto_0
 
-    .line 118
+    .line 112
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

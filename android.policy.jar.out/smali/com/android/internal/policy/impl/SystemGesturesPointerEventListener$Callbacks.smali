@@ -21,6 +21,9 @@
 .method public abstract onSwipeFromBottom()V
 .end method
 
+.method public abstract onSwipeFromLeft()V
+.end method
+
 .method public abstract onSwipeFromRight()V
 .end method
 

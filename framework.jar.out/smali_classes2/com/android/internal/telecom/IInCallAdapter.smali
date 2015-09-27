@@ -71,7 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract phoneAccountSelected(Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;)V
+.method public abstract phoneAccountSelected(Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

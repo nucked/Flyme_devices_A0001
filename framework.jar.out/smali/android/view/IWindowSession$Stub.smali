@@ -44,13 +44,17 @@
 
 .field static final TRANSACTION_getInTouchMode:I = 0xe
 
-.field static final TRANSACTION_getWindowId:I = 0x1c
+.field static final TRANSACTION_getLastWallpaperX:I = 0x18
 
-.field static final TRANSACTION_onRectangleOnScreenRequested:I = 0x1b
+.field static final TRANSACTION_getLastWallpaperY:I = 0x19
 
-.field static final TRANSACTION_outOfMemory:I = 0x8
+.field static final TRANSACTION_getWindowId:I = 0x1e
 
-.field static final TRANSACTION_performDeferredDestroy:I = 0x7
+.field static final TRANSACTION_onRectangleOnScreenRequested:I = 0x1d
+
+.field static final TRANSACTION_outOfMemory_7:I = 0x8
+
+.field static final TRANSACTION_performDeferredDestroy_6:I = 0x7
 
 .field static final TRANSACTION_performDrag:I = 0x11
 
@@ -58,27 +62,27 @@
 
 .field static final TRANSACTION_prepareDrag:I = 0x10
 
-.field static final TRANSACTION_relayout:I = 0x6
+.field static final TRANSACTION_relayout_5:I = 0x6
 
 .field static final TRANSACTION_remove:I = 0x5
 
 .field static final TRANSACTION_reportDropResult:I = 0x12
 
-.field static final TRANSACTION_sendWallpaperCommand:I = 0x18
+.field static final TRANSACTION_sendWallpaperCommand:I = 0x1a
 
 .field static final TRANSACTION_setInTouchMode:I = 0xd
 
 .field static final TRANSACTION_setInsets:I = 0xa
 
-.field static final TRANSACTION_setTransparentRegion:I = 0x9
+.field static final TRANSACTION_setTransparentRegion_8:I = 0x9
 
-.field static final TRANSACTION_setUniverseTransform:I = 0x1a
+.field static final TRANSACTION_setUniverseTransform:I = 0x1c
 
 .field static final TRANSACTION_setWallpaperDisplayOffset:I = 0x17
 
 .field static final TRANSACTION_setWallpaperPosition:I = 0x15
 
-.field static final TRANSACTION_wallpaperCommandComplete:I = 0x19
+.field static final TRANSACTION_wallpaperCommandComplete:I = 0x1b
 
 .field static final TRANSACTION_wallpaperOffsetsComplete:I = 0x16
 
@@ -172,7 +176,7 @@
     .line 43
     sparse-switch p1, :sswitch_data_0
 
-    .line 671
+    .line 687
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -2345,36 +2349,96 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 575
+    invoke-virtual/range {p0 .. p0}, Landroid/view/IWindowSession$Stub;->getLastWallpaperX()I
+
+    move-result v17
+
     .line 576
+    .local v17, "_result":I
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 577
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 578
+    const/4 v2, 0x1
+
+    goto/16 :goto_0
+
+    .line 582
+    .end local v17    # "_result":I
+    :sswitch_19
+    const-string v2, "android.view.IWindowSession"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 583
+    invoke-virtual/range {p0 .. p0}, Landroid/view/IWindowSession$Stub;->getLastWallpaperY()I
+
+    move-result v17
+
+    .line 584
+    .restart local v17    # "_result":I
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 585
+    move-object/from16 v0, p3
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 586
+    const/4 v2, 0x1
+
+    goto/16 :goto_0
+
+    .line 590
+    .end local v17    # "_result":I
+    :sswitch_1a
+    const-string v2, "android.view.IWindowSession"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 592
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    .line 578
+    .line 594
     .restart local v3    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 580
+    .line 596
     .local v4, "_arg1":Ljava/lang/String;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 582
+    .line 598
     .restart local v5    # "_arg2":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    .line 584
+    .line 600
     .local v6, "_arg3":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
-    .line 586
+    .line 602
     .local v7, "_arg4":I
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -2382,7 +2446,7 @@
 
     if-eqz v2, :cond_24
 
-    .line 587
+    .line 603
     sget-object v2, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
@@ -2393,7 +2457,7 @@
 
     check-cast v8, Landroid/os/Bundle;
 
-    .line 593
+    .line 609
     .local v8, "_arg5":Landroid/os/Bundle;
     :goto_25
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
@@ -2408,26 +2472,26 @@
     :goto_26
     move-object/from16 v2, p0
 
-    .line 594
+    .line 610
     invoke-virtual/range {v2 .. v9}, Landroid/view/IWindowSession$Stub;->sendWallpaperCommand(Landroid/os/IBinder;Ljava/lang/String;IIILandroid/os/Bundle;Z)Landroid/os/Bundle;
 
     move-result-object v17
 
-    .line 595
+    .line 611
     .local v17, "_result":Landroid/os/Bundle;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 596
+    .line 612
     if-eqz v17, :cond_26
 
-    .line 597
+    .line 613
     const/4 v2, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 598
+    .line 614
     const/4 v2, 0x1
 
     move-object/from16 v0, v17
@@ -2436,13 +2500,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 603
+    .line 619
     :goto_27
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
-    .line 590
+    .line 606
     .end local v8    # "_arg5":Landroid/os/Bundle;
     .end local v9    # "_arg6":Z
     .end local v17    # "_result":Landroid/os/Bundle;
@@ -2452,13 +2516,13 @@
     .restart local v8    # "_arg5":Landroid/os/Bundle;
     goto :goto_25
 
-    .line 593
+    .line 609
     :cond_25
     const/4 v9, 0x0
 
     goto :goto_26
 
-    .line 601
+    .line 617
     .restart local v9    # "_arg6":Z
     .restart local v17    # "_result":Landroid/os/Bundle;
     :cond_26
@@ -2470,7 +2534,7 @@
 
     goto :goto_27
 
-    .line 607
+    .line 623
     .end local v3    # "_arg0":Landroid/os/IBinder;
     .end local v4    # "_arg1":Ljava/lang/String;
     .end local v5    # "_arg2":I
@@ -2479,64 +2543,7 @@
     .end local v8    # "_arg5":Landroid/os/Bundle;
     .end local v9    # "_arg6":Z
     .end local v17    # "_result":Landroid/os/Bundle;
-    :sswitch_19
-    const-string v2, "android.view.IWindowSession"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 609
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    .line 611
-    .restart local v3    # "_arg0":Landroid/os/IBinder;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_27
-
-    .line 612
-    sget-object v2, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v2, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/os/Bundle;
-
-    .line 617
-    .local v4, "_arg1":Landroid/os/Bundle;
-    :goto_28
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v3, v4}, Landroid/view/IWindowSession$Stub;->wallpaperCommandComplete(Landroid/os/IBinder;Landroid/os/Bundle;)V
-
-    .line 618
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 619
-    const/4 v2, 0x1
-
-    goto/16 :goto_0
-
-    .line 615
-    .end local v4    # "_arg1":Landroid/os/Bundle;
-    :cond_27
-    const/4 v4, 0x0
-
-    .restart local v4    # "_arg1":Landroid/os/Bundle;
-    goto :goto_28
-
-    .line 623
-    .end local v3    # "_arg0":Landroid/os/IBinder;
-    .end local v4    # "_arg1":Landroid/os/Bundle;
-    :sswitch_1a
+    :sswitch_1b
     const-string v2, "android.view.IWindowSession"
 
     move-object/from16 v0, p2
@@ -2550,41 +2557,98 @@
 
     .line 627
     .restart local v3    # "_arg0":Landroid/os/IBinder;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    if-eqz v2, :cond_27
+
+    .line 628
+    sget-object v2, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v2, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/os/Bundle;
+
+    .line 633
+    .local v4, "_arg1":Landroid/os/Bundle;
+    :goto_28
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3, v4}, Landroid/view/IWindowSession$Stub;->wallpaperCommandComplete(Landroid/os/IBinder;Landroid/os/Bundle;)V
+
+    .line 634
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 635
+    const/4 v2, 0x1
+
+    goto/16 :goto_0
+
+    .line 631
+    .end local v4    # "_arg1":Landroid/os/Bundle;
+    :cond_27
+    const/4 v4, 0x0
+
+    .restart local v4    # "_arg1":Landroid/os/Bundle;
+    goto :goto_28
+
+    .line 639
+    .end local v3    # "_arg0":Landroid/os/IBinder;
+    .end local v4    # "_arg1":Landroid/os/Bundle;
+    :sswitch_1c
+    const-string v2, "android.view.IWindowSession"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 641
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    .line 643
+    .restart local v3    # "_arg0":Landroid/os/IBinder;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v4
 
-    .line 629
+    .line 645
     .local v4, "_arg1":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v5
 
-    .line 631
+    .line 647
     .local v5, "_arg2":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v6
 
-    .line 633
+    .line 649
     .local v6, "_arg3":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v7
 
-    .line 635
+    .line 651
     .local v7, "_arg4":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v8
 
-    .line 637
+    .line 653
     .local v8, "_arg5":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
     move-result v9
 
-    .line 639
+    .line 655
     .local v9, "_arg6":F
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readFloat()F
 
@@ -2593,63 +2657,8 @@
     .local v10, "_arg7":F
     move-object/from16 v2, p0
 
-    .line 640
-    invoke-virtual/range {v2 .. v10}, Landroid/view/IWindowSession$Stub;->setUniverseTransform(Landroid/os/IBinder;FFFFFFF)V
-
-    .line 641
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 642
-    const/4 v2, 0x1
-
-    goto/16 :goto_0
-
-    .line 646
-    .end local v3    # "_arg0":Landroid/os/IBinder;
-    .end local v4    # "_arg1":F
-    .end local v5    # "_arg2":F
-    .end local v6    # "_arg3":F
-    .end local v7    # "_arg4":F
-    .end local v8    # "_arg5":F
-    .end local v9    # "_arg6":F
-    .end local v10    # "_arg7":F
-    :sswitch_1b
-    const-string v2, "android.view.IWindowSession"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 648
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    .line 650
-    .restart local v3    # "_arg0":Landroid/os/IBinder;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_28
-
-    .line 651
-    sget-object v2, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v2, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/graphics/Rect;
-
     .line 656
-    .local v4, "_arg1":Landroid/graphics/Rect;
-    :goto_29
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v3, v4}, Landroid/view/IWindowSession$Stub;->onRectangleOnScreenRequested(Landroid/os/IBinder;Landroid/graphics/Rect;)V
+    invoke-virtual/range {v2 .. v10}, Landroid/view/IWindowSession$Stub;->setUniverseTransform(Landroid/os/IBinder;FFFFFFF)V
 
     .line 657
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
@@ -2659,18 +2668,16 @@
 
     goto/16 :goto_0
 
-    .line 654
-    .end local v4    # "_arg1":Landroid/graphics/Rect;
-    :cond_28
-    const/4 v4, 0x0
-
-    .restart local v4    # "_arg1":Landroid/graphics/Rect;
-    goto :goto_29
-
     .line 662
     .end local v3    # "_arg0":Landroid/os/IBinder;
-    .end local v4    # "_arg1":Landroid/graphics/Rect;
-    :sswitch_1c
+    .end local v4    # "_arg1":F
+    .end local v5    # "_arg2":F
+    .end local v6    # "_arg3":F
+    .end local v7    # "_arg4":F
+    .end local v8    # "_arg5":F
+    .end local v9    # "_arg6":F
+    .end local v10    # "_arg7":F
+    :sswitch_1d
     const-string v2, "android.view.IWindowSession"
 
     move-object/from16 v0, p2
@@ -2682,7 +2689,64 @@
 
     move-result-object v3
 
-    .line 665
+    .line 666
+    .restart local v3    # "_arg0":Landroid/os/IBinder;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    if-eqz v2, :cond_28
+
+    .line 667
+    sget-object v2, Landroid/graphics/Rect;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v2, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/graphics/Rect;
+
+    .line 672
+    .local v4, "_arg1":Landroid/graphics/Rect;
+    :goto_29
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3, v4}, Landroid/view/IWindowSession$Stub;->onRectangleOnScreenRequested(Landroid/os/IBinder;Landroid/graphics/Rect;)V
+
+    .line 673
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 674
+    const/4 v2, 0x1
+
+    goto/16 :goto_0
+
+    .line 670
+    .end local v4    # "_arg1":Landroid/graphics/Rect;
+    :cond_28
+    const/4 v4, 0x0
+
+    .restart local v4    # "_arg1":Landroid/graphics/Rect;
+    goto :goto_29
+
+    .line 678
+    .end local v3    # "_arg0":Landroid/os/IBinder;
+    .end local v4    # "_arg1":Landroid/graphics/Rect;
+    :sswitch_1e
+    const-string v2, "android.view.IWindowSession"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 680
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    .line 681
     .restart local v3    # "_arg0":Landroid/os/IBinder;
     move-object/from16 v0, p0
 
@@ -2690,11 +2754,11 @@
 
     move-result-object v17
 
-    .line 666
+    .line 682
     .local v17, "_result":Landroid/view/IWindowId;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 667
+    .line 683
     if-eqz v17, :cond_29
 
     invoke-interface/range {v17 .. v17}, Landroid/view/IWindowId;->asBinder()Landroid/os/IBinder;
@@ -2706,12 +2770,12 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 668
+    .line 684
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
-    .line 667
+    .line 683
     :cond_29
     const/4 v2, 0x0
 
@@ -2750,6 +2814,8 @@
         0x1a -> :sswitch_1a
         0x1b -> :sswitch_1b
         0x1c -> :sswitch_1c
+        0x1d -> :sswitch_1d
+        0x1e -> :sswitch_1e
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -21,7 +21,7 @@
         "Ljava/lang/Object;",
         "Ljava/util/Comparator",
         "<",
-        "Landroid/content/pm/ResolveInfo;",
+        "Landroid/content/pm/ProviderInfo;",
         ">;"
     }
 .end annotation
@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 8012
+    .line 8721
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,111 +40,36 @@
 
 
 # virtual methods
-.method public compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
-    .locals 6
-    .param p1, "r1"    # Landroid/content/pm/ResolveInfo;
-    .param p2, "r2"    # Landroid/content/pm/ResolveInfo;
+.method public compare(Landroid/content/pm/ProviderInfo;Landroid/content/pm/ProviderInfo;)I
+    .locals 3
+    .param p1, "p1"    # Landroid/content/pm/ProviderInfo;
+    .param p2, "p2"    # Landroid/content/pm/ProviderInfo;
 
     .prologue
-    const/4 v3, 0x1
+    .line 8723
+    iget v0, p1, Landroid/content/pm/ProviderInfo;->initOrder:I
+
+    .line 8724
+    .local v0, "v1":I
+    iget v1, p2, Landroid/content/pm/ProviderInfo;->initOrder:I
+
+    .line 8725
+    .local v1, "v2":I
+    if-le v0, v1, :cond_0
 
     const/4 v2, -0x1
 
-    .line 8014
-    iget v0, p1, Landroid/content/pm/ResolveInfo;->priority:I
-
-    .line 8015
-    .local v0, "v1":I
-    iget v1, p2, Landroid/content/pm/ResolveInfo;->priority:I
-
-    .line 8017
-    .local v1, "v2":I
-    if-eq v0, v1, :cond_2
-
-    .line 8018
-    if-le v0, v1, :cond_1
-
-    .line 8037
-    :cond_0
     :goto_0
     return v2
 
+    :cond_0
+    if-ge v0, v1, :cond_1
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
     :cond_1
-    move v2, v3
-
-    .line 8018
-    goto :goto_0
-
-    .line 8020
-    :cond_2
-    iget v0, p1, Landroid/content/pm/ResolveInfo;->preferredOrder:I
-
-    .line 8021
-    iget v1, p2, Landroid/content/pm/ResolveInfo;->preferredOrder:I
-
-    .line 8022
-    if-eq v0, v1, :cond_3
-
-    .line 8023
-    if-gt v0, v1, :cond_0
-
-    move v2, v3
-
-    goto :goto_0
-
-    .line 8025
-    :cond_3
-    iget-boolean v4, p1, Landroid/content/pm/ResolveInfo;->isDefault:Z
-
-    iget-boolean v5, p2, Landroid/content/pm/ResolveInfo;->isDefault:Z
-
-    if-eq v4, v5, :cond_4
-
-    .line 8026
-    iget-boolean v4, p1, Landroid/content/pm/ResolveInfo;->isDefault:Z
-
-    if-nez v4, :cond_0
-
-    move v2, v3
-
-    goto :goto_0
-
-    .line 8028
-    :cond_4
-    iget v0, p1, Landroid/content/pm/ResolveInfo;->match:I
-
-    .line 8029
-    iget v1, p2, Landroid/content/pm/ResolveInfo;->match:I
-
-    .line 8031
-    if-eq v0, v1, :cond_5
-
-    .line 8032
-    if-gt v0, v1, :cond_0
-
-    move v2, v3
-
-    goto :goto_0
-
-    .line 8034
-    :cond_5
-    iget-boolean v4, p1, Landroid/content/pm/ResolveInfo;->system:Z
-
-    iget-boolean v5, p2, Landroid/content/pm/ResolveInfo;->system:Z
-
-    if-eq v4, v5, :cond_6
-
-    .line 8035
-    iget-boolean v4, p1, Landroid/content/pm/ResolveInfo;->system:Z
-
-    if-nez v4, :cond_0
-
-    move v2, v3
-
-    goto :goto_0
-
-    .line 8037
-    :cond_6
     const/4 v2, 0x0
 
     goto :goto_0
@@ -156,14 +81,14 @@
     .param p2, "x1"    # Ljava/lang/Object;
 
     .prologue
-    .line 8012
-    check-cast p1, Landroid/content/pm/ResolveInfo;
+    .line 8721
+    check-cast p1, Landroid/content/pm/ProviderInfo;
 
     .end local p1    # "x0":Ljava/lang/Object;
-    check-cast p2, Landroid/content/pm/ResolveInfo;
+    check-cast p2, Landroid/content/pm/ProviderInfo;
 
     .end local p2    # "x1":Ljava/lang/Object;
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$4;->compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$4;->compare(Landroid/content/pm/ProviderInfo;Landroid/content/pm/ProviderInfo;)I
 
     move-result v0
 

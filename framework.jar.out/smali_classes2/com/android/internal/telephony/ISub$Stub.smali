@@ -38,9 +38,9 @@
 
 .field static final TRANSACTION_getActiveSubIdList:I = 0x24
 
-.field static final TRANSACTION_getActiveSubInfoCount:I = 0x7
+.field static final TRANSACTION_getActiveSubInfoCountMax_7:I = 0x8
 
-.field static final TRANSACTION_getActiveSubInfoCountMax:I = 0x8
+.field static final TRANSACTION_getActiveSubInfoCount_6:I = 0x7
 
 .field static final TRANSACTION_getActiveSubscriptionInfo:I = 0x3
 
@@ -48,7 +48,7 @@
 
 .field static final TRANSACTION_getActiveSubscriptionInfoForSimSlotIndex:I = 0x5
 
-.field static final TRANSACTION_getActiveSubscriptionInfoList:I = 0x6
+.field static final TRANSACTION_getActiveSubscriptionInfoList_5:I = 0x6
 
 .field static final TRANSACTION_getAllSubInfoCount:I = 0x2
 

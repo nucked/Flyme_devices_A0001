@@ -70,9 +70,7 @@
 
     move-object v0, v1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/telecom/ConnectionRequest;
 
     invoke-direct {v2, v3, v1, v0}, Landroid/telecom/RemoteConnection;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;Landroid/telecom/ConnectionRequest;)V
 
@@ -101,7 +99,7 @@
     .end annotation
 
     .prologue
-    .line 362
+    .line 365
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 52
@@ -111,7 +109,7 @@
 
     iput-object v0, p0, Landroid/telecom/RemoteConnectionService;->mServantDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
 
-    .line 335
+    .line 338
     new-instance v0, Landroid/telecom/ConnectionServiceAdapterServant;
 
     iget-object v1, p0, Landroid/telecom/RemoteConnectionService;->mServantDelegate:Lcom/android/internal/telecom/IConnectionServiceAdapter;
@@ -120,38 +118,38 @@
 
     iput-object v0, p0, Landroid/telecom/RemoteConnectionService;->mServant:Landroid/telecom/ConnectionServiceAdapterServant;
 
-    .line 338
+    .line 341
     new-instance v0, Landroid/telecom/RemoteConnectionService$2;
 
     invoke-direct {v0, p0}, Landroid/telecom/RemoteConnectionService$2;-><init>(Landroid/telecom/RemoteConnectionService;)V
 
     iput-object v0, p0, Landroid/telecom/RemoteConnectionService;->mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-    .line 356
+    .line 359
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
 
-    .line 357
+    .line 360
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConferenceById:Ljava/util/Map;
 
-    .line 358
+    .line 361
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Landroid/telecom/RemoteConnectionService;->mPendingConnections:Ljava/util/Set;
 
-    .line 363
+    .line 366
     iput-object p1, p0, Landroid/telecom/RemoteConnectionService;->mOutgoingConnectionServiceRpc:Lcom/android/internal/telecom/IConnectionService;
 
-    .line 364
+    .line 367
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mOutgoingConnectionServiceRpc:Lcom/android/internal/telecom/IConnectionService;
 
     invoke-interface {v0}, Lcom/android/internal/telecom/IConnectionService;->asBinder()Landroid/os/IBinder;
@@ -164,10 +162,10 @@
 
     invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
-    .line 365
+    .line 368
     iput-object p2, p0, Landroid/telecom/RemoteConnectionService;->mOurConnectionServiceImpl:Landroid/telecom/ConnectionService;
 
-    .line 366
+    .line 369
     return-void
 .end method
 
@@ -318,7 +316,7 @@
     .param p2, "action"    # Ljava/lang/String;
 
     .prologue
-    .line 426
+    .line 429
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConferenceById:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -327,7 +325,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 427
+    .line 430
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConferenceById:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -336,11 +334,11 @@
 
     check-cast v0, Landroid/telecom/RemoteConference;
 
-    .line 430
+    .line 433
     :goto_0
     return-object v0
 
-    .line 429
+    .line 432
     :cond_0
     const-string v0, "%s - Cannot find Conference %s"
 
@@ -358,7 +356,7 @@
 
     invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 430
+    .line 433
     sget-object v0, Landroid/telecom/RemoteConnectionService;->NULL_CONFERENCE:Landroid/telecom/RemoteConference;
 
     goto :goto_0
@@ -370,7 +368,7 @@
     .param p2, "action"    # Ljava/lang/String;
 
     .prologue
-    .line 417
+    .line 420
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -379,7 +377,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 418
+    .line 421
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -388,11 +386,11 @@
 
     check-cast v0, Landroid/telecom/RemoteConnection;
 
-    .line 421
+    .line 424
     :goto_0
     return-object v0
 
-    .line 420
+    .line 423
     :cond_0
     const-string v0, "%s - Cannot find Connection %s"
 
@@ -410,7 +408,7 @@
 
     invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 421
+    .line 424
     sget-object v0, Landroid/telecom/RemoteConnectionService;->NULL_CONNECTION:Landroid/telecom/RemoteConnection;
 
     goto :goto_0
@@ -421,7 +419,7 @@
     .param p1, "callId"    # Ljava/lang/String;
 
     .prologue
-    .line 412
+    .line 415
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -435,7 +433,7 @@
     .locals 2
 
     .prologue
-    .line 434
+    .line 437
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
@@ -452,7 +450,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 436
+    .line 439
     :try_start_0
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mOutgoingConnectionServiceRpc:Lcom/android/internal/telecom/IConnectionService;
 
@@ -466,12 +464,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 440
+    .line 443
     :cond_0
     :goto_0
     return-void
 
-    .line 437
+    .line 440
     :catch_0
     move-exception v0
 
@@ -487,7 +485,7 @@
     .param p3, "isIncoming"    # Z
 
     .prologue
-    .line 377
+    .line 380
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object v0
@@ -496,7 +494,7 @@
 
     move-result-object v2
 
-    .line 378
+    .line 381
     .local v2, "id":Ljava/lang/String;
     new-instance v3, Landroid/telecom/ConnectionRequest;
 
@@ -518,7 +516,7 @@
 
     invoke-direct {v3, v0, v1, v4, v5}, Landroid/telecom/ConnectionRequest;-><init>(Landroid/telecom/PhoneAccountHandle;Landroid/net/Uri;Landroid/os/Bundle;I)V
 
-    .line 384
+    .line 387
     .local v3, "newRequest":Landroid/telecom/ConnectionRequest;
     :try_start_0
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
@@ -529,7 +527,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 385
+    .line 388
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mOutgoingConnectionServiceRpc:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v1, p0, Landroid/telecom/RemoteConnectionService;->mServant:Landroid/telecom/ConnectionServiceAdapterServant;
@@ -540,7 +538,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/telecom/IConnectionService;->addConnectionServiceAdapter(Lcom/android/internal/telecom/IConnectionServiceAdapter;)V
 
-    .line 387
+    .line 390
     :cond_0
     new-instance v6, Landroid/telecom/RemoteConnection;
 
@@ -548,18 +546,18 @@
 
     invoke-direct {v6, v2, v0, v3}, Landroid/telecom/RemoteConnection;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;Landroid/telecom/ConnectionRequest;)V
 
-    .line 389
+    .line 392
     .local v6, "connection":Landroid/telecom/RemoteConnection;
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mPendingConnections:Ljava/util/Set;
 
     invoke-interface {v0, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 390
+    .line 393
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
 
     invoke-interface {v0, v2, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 391
+    .line 394
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService;->mOutgoingConnectionServiceRpc:Lcom/android/internal/telecom/IConnectionService;
 
     const/4 v5, 0x0
@@ -570,7 +568,7 @@
 
     invoke-interface/range {v0 .. v5}, Lcom/android/internal/telecom/IConnectionService;->createConnection(Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
 
-    .line 397
+    .line 400
     new-instance v0, Landroid/telecom/RemoteConnectionService$3;
 
     invoke-direct {v0, p0, v2}, Landroid/telecom/RemoteConnectionService$3;-><init>(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;)V
@@ -579,16 +577,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 406
+    .line 409
     .end local v6    # "connection":Landroid/telecom/RemoteConnection;
     :goto_0
     return-object v6
 
-    .line 405
+    .line 408
     :catch_0
     move-exception v7
 
-    .line 406
+    .line 409
     .local v7, "e":Landroid/os/RemoteException;
     new-instance v0, Landroid/telecom/DisconnectCause;
 
@@ -611,7 +609,7 @@
     .locals 2
 
     .prologue
-    .line 370
+    .line 373
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

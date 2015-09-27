@@ -40,9 +40,9 @@
 
 .field static final TRANSACTION_isCreated:I = 0xa
 
-.field static final TRANSACTION_onDataSetChanged:I = 0x1
-
 .field static final TRANSACTION_onDataSetChangedAsync:I = 0x2
+
+.field static final TRANSACTION_onDataSetChanged_0:I = 0x1
 
 .field static final TRANSACTION_onDestroy:I = 0x3
 

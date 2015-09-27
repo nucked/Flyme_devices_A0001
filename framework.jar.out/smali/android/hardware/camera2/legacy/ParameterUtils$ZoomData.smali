@@ -30,18 +30,18 @@
     .param p3, "reportedCrop"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 80
+    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 81
+    .line 78
     iput p1, p0, Landroid/hardware/camera2/legacy/ParameterUtils$ZoomData;->zoomIndex:I
 
-    .line 82
+    .line 79
     iput-object p2, p0, Landroid/hardware/camera2/legacy/ParameterUtils$ZoomData;->previewCrop:Landroid/graphics/Rect;
 
-    .line 83
+    .line 80
     iput-object p3, p0, Landroid/hardware/camera2/legacy/ParameterUtils$ZoomData;->reportedCrop:Landroid/graphics/Rect;
 
-    .line 84
+    .line 81
     return-void
 .end method

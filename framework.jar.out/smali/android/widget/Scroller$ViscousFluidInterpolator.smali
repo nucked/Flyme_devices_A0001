@@ -32,7 +32,7 @@
     .prologue
     const/high16 v2, 0x3f800000    # 1.0f
 
-    .line 615
+    .line 579
     invoke-static {v2}, Landroid/widget/Scroller$ViscousFluidInterpolator;->viscousFluid(F)F
 
     move-result v0
@@ -41,7 +41,7 @@
 
     sput v0, Landroid/widget/Scroller$ViscousFluidInterpolator;->VISCOUS_FLUID_NORMALIZE:F
 
-    .line 617
+    .line 581
     sget v0, Landroid/widget/Scroller$ViscousFluidInterpolator;->VISCOUS_FLUID_NORMALIZE:F
 
     invoke-static {v2}, Landroid/widget/Scroller$ViscousFluidInterpolator;->viscousFluid(F)F
@@ -54,7 +54,7 @@
 
     sput v0, Landroid/widget/Scroller$ViscousFluidInterpolator;->VISCOUS_FLUID_OFFSET:F
 
-    .line 618
+    .line 582
     return-void
 .end method
 
@@ -62,7 +62,7 @@
     .locals 0
 
     .prologue
-    .line 605
+    .line 569
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -75,17 +75,17 @@
     .prologue
     const/high16 v4, 0x3f800000    # 1.0f
 
-    .line 621
+    .line 585
     const/high16 v1, 0x41000000    # 8.0f
 
     mul-float/2addr p0, v1
 
-    .line 622
+    .line 586
     cmpg-float v1, p0, v4
 
     if-gez v1, :cond_0
 
-    .line 623
+    .line 587
     neg-float v1, p0
 
     float-to-double v2, v1
@@ -100,15 +100,15 @@
 
     sub-float/2addr p0, v1
 
-    .line 629
+    .line 593
     :goto_0
     return p0
 
-    .line 625
+    .line 589
     :cond_0
     const v0, 0x3ebc5ab2
 
-    .line 626
+    .line 590
     .local v0, "start":F
     sub-float v1, v4, p0
 
@@ -122,7 +122,7 @@
 
     sub-float p0, v4, v1
 
-    .line 627
+    .line 591
     sub-float v1, v4, v0
 
     mul-float/2addr v1, p0
@@ -139,7 +139,7 @@
     .param p1, "input"    # F
 
     .prologue
-    .line 634
+    .line 598
     sget v1, Landroid/widget/Scroller$ViscousFluidInterpolator;->VISCOUS_FLUID_NORMALIZE:F
 
     invoke-static {p1}, Landroid/widget/Scroller$ViscousFluidInterpolator;->viscousFluid(F)F
@@ -148,7 +148,7 @@
 
     mul-float v0, v1, v2
 
-    .line 635
+    .line 599
     .local v0, "interpolated":F
     const/4 v1, 0x0
 
@@ -156,12 +156,12 @@
 
     if-lez v1, :cond_0
 
-    .line 636
+    .line 600
     sget v1, Landroid/widget/Scroller$ViscousFluidInterpolator;->VISCOUS_FLUID_OFFSET:F
 
     add-float/2addr v0, v1
 
-    .line 638
+    .line 602
     .end local v0    # "interpolated":F
     :cond_0
     return v0

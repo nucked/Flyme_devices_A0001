@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 1280
+    .line 1366
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,30 +37,60 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 5
 
     .prologue
-    .line 1283
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    .line 1368
+    new-instance v1, Landroid/content/Intent;
 
-    iget-boolean v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHomeDoubleTapPending:Z
+    const-string v2, "android.system.agent"
 
-    if-eqz v0, :cond_0
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1284
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    .line 1369
+    .local v1, "intent":Landroid/content/Intent;
+    new-instance v2, Landroid/content/ComponentName;
 
-    const/4 v1, 0x0
+    const-string v3, "com.qualcomm.agent"
 
-    iput-boolean v1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHomeDoubleTapPending:Z
+    const-string v4, "com.qualcomm.agent.SystemAgent"
 
-    .line 1285
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    # invokes: Lcom/android/internal/policy/impl/PhoneWindowManager;->handleShortPressOnHome()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1500(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 1287
-    :cond_0
+    .line 1371
+    const-string v2, "para"
+
+    const-string v3, "takeLogs"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 1373
+    :try_start_0
+    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1377
+    :goto_0
     return-void
+
+    .line 1374
+    :catch_0
+    move-exception v0
+
+    .line 1375
+    .local v0, "e":Ljava/lang/Exception;
+    const-string v2, "WindowManager"
+
+    const-string v3, "Exception when start SystemAgent service"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method

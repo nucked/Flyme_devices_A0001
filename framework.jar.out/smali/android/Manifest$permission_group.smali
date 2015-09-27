@@ -57,6 +57,8 @@
 
 .field public static final SCREENLOCK:Ljava/lang/String; = "android.permission-group.SCREENLOCK"
 
+.field public static final SECURITY:Ljava/lang/String; = "android.permission-group.SECURITY"
+
 .field public static final SOCIAL_INFO:Ljava/lang/String; = "android.permission-group.SOCIAL_INFO"
 
 .field public static final STATUS_BAR:Ljava/lang/String; = "android.permission-group.STATUS_BAR"
@@ -83,7 +85,7 @@
     .locals 0
 
     .prologue
-    .line 1380
+    .line 1439
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

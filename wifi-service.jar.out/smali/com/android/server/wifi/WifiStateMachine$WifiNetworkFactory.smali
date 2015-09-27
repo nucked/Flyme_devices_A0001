@@ -27,13 +27,13 @@
     .param p5, "f"    # Landroid/net/NetworkCapabilities;
 
     .prologue
-    .line 4802
+    .line 4775
     iput-object p1, p0, Lcom/android/server/wifi/WifiStateMachine$WifiNetworkFactory;->this$0:Lcom/android/server/wifi/WifiStateMachine;
 
-    .line 4803
+    .line 4776
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/net/NetworkFactory;-><init>(Landroid/os/Looper;Landroid/content/Context;Ljava/lang/String;Landroid/net/NetworkCapabilities;)V
 
-    .line 4804
+    .line 4777
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 4817
+    .line 4790
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -74,7 +74,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 4818
+    .line 4791
     return-void
 .end method
 
@@ -84,13 +84,13 @@
     .param p2, "score"    # I
 
     .prologue
-    .line 4808
+    .line 4781
     iget-object v0, p0, Lcom/android/server/wifi/WifiStateMachine$WifiNetworkFactory;->this$0:Lcom/android/server/wifi/WifiStateMachine;
 
     # ++operator for: Lcom/android/server/wifi/WifiStateMachine;->mConnectionRequests:I
     invoke-static {v0}, Lcom/android/server/wifi/WifiStateMachine;->access$1204(Lcom/android/server/wifi/WifiStateMachine;)I
 
-    .line 4809
+    .line 4782
     return-void
 .end method
 
@@ -99,12 +99,12 @@
     .param p1, "networkRequest"    # Landroid/net/NetworkRequest;
 
     .prologue
-    .line 4813
+    .line 4786
     iget-object v0, p0, Lcom/android/server/wifi/WifiStateMachine$WifiNetworkFactory;->this$0:Lcom/android/server/wifi/WifiStateMachine;
 
     # --operator for: Lcom/android/server/wifi/WifiStateMachine;->mConnectionRequests:I
     invoke-static {v0}, Lcom/android/server/wifi/WifiStateMachine;->access$1206(Lcom/android/server/wifi/WifiStateMachine;)I
 
-    .line 4814
+    .line 4787
     return-void
 .end method

@@ -27,18 +27,6 @@
 
 .field public static final postalAddressTypes:I = 0x1070004
 
-.field public static final uc_alarms_name:I = 0x107000b
-
-.field public static final uc_alarms_resources:I = 0x107000a
-
-.field public static final uc_notification_name:I = 0x1070009
-
-.field public static final uc_notification_resources:I = 0x1070008
-
-.field public static final uc_ringtone_name:I = 0x1070007
-
-.field public static final uc_ringtone_resources:I = 0x1070006
-
 
 # direct methods
 .method public constructor <init>()V

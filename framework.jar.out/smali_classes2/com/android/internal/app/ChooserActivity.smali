@@ -332,7 +332,7 @@
     if-nez v3, :cond_2
 
     .line 53
-    const v4, 0x10404c5
+    const v4, 0x1040561
 
     .line 55
     :cond_2

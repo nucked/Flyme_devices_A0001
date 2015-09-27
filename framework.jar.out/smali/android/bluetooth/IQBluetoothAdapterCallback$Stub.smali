@@ -26,15 +26,15 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IQBluetoothAdapterCallback"
 
-.field static final TRANSACTION_onEnableRssiMonitor:I = 0x3
+.field static final TRANSACTION_onEnableRssiMonitor_2:I = 0x3
 
-.field static final TRANSACTION_onReadRssiThreshold:I = 0x2
+.field static final TRANSACTION_onReadRssiThreshold_1:I = 0x2
 
 .field static final TRANSACTION_onRssiThresholdEvent:I = 0x4
 
 .field static final TRANSACTION_onUpdateLease:I = 0x5
 
-.field static final TRANSACTION_onWriteRssiThreshold:I = 0x1
+.field static final TRANSACTION_onWriteRssiThreshold_0:I = 0x1
 
 
 # direct methods

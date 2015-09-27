@@ -143,7 +143,7 @@
     .end annotation
 .end method
 
-.method public abstract getPackagePriorityBySystemUI(Ljava/lang/String;ILjava/lang/String;)I
+.method public abstract getPackageVisibilityOverride(Ljava/lang/String;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -151,7 +151,7 @@
     .end annotation
 .end method
 
-.method public abstract getPackageVisibilityOverride(Ljava/lang/String;I)I
+.method public abstract getShowNotificationForPackageOnKeyguard(Ljava/lang/String;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -256,6 +256,14 @@
 .end method
 
 .method public abstract setPackageVisibilityOverride(Ljava/lang/String;II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setShowNotificationForPackageOnKeyguard(Ljava/lang/String;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

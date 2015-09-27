@@ -1,5 +1,5 @@
 .class Lcom/android/internal/telephony/dataconnection/DctController$4;
-.super Landroid/os/Handler;
+.super Landroid/database/ContentObserver;
 .source "DctController.java"
 
 
@@ -19,144 +19,38 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/telephony/dataconnection/DctController;)V
+.method constructor <init>(Lcom/android/internal/telephony/dataconnection/DctController;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
-    .line 230
+    .line 153
     iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/DctController$4;->this$0:Lcom/android/internal/telephony/dataconnection/DctController;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
+.method public onChange(Z)V
+    .locals 1
+    .param p1, "selfChange"    # Z
 
     .prologue
-    .line 233
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    const/16 v1, 0x258
-
-    if-lt v0, v1, :cond_1
-
-    .line 234
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "EVENT_PHONE"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget v1, p1, Landroid/os/Message;->what:I
-
-    add-int/lit16 v1, v1, -0x258
-
-    add-int/lit8 v1, v1, 0x1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "_DATA_DETACH."
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
+    .line 156
+    const-string v0, "Settings change"
 
     # invokes: Lcom/android/internal/telephony/dataconnection/DctController;->logd(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$000(Ljava/lang/String;)V
 
-    .line 236
+    .line 157
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DctController$4;->this$0:Lcom/android/internal/telephony/dataconnection/DctController;
 
-    # getter for: Lcom/android/internal/telephony/dataconnection/DctController;->mDcSwitchAsyncChannel:[Lcom/android/internal/telephony/dataconnection/DcSwitchAsyncChannel;
-    invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$400(Lcom/android/internal/telephony/dataconnection/DctController;)[Lcom/android/internal/telephony/dataconnection/DcSwitchAsyncChannel;
+    # invokes: Lcom/android/internal/telephony/dataconnection/DctController;->onSettingsChange()V
+    invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$300(Lcom/android/internal/telephony/dataconnection/DctController;)V
 
-    move-result-object v0
-
-    iget v1, p1, Landroid/os/Message;->what:I
-
-    add-int/lit16 v1, v1, -0x258
-
-    aget-object v0, v0, v1
-
-    invoke-virtual {v0}, Lcom/android/internal/telephony/dataconnection/DcSwitchAsyncChannel;->notifyDataDetached()V
-
-    .line 243
-    :cond_0
-    :goto_0
+    .line 158
     return-void
-
-    .line 238
-    :cond_1
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    const/16 v1, 0x1f4
-
-    if-lt v0, v1, :cond_0
-
-    .line 239
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "EVENT_PHONE"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget v1, p1, Landroid/os/Message;->what:I
-
-    add-int/lit16 v1, v1, -0x1f4
-
-    add-int/lit8 v1, v1, 0x1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, "_DATA_ATTACH."
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    # invokes: Lcom/android/internal/telephony/dataconnection/DctController;->logd(Ljava/lang/String;)V
-    invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$000(Ljava/lang/String;)V
-
-    .line 241
-    iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DctController$4;->this$0:Lcom/android/internal/telephony/dataconnection/DctController;
-
-    # getter for: Lcom/android/internal/telephony/dataconnection/DctController;->mDcSwitchAsyncChannel:[Lcom/android/internal/telephony/dataconnection/DcSwitchAsyncChannel;
-    invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$400(Lcom/android/internal/telephony/dataconnection/DctController;)[Lcom/android/internal/telephony/dataconnection/DcSwitchAsyncChannel;
-
-    move-result-object v0
-
-    iget v1, p1, Landroid/os/Message;->what:I
-
-    add-int/lit16 v1, v1, -0x1f4
-
-    aget-object v0, v0, v1
-
-    invoke-virtual {v0}, Lcom/android/internal/telephony/dataconnection/DcSwitchAsyncChannel;->notifyDataAttached()V
-
-    goto :goto_0
 .end method

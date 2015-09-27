@@ -9,6 +9,9 @@ import /init.usb.rc
 import /init.${ro.hardware}.rc
 import /init.${ro.zygote}.rc
 import /init.trace.rc
+# Include CM's extra init file
+import /init.cm.rc
+
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -250,6 +253,7 @@ on post-fs-data
     # create basic filesystem structure
     mkdir /data/misc 01771 system misc
     mkdir /data/misc/adb 02750 system shell
+    mkdir /data/misc/audit 02750 audit system
     mkdir /data/misc/bluedroid 0770 bluetooth net_bt_stack
     mkdir /data/misc/bluetooth 0770 system system
     mkdir /data/misc/keystore 0700 keystore keystore
@@ -315,15 +319,15 @@ on post-fs-data
 
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /data
+    restorecon /data/data
+    restorecon /data/user
+    restorecon /data/user/0
 
     # If there is no fs-post-data action in the init.<device>.rc file, you
     # must uncomment this line, otherwise encrypted filesystems
     # won't work.
     # Set indication (checked by vold) that we have finished this action
     #setprop vold.post_fs_data_done 1
-    
-    #NFC
-    mkdir /data/nfc
 
 on boot
     # basic network init
@@ -386,11 +390,6 @@ on boot
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
     chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    
-    #NFC
-    setprop ro.nfc.port "I2C"
-    chmod 0660 /dev/pn544
-    chown nfc nfc /dev/pn544
 
     # Assume SMP uses shared cpufreq policy for all CPUs
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -438,19 +437,7 @@ on property:sys.init_log_level=*
     loglevel ${sys.init_log_level}
 
 on charger
-#ifndef VENDOR_EDIT
-#zoufeng@framework, 2015/03/31, Modify for res in system
-#        class_start charger
-#else VENDOR_EDIT
-    #mount_all fstab.qcom
-#hefaxi@filesystems, 2015/08/14, add ro option when mount system
-    mount ext4 /dev/block/bootdevice/by-name/system /system ro
-    load_all_props
     class_start charger
-    write /sys/devices/system/cpu/cpu1/online 0
-    write /sys/devices/system/cpu/cpu2/online 0
-    write /sys/devices/system/cpu/cpu3/online 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
 
 on property:vold.decrypt=trigger_reset_main
     class_reset main
@@ -509,11 +496,13 @@ service console /system/bin/sh
     class core
     console
     disabled
-#liuxb@bsp,2015/08/05, Modify begin for console root authority
-    user root
-#liuxb@bsp,2015/08/05, Modify end
+    user shell
     group shell log
     seclabel u:r:shell:s0
+
+service auditd /system/bin/auditd -k
+    seclabel u:r:logd:s0
+    class main
 
 on property:ro.debuggable=1
     start console
@@ -544,7 +533,6 @@ service servicemanager /system/bin/servicemanager
     onrestart restart media
     onrestart restart surfaceflinger
     onrestart restart drm
-    onrestart restart oemasserttip
 
 service vold /system/bin/vold
     class core
@@ -569,21 +557,13 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket rild-debug stream 660 radio system
     user root
-    group radio cache inet misc audio log qcom_diag
+    group radio cache inet misc audio sdcard_rw qcom_diag log
 
 service surfaceflinger /system/bin/surfaceflinger
     class core
     user system
     group graphics drmrpc
     onrestart restart zygote
-
-#ifdef VENDOR_EDIT
-#Leo Jia, 2014/06/30, AssertTip, add oemasserttip for debug tolls.
-service oemasserttip /system/bin/asserttip
-    class main
-    user system
-    disabled
-#endif /* VENDOR_EDIT */
 
 service drm /system/bin/drmserver
     class main
@@ -610,16 +590,12 @@ service encrypt /system/bin/vdc --wait cryptfs enablecrypto inplace default
     # vold will set vold.decrypt to trigger_restart_framework (default
     # encryption)
 
-#ifdef VENDOR_EDIT
-#huruihuan@Android, 2015/03/02, bootanimation run as graphics user
 service bootanim /system/bin/bootanimation
     class core
     user graphics
-    #user media
     group graphics audio
     disabled
     oneshot
-#endif
 
 service installd /system/bin/installd
     class main
@@ -629,6 +605,11 @@ service flash_recovery /system/bin/install-recovery.sh
     class main
     seclabel u:r:install_recovery:s0
     oneshot
+    disabled
+
+# update recovery if enabled
+on property:persist.sys.recovery_update=true
+    start flash_recovery
 
 service racoon /system/bin/racoon
     class main
@@ -669,10 +650,3 @@ service pre-recovery /system/bin/uncrypt
     class main
     disabled
     oneshot
-#ifdef VENDOR_EDIT  czp add for 14001 and 15055
-on property:ro.prj_name=14001
-     setprop persist.radio.multisim.config single
-
-on property:ro.prj_name=15055
-     setprop persist.radio.multisim.config dsds
-#endif

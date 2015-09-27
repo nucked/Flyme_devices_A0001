@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 441
+    .line 484
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$5;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .param p1, "token"    # Landroid/os/Binder;
 
     .prologue
-    .line 444
+    .line 487
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$5;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     # getter for: Lcom/android/server/dreams/DreamManagerService;->mLock:Ljava/lang/Object;
@@ -51,7 +51,7 @@
 
     monitor-enter v1
 
-    .line 445
+    .line 488
     :try_start_0
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$5;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
@@ -62,20 +62,20 @@
 
     if-ne v0, p1, :cond_0
 
-    .line 446
+    .line 489
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$5;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     # invokes: Lcom/android/server/dreams/DreamManagerService;->cleanupDreamLocked()V
     invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$600(Lcom/android/server/dreams/DreamManagerService;)V
 
-    .line 448
+    .line 491
     :cond_0
     monitor-exit v1
 
-    .line 449
+    .line 492
     return-void
 
-    .line 448
+    .line 491
     :catchall_0
     move-exception v0
 

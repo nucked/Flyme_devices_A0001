@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetoothAvrcpController"
 
-.field static final TRANSACTION_getConnectedDevices:I = 0x1
+.field static final TRANSACTION_getConnectedDevices_0:I = 0x1
 
 .field static final TRANSACTION_getConnectionState:I = 0x3
 

@@ -70,9 +70,6 @@
 .method private final native native_setup(Landroid/mtp/MtpDatabase;Z)V
 .end method
 
-.method private final native native_stop()V
-.end method
-
 
 # virtual methods
 .method public addStorage(Landroid/mtp/MtpStorage;)V
@@ -80,10 +77,10 @@
     .param p1, "storage"    # Landroid/mtp/MtpStorage;
 
     .prologue
-    .line 70
+    .line 64
     invoke-direct {p0, p1}, Landroid/mtp/MtpServer;->native_add_storage(Landroid/mtp/MtpStorage;)V
 
-    .line 71
+    .line 65
     return-void
 .end method
 
@@ -92,14 +89,14 @@
     .param p1, "storage"    # Landroid/mtp/MtpStorage;
 
     .prologue
-    .line 74
+    .line 68
     invoke-virtual {p1}, Landroid/mtp/MtpStorage;->getStorageId()I
 
     move-result v0
 
     invoke-direct {p0, v0}, Landroid/mtp/MtpServer;->native_remove_storage(I)V
 
-    .line 75
+    .line 69
     return-void
 .end method
 
@@ -107,13 +104,13 @@
     .locals 0
 
     .prologue
-    .line 46
+    .line 43
     invoke-direct {p0}, Landroid/mtp/MtpServer;->native_run()V
 
-    .line 47
+    .line 44
     invoke-direct {p0}, Landroid/mtp/MtpServer;->native_cleanup()V
 
-    .line 48
+    .line 45
     return-void
 .end method
 
@@ -122,10 +119,10 @@
     .param p1, "property"    # I
 
     .prologue
-    .line 66
+    .line 56
     invoke-direct {p0, p1}, Landroid/mtp/MtpServer;->native_send_device_property_changed(I)V
 
-    .line 67
+    .line 57
     return-void
 .end method
 
@@ -134,10 +131,10 @@
     .param p1, "handle"    # I
 
     .prologue
-    .line 51
+    .line 48
     invoke-direct {p0, p1}, Landroid/mtp/MtpServer;->native_send_object_added(I)V
 
-    .line 52
+    .line 49
     return-void
 .end method
 
@@ -146,10 +143,10 @@
     .param p1, "handle"    # I
 
     .prologue
-    .line 55
+    .line 52
     invoke-direct {p0, p1}, Landroid/mtp/MtpServer;->native_send_object_removed(I)V
 
-    .line 56
+    .line 53
     return-void
 .end method
 
@@ -158,10 +155,10 @@
     .param p1, "handle"    # I
 
     .prologue
-    .line 61
+    .line 60
     invoke-direct {p0, p1}, Landroid/mtp/MtpServer;->native_send_object_updated(I)V
 
-    .line 62
+    .line 61
     return-void
 .end method
 
@@ -181,16 +178,5 @@
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     .line 39
-    return-void
-.end method
-
-.method public stop()V
-    .locals 0
-
-    .prologue
-    .line 42
-    invoke-direct {p0}, Landroid/mtp/MtpServer;->native_stop()V
-
-    .line 43
     return-void
 .end method

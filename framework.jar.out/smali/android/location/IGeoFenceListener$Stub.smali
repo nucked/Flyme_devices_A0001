@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.IGeoFenceListener"
 
-.field static final TRANSACTION_geoFenceExpired:I = 0x1
+.field static final TRANSACTION_geoFenceExpired_0:I = 0x1
 
 
 # direct methods

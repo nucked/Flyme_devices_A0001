@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 5547
+    .line 5539
     iput-object p1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 
     const/4 v4, 0x0
 
-    .line 5551
+    .line 5543
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     const-string/jumbo v2, "viewroot.profile_rendering"
@@ -56,7 +56,7 @@
     # setter for: Landroid/view/ViewRootImpl;->mProfileRendering:Z
     invoke-static {v1, v2}, Landroid/view/ViewRootImpl;->access$1702(Landroid/view/ViewRootImpl;Z)Z
 
-    .line 5552
+    .line 5544
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v2, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
@@ -68,7 +68,7 @@
     # invokes: Landroid/view/ViewRootImpl;->profileRendering(Z)V
     invoke-static {v1, v2}, Landroid/view/ViewRootImpl;->access$300(Landroid/view/ViewRootImpl;Z)V
 
-    .line 5555
+    .line 5547
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     const-string v2, "config.disable_media"
@@ -80,7 +80,7 @@
     # setter for: Landroid/view/ViewRootImpl;->mMediaDisabled:Z
     invoke-static {v1, v2}, Landroid/view/ViewRootImpl;->access$1802(Landroid/view/ViewRootImpl;Z)Z
 
-    .line 5558
+    .line 5550
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -89,7 +89,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 5559
+    .line 5551
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -102,12 +102,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 5560
+    .line 5552
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-virtual {v1}, Landroid/view/ViewRootImpl;->invalidate()V
 
-    .line 5565
+    .line 5557
     :cond_0
     const-string v1, "debug.layout"
 
@@ -115,7 +115,7 @@
 
     move-result v0
 
-    .line 5566
+    .line 5558
     .local v0, "layout":Z
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
@@ -125,14 +125,14 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 5567
+    .line 5559
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     iput-boolean v0, v1, Landroid/view/View$AttachInfo;->mDebugLayout:Z
 
-    .line 5568
+    .line 5560
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
@@ -143,7 +143,7 @@
 
     if-nez v1, :cond_1
 
-    .line 5569
+    .line 5561
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
@@ -152,7 +152,7 @@
 
     invoke-virtual {v1, v5, v2, v3}, Landroid/view/ViewRootImpl$ViewRootHandler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 5574
+    .line 5566
     :cond_1
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
@@ -167,7 +167,7 @@
     # setter for: Landroid/view/ViewRootImpl;->mIsEmulator:Z
     invoke-static {v1, v2}, Landroid/view/ViewRootImpl;->access$1902(Landroid/view/ViewRootImpl;Z)Z
 
-    .line 5575
+    .line 5567
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
     const-string/jumbo v2, "ro.emulator.circular"
@@ -179,6 +179,6 @@
     # setter for: Landroid/view/ViewRootImpl;->mIsCircularEmulator:Z
     invoke-static {v1, v2}, Landroid/view/ViewRootImpl;->access$2002(Landroid/view/ViewRootImpl;Z)Z
 
-    .line 5577
+    .line 5569
     return-void
 .end method

@@ -27,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 400
+    .line 375
     iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -41,7 +41,7 @@
     .param p2, "x1"    # Lcom/android/internal/telephony/dataconnection/DdsScheduler$1;
 
     .prologue
-    .line 400
+    .line 375
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;-><init>(Lcom/android/internal/telephony/dataconnection/DdsScheduler;)V
 
     return-void
@@ -53,25 +53,25 @@
     .locals 4
 
     .prologue
-    .line 404
+    .line 379
     const-string v1, "DdsScheduler[DdsIdleState]"
 
     const-string v2, "Enter"
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 405
+    .line 380
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/dataconnection/DdsScheduler;->getFirstWaitingRequest()Landroid/net/NetworkRequest;
 
     move-result-object v0
 
-    .line 407
+    .line 382
     .local v0, "nr":Landroid/net/NetworkRequest;
     if-eqz v0, :cond_1
 
-    .line 408
+    .line 383
     const-string v1, "DdsScheduler[DdsIdleState]"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -94,7 +94,7 @@
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 410
+    .line 385
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
     invoke-virtual {v1, v0}, Lcom/android/internal/telephony/dataconnection/DdsScheduler;->isDdsSwitchRequired(Landroid/net/NetworkRequest;)Z
@@ -103,7 +103,7 @@
 
     if-nez v1, :cond_0
 
-    .line 411
+    .line 386
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
@@ -116,11 +116,11 @@
     # invokes: Lcom/android/internal/telephony/dataconnection/DdsScheduler;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Lcom/android/internal/telephony/dataconnection/DdsScheduler;->access$900(Lcom/android/internal/telephony/dataconnection/DdsScheduler;Lcom/android/internal/util/IState;)V
 
-    .line 419
+    .line 394
     :goto_0
     return-void
 
-    .line 413
+    .line 388
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
@@ -136,7 +136,7 @@
 
     goto :goto_0
 
-    .line 416
+    .line 391
     :cond_1
     const-string v1, "DdsScheduler[DdsIdleState]"
 
@@ -151,14 +151,14 @@
     .locals 2
 
     .prologue
-    .line 423
+    .line 398
     const-string v0, "DdsScheduler[DdsIdleState]"
 
     const-string v1, "Exit"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 424
+    .line 399
     return-void
 .end method
 
@@ -167,28 +167,12 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 428
+    .line 403
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 445
-    iget v1, p1, Landroid/os/Message;->what:I
-
-    const v2, 0x84005
-
-    if-ne v1, v2, :cond_0
-
-    .line 446
-    iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
-
-    const/16 v2, -0x3e8
-
-    # setter for: Lcom/android/internal/telephony/dataconnection/DdsScheduler;->messageReqId:I
-    invoke-static {v1, v2}, Lcom/android/internal/telephony/dataconnection/DdsScheduler;->access$1402(Lcom/android/internal/telephony/dataconnection/DdsScheduler;I)I
-
-    .line 449
-    :cond_0
+    .line 417
     const-string v1, "DdsScheduler[DdsIdleState]"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -211,13 +195,13 @@
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 450
+    .line 418
     const/4 v1, 0x0
 
     :goto_0
     return v1
 
-    .line 430
+    .line 405
     :pswitch_0
     const-string v1, "DdsScheduler[DdsIdleState]"
 
@@ -225,12 +209,12 @@
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 431
+    .line 406
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/net/NetworkRequest;
 
-    .line 433
+    .line 408
     .local v0, "n":Landroid/net/NetworkRequest;
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
@@ -238,9 +222,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    .line 434
+    .line 409
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
@@ -253,14 +237,14 @@
     # invokes: Lcom/android/internal/telephony/dataconnection/DdsScheduler;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Lcom/android/internal/telephony/dataconnection/DdsScheduler;->access$1200(Lcom/android/internal/telephony/dataconnection/DdsScheduler;Lcom/android/internal/util/IState;)V
 
-    .line 438
+    .line 413
     :goto_1
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 436
-    :cond_1
+    .line 411
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
 
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DdsScheduler$DdsIdleState;->this$0:Lcom/android/internal/telephony/dataconnection/DdsScheduler;
@@ -275,7 +259,7 @@
 
     goto :goto_1
 
-    .line 428
+    .line 403
     nop
 
     :pswitch_data_0

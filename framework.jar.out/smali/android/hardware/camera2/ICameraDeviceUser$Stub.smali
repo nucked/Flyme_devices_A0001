@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.camera2.ICameraDeviceUser"
 
-.field static final TRANSACTION_beginConfigure:I = 0x5
+.field static final TRANSACTION_beginConfigure_4:I = 0x5
 
 .field static final TRANSACTION_cancelRequest:I = 0x4
 
@@ -34,11 +34,11 @@
 
 .field static final TRANSACTION_createStream:I = 0x8
 
-.field static final TRANSACTION_deleteStream:I = 0x7
+.field static final TRANSACTION_deleteStream_6:I = 0x7
 
 .field static final TRANSACTION_disconnect:I = 0x1
 
-.field static final TRANSACTION_endConfigure:I = 0x6
+.field static final TRANSACTION_endConfigure_5:I = 0x6
 
 .field static final TRANSACTION_flush:I = 0xc
 

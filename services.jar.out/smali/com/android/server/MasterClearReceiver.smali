@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final EXTRA_WIPE_MEDIA:Ljava/lang/String; = "wipe_media"
+
 .field private static final TAG:Ljava/lang/String; = "MasterClear"
 
 
@@ -21,12 +23,12 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 7
     .param p1, "context"    # Landroid/content/Context;
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 33
+    .line 36
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -39,7 +41,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 34
+    .line 37
     const-string v1, "google.com"
 
     const-string v2, "from"
@@ -54,18 +56,18 @@
 
     if-nez v1, :cond_0
 
-    .line 35
+    .line 38
     const-string v1, "MasterClear"
 
     const-string v2, "Ignoring master clear request -- not from trusted server."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 59
+    .line 63
     :goto_0
     return-void
 
-    .line 40
+    .line 43
     :cond_0
     const-string v1, "shutdown"
 
@@ -73,36 +75,38 @@
 
     invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v4
+    move-result v5
 
-    .line 41
-    .local v4, "shutdown":Z
+    .line 44
+    .local v5, "shutdown":Z
     const-string v1, "android.intent.extra.REASON"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    .line 43
-    .local v5, "reason":Ljava/lang/String;
+    .line 46
+    .local v6, "reason":Ljava/lang/String;
     const-string v1, "MasterClear"
 
     const-string v2, "!!! FACTORY RESET !!!"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 45
+    .line 48
     new-instance v0, Lcom/android/server/MasterClearReceiver$1;
 
     const-string v2, "Reboot"
 
     move-object v1, p0
 
-    move-object v3, p1
+    move-object v3, p2
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/MasterClearReceiver$1;-><init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;Landroid/content/Context;ZLjava/lang/String;)V
+    move-object v4, p1
 
-    .line 58
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/MasterClearReceiver$1;-><init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;Landroid/content/Intent;Landroid/content/Context;ZLjava/lang/String;)V
+
+    .line 62
     .local v0, "thr":Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 

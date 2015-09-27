@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_onFirstFix:I = 0x3
 
-.field static final TRANSACTION_onGpsStarted:I = 0x1
+.field static final TRANSACTION_onGpsStarted_0:I = 0x1
 
-.field static final TRANSACTION_onGpsStopped:I = 0x2
+.field static final TRANSACTION_onGpsStopped_1:I = 0x2
 
 .field static final TRANSACTION_onNmeaReceived:I = 0x5
 

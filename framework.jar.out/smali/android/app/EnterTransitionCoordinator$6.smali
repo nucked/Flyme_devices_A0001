@@ -44,6 +44,7 @@
     .line 433
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$6;->this$0:Landroid/app/EnterTransitionCoordinator;
 
+    # invokes: Landroid/app/EnterTransitionCoordinator;->sharedElementTransitionComplete()V
     invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->access$300(Landroid/app/EnterTransitionCoordinator;)V
 
     .line 434
@@ -58,6 +59,7 @@
     .line 427
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$6;->this$0:Landroid/app/EnterTransitionCoordinator;
 
+    # invokes: Landroid/app/EnterTransitionCoordinator;->sharedElementTransitionStarted()V
     invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->access$200(Landroid/app/EnterTransitionCoordinator;)V
 
     .line 428

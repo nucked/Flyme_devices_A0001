@@ -87,6 +87,22 @@
     .end annotation
 .end method
 
+.method public abstract getLastWallpaperX()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getLastWallpaperY()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getWindowId(Landroid/os/IBinder;)Landroid/view/IWindowId;
     .annotation system Ldalvik/annotation/Throws;
         value = {

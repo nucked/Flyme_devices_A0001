@@ -173,7 +173,7 @@
     if-ne p1, v3, :cond_1
 
     .line 141
-    const p1, 0x10304a9
+    const p1, 0x103047d
 
     .line 156
     .end local p1    # "resid":I
@@ -189,7 +189,7 @@
     if-ne p1, v1, :cond_2
 
     .line 143
-    const p1, 0x10304b2
+    const p1, 0x1030486
 
     goto :goto_0
 
@@ -200,7 +200,7 @@
     if-ne p1, v1, :cond_3
 
     .line 145
-    const p1, 0x10304b3
+    const p1, 0x1030487
 
     goto :goto_0
 

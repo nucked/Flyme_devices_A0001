@@ -222,7 +222,7 @@
 
     move-result-object v2
 
-    const v3, 0x1060059
+    const v3, 0x106005c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -239,7 +239,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x10404b3
+    const v3, 0x104054f
 
     const/4 v4, 0x1
 
@@ -259,7 +259,7 @@
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404b4
+    const v4, 0x1040550
 
     const/4 v5, 0x1
 

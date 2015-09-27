@@ -27,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 8057
+    .line 8090
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,7 +42,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 8087
+    .line 8120
     sget-object v2, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {p1, p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
@@ -53,13 +53,13 @@
 
     move-result-object v0
 
-    .line 8088
+    .line 8121
     .local v0, "uri":Landroid/net/Uri;
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
-    .line 8089
+    .line 8122
     .local v1, "values":Landroid/content/ContentValues;
     const-string/jumbo v2, "pinned"
 
@@ -69,10 +69,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 8090
+    .line 8123
     invoke-virtual {p0, v0, v1, v4, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 8091
+    .line 8124
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .param p1, "contactId"    # J
 
     .prologue
-    .line 8074
+    .line 8107
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "undemote"
@@ -95,6 +95,6 @@
 
     invoke-virtual {p0, v0, v1, v2, v3}, Landroid/content/ContentResolver;->call(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    .line 8076
+    .line 8109
     return-void
 .end method

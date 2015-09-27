@@ -820,7 +820,7 @@
     if-ltz v4, :cond_5
 
     .line 320
-    const v5, 0x1040094
+    const v5, 0x1040135
 
     invoke-virtual {p0, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

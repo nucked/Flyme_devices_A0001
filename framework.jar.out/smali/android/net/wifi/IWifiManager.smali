@@ -357,6 +357,14 @@
     .end annotation
 .end method
 
+.method public abstract isIbssSupported()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isMulticastEnabled()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -366,14 +374,6 @@
 .end method
 
 .method public abstract isScanAlwaysAvailable()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract loadFtmDriver()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -542,14 +542,6 @@
 .end method
 
 .method public abstract stopWifi()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract unloadFtmDriver()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

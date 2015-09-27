@@ -41,27 +41,27 @@
     .param p6, "uid"    # I
 
     .prologue
-    .line 574
+    .line 571
     iput-object p1, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->this$0:Lcom/android/server/media/MediaSessionService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 575
+    .line 572
     iput-object p2, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mListener:Landroid/media/session/IActiveSessionsListener;
 
-    .line 576
+    .line 573
     iput-object p3, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mComponentName:Landroid/content/ComponentName;
 
-    .line 577
+    .line 574
     iput p4, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mUserId:I
 
-    .line 578
+    .line 575
     iput p5, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mPid:I
 
-    .line 579
+    .line 576
     iput p6, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mUid:I
 
-    .line 580
+    .line 577
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .param p0, "x0"    # Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;
 
     .prologue
-    .line 565
+    .line 562
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mComponentName:Landroid/content/ComponentName;
 
     return-object v0
@@ -81,7 +81,7 @@
     .param p0, "x0"    # Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;
 
     .prologue
-    .line 565
+    .line 562
     iget v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mPid:I
 
     return v0
@@ -92,7 +92,7 @@
     .param p0, "x0"    # Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;
 
     .prologue
-    .line 565
+    .line 562
     iget v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mUid:I
 
     return v0
@@ -103,7 +103,7 @@
     .param p0, "x0"    # Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;
 
     .prologue
-    .line 565
+    .line 562
     iget v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mUserId:I
 
     return v0
@@ -114,7 +114,7 @@
     .param p0, "x0"    # Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;
 
     .prologue
-    .line 565
+    .line 562
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->mListener:Landroid/media/session/IActiveSessionsListener;
 
     return-object v0
@@ -126,7 +126,7 @@
     .locals 2
 
     .prologue
-    .line 584
+    .line 581
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->this$0:Lcom/android/server/media/MediaSessionService;
 
     # getter for: Lcom/android/server/media/MediaSessionService;->mLock:Ljava/lang/Object;
@@ -136,7 +136,7 @@
 
     monitor-enter v1
 
-    .line 585
+    .line 582
     :try_start_0
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->this$0:Lcom/android/server/media/MediaSessionService;
 
@@ -147,13 +147,13 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 586
+    .line 583
     monitor-exit v1
 
-    .line 587
+    .line 584
     return-void
 
-    .line 586
+    .line 583
     :catchall_0
     move-exception v0
 

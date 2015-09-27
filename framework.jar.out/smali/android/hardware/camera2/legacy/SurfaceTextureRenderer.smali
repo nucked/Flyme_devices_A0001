@@ -497,16 +497,16 @@
     .param p1, "timestamp"    # J
 
     .prologue
-    .line 591
+    .line 605
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
     if-nez v0, :cond_0
 
-    .line 593
+    .line 607
     :goto_0
     return-void
 
-    .line 592
+    .line 606
     :cond_0
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
@@ -519,16 +519,16 @@
     .locals 1
 
     .prologue
-    .line 586
+    .line 600
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
     if-nez v0, :cond_0
 
-    .line 588
+    .line 602
     :goto_0
     return-void
 
-    .line 587
+    .line 601
     :cond_0
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
@@ -542,7 +542,7 @@
     .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 529
+    .line 543
     invoke-static {}, Landroid/opengl/EGL14;->eglGetError()I
 
     move-result v0
@@ -552,7 +552,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 530
+    .line 544
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -585,7 +585,7 @@
 
     throw v1
 
-    .line 532
+    .line 546
     :cond_0
     return-void
 .end method
@@ -595,7 +595,7 @@
     .param p1, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 536
+    .line 550
     invoke-static {}, Landroid/opengl/GLES20;->glGetError()I
 
     move-result v0
@@ -603,7 +603,7 @@
     .local v0, "error":I
     if-eqz v0, :cond_0
 
-    .line 537
+    .line 551
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -636,7 +636,7 @@
 
     throw v1
 
-    .line 539
+    .line 553
     :cond_0
     return-void
 .end method
@@ -679,148 +679,240 @@
 .end method
 
 .method private configureEGLContext()V
-    .locals 10
+    .locals 19
 
     .prologue
-    const/4 v5, 0x1
-
+    .line 413
     const/4 v2, 0x0
 
-    .line 413
     invoke-static {v2}, Landroid/opengl/EGL14;->eglGetDisplay(I)Landroid/opengl/EGLDisplay;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    move-object/from16 v0, p0
+
+    iput-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     .line 414
-    iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     sget-object v4, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
 
-    if-ne v0, v4, :cond_0
+    if-ne v2, v4, :cond_0
 
     .line 415
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    const-string v2, "No EGL14 display"
+    const-string v4, "No EGL14 display"
 
-    invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     .line 417
     :cond_0
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    new-array v9, v0, [I
+    new-array v0, v2, [I
+
+    move-object/from16 v18, v0
 
     .line 418
-    .local v9, "version":[I
-    iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    .local v18, "version":[I
+    move-object/from16 v0, p0
 
-    invoke-static {v0, v9, v2, v9, v5}, Landroid/opengl/EGL14;->eglInitialize(Landroid/opengl/EGLDisplay;[II[II)Z
+    iget-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
-    move-result v0
+    const/4 v4, 0x0
 
-    if-nez v0, :cond_1
+    const/4 v6, 0x1
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v18
+
+    invoke-static {v2, v0, v4, v1, v6}, Landroid/opengl/EGL14;->eglInitialize(Landroid/opengl/EGLDisplay;[II[II)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
 
     .line 419
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Cannot initialize EGL14"
+    const-string v4, "Cannot initialize EGL14"
 
-    invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     .line 422
     :cond_1
-    const/16 v0, 0xd
+    const/16 v2, 0xd
 
-    new-array v1, v0, [I
+    new-array v3, v2, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v3, :array_0
 
     .line 431
-    .local v1, "attribList":[I
-    new-array v3, v5, [Landroid/opengl/EGLConfig;
+    .local v3, "attribList":[I
+    const/4 v2, 0x1
+
+    new-array v5, v2, [Landroid/opengl/EGLConfig;
 
     .line 432
-    .local v3, "configs":[Landroid/opengl/EGLConfig;
-    new-array v6, v5, [I
+    .local v5, "configs":[Landroid/opengl/EGLConfig;
+    const/4 v2, 0x1
+
+    new-array v8, v2, [I
 
     .line 433
-    .local v6, "numConfigs":[I
-    iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    .local v8, "numConfigs":[I
+    move-object/from16 v0, p0
 
-    array-length v5, v3
+    iget-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
-    move v4, v2
+    const/4 v4, 0x0
 
-    move v7, v2
+    const/4 v6, 0x0
 
-    invoke-static/range {v0 .. v7}, Landroid/opengl/EGL14;->eglChooseConfig(Landroid/opengl/EGLDisplay;[II[Landroid/opengl/EGLConfig;II[II)Z
+    array-length v7, v5
+
+    const/4 v9, 0x0
+
+    invoke-static/range {v2 .. v9}, Landroid/opengl/EGL14;->eglChooseConfig(Landroid/opengl/EGLDisplay;[II[Landroid/opengl/EGLConfig;II[II)Z
 
     .line 435
-    const-string v0, "eglCreateContext RGB888+recordable ES2"
+    const-string v2, "eglCreateContext RGB888+recordable ES2"
 
-    invoke-direct {p0, v0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
 
     .line 436
-    aget-object v0, v3, v2
+    const/4 v2, 0x0
 
-    iput-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConfigs:Landroid/opengl/EGLConfig;
+    aget v2, v8, v2
+
+    if-nez v2, :cond_2
 
     .line 437
-    const/4 v0, 0x3
+    sget-object v2, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
-    new-array v8, v0, [I
+    const-string v4, "eglChooseConfig returned no configs, retrying without EGL_RECORDABLE_ANDROID"
 
-    fill-array-data v8, :array_1
+    invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 441
-    .local v8, "attrib_list":[I
-    iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    .line 438
+    const/16 v2, 0xb
 
-    aget-object v4, v3, v2
+    new-array v10, v2, [I
 
-    sget-object v5, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
+    fill-array-data v10, :array_1
 
-    invoke-static {v0, v4, v5, v8, v2}, Landroid/opengl/EGL14;->eglCreateContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Landroid/opengl/EGLContext;[II)Landroid/opengl/EGLContext;
+    .line 446
+    .local v10, "attribList2":[I
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    iget-object v9, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
-    iput-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLContext:Landroid/opengl/EGLContext;
+    const/4 v11, 0x0
 
-    .line 443
-    const-string v0, "eglCreateContext"
+    const/4 v13, 0x0
 
-    invoke-direct {p0, v0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
+    array-length v14, v5
 
-    .line 444
-    iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLContext:Landroid/opengl/EGLContext;
+    const/16 v16, 0x0
 
-    sget-object v2, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
+    move-object v12, v5
 
-    if-ne v0, v2, :cond_2
+    move-object v15, v8
 
-    .line 445
-    new-instance v0, Ljava/lang/IllegalStateException;
+    invoke-static/range {v9 .. v16}, Landroid/opengl/EGL14;->eglChooseConfig(Landroid/opengl/EGLDisplay;[II[Landroid/opengl/EGLConfig;II[II)Z
 
-    const-string v2, "No EGLContext could be made"
+    .line 448
+    const-string v2, "eglCreateContext RGB888 ES2"
 
-    invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    throw v0
+    invoke-direct {v0, v2}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
 
-    .line 447
+    .line 450
+    .end local v10    # "attribList2":[I
     :cond_2
+    const/4 v2, 0x0
+
+    aget-object v2, v5, v2
+
+    move-object/from16 v0, p0
+
+    iput-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConfigs:Landroid/opengl/EGLConfig;
+
+    .line 451
+    const/4 v2, 0x3
+
+    new-array v0, v2, [I
+
+    move-object/from16 v17, v0
+
+    fill-array-data v17, :array_2
+
+    .line 455
+    .local v17, "attrib_list":[I
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+
+    const/4 v4, 0x0
+
+    aget-object v4, v5, v4
+
+    sget-object v6, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, v17
+
+    invoke-static {v2, v4, v6, v0, v7}, Landroid/opengl/EGL14;->eglCreateContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Landroid/opengl/EGLContext;[II)Landroid/opengl/EGLContext;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iput-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLContext:Landroid/opengl/EGLContext;
+
+    .line 457
+    const-string v2, "eglCreateContext"
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
+
+    .line 458
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLContext:Landroid/opengl/EGLContext;
+
+    sget-object v4, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
+
+    if-ne v2, v4, :cond_3
+
+    .line 459
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    const-string v4, "No EGLContext could be made"
+
+    invoke-direct {v2, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 461
+    :cond_3
     return-void
 
     .line 422
-    nop
-
     :array_0
     .array-data 4
         0x3024
@@ -838,8 +930,24 @@
         0x3038
     .end array-data
 
-    .line 437
+    .line 438
     :array_1
+    .array-data 4
+        0x3024
+        0x8
+        0x3023
+        0x8
+        0x3022
+        0x8
+        0x3040
+        0x4
+        0x3033
+        0x5
+        0x3038
+    .end array-data
+
+    .line 451
+    :array_2
     .array-data 4
         0x3098
         0x2
@@ -863,7 +971,7 @@
     .local p1, "surfaces":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;>;"
     const/4 v6, 0x0
 
-    .line 450
+    .line 464
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
@@ -872,7 +980,7 @@
 
     if-nez v3, :cond_1
 
-    .line 451
+    .line 465
     :cond_0
     new-instance v3, Ljava/lang/IllegalStateException;
 
@@ -882,7 +990,7 @@
 
     throw v3
 
-    .line 453
+    .line 467
     :cond_1
     const/4 v3, 0x1
 
@@ -892,7 +1000,7 @@
 
     aput v3, v2, v6
 
-    .line 456
+    .line 470
     .local v2, "surfaceAttribs":[I
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -912,7 +1020,7 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 457
+    .line 471
     .local v0, "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     iget-object v3, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
@@ -926,14 +1034,14 @@
 
     iput-object v3, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
 
-    .line 459
+    .line 473
     const-string v3, "eglCreateWindowSurface"
 
     invoke-direct {p0, v3}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 461
+    .line 475
     .end local v0    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     :cond_2
     return-void
@@ -955,7 +1063,7 @@
     .local p1, "surfaces":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;>;"
     const/4 v7, 0x0
 
-    .line 464
+    .line 478
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
@@ -964,7 +1072,7 @@
 
     if-nez v5, :cond_1
 
-    .line 465
+    .line 479
     :cond_0
     new-instance v5, Ljava/lang/IllegalStateException;
 
@@ -974,11 +1082,11 @@
 
     throw v5
 
-    .line 468
+    .line 482
     :cond_1
     const/4 v3, 0x0
 
-    .line 469
+    .line 483
     .local v3, "maxLength":I
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -998,7 +1106,7 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 470
+    .line 484
     .local v0, "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     iget v5, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->width:I
 
@@ -1006,13 +1114,13 @@
 
     mul-int v2, v5, v6
 
-    .line 472
+    .line 486
     .local v2, "length":I
     if-le v2, v3, :cond_2
 
     move v3, v2
 
-    .line 473
+    .line 487
     :cond_2
     const/4 v5, 0x5
 
@@ -1046,7 +1154,7 @@
 
     aput v6, v4, v5
 
-    .line 478
+    .line 492
     .local v4, "surfaceAttribs":[I
     iget-object v5, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
@@ -1058,14 +1166,14 @@
 
     iput-object v5, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
 
-    .line 480
+    .line 494
     const-string v5, "eglCreatePbufferSurface"
 
     invoke-direct {p0, v5}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 482
+    .line 496
     .end local v0    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     .end local v2    # "length":I
     .end local v4    # "surfaceAttribs":[I
@@ -1086,7 +1194,7 @@
 
     iput-object v5, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPBufferPixels:Ljava/nio/ByteBuffer;
 
-    .line 484
+    .line 498
     return-void
 .end method
 
@@ -1749,16 +1857,16 @@
 
     const/4 v8, 0x0
 
-    .line 546
+    .line 560
     iget-object v5, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
     if-nez v5, :cond_0
 
-    .line 573
+    .line 587
     :goto_0
     return-void
 
-    .line 548
+    .line 562
     :cond_0
     new-instance v1, Ljava/io/File;
 
@@ -1770,7 +1878,7 @@
 
     invoke-direct {v1, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 549
+    .line 563
     .local v1, "legacyStorageDir":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -1778,14 +1886,14 @@
 
     if-nez v5, :cond_1
 
-    .line 550
+    .line 564
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     move-result v5
 
     if-nez v5, :cond_1
 
-    .line 551
+    .line 565
     sget-object v5, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
     const-string v6, "Failed to create directory for data dump"
@@ -1794,7 +1902,7 @@
 
     goto :goto_0
 
-    .line 556
+    .line 570
     :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1804,39 +1912,39 @@
 
     invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 557
+    .line 571
     .local v3, "path":Ljava/lang/StringBuilder;
     sget-object v5, Ljava/io/File;->separator:Ljava/lang/String;
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 558
+    .line 572
     const-string v5, "durations_"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 560
+    .line 574
     new-instance v2, Landroid/text/format/Time;
 
     invoke-direct {v2}, Landroid/text/format/Time;-><init>()V
 
-    .line 561
+    .line 575
     .local v2, "now":Landroid/text/format/Time;
     invoke-virtual {v2}, Landroid/text/format/Time;->setToNow()V
 
-    .line 562
+    .line 576
     invoke-virtual {v2}, Landroid/text/format/Time;->format2445()Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 563
+    .line 577
     const-string v5, "_S"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 564
+    .line 578
     iget-object v5, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaces:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -1857,7 +1965,7 @@
 
     check-cast v4, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 565
+    .line 579
     .local v4, "surface":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     const-string v5, "_%d_%d"
 
@@ -1887,14 +1995,14 @@
 
     goto :goto_1
 
-    .line 567
+    .line 581
     .end local v4    # "surface":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     :cond_2
     const-string v5, "_C"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 568
+    .line 582
     iget-object v5, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConversionSurfaces:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -1914,7 +2022,7 @@
 
     check-cast v4, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 569
+    .line 583
     .restart local v4    # "surface":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     const-string v5, "_%d_%d"
 
@@ -1944,14 +2052,14 @@
 
     goto :goto_2
 
-    .line 571
+    .line 585
     .end local v4    # "surface":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     :cond_3
     const-string v5, ".txt"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 572
+    .line 586
     iget-object v5, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -1967,16 +2075,16 @@
     .locals 1
 
     .prologue
-    .line 596
+    .line 610
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
     if-nez v0, :cond_0
 
-    .line 598
+    .line 612
     :goto_0
     return-void
 
-    .line 597
+    .line 611
     :cond_0
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
@@ -2365,19 +2473,19 @@
     .param p1, "surface"    # Landroid/opengl/EGLSurface;
 
     .prologue
-    .line 517
+    .line 531
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v1, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLContext:Landroid/opengl/EGLContext;
 
     invoke-static {v0, p1, p1, v1}, Landroid/opengl/EGL14;->eglMakeCurrent(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;Landroid/opengl/EGLSurface;Landroid/opengl/EGLContext;)Z
 
-    .line 518
+    .line 532
     const-string/jumbo v0, "makeCurrent"
 
     invoke-direct {p0, v0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
 
-    .line 519
+    .line 533
     return-void
 .end method
 
@@ -2385,14 +2493,14 @@
     .locals 6
 
     .prologue
-    .line 487
+    .line 501
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     sget-object v3, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
 
     if-eq v2, v3, :cond_4
 
-    .line 488
+    .line 502
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     sget-object v3, Landroid/opengl/EGL14;->EGL_NO_SURFACE:Landroid/opengl/EGLSurface;
@@ -2403,15 +2511,15 @@
 
     invoke-static {v2, v3, v4, v5}, Landroid/opengl/EGL14;->eglMakeCurrent(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;Landroid/opengl/EGLSurface;Landroid/opengl/EGLContext;)Z
 
-    .line 490
+    .line 504
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->dumpGlTiming()V
 
-    .line 491
+    .line 505
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaces:Ljava/util/List;
 
     if-eqz v2, :cond_1
 
-    .line 492
+    .line 506
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaces:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -2433,13 +2541,13 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 493
+    .line 507
     .local v0, "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     iget-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
 
     if-eqz v2, :cond_0
 
-    .line 494
+    .line 508
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v3, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
@@ -2448,7 +2556,7 @@
 
     goto :goto_0
 
-    .line 498
+    .line 512
     .end local v0    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
@@ -2456,7 +2564,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 499
+    .line 513
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConversionSurfaces:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -2478,13 +2586,13 @@
 
     check-cast v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 500
+    .line 514
     .restart local v0    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     iget-object v2, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
 
     if-eqz v2, :cond_2
 
-    .line 501
+    .line 515
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     iget-object v3, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
@@ -2493,7 +2601,7 @@
 
     goto :goto_1
 
-    .line 505
+    .line 519
     .end local v0    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     .end local v1    # "i$":Ljava/util/Iterator;
     :cond_3
@@ -2503,34 +2611,34 @@
 
     invoke-static {v2, v3}, Landroid/opengl/EGL14;->eglDestroyContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLContext;)Z
 
-    .line 506
+    .line 520
     invoke-static {}, Landroid/opengl/EGL14;->eglReleaseThread()Z
 
-    .line 507
+    .line 521
     iget-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     invoke-static {v2}, Landroid/opengl/EGL14;->eglTerminate(Landroid/opengl/EGLDisplay;)Z
 
-    .line 510
+    .line 524
     :cond_4
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConfigs:Landroid/opengl/EGLConfig;
 
-    .line 511
+    .line 525
     sget-object v2, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
 
     iput-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
-    .line 512
+    .line 526
     sget-object v2, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
 
     iput-object v2, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLContext:Landroid/opengl/EGLContext;
 
-    .line 513
+    .line 527
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->clearState()V
 
-    .line 514
+    .line 528
     return-void
 .end method
 
@@ -2538,32 +2646,32 @@
     .locals 2
 
     .prologue
-    .line 576
+    .line 590
     invoke-static {}, Landroid/hardware/camera2/legacy/PerfMeasurement;->isGlTimingSupported()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 577
+    .line 591
     sget-object v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
     const-string v1, "Enabling GL performance measurement"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 578
+    .line 592
     new-instance v0, Landroid/hardware/camera2/legacy/PerfMeasurement;
 
     invoke-direct {v0}, Landroid/hardware/camera2/legacy/PerfMeasurement;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
 
-    .line 583
+    .line 597
     :goto_0
     return-void
 
-    .line 580
+    .line 594
     :cond_0
     sget-object v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
@@ -2571,7 +2679,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 581
+    .line 595
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPerfMeasurer:Landroid/hardware/camera2/legacy/PerfMeasurement;
@@ -2584,20 +2692,20 @@
     .param p1, "surface"    # Landroid/opengl/EGLSurface;
 
     .prologue
-    .line 522
+    .line 536
     iget-object v1, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     invoke-static {v1, p1}, Landroid/opengl/EGL14;->eglSwapBuffers(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLSurface;)Z
 
     move-result v0
 
-    .line 523
+    .line 537
     .local v0, "result":Z
     const-string/jumbo v1, "swapBuffers"
 
     invoke-direct {p0, v1}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkEglError(Ljava/lang/String;)V
 
-    .line 524
+    .line 538
     return v0
 .end method
 
@@ -2607,10 +2715,10 @@
     .locals 0
 
     .prologue
-    .line 770
+    .line 784
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->releaseEGLContext()V
 
-    .line 771
+    .line 785
     return-void
 .end method
 
@@ -2633,10 +2741,10 @@
     .local p1, "surfaces":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;>;"
     const/4 v8, 0x0
 
-    .line 616
+    .line 630
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->releaseEGLContext()V
 
-    .line 618
+    .line 632
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
@@ -2645,7 +2753,7 @@
 
     if-nez v6, :cond_2
 
-    .line 619
+    .line 633
     :cond_0
     sget-object v6, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
@@ -2653,12 +2761,12 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 665
+    .line 679
     :cond_1
     :goto_0
     return-void
 
-    .line 623
+    .line 637
     :cond_2
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -2678,19 +2786,19 @@
 
     check-cast v3, Landroid/util/Pair;
 
-    .line 624
+    .line 638
     .local v3, "p":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
     iget-object v4, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v4, Landroid/view/Surface;
 
-    .line 625
+    .line 639
     .local v4, "s":Landroid/view/Surface;
     iget-object v5, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v5, Landroid/util/Size;
 
-    .line 628
+    .line 642
     .local v5, "surfaceSize":Landroid/util/Size;
     :try_start_0
     new-instance v1, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
@@ -2699,37 +2807,37 @@
 
     invoke-direct {v1, p0, v6}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;-><init>(Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$1;)V
 
-    .line 629
+    .line 643
     .local v1, "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     iput-object v4, v1, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
-    .line 630
+    .line 644
     invoke-virtual {v5}, Landroid/util/Size;->getWidth()I
 
     move-result v6
 
     iput v6, v1, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->width:I
 
-    .line 631
+    .line 645
     invoke-virtual {v5}, Landroid/util/Size;->getHeight()I
 
     move-result v6
 
     iput v6, v1, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->height:I
 
-    .line 632
+    .line 646
     invoke-static {v4}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->needsConversion(Landroid/view/Surface;)Z
 
     move-result v6
 
     if-eqz v6, :cond_3
 
-    .line 634
+    .line 648
     const v6, 0x32315659
 
     invoke-static {v4, v6}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceFormat(Landroid/view/Surface;I)V
 
-    .line 635
+    .line 649
     iget-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConversionSurfaces:Ljava/util/List;
 
     invoke-interface {v6, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -2738,12 +2846,12 @@
 
     goto :goto_1
 
-    .line 639
+    .line 653
     .end local v1    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     :catch_0
     move-exception v0
 
-    .line 640
+    .line 654
     .local v0, "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
     sget-object v6, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
@@ -2753,7 +2861,7 @@
 
     goto :goto_1
 
-    .line 637
+    .line 651
     .end local v0    # "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
     .restart local v1    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     :cond_3
@@ -2766,7 +2874,7 @@
 
     goto :goto_1
 
-    .line 645
+    .line 659
     .end local v1    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     .end local v3    # "p":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/view/Surface;Landroid/util/Size;>;"
     .end local v4    # "s":Landroid/view/Surface;
@@ -2774,7 +2882,7 @@
     :cond_4
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->configureEGLContext()V
 
-    .line 648
+    .line 662
     iget-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaces:Ljava/util/List;
 
     invoke-interface {v6}, Ljava/util/List;->size()I
@@ -2783,12 +2891,12 @@
 
     if-lez v6, :cond_5
 
-    .line 649
+    .line 663
     iget-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaces:Ljava/util/List;
 
     invoke-direct {p0, v6}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->configureEGLOutputSurfaces(Ljava/util/Collection;)V
 
-    .line 653
+    .line 667
     :cond_5
     iget-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConversionSurfaces:Ljava/util/List;
 
@@ -2798,12 +2906,12 @@
 
     if-lez v6, :cond_6
 
-    .line 654
+    .line 668
     iget-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConversionSurfaces:Ljava/util/List;
 
     invoke-direct {p0, v6}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->configureEGLPbufferSurfaces(Ljava/util/Collection;)V
 
-    .line 656
+    .line 670
     :cond_6
     iget-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaces:Ljava/util/List;
 
@@ -2826,10 +2934,10 @@
     :goto_2
     invoke-direct {p0, v6}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->makeCurrent(Landroid/opengl/EGLSurface;)V
 
-    .line 658
+    .line 672
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->initializeGLState()V
 
-    .line 659
+    .line 673
     new-instance v6, Landroid/graphics/SurfaceTexture;
 
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->getTextureId()I
@@ -2840,7 +2948,7 @@
 
     iput-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    .line 662
+    .line 676
     const-string/jumbo v6, "persist.camera.legacy_perf"
 
     invoke-static {v6, v8}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -2849,12 +2957,12 @@
 
     if-eqz v6, :cond_1
 
-    .line 663
+    .line 677
     invoke-direct {p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->setupGlTiming()V
 
     goto/16 :goto_0
 
-    .line 656
+    .line 670
     :cond_7
     iget-object v6, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mConversionSurfaces:Ljava/util/List;
 
@@ -2874,7 +2982,7 @@
     .param p1, "targetCollector"    # Landroid/hardware/camera2/legacy/CaptureCollector;
 
     .prologue
-    .line 681
+    .line 695
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaces:Ljava/util/List;
@@ -2908,18 +3016,18 @@
 
     if-nez v4, :cond_2
 
-    .line 764
+    .line 778
     :cond_1
     :goto_0
     return-void
 
-    .line 686
+    .line 700
     :cond_2
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/camera2/legacy/CaptureCollector;->hasPendingPreviewCaptures()Z
 
     move-result v12
 
-    .line 687
+    .line 701
     .local v12, "doTiming":Z
     const-string v4, "before updateTexImage"
 
@@ -2927,13 +3035,13 @@
 
     invoke-direct {v0, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkGlError(Ljava/lang/String;)V
 
-    .line 689
+    .line 703
     if-eqz v12, :cond_3
 
-    .line 690
+    .line 704
     invoke-direct/range {p0 .. p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->beginGlTiming()V
 
-    .line 693
+    .line 707
     :cond_3
     move-object/from16 v0, p0
 
@@ -2941,7 +3049,7 @@
 
     invoke-virtual {v4}, Landroid/graphics/SurfaceTexture;->updateTexImage()V
 
-    .line 695
+    .line 709
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -2950,7 +3058,7 @@
 
     move-result-wide v20
 
-    .line 697
+    .line 711
     .local v20, "timestamp":J
     move-object/from16 v0, p1
 
@@ -2960,32 +3068,32 @@
 
     move-result-object v11
 
-    .line 700
+    .line 714
     .local v11, "captureHolder":Landroid/util/Pair;, "Landroid/util/Pair<Landroid/hardware/camera2/legacy/RequestHolder;Ljava/lang/Long;>;"
     if-nez v11, :cond_5
 
-    .line 701
+    .line 715
     sget-boolean v4, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->DEBUG:Z
 
     if-eqz v4, :cond_4
 
-    .line 702
+    .line 716
     sget-object v4, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
     const-string v5, "Dropping preview frame."
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 704
+    .line 718
     :cond_4
     if-eqz v12, :cond_1
 
-    .line 705
+    .line 719
     invoke-direct/range {p0 .. p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->endGlTiming()V
 
     goto :goto_0
 
-    .line 710
+    .line 724
     :cond_5
     iget-object v0, v11, Landroid/util/Pair;->first:Ljava/lang/Object;
 
@@ -2993,30 +3101,30 @@
 
     check-cast v17, Landroid/hardware/camera2/legacy/RequestHolder;
 
-    .line 712
+    .line 726
     .local v17, "request":Landroid/hardware/camera2/legacy/RequestHolder;
     invoke-virtual/range {v17 .. v17}, Landroid/hardware/camera2/legacy/RequestHolder;->getHolderTargets()Ljava/util/Collection;
 
     move-result-object v19
 
-    .line 713
+    .line 727
     .local v19, "targetSurfaces":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/view/Surface;>;"
     if-eqz v12, :cond_6
 
-    .line 714
+    .line 728
     move-object/from16 v0, p0
 
     move-wide/from16 v1, v20
 
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->addGlTimestamp(J)V
 
-    .line 717
+    .line 731
     :cond_6
     invoke-static/range {v19 .. v19}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->getSurfaceIds(Ljava/util/Collection;)Ljava/util/List;
 
     move-result-object v18
 
-    .line 718
+    .line 732
     .local v18, "targetSurfaceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     move-object/from16 v0, p0
 
@@ -3041,7 +3149,7 @@
 
     check-cast v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 719
+    .line 733
     .local v15, "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
@@ -3053,7 +3161,7 @@
 
     if-eqz v4, :cond_7
 
-    .line 721
+    .line 735
     :try_start_0
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
@@ -3063,14 +3171,14 @@
 
     invoke-static {v4, v5, v6}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceDimens(Landroid/view/Surface;II)V
 
-    .line 723
+    .line 737
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->makeCurrent(Landroid/opengl/EGLSurface;)V
 
-    .line 725
+    .line 739
     iget-object v5, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
     iget-object v4, v11, Landroid/util/Pair;->second:Ljava/lang/Object;
@@ -3083,7 +3191,7 @@
 
     invoke-static {v5, v6, v7}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setNextTimestamp(Landroid/view/Surface;J)V
 
-    .line 726
+    .line 740
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -3105,7 +3213,7 @@
 
     invoke-direct {v0, v5, v6, v7, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->drawFrame(Landroid/graphics/SurfaceTexture;III)V
 
-    .line 729
+    .line 743
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
 
     move-object/from16 v0, p0
@@ -3116,11 +3224,11 @@
 
     goto :goto_1
 
-    .line 730
+    .line 744
     :catch_0
     move-exception v13
 
-    .line 731
+    .line 745
     .local v13, "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
     sget-object v4, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
@@ -3130,14 +3238,14 @@
 
     goto :goto_1
 
-    .line 726
+    .line 740
     .end local v13    # "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
     :cond_8
     const/4 v4, 0x0
 
     goto :goto_2
 
-    .line 735
+    .line 749
     .end local v15    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     :cond_9
     move-object/from16 v0, p0
@@ -3162,7 +3270,7 @@
 
     check-cast v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
 
-    .line 736
+    .line 750
     .restart local v15    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
@@ -3174,14 +3282,14 @@
 
     if-eqz v4, :cond_a
 
-    .line 737
+    .line 751
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->eglSurface:Landroid/opengl/EGLSurface;
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->makeCurrent(Landroid/opengl/EGLSurface;)V
 
-    .line 739
+    .line 753
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -3203,14 +3311,14 @@
 
     invoke-direct {v0, v5, v6, v7, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->drawFrame(Landroid/graphics/SurfaceTexture;III)V
 
-    .line 742
+    .line 756
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPBufferPixels:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v4}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
-    .line 743
+    .line 757
     const/4 v4, 0x0
 
     const/4 v5, 0x0
@@ -3229,14 +3337,14 @@
 
     invoke-static/range {v4 .. v10}, Landroid/opengl/GLES20;->glReadPixels(IIIIIILjava/nio/Buffer;)V
 
-    .line 745
+    .line 759
     const-string v4, "glReadPixels"
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkGlError(Ljava/lang/String;)V
 
-    .line 748
+    .line 762
     :try_start_1
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
@@ -3244,7 +3352,7 @@
 
     move-result v14
 
-    .line 749
+    .line 763
     .local v14, "format":I
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
@@ -3254,7 +3362,7 @@
 
     invoke-static {v4, v5, v6}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceDimens(Landroid/view/Surface;II)V
 
-    .line 751
+    .line 765
     iget-object v5, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
     iget-object v4, v11, Landroid/util/Pair;->second:Ljava/lang/Object;
@@ -3267,7 +3375,7 @@
 
     invoke-static {v5, v6, v7}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setNextTimestamp(Landroid/view/Surface;J)V
 
-    .line 752
+    .line 766
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
     move-object/from16 v0, p0
@@ -3288,12 +3396,12 @@
 
     goto :goto_3
 
-    .line 754
+    .line 768
     .end local v14    # "format":I
     :catch_1
     move-exception v13
 
-    .line 755
+    .line 769
     .restart local v13    # "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
     sget-object v4, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
@@ -3303,22 +3411,22 @@
 
     goto/16 :goto_3
 
-    .line 739
+    .line 753
     .end local v13    # "e":Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
     :cond_b
     const/4 v4, 0x2
 
     goto :goto_4
 
-    .line 759
+    .line 773
     .end local v15    # "holder":Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;
     :cond_c
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/camera2/legacy/CaptureCollector;->previewProduced()Landroid/hardware/camera2/legacy/RequestHolder;
 
-    .line 761
+    .line 775
     if-eqz v12, :cond_1
 
-    .line 762
+    .line 776
     invoke-direct/range {p0 .. p0}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->endGlTiming()V
 
     goto/16 :goto_0
@@ -3328,14 +3436,14 @@
     .locals 2
 
     .prologue
-    .line 778
+    .line 792
     sget-object v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->TAG:Ljava/lang/String;
 
     const-string v1, "Flush not yet implemented."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 779
+    .line 793
     return-void
 .end method
 
@@ -3343,7 +3451,7 @@
     .locals 1
 
     .prologue
-    .line 607
+    .line 621
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
     return-object v0

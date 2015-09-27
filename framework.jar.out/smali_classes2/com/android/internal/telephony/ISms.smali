@@ -431,6 +431,26 @@
     .end annotation
 .end method
 
+.method public abstract synthesizeMessages(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;J)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;J)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract updateMessageOnIccEf(Ljava/lang/String;II[B)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

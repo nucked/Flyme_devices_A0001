@@ -1134,24 +1134,6 @@
     return-void
 .end method
 
-.method public emDial(Ljava/lang/String;)V
-    .locals 0
-    .param p1, "telNumber"    # Ljava/lang/String;
-
-    .prologue
-    .line 1076
-    return-void
-.end method
-
-.method public emHungup(Ljava/lang/String;)V
-    .locals 0
-    .param p1, "telNumber"    # Ljava/lang/String;
-
-    .prologue
-    .line 1080
-    return-void
-.end method
-
 .method public bridge synthetic enableDataConnectivity()Z
     .locals 1
 
@@ -1162,15 +1144,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method public enableEngineerTest(Z)V
-    .locals 0
-    .param p1, "on"    # Z
-
-    .prologue
-    .line 1072
-    return-void
 .end method
 
 .method public bridge synthetic enableLocationUpdates()V
@@ -1282,15 +1255,6 @@
     iget-object v0, p0, Lcom/android/internal/telephony/sip/SipPhone;->mBackgroundCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
     return-object v0
-.end method
-
-.method public getBandMode(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1089
-    return-void
 .end method
 
 .method public bridge synthetic getCallForwardingIndicator()Z
@@ -1780,15 +1744,6 @@
     return-object v0
 .end method
 
-.method public getSrvDomainPref(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1101
-    return-void
-.end method
-
 .method public bridge synthetic getState()Lcom/android/internal/telephony/PhoneConstants$State;
     .locals 1
 
@@ -1894,25 +1849,6 @@
     .line 51
     invoke-super {p0}, Lcom/android/internal/telephony/sip/SipPhoneBase;->notifyCallForwardingIndicator()V
 
-    return-void
-.end method
-
-.method public oemGetRadioInfo(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1095
-    return-void
-.end method
-
-.method public oemGetRffeDevInfo(ILandroid/os/Message;)V
-    .locals 0
-    .param p1, "rf_tech"    # I
-    .param p2, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1086
     return-void
 .end method
 
@@ -2272,25 +2208,6 @@
     throw v2
 .end method
 
-.method public setEngineerModeNvProcessCmd(I)V
-    .locals 0
-    .param p1, "processcmd"    # I
-
-    .prologue
-    .line 1098
-    return-void
-.end method
-
-.method public setFactoryModeNvProcess(ILandroid/os/Message;)V
-    .locals 0
-    .param p1, "cmd"    # I
-    .param p2, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1092
-    return-void
-.end method
-
 .method public bridge synthetic setLine1Number(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
     .param p1, "x0"    # Ljava/lang/String;
@@ -2301,15 +2218,6 @@
     .line 51
     invoke-super {p0, p1, p2, p3}, Lcom/android/internal/telephony/sip/SipPhoneBase;->setLine1Number(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 
-    return-void
-.end method
-
-.method public setModemCrash(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1083
     return-void
 .end method
 
@@ -2396,16 +2304,6 @@
     .line 51
     invoke-super {p0, p1}, Lcom/android/internal/telephony/sip/SipPhoneBase;->setRadioPower(Z)V
 
-    return-void
-.end method
-
-.method public setSrvDomainPref(ILandroid/os/Message;)V
-    .locals 0
-    .param p1, "srvDomainPref"    # I
-    .param p2, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1104
     return-void
 .end method
 

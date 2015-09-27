@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 176
+    .line 165
     iput-object p1, p0, Lcom/android/internal/telephony/SubscriptionController$1;->this$0:Lcom/android/internal/telephony/SubscriptionController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -41,7 +41,7 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 179
+    .line 168
     iget-object v3, p0, Lcom/android/internal/telephony/SubscriptionController$1;->this$0:Lcom/android/internal/telephony/SubscriptionController;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
     # invokes: Lcom/android/internal/telephony/SubscriptionController;->logd(Ljava/lang/String;)V
     invoke-static {v3, v4}, Lcom/android/internal/telephony/SubscriptionController;->access$000(Lcom/android/internal/telephony/SubscriptionController;Ljava/lang/String;)V
 
-    .line 182
+    .line 171
     const-string v3, "subscription"
 
     const/4 v4, -0x1
@@ -74,7 +74,7 @@
 
     move-result v2
 
-    .line 184
+    .line 173
     .local v2, "subId":I
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -88,7 +88,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 185
+    .line 174
     const-string v3, "showPlmn"
 
     invoke-virtual {p2, v3, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -97,14 +97,14 @@
 
     if-eqz v3, :cond_2
 
-    .line 186
+    .line 175
     const-string v3, "plmn"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 187
+    .line 176
     .local v0, "carrierText":Ljava/lang/String;
     const-string v3, "showSpn"
 
@@ -114,12 +114,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 189
+    .line 178
     iget-object v3, p0, Lcom/android/internal/telephony/SubscriptionController$1;->this$0:Lcom/android/internal/telephony/SubscriptionController;
 
     iget-object v3, v3, Lcom/android/internal/telephony/SubscriptionController;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040651
+    const v4, 0x10406e6
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -129,7 +129,7 @@
 
     move-result-object v1
 
-    .line 191
+    .line 180
     .local v1, "separator":Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -157,7 +157,7 @@
 
     move-result-object v0
 
-    .line 195
+    .line 184
     .end local v1    # "separator":Ljava/lang/String;
     :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/SubscriptionController$1;->this$0:Lcom/android/internal/telephony/SubscriptionController;
@@ -165,13 +165,13 @@
     # invokes: Lcom/android/internal/telephony/SubscriptionController;->setCarrierText(Ljava/lang/String;I)I
     invoke-static {v3, v0, v2}, Lcom/android/internal/telephony/SubscriptionController;->access$100(Lcom/android/internal/telephony/SubscriptionController;Ljava/lang/String;I)I
 
-    .line 200
+    .line 189
     .end local v0    # "carrierText":Ljava/lang/String;
     :cond_1
     :goto_0
     return-void
 
-    .line 196
+    .line 185
     :cond_2
     const-string v3, "showSpn"
 
@@ -181,7 +181,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 197
+    .line 186
     iget-object v3, p0, Lcom/android/internal/telephony/SubscriptionController$1;->this$0:Lcom/android/internal/telephony/SubscriptionController;
 
     const-string v4, "plmn"

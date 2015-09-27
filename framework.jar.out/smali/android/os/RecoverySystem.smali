@@ -102,7 +102,7 @@
     .locals 0
 
     .prologue
-    .line 516
+    .line 522
     return-void
 .end method
 
@@ -117,29 +117,29 @@
     .end annotation
 
     .prologue
-    .line 450
+    .line 456
     sget-object v6, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/io/File;->mkdirs()Z
 
-    .line 451
+    .line 457
     sget-object v6, Landroid/os/RecoverySystem;->COMMAND_FILE:Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
-    .line 452
+    .line 458
     sget-object v6, Landroid/os/RecoverySystem;->LOG_FILE:Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
-    .line 454
+    .line 460
     new-instance v2, Ljava/io/FileWriter;
 
     sget-object v6, Landroid/os/RecoverySystem;->COMMAND_FILE:Ljava/io/File;
 
     invoke-direct {v2, v6}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
 
-    .line 456
+    .line 462
     .local v2, "command":Ljava/io/FileWriter;
     move-object v1, p1
 
@@ -156,7 +156,7 @@
 
     aget-object v0, v1, v3
 
-    .line 457
+    .line 463
     .local v0, "arg":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -164,28 +164,28 @@
 
     if-nez v6, :cond_0
 
-    .line 458
+    .line 464
     invoke-virtual {v2, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
-    .line 459
+    .line 465
     const-string v6, "\n"
 
     invoke-virtual {v2, v6}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 456
+    .line 462
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 463
+    .line 469
     .end local v0    # "arg":Ljava/lang/String;
     :cond_1
     invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
 
-    .line 467
+    .line 473
     const-string/jumbo v6, "power"
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -194,13 +194,13 @@
 
     check-cast v5, Landroid/os/PowerManager;
 
-    .line 468
+    .line 474
     .local v5, "pm":Landroid/os/PowerManager;
     const-string/jumbo v6, "recovery"
 
     invoke-virtual {v5, v6}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
 
-    .line 470
+    .line 476
     new-instance v6, Ljava/io/IOException;
 
     const-string v7, "Reboot failed (no permissions?)"
@@ -209,7 +209,7 @@
 
     throw v6
 
-    .line 463
+    .line 469
     .end local v3    # "i$":I
     .end local v4    # "len$":I
     .end local v5    # "pm":Landroid/os/PowerManager;
@@ -363,10 +363,10 @@
     .locals 8
 
     .prologue
-    .line 481
+    .line 487
     const/4 v3, 0x0
 
-    .line 483
+    .line 489
     .local v3, "log":Ljava/lang/String;
     :try_start_0
     sget-object v5, Landroid/os/RecoverySystem;->LOG_FILE:Ljava/io/File;
@@ -384,7 +384,7 @@
 
     move-result-object v3
 
-    .line 492
+    .line 498
     :goto_0
     sget-object v5, Landroid/os/RecoverySystem;->RECOVERY_DIR:Ljava/io/File;
 
@@ -392,7 +392,7 @@
 
     move-result-object v4
 
-    .line 493
+    .line 499
     .local v4, "names":[Ljava/lang/String;
     const/4 v2, 0x0
 
@@ -404,7 +404,7 @@
 
     if-ge v2, v5, :cond_2
 
-    .line 494
+    .line 500
     aget-object v5, v4, v2
 
     sget-object v6, Landroid/os/RecoverySystem;->LAST_PREFIX:Ljava/lang/String;
@@ -415,19 +415,19 @@
 
     if-eqz v5, :cond_0
 
-    .line 493
+    .line 499
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 484
+    .line 490
     .end local v2    # "i":I
     .end local v4    # "names":[Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 485
+    .line 491
     .local v0, "e":Ljava/io/FileNotFoundException;
     const-string v5, "RecoverySystem"
 
@@ -437,12 +437,12 @@
 
     goto :goto_0
 
-    .line 486
+    .line 492
     .end local v0    # "e":Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
-    .line 487
+    .line 493
     .local v0, "e":Ljava/io/IOException;
     const-string v5, "RecoverySystem"
 
@@ -452,7 +452,7 @@
 
     goto :goto_0
 
-    .line 495
+    .line 501
     .end local v0    # "e":Ljava/io/IOException;
     .restart local v2    # "i":I
     .restart local v4    # "names":[Ljava/lang/String;
@@ -465,7 +465,7 @@
 
     invoke-direct {v1, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 496
+    .line 502
     .local v1, "f":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
@@ -473,7 +473,7 @@
 
     if-nez v5, :cond_1
 
-    .line 497
+    .line 503
     const-string v5, "RecoverySystem"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -498,7 +498,7 @@
 
     goto :goto_2
 
-    .line 499
+    .line 505
     :cond_1
     const-string v5, "RecoverySystem"
 
@@ -524,7 +524,7 @@
 
     goto :goto_2
 
-    .line 503
+    .line 509
     .end local v1    # "f":Ljava/io/File;
     :cond_2
     return-object v3
@@ -653,14 +653,14 @@
     .end annotation
 
     .prologue
-    .line 430
+    .line 436
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {p0, v0}, Landroid/os/RecoverySystem;->rebootWipeCache(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 431
+    .line 437
     return-void
 .end method
 
@@ -675,10 +675,10 @@
     .end annotation
 
     .prologue
-    .line 435
+    .line 441
     const/4 v1, 0x0
 
-    .line 436
+    .line 442
     .local v1, "reasonArg":Ljava/lang/String;
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -686,7 +686,7 @@
 
     if-nez v2, :cond_0
 
-    .line 437
+    .line 443
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -709,7 +709,7 @@
 
     move-result-object v1
 
-    .line 440
+    .line 446
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -737,7 +737,7 @@
 
     move-result-object v0
 
-    .line 441
+    .line 447
     .local v0, "localeArg":Ljava/lang/String;
     const/4 v2, 0x3
 
@@ -759,7 +759,7 @@
 
     invoke-static {p0, v2}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;[Ljava/lang/String;)V
 
-    .line 442
+    .line 448
     return-void
 .end method
 
@@ -773,14 +773,14 @@
     .end annotation
 
     .prologue
-    .line 357
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
+    .line 357
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {p0, v0, v1}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;)V
+    invoke-static {p0, v1, v0, v1}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;Z)V
 
     .line 358
     return-void
@@ -797,17 +797,17 @@
     .end annotation
 
     .prologue
-    .line 362
     const/4 v0, 0x0
 
-    invoke-static {p0, v0, p1}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;)V
+    .line 362
+    invoke-static {p0, v0, p1, v0}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;Z)V
 
     .line 363
     return-void
 .end method
 
 .method public static rebootWipeUserData(Landroid/content/Context;Z)V
-    .locals 1
+    .locals 2
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "shutdown"    # Z
     .annotation system Ldalvik/annotation/Throws;
@@ -822,17 +822,20 @@
 
     move-result-object v0
 
-    invoke-static {p0, p1, v0}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;)V
+    const/4 v1, 0x0
+
+    invoke-static {p0, p1, v0, v1}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;Z)V
 
     .line 369
     return-void
 .end method
 
-.method public static rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;)V
-    .locals 14
+.method public static rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;Z)V
+    .locals 15
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "shutdown"    # Z
     .param p2, "reason"    # Ljava/lang/String;
+    .param p3, "wipeMedia"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -845,15 +848,15 @@
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v14
 
-    check-cast v13, Landroid/os/UserManager;
+    check-cast v14, Landroid/os/UserManager;
 
     .line 392
-    .local v13, "um":Landroid/os/UserManager;
+    .local v14, "um":Landroid/os/UserManager;
     const-string/jumbo v0, "no_factory_reset"
 
-    invoke-virtual {v13, v0}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
+    invoke-virtual {v14, v0}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -870,12 +873,12 @@
 
     .line 395
     :cond_0
-    new-instance v9, Landroid/os/ConditionVariable;
+    new-instance v10, Landroid/os/ConditionVariable;
 
-    invoke-direct {v9}, Landroid/os/ConditionVariable;-><init>()V
+    invoke-direct {v10}, Landroid/os/ConditionVariable;-><init>()V
 
     .line 397
-    .local v9, "condition":Landroid/os/ConditionVariable;
+    .local v10, "condition":Landroid/os/ConditionVariable;
     new-instance v1, Landroid/content/Intent;
 
     const-string v0, "android.intent.action.MASTER_CLEAR_NOTIFICATION"
@@ -895,7 +898,7 @@
 
     new-instance v4, Landroid/os/RecoverySystem$1;
 
-    invoke-direct {v4, v9}, Landroid/os/RecoverySystem$1;-><init>(Landroid/os/ConditionVariable;)V
+    invoke-direct {v4, v10}, Landroid/os/RecoverySystem$1;-><init>(Landroid/os/ConditionVariable;)V
 
     const/4 v5, 0x0
 
@@ -910,24 +913,24 @@
     invoke-virtual/range {v0 .. v8}, Landroid/content/Context;->sendOrderedBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
     .line 409
-    invoke-virtual {v9}, Landroid/os/ConditionVariable;->block()V
+    invoke-virtual {v10}, Landroid/os/ConditionVariable;->block()V
 
     .line 411
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
     .line 412
-    .local v12, "shutdownArg":Ljava/lang/String;
+    .local v13, "shutdownArg":Ljava/lang/String;
     if-eqz p1, :cond_1
 
     .line 413
-    const-string v12, "--shutdown_after"
+    const-string v13, "--shutdown_after"
 
     .line 416
     :cond_1
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     .line 417
-    .local v11, "reasonArg":Ljava/lang/String;
+    .local v12, "reasonArg":Ljava/lang/String;
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -955,7 +958,7 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v12
 
     .line 421
     :cond_2
@@ -983,35 +986,60 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    .line 422
-    .local v10, "localeArg":Ljava/lang/String;
+    .line 423
+    .local v11, "localeArg":Ljava/lang/String;
+    const-string v9, "--wipe_data\n"
+
+    .line 424
+    .local v9, "cmd":Ljava/lang/String;
+    if-eqz p3, :cond_3
+
+    .line 425
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "--wipe_media\n"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    .line 428
+    :cond_3
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
 
     const/4 v2, 0x0
 
-    aput-object v12, v0, v2
+    aput-object v13, v0, v2
 
     const/4 v2, 0x1
 
-    const-string v3, "--wipe_data"
-
-    aput-object v3, v0, v2
+    aput-object v9, v0, v2
 
     const/4 v2, 0x2
 
-    aput-object v11, v0, v2
+    aput-object v12, v0, v2
 
     const/4 v2, 0x3
 
-    aput-object v10, v0, v2
+    aput-object v11, v0, v2
 
     invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;[Ljava/lang/String;)V
 
-    .line 423
+    .line 429
     return-void
 .end method
 
@@ -1022,21 +1050,21 @@
     .prologue
     const/16 v1, 0x3f
 
-    .line 511
+    .line 517
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
     move-result-object p0
 
-    .line 512
+    .line 518
     const/16 v0, 0xa
 
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
     move-result-object p0
 
-    .line 513
+    .line 519
     return-object p0
 .end method
 

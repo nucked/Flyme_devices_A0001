@@ -1132,7 +1132,7 @@
 
     .line 295
     .local v1, "inflater":Landroid/view/LayoutInflater;
-    const v4, 0x109005c
+    const v4, 0x1090058
 
     const/4 v5, 0x0
 
@@ -1150,7 +1150,7 @@
 
     .line 299
     .local v3, "r":Landroid/content/res/Resources;
-    const v4, 0x1040482
+    const v4, 0x104051e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

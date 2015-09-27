@@ -1,11 +1,14 @@
 .class Lcom/android/server/BatteryService$2;
-.super Lcom/android/server/BatteryService$SettingsObserver;
+.super Ljava/lang/Object;
 .source "BatteryService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/BatteryService;->onBootPhase(I)V
+    value = Lcom/android/server/BatteryService;->shutdownIfNoPowerLocked()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,54 +22,75 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/BatteryService;Landroid/os/Handler;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/server/BatteryService;)V
     .locals 0
-    .param p2, "x0"    # Landroid/os/Handler;
-    .param p3, "x1"    # Ljava/lang/String;
 
     .prologue
-    .line 224
+    .line 273
     iput-object p1, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/BatteryService$SettingsObserver;-><init>(Lcom/android/server/BatteryService;Landroid/os/Handler;Ljava/lang/String;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method onUpdate(Z)V
-    .locals 1
-    .param p1, "on"    # Z
+.method public run()V
+    .locals 3
 
     .prologue
-    .line 227
-    iget-object v0, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
+    .line 276
+    invoke-static {}, Landroid/app/ActivityManagerNative;->isSystemReady()Z
 
-    # getter for: Lcom/android/server/BatteryService;->mBatteryLowHint:Z
-    invoke-static {v0}, Lcom/android/server/BatteryService;->access$500(Lcom/android/server/BatteryService;)Z
+    move-result v1
 
-    move-result v0
+    if-eqz v1, :cond_0
 
-    if-eq v0, p1, :cond_0
+    .line 277
+    # getter for: Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/BatteryService;->access$500()Ljava/lang/String;
 
-    .line 228
-    iget-object v0, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
+    move-result-object v1
 
-    # setter for: Lcom/android/server/BatteryService;->mBatteryLowHint:Z
-    invoke-static {v0, p1}, Lcom/android/server/BatteryService;->access$502(Lcom/android/server/BatteryService;Z)Z
+    const-string v2, "silent_reboot shutdownIfNoPowerLocked"
 
-    .line 229
-    iget-object v0, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
+    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/android/server/BatteryService;->mLed:Lcom/android/server/BatteryService$Led;
-    invoke-static {v0}, Lcom/android/server/BatteryService;->access$600(Lcom/android/server/BatteryService;)Lcom/android/server/BatteryService$Led;
+    .line 278
+    new-instance v0, Landroid/content/Intent;
 
-    move-result-object v0
+    const-string v1, "android.intent.action.ACTION_REQUEST_SHUTDOWN"
 
-    invoke-virtual {v0}, Lcom/android/server/BatteryService$Led;->updateLightsLocked()V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 231
+    .line 279
+    .local v0, "intent":Landroid/content/Intent;
+    const-string v1, "android.intent.extra.KEY_CONFIRM"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 280
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    .line 281
+    iget-object v1, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
+
+    # getter for: Lcom/android/server/BatteryService;->mContext:Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/BatteryService;->access$600(Lcom/android/server/BatteryService;)Landroid/content/Context;
+
+    move-result-object v1
+
+    sget-object v2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    .line 283
+    .end local v0    # "intent":Landroid/content/Intent;
     :cond_0
     return-void
 .end method

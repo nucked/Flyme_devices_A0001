@@ -32,20 +32,20 @@
     .param p5, "theAction"    # Ljava/lang/String;
 
     .prologue
-    .line 194
+    .line 191
     iput-object p1, p0, Lcom/android/server/AlarmManagerService$WakeupEvent;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 195
+    .line 192
     iput-wide p2, p0, Lcom/android/server/AlarmManagerService$WakeupEvent;->when:J
 
-    .line 196
+    .line 193
     iput p4, p0, Lcom/android/server/AlarmManagerService$WakeupEvent;->uid:I
 
-    .line 197
+    .line 194
     iput-object p5, p0, Lcom/android/server/AlarmManagerService$WakeupEvent;->action:Ljava/lang/String;
 
-    .line 198
+    .line 195
     return-void
 .end method

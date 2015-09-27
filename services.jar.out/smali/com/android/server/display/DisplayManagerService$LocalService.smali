@@ -45,25 +45,6 @@
 
 
 # virtual methods
-.method public GetRealPositive()Z
-    .locals 1
-
-    .prologue
-    .line 1551
-    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
-
-    # getter for: Lcom/android/server/display/DisplayManagerService;->mDisplayPowerController:Lcom/android/server/display/DisplayPowerController;
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->access$3800(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/server/display/DisplayPowerController;->GetRealPositive()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getDisplayInfo(I)Landroid/view/DisplayInfo;
     .locals 2
     .param p1, "displayId"    # I
@@ -166,25 +147,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method public onSensorChanged(Z)V
-    .locals 1
-    .param p1, "enable"    # Z
-
-    .prologue
-    .line 1557
-    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$LocalService;->this$0:Lcom/android/server/display/DisplayManagerService;
-
-    # getter for: Lcom/android/server/display/DisplayManagerService;->mDisplayPowerController:Lcom/android/server/display/DisplayPowerController;
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->access$3800(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayPowerController;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/server/display/DisplayPowerController;->onSensorChanged(Z)V
-
-    .line 1558
-    return-void
 .end method
 
 .method public performTraversalInTransactionFromWindowManager()V

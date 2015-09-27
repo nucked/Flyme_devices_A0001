@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_cancelVibrate:I = 0x4
 
-.field static final TRANSACTION_hasVibrator:I = 0x1
+.field static final TRANSACTION_hasVibrator_0:I = 0x1
 
 .field static final TRANSACTION_vibrate:I = 0x2
 

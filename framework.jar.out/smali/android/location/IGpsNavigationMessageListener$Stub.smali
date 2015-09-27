@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.IGpsNavigationMessageListener"
 
-.field static final TRANSACTION_onGpsNavigationMessageReceived:I = 0x1
+.field static final TRANSACTION_onGpsNavigationMessageReceived_0:I = 0x1
 
 .field static final TRANSACTION_onStatusChanged:I = 0x2
 

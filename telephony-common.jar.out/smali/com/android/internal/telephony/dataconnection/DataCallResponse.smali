@@ -290,6 +290,14 @@
 
     aget-object v15, v3, v15
 
+    const-string v16, "[\\D]"
+
+    const-string v17, ""
+
+    invoke-virtual/range {v15 .. v17}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v15
+
     invoke-static {v15}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/net/UnknownHostException; {:try_start_1 .. :try_end_1} :catch_0

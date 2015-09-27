@@ -36,6 +36,8 @@
 
 .field static final TRANSACTION_onRemoved:I = 0x5
 
+.field static final TRANSACTION_onStateChanged:I = 0x6
+
 
 # direct methods
 .method public constructor <init>()V
@@ -128,7 +130,7 @@
     .line 42
     sparse-switch p1, :sswitch_data_0
 
-    .line 92
+    .line 100
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -240,7 +242,27 @@
 
     goto :goto_0
 
+    .line 93
+    .end local v0    # "_arg0":I
+    :sswitch_6
+    const-string v3, "android.service.fingerprint.IFingerprintServiceReceiver"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 95
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 96
+    .restart local v0    # "_arg0":I
+    invoke-virtual {p0, v0}, Landroid/service/fingerprint/IFingerprintServiceReceiver$Stub;->onStateChanged(I)V
+
+    goto :goto_0
+
     .line 42
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -248,6 +270,7 @@
         0x3 -> :sswitch_3
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

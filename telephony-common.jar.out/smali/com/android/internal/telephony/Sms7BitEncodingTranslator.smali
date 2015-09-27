@@ -103,7 +103,7 @@
 
     .line 182
     :cond_0
-    const v7, 0x1110010
+    const v7, 0x1110011
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 

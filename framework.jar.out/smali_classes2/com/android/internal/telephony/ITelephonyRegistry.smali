@@ -227,14 +227,6 @@
     .end annotation
 .end method
 
-.method public abstract notifyServiceState(Landroid/telephony/ServiceState;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract notifyServiceStateForPhoneId(IILandroid/telephony/ServiceState;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

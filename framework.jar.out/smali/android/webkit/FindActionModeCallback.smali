@@ -71,7 +71,7 @@
 
     move-result-object v0
 
-    const v1, 0x10900fa
+    const v1, 0x10900ee
 
     const/4 v2, 0x0
 
@@ -116,7 +116,7 @@
     .line 62
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mCustomView:Landroid/view/View;
 
-    const v1, 0x10203f3
+    const v1, 0x10203d6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -212,7 +212,7 @@
     .line 179
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mMatches:Landroid/widget/TextView;
 
-    const v1, 0x10405ac
+    const v1, 0x1040643
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -508,7 +508,7 @@
 
     .line 240
     :pswitch_data_0
-    .packed-switch 0x1020406
+    .packed-switch 0x10203e9
         :pswitch_0
         :pswitch_1
     .end packed-switch

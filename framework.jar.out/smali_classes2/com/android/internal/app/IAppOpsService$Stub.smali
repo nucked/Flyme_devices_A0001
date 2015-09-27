@@ -30,8 +30,6 @@
 
 .field static final TRANSACTION_checkOperation:I = 0x1
 
-.field static final TRANSACTION_checkOps:I = 0x13
-
 .field static final TRANSACTION_checkPackage:I = 0x8
 
 .field static final TRANSACTION_finishOperation:I = 0x4
@@ -40,21 +38,25 @@
 
 .field static final TRANSACTION_getPackagesForOps:I = 0x9
 
+.field static final TRANSACTION_getPrivacyGuardSettingForPackage:I = 0x12
+
 .field static final TRANSACTION_getToken:I = 0x7
 
 .field static final TRANSACTION_isControlAllowed:I = 0x11
 
 .field static final TRANSACTION_noteOperation:I = 0x2
 
-.field static final TRANSACTION_removeOps:I = 0x12
-
 .field static final TRANSACTION_removeUser:I = 0x10
 
 .field static final TRANSACTION_resetAllModes:I = 0xc
 
+.field static final TRANSACTION_resetCounters:I = 0x14
+
 .field static final TRANSACTION_setAudioRestriction:I = 0xe
 
 .field static final TRANSACTION_setMode:I = 0xb
+
+.field static final TRANSACTION_setPrivacyGuardSettingForPackage:I = 0x13
 
 .field static final TRANSACTION_setUserRestrictions:I = 0xf
 
@@ -139,7 +141,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 9
+    .locals 10
     .param p1, "code"    # I
     .param p2, "data"    # Landroid/os/Parcel;
     .param p3, "reply"    # Landroid/os/Parcel;
@@ -151,12 +153,14 @@
     .end annotation
 
     .prologue
+    const/4 v0, 0x0
+
     const/4 v8, 0x1
 
     .line 38
     sparse-switch p1, :sswitch_data_0
 
-    .line 287
+    .line 301
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v8
@@ -785,9 +789,9 @@
     .line 258
     .end local v1    # "_arg0":I
     :sswitch_11
-    const-string v0, "com.android.internal.app.IAppOpsService"
+    const-string v9, "com.android.internal.app.IAppOpsService"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 260
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -815,56 +819,110 @@
 
     move v0, v8
 
-    :goto_2
+    :cond_1
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_2
 
     .line 270
     .end local v1    # "_arg0":I
     .end local v2    # "_arg1":Ljava/lang/String;
     .end local v6    # "_result":Z
     :sswitch_12
-    const-string v0, "com.android.internal.app.IAppOpsService"
+    const-string v9, "com.android.internal.app.IAppOpsService"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 272
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result-object v1
-
-    .line 273
-    .local v1, "_arg0":Ljava/lang/String;
-    invoke-virtual {p0, v1}, Lcom/android/internal/app/IAppOpsService$Stub;->removeOps(Ljava/lang/String;)V
+    move-result v1
 
     .line 274
+    .restart local v1    # "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 275
+    .restart local v2    # "_arg1":Ljava/lang/String;
+    invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IAppOpsService$Stub;->getPrivacyGuardSettingForPackage(ILjava/lang/String;)Z
+
+    move-result v6
+
+    .line 276
+    .restart local v6    # "_result":Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 277
+    if-eqz v6, :cond_2
+
+    move v0, v8
+
+    :cond_2
+    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 282
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":Ljava/lang/String;
+    .end local v6    # "_result":Z
+    :sswitch_13
+    const-string v9, "com.android.internal.app.IAppOpsService"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 284
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 286
+    .restart local v1    # "_arg0":I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 288
+    .restart local v2    # "_arg1":Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    move v3, v8
+
+    .line 289
+    .local v3, "_arg2":Z
+    :goto_2
+    invoke-virtual {p0, v1, v2, v3}, Lcom/android/internal/app/IAppOpsService$Stub;->setPrivacyGuardSettingForPackage(ILjava/lang/String;Z)V
+
+    .line 290
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
 
-    .line 279
-    .end local v1    # "_arg0":Ljava/lang/String;
-    :sswitch_13
+    .end local v3    # "_arg2":Z
+    :cond_3
+    move v3, v0
+
+    .line 288
+    goto :goto_2
+
+    .line 295
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":Ljava/lang/String;
+    :sswitch_14
     const-string v0, "com.android.internal.app.IAppOpsService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 281
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 296
+    invoke-virtual {p0}, Lcom/android/internal/app/IAppOpsService$Stub;->resetCounters()V
 
-    move-result-object v1
-
-    .line 282
-    .restart local v1    # "_arg0":Ljava/lang/String;
-    invoke-virtual {p0, v1}, Lcom/android/internal/app/IAppOpsService$Stub;->checkOps(Ljava/lang/String;)V
-
-    .line 283
+    .line 297
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
@@ -891,6 +949,7 @@
         0x11 -> :sswitch_11
         0x12 -> :sswitch_12
         0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

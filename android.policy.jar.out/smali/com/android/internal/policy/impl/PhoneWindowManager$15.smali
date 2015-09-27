@@ -3,12 +3,12 @@
 .source "PhoneWindowManager.java"
 
 # interfaces
-.implements Landroid/content/ServiceConnection;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/PhoneWindowManager;->takeScreenshot()V
+    value = Lcom/android/internal/policy/impl/PhoneWindowManager;->finishPostLayoutPolicyLw()I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 4613
+    .line 4975
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,174 +36,17 @@
 
 
 # virtual methods
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 7
-    .param p1, "name"    # Landroid/content/ComponentName;
-    .param p2, "service"    # Landroid/os/IBinder;
+.method public run()V
+    .locals 1
 
     .prologue
-    .line 4616
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    .line 4978
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    iget-object v5, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotLock:Ljava/lang/Object;
+    iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
-    monitor-enter v5
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->dismiss()V
 
-    .line 4617
-    :try_start_0
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotConnection:Landroid/content/ServiceConnection;
-
-    if-eq v4, p0, :cond_0
-
-    .line 4618
-    monitor-exit v5
-
-    .line 4646
-    :goto_0
-    return-void
-
-    .line 4620
-    :cond_0
-    new-instance v1, Landroid/os/Messenger;
-
-    invoke-direct {v1, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
-
-    .line 4621
-    .local v1, "messenger":Landroid/os/Messenger;
-    const/4 v4, 0x0
-
-    const/4 v6, 0x1
-
-    invoke-static {v4, v6}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
-
-    move-result-object v2
-
-    .line 4622
-    .local v2, "msg":Landroid/os/Message;
-    move-object v3, p0
-
-    .line 4623
-    .local v3, "myConn":Landroid/content/ServiceConnection;
-    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager$15$1;
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v4}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
-
-    move-result-object v4
-
-    invoke-direct {v0, p0, v4, v3}, Lcom/android/internal/policy/impl/PhoneWindowManager$15$1;-><init>(Lcom/android/internal/policy/impl/PhoneWindowManager$15;Landroid/os/Looper;Landroid/content/ServiceConnection;)V
-
-    .line 4635
-    .local v0, "h":Landroid/os/Handler;
-    new-instance v4, Landroid/os/Messenger;
-
-    invoke-direct {v4, v0}, Landroid/os/Messenger;-><init>(Landroid/os/Handler;)V
-
-    iput-object v4, v2, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
-
-    .line 4636
-    const/4 v4, 0x0
-
-    iput v4, v2, Landroid/os/Message;->arg2:I
-
-    iput v4, v2, Landroid/os/Message;->arg1:I
-
-    .line 4637
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v4}, Landroid/view/WindowManagerPolicy$WindowState;->isVisibleLw()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    .line 4638
-    const/4 v4, 0x1
-
-    iput v4, v2, Landroid/os/Message;->arg1:I
-
-    .line 4639
-    :cond_1
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mNavigationBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    if-eqz v4, :cond_2
-
-    iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mNavigationBar:Landroid/view/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v4}, Landroid/view/WindowManagerPolicy$WindowState;->isVisibleLw()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    .line 4640
-    const/4 v4, 0x1
-
-    iput v4, v2, Landroid/os/Message;->arg2:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 4642
-    :cond_2
-    :try_start_1
-    invoke-virtual {v1, v2}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 4645
-    :goto_1
-    :try_start_2
-    monitor-exit v5
-
-    goto :goto_0
-
-    .end local v0    # "h":Landroid/os/Handler;
-    .end local v1    # "messenger":Landroid/os/Messenger;
-    .end local v2    # "msg":Landroid/os/Message;
-    .end local v3    # "myConn":Landroid/content/ServiceConnection;
-    :catchall_0
-    move-exception v4
-
-    monitor-exit v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v4
-
-    .line 4643
-    .restart local v0    # "h":Landroid/os/Handler;
-    .restart local v1    # "messenger":Landroid/os/Messenger;
-    .restart local v2    # "msg":Landroid/os/Message;
-    .restart local v3    # "myConn":Landroid/content/ServiceConnection;
-    :catch_0
-    move-exception v4
-
-    goto :goto_1
-.end method
-
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 0
-    .param p1, "name"    # Landroid/content/ComponentName;
-
-    .prologue
-    .line 4648
+    .line 4979
     return-void
 .end method

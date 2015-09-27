@@ -395,7 +395,7 @@
     if-nez v11, :cond_0
 
     .line 307
-    const v11, 0x10e007b
+    const v11, 0x10e0080
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -413,15 +413,10 @@
     .line 315
     .local v10, "wm":Landroid/view/IWindowManager;
     :try_start_0
-    invoke-interface {v10}, Landroid/view/IWindowManager;->hasNavigationBar()Z
+    invoke-interface {v10}, Landroid/view/IWindowManager;->hasPermanentMenuKey()Z
 
     move-result v11
 
-    if-nez v11, :cond_2
-
-    const/4 v11, 0x1
-
-    :goto_1
     iput-boolean v11, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
 
     .line 316
@@ -435,7 +430,7 @@
     .end local v1    # "configVal":I
     .end local v10    # "wm":Landroid/view/IWindowManager;
     :cond_0
-    :goto_2
+    :goto_1
     const v11, 0x1120016
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getBoolean(I)Z
@@ -484,7 +479,7 @@
     iput v11, p0, Landroid/view/ViewConfiguration;->mMaximumFlingVelocity:I
 
     .line 347
-    const v11, 0x10e0073
+    const v11, 0x10e0078
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -508,18 +503,12 @@
     .restart local v8    # "sizeAndDensity":F
     goto/16 :goto_0
 
-    .line 315
+    .line 317
     .restart local v1    # "configVal":I
     .restart local v3    # "display":Landroid/view/Display;
     .restart local v7    # "size":Landroid/graphics/Point;
     .restart local v9    # "win":Landroid/view/WindowManager;
     .restart local v10    # "wm":Landroid/view/IWindowManager;
-    :cond_2
-    const/4 v11, 0x0
-
-    goto :goto_1
-
-    .line 317
     :catch_0
     move-exception v4
 
@@ -529,7 +518,7 @@
 
     iput-boolean v11, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
 
-    goto :goto_2
+    goto :goto_1
 
     .line 324
     .end local v4    # "ex":Landroid/os/RemoteException;
@@ -544,7 +533,7 @@
 
     iput-boolean v11, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
 
-    goto :goto_2
+    goto :goto_1
 
     .line 329
     :pswitch_1
@@ -557,11 +546,9 @@
 
     iput-boolean v11, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
 
-    goto :goto_2
+    goto :goto_1
 
     .line 310
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

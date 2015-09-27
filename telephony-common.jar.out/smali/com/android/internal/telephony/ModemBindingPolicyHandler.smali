@@ -251,44 +251,6 @@
     return-void
 .end method
 
-.method private checkCurrentStackInfo()Z
-    .locals 3
-
-    .prologue
-    .line 348
-    const/4 v1, 0x1
-
-    .line 350
-    .local v1, "ret":Z
-    const/4 v0, 0x0
-
-    .local v0, "i":I
-    :goto_0
-    iget v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mNumPhones:I
-
-    if-ge v0, v2, :cond_1
-
-    .line 351
-    iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mModemCapInfo:[Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;
-
-    aget-object v2, v2, v0
-
-    if-nez v2, :cond_0
-
-    .line 352
-    const/4 v1, 0x0
-
-    .line 350
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 355
-    :cond_1
-    return v1
-.end method
-
 .method public static getInstance()Lcom/android/internal/telephony/ModemBindingPolicyHandler;
     .locals 2
 
@@ -322,11 +284,48 @@
     .prologue
     const v3, 0x18e0e
 
-    .line 529
+    .line 497
     const/4 v0, 0x0
 
-    .line 531
+    .line 498
     .local v0, "supportedRatMaskForNwMode":I
+    if-nez p2, :cond_0
+
+    .line 499
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "getNumOfRatSupportedForNwMode: nwMode["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "] modemCaps was NULL!"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->loge(Ljava/lang/String;)V
+
+    move v1, v0
+
+    .line 628
+    :goto_0
+    return v1
+
+    .line 502
+    :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -357,11 +356,11 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->logd(Ljava/lang/String;)V
 
-    .line 534
+    .line 505
     packed-switch p1, :pswitch_data_0
 
-    .line 654
-    :goto_0
+    .line 625
+    :goto_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -382,14 +381,14 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->logd(Ljava/lang/String;)V
 
-    .line 657
+    .line 628
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->getNumRatSupportedInMask(I)I
 
     move-result v1
 
-    return v1
+    goto :goto_0
 
-    .line 536
+    .line 507
     :pswitch_0
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -397,10 +396,10 @@
 
     and-int v0, v1, v3
 
-    .line 538
-    goto :goto_0
+    .line 509
+    goto :goto_1
 
-    .line 541
+    .line 512
     :pswitch_1
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -410,10 +409,10 @@
 
     and-int v0, v1, v2
 
-    .line 543
-    goto :goto_0
+    .line 514
+    goto :goto_1
 
-    .line 546
+    .line 517
     :pswitch_2
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -423,10 +422,10 @@
 
     and-int v0, v1, v2
 
-    .line 548
-    goto :goto_0
+    .line 519
+    goto :goto_1
 
-    .line 551
+    .line 522
     :pswitch_3
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -434,10 +433,10 @@
 
     and-int v0, v1, v3
 
-    .line 553
-    goto :goto_0
+    .line 524
+    goto :goto_1
 
-    .line 556
+    .line 527
     :pswitch_4
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -445,10 +444,10 @@
 
     and-int/lit16 v0, v1, 0x31f0
 
-    .line 558
-    goto :goto_0
+    .line 529
+    goto :goto_1
 
-    .line 561
+    .line 532
     :pswitch_5
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -456,10 +455,10 @@
 
     and-int/lit8 v0, v1, 0x70
 
-    .line 563
-    goto :goto_0
+    .line 534
+    goto :goto_1
 
-    .line 566
+    .line 537
     :pswitch_6
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -467,10 +466,10 @@
 
     and-int/lit16 v0, v1, 0x3180
 
-    .line 568
-    goto :goto_0
+    .line 539
+    goto :goto_1
 
-    .line 571
+    .line 542
     :pswitch_7
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -480,10 +479,10 @@
 
     and-int v0, v1, v2
 
-    .line 573
-    goto :goto_0
+    .line 544
+    goto :goto_1
 
-    .line 576
+    .line 547
     :pswitch_8
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -491,10 +490,10 @@
 
     and-int/lit16 v0, v1, 0x71f0
 
-    .line 578
-    goto :goto_0
+    .line 549
+    goto :goto_1
 
-    .line 581
+    .line 552
     :pswitch_9
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -504,10 +503,10 @@
 
     and-int v0, v1, v2
 
-    .line 583
-    goto :goto_0
+    .line 554
+    goto :goto_1
 
-    .line 586
+    .line 557
     :pswitch_a
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -517,10 +516,10 @@
 
     and-int v0, v1, v2
 
-    .line 588
-    goto :goto_0
+    .line 559
+    goto :goto_1
 
-    .line 591
+    .line 562
     :pswitch_b
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -528,10 +527,10 @@
 
     and-int/lit16 v0, v1, 0x4000
 
-    .line 593
-    goto :goto_0
+    .line 564
+    goto :goto_1
 
-    .line 596
+    .line 567
     :pswitch_c
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -541,10 +540,10 @@
 
     and-int v0, v1, v2
 
-    .line 598
-    goto/16 :goto_0
+    .line 569
+    goto/16 :goto_1
 
-    .line 601
+    .line 572
     :pswitch_d
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -554,10 +553,10 @@
 
     and-int v0, v1, v2
 
-    .line 603
-    goto/16 :goto_0
+    .line 574
+    goto/16 :goto_1
 
-    .line 606
+    .line 577
     :pswitch_e
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -567,10 +566,10 @@
 
     and-int v0, v1, v2
 
-    .line 608
-    goto/16 :goto_0
+    .line 579
+    goto/16 :goto_1
 
-    .line 611
+    .line 582
     :pswitch_f
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -580,10 +579,10 @@
 
     and-int v0, v1, v2
 
-    .line 613
-    goto/16 :goto_0
+    .line 584
+    goto/16 :goto_1
 
-    .line 616
+    .line 587
     :pswitch_10
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -593,10 +592,10 @@
 
     and-int v0, v1, v2
 
-    .line 618
-    goto/16 :goto_0
+    .line 589
+    goto/16 :goto_1
 
-    .line 621
+    .line 592
     :pswitch_11
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -606,10 +605,10 @@
 
     and-int v0, v1, v2
 
-    .line 623
-    goto/16 :goto_0
+    .line 594
+    goto/16 :goto_1
 
-    .line 626
+    .line 597
     :pswitch_12
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -619,10 +618,10 @@
 
     and-int v0, v1, v2
 
-    .line 628
-    goto/16 :goto_0
+    .line 599
+    goto/16 :goto_1
 
-    .line 631
+    .line 602
     :pswitch_13
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -632,10 +631,10 @@
 
     and-int v0, v1, v2
 
-    .line 633
-    goto/16 :goto_0
+    .line 604
+    goto/16 :goto_1
 
-    .line 636
+    .line 607
     :pswitch_14
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -645,10 +644,10 @@
 
     and-int v0, v1, v2
 
-    .line 638
-    goto/16 :goto_0
+    .line 609
+    goto/16 :goto_1
 
-    .line 641
+    .line 612
     :pswitch_15
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -658,10 +657,10 @@
 
     and-int v0, v1, v2
 
-    .line 643
-    goto/16 :goto_0
+    .line 614
+    goto/16 :goto_1
 
-    .line 646
+    .line 617
     :pswitch_16
     invoke-virtual {p2}, Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;->getSupportedRatBitMask()I
 
@@ -671,10 +670,10 @@
 
     and-int v0, v1, v2
 
-    .line 648
-    goto/16 :goto_0
+    .line 619
+    goto/16 :goto_1
 
-    .line 534
+    .line 505
     nop
 
     :pswitch_data_0
@@ -710,25 +709,25 @@
     .param p1, "mask"    # I
 
     .prologue
-    .line 662
+    .line 633
     const/4 v0, 0x0
 
-    .line 669
+    .line 640
     .local v0, "noOfOnes":I
     :goto_0
     if-eqz p1, :cond_0
 
-    .line 670
+    .line 641
     add-int/lit8 v1, p1, -0x1
 
     and-int/2addr p1, v1
 
-    .line 671
+    .line 642
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 673
+    .line 644
     :cond_0
     return v0
 .end method
@@ -982,20 +981,20 @@
     .param p2, "stackId"    # I
 
     .prologue
-    .line 465
+    .line 433
     iget v4, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mNumPhones:I
 
     new-array v3, v4, [I
 
-    .line 466
+    .line 434
     .local v3, "numRatSupported":[I
     const/4 v2, 0x0
 
-    .line 467
+    .line 435
     .local v2, "maxNumRatSupported":I
     const/4 v1, 0x0
 
-    .line 470
+    .line 438
     .local v1, "isSupported":Z
     const/4 v0, 0x0
 
@@ -1005,7 +1004,7 @@
 
     if-ge v0, v4, :cond_1
 
-    .line 471
+    .line 439
     iget-object v4, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mModemCapInfo:[Lcom/android/internal/telephony/ModemStackController$ModemCapabilityInfo;
 
     aget-object v4, v4, v0
@@ -1016,20 +1015,20 @@
 
     aput v4, v3, v0
 
-    .line 472
+    .line 440
     aget v4, v3, v0
 
     if-ge v2, v4, :cond_0
 
     aget v2, v3, v0
 
-    .line 470
+    .line 438
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 476
+    .line 444
     :cond_1
     aget v4, v3, p2
 
@@ -1037,7 +1036,7 @@
 
     const/4 v1, 0x1
 
-    .line 478
+    .line 446
     :cond_2
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1084,10 +1083,10 @@
 
     invoke-direct {p0, v4}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->logd(Ljava/lang/String;)V
 
-    .line 481
+    .line 449
     return v1
 
-    .line 478
+    .line 446
     :cond_3
     const-string v4, "Not Supported"
 
@@ -1099,12 +1098,12 @@
     .param p1, "string"    # Ljava/lang/String;
 
     .prologue
-    .line 676
+    .line 647
     const-string v0, "ModemBindingPolicyHandler"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 677
+    .line 648
     return-void
 .end method
 
@@ -1113,12 +1112,12 @@
     .param p1, "string"    # Ljava/lang/String;
 
     .prologue
-    .line 680
+    .line 651
     const-string v0, "ModemBindingPolicyHandler"
 
     invoke-static {v0, p1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 681
+    .line 652
     return-void
 .end method
 
@@ -1170,24 +1169,24 @@
     .param p2, "responseCode"    # I
 
     .prologue
-    .line 520
+    .line 488
     if-eqz p1, :cond_0
 
-    .line 521
+    .line 489
     invoke-static {p2}, Lcom/android/internal/telephony/CommandException;->fromRilErrno(I)Lcom/android/internal/telephony/CommandException;
 
     move-result-object v0
 
-    .line 522
+    .line 490
     .local v0, "e":Ljava/lang/Exception;
     const/4 v1, 0x0
 
     invoke-static {p1, v1, v0}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 523
+    .line 491
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 525
+    .line 493
     .end local v0    # "e":Ljava/lang/Exception;
     :cond_0
     return-void
@@ -1268,7 +1267,7 @@
     .locals 5
 
     .prologue
-    .line 485
+    .line 453
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -1277,7 +1276,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 487
+    .line 455
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPrefNwMode:[I
 
@@ -1297,23 +1296,23 @@
     :try_end_0
     .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 485
+    .line 453
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 489
+    .line 457
     :catch_0
     move-exception v1
 
-    .line 490
+    .line 458
     .local v1, "snfe":Landroid/provider/Settings$SettingNotFoundException;
     const-string v2, "getPreferredNetworkMode: Could not find PREFERRED_NETWORK_MODE!!!"
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->loge(Ljava/lang/String;)V
 
-    .line 491
+    .line 459
     iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPrefNwMode:[I
 
     sget v3, Lcom/android/internal/telephony/Phone;->PREFERRED_NT_MODE:I
@@ -1322,7 +1321,7 @@
 
     goto :goto_1
 
-    .line 494
+    .line 462
     .end local v1    # "snfe":Landroid/provider/Settings$SettingNotFoundException;
     :cond_0
     return-void
@@ -1332,28 +1331,28 @@
     .locals 4
 
     .prologue
-    .line 422
+    .line 390
     iget-boolean v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mModemRatCapabilitiesAvailable:Z
 
     if-nez v2, :cond_1
 
-    .line 423
+    .line 391
     const-string v2, "updatePreferredStackIds: Modem Capabilites are not Available. Return!!"
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->loge(Ljava/lang/String;)V
 
-    .line 462
+    .line 430
     :cond_0
     return-void
 
-    .line 428
+    .line 396
     :cond_1
     invoke-direct {p0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->syncPreferredNwModeFromDB()V
 
-    .line 429
+    .line 397
     invoke-direct {p0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->syncCurrentStackInfo()V
 
-    .line 431
+    .line 399
     const/4 v0, 0x0
 
     .local v0, "curPhoneId":I
@@ -1362,7 +1361,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 433
+    .line 401
     iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPrefNwMode:[I
 
     aget v2, v2, v0
@@ -1377,7 +1376,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 434
+    .line 402
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1432,13 +1431,13 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->logd(Ljava/lang/String;)V
 
-    .line 431
+    .line 399
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 442
+    .line 410
     :cond_3
     const/4 v1, 0x0
 
@@ -1448,17 +1447,17 @@
 
     if-ge v1, v2, :cond_2
 
-    .line 444
+    .line 412
     if-ne v1, v0, :cond_5
 
-    .line 442
+    .line 410
     :cond_4
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 446
+    .line 414
     :cond_5
     iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPrefNwMode:[I
 
@@ -1474,7 +1473,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 450
+    .line 418
     iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPrefNwMode:[I
 
     aget v2, v2, v1
@@ -1489,7 +1488,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 452
+    .line 420
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1526,7 +1525,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->logd(Ljava/lang/String;)V
 
-    .line 456
+    .line 424
     iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPreferredStackId:[I
 
     iget-object v3, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mCurrentStackId:[I
@@ -1535,7 +1534,7 @@
 
     aput v3, v2, v0
 
-    .line 457
+    .line 425
     iget-object v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPreferredStackId:[I
 
     iget-object v3, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mCurrentStackId:[I
@@ -1548,112 +1547,80 @@
 .end method
 
 .method private updateStackBindingIfRequired(Z)I
-    .locals 7
+    .locals 6
     .param p1, "isBootUp"    # Z
 
     .prologue
-    .line 369
+    .line 347
     const/4 v1, 0x0
 
-    .line 370
+    .line 348
     .local v1, "isUpdateStackBindingRequired":Z
     const/4 v3, 0x0
 
-    .line 375
+    .line 350
     .local v3, "response":I
-    invoke-direct {p0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->syncCurrentStackInfo()V
-
-    .line 376
-    invoke-direct {p0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->checkCurrentStackInfo()Z
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    .line 377
-    const-string v5, "checkCurrentStackInfo: not all modem info are available. Stop to update Binding."
-
-    invoke-direct {p0, v5}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->logd(Ljava/lang/String;)V
-
-    move v4, v3
-
-    .line 396
-    .end local v3    # "response":I
-    .local v4, "response":I
-    :goto_0
-    return v4
-
-    .line 382
-    .end local v4    # "response":I
-    .restart local v3    # "response":I
-    :cond_0
     invoke-direct {p0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->updatePreferredStackIds()V
 
-    .line 384
+    .line 352
     const/4 v0, 0x0
 
     .local v0, "i":I
-    :goto_1
-    iget v5, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mNumPhones:I
+    :goto_0
+    iget v4, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mNumPhones:I
 
-    if-ge v0, v5, :cond_1
+    if-ge v0, v4, :cond_0
 
-    .line 385
-    iget-object v5, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPreferredStackId:[I
+    .line 353
+    iget-object v4, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPreferredStackId:[I
+
+    aget v4, v4, v0
+
+    iget-object v5, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mCurrentStackId:[I
 
     aget v5, v5, v0
 
-    iget-object v6, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mCurrentStackId:[I
+    if-eq v4, v5, :cond_3
 
-    aget v6, v6, v0
-
-    if-eq v5, v6, :cond_4
-
-    .line 387
+    .line 355
     const/4 v1, 0x1
 
-    .line 391
+    .line 359
+    :cond_0
+    if-nez p1, :cond_1
+
+    if-eqz v1, :cond_2
+
+    .line 360
     :cond_1
-    if-nez p1, :cond_2
+    const/4 v4, 0x2
 
-    if-eqz v1, :cond_3
+    const/4 v5, 0x0
 
-    .line 392
-    :cond_2
-    const/4 v5, 0x2
-
-    const/4 v6, 0x0
-
-    invoke-static {p0, v5, v6}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+    invoke-static {p0, v4, v5}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v2
 
-    .line 393
+    .line 361
     .local v2, "msg":Landroid/os/Message;
-    sget-object v5, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mModemStackController:Lcom/android/internal/telephony/ModemStackController;
+    sget-object v4, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mModemStackController:Lcom/android/internal/telephony/ModemStackController;
 
-    iget-object v6, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPreferredStackId:[I
+    iget-object v5, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mPreferredStackId:[I
 
-    invoke-virtual {v5, v6, p1, v2}, Lcom/android/internal/telephony/ModemStackController;->updateStackBinding([IZLandroid/os/Message;)I
+    invoke-virtual {v4, v5, p1, v2}, Lcom/android/internal/telephony/ModemStackController;->updateStackBinding([IZLandroid/os/Message;)I
 
     move-result v3
 
+    .line 364
     .end local v2    # "msg":Landroid/os/Message;
+    :cond_2
+    return v3
+
+    .line 352
     :cond_3
-    move v4, v3
-
-    .line 396
-    .end local v3    # "response":I
-    .restart local v4    # "response":I
-    goto :goto_0
-
-    .line 384
-    .end local v4    # "response":I
-    .restart local v3    # "response":I
-    :cond_4
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 
@@ -1717,26 +1684,26 @@
 
     const/4 v2, 0x0
 
-    .line 499
+    .line 467
     iget-boolean v0, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mIsSetPrefNwModeInProgress:Z
 
     if-eqz v0, :cond_0
 
-    .line 500
+    .line 468
     const-string v0, "setPreferredNetworkType: In Progress:"
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->loge(Ljava/lang/String;)V
 
-    .line 501
+    .line 469
     const/4 v0, 0x2
 
     invoke-direct {p0, p3, v0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->sendResponseToTarget(Landroid/os/Message;I)V
 
-    .line 517
+    .line 485
     :goto_0
     return-void
 
-    .line 505
+    .line 473
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1768,17 +1735,17 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->logd(Ljava/lang/String;)V
 
-    .line 507
+    .line 475
     iput-boolean v3, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mIsSetPrefNwModeInProgress:Z
 
-    .line 511
+    .line 479
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->updateStackBindingIfRequired(Z)I
 
     move-result v0
 
     if-ne v0, v3, :cond_1
 
-    .line 512
+    .line 480
     iget-object v0, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mStoredResponse:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1789,7 +1756,7 @@
 
     goto :goto_0
 
-    .line 514
+    .line 482
     :cond_1
     iget-object v0, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mCi:[Lcom/android/internal/telephony/CommandsInterface;
 
@@ -1797,7 +1764,7 @@
 
     invoke-interface {v0, p1, p3}, Lcom/android/internal/telephony/CommandsInterface;->setPreferredNetworkType(ILandroid/os/Message;)V
 
-    .line 515
+    .line 483
     iput-boolean v2, p0, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->mIsSetPrefNwModeInProgress:Z
 
     goto :goto_0

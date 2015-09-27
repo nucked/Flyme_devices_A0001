@@ -37,7 +37,7 @@
     .locals 0
 
     .prologue
-    .line 1235
+    .line 1221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,7 +48,7 @@
     .param p1, "x0"    # Landroid/database/sqlite/SQLiteConnection$1;
 
     .prologue
-    .line 1235
+    .line 1221
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteConnection$PreparedStatement;-><init>()V
 
     return-void

@@ -496,7 +496,7 @@
 
     move-result-object v3
 
-    const v4, 0x10405c9
+    const v4, 0x104065f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1639,7 +1639,7 @@
     invoke-virtual {p0, v10}, Landroid/accounts/ChooseTypeAndAccountActivity;->requestWindowFeature(I)Z
 
     .line 200
-    const v6, 0x1090034
+    const v6, 0x1090031
 
     invoke-virtual {p0, v6}, Landroid/accounts/ChooseTypeAndAccountActivity;->setContentView(I)V
 
@@ -1934,7 +1934,7 @@
     iput v3, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mSelectedItemIndex:I
 
     .line 245
-    const v3, 0x1090042
+    const v3, 0x109003f
 
     invoke-virtual {p0, v3}, Landroid/accounts/ChooseTypeAndAccountActivity;->setContentView(I)V
 

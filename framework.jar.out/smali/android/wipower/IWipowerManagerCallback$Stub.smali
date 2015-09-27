@@ -26,13 +26,13 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.wipower.IWipowerManagerCallback"
 
-.field static final TRANSACTION_onPowerApply:I = 0x4
+.field static final TRANSACTION_onPowerApply_3:I = 0x4
 
-.field static final TRANSACTION_onWipowerAlert:I = 0x2
+.field static final TRANSACTION_onWipowerAlert_1:I = 0x2
 
-.field static final TRANSACTION_onWipowerData:I = 0x3
+.field static final TRANSACTION_onWipowerData_2:I = 0x3
 
-.field static final TRANSACTION_onWipowerStateChange:I = 0x1
+.field static final TRANSACTION_onWipowerStateChange_0:I = 0x1
 
 
 # direct methods

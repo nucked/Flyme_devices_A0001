@@ -28,17 +28,17 @@
     .locals 1
 
     .prologue
-    .line 2989
+    .line 3032
     iput-object p1, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2990
+    .line 3033
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->mService:Lcom/android/internal/backup/IObbBackupService;
 
-    .line 2991
+    .line 3034
     return-void
 .end method
 
@@ -46,17 +46,17 @@
     .locals 2
 
     .prologue
-    .line 3048
+    .line 3092
     monitor-enter p0
 
-    .line 3049
+    .line 3093
     :goto_0
     :try_start_0
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->mService:Lcom/android/internal/backup/IObbBackupService;
 
     if-nez v0, :cond_0
 
-    .line 3050
+    .line 3094
     const-string v0, "BackupManagerService"
 
     const-string v1, "...waiting for OBB service binding..."
@@ -65,7 +65,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 3052
+    .line 3096
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
@@ -74,13 +74,13 @@
 
     goto :goto_0
 
-    .line 3053
+    .line 3097
     :catch_0
     move-exception v0
 
     goto :goto_0
 
-    .line 3055
+    .line 3099
     :cond_0
     :try_start_2
     const-string v0, "BackupManagerService"
@@ -89,13 +89,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3056
+    .line 3100
     monitor-exit p0
 
-    .line 3057
+    .line 3101
     return-void
 
-    .line 3056
+    .line 3100
     :catchall_0
     move-exception v0
 
@@ -114,31 +114,31 @@
     .param p2, "out"    # Ljava/io/OutputStream;
 
     .prologue
-    .line 3007
+    .line 3050
     const/4 v2, 0x0
 
-    .line 3008
+    .line 3051
     .local v2, "success":Z
     invoke-direct {p0}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->waitForConnection()V
 
-    .line 3010
+    .line 3053
     const/4 v1, 0x0
 
-    .line 3012
+    .line 3055
     .local v1, "pipes":[Landroid/os/ParcelFileDescriptor;
     :try_start_0
     invoke-static {}, Landroid/os/ParcelFileDescriptor;->createPipe()[Landroid/os/ParcelFileDescriptor;
 
     move-result-object v1
 
-    .line 3013
+    .line 3056
     iget-object v4, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     invoke-virtual {v4}, Lcom/android/server/backup/BackupManagerService;->generateToken()I
 
     move-result v3
 
-    .line 3014
+    .line 3057
     .local v3, "token":I
     iget-object v4, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->this$0:Lcom/android/server/backup/BackupManagerService;
 
@@ -148,7 +148,7 @@
 
     invoke-virtual {v4, v3, v6, v7, v5}, Lcom/android/server/backup/BackupManagerService;->prepareOperationTimeout(IJLcom/android/server/backup/BackupManagerService$BackupRestoreTask;)V
 
-    .line 3015
+    .line 3058
     iget-object v4, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->mService:Lcom/android/internal/backup/IObbBackupService;
 
     iget-object v5, p1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
@@ -163,7 +163,7 @@
 
     invoke-interface {v4, v5, v6, v3, v7}, Lcom/android/internal/backup/IObbBackupService;->backupObbs(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
 
-    .line 3016
+    .line 3059
     iget-object v4, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     const/4 v5, 0x0
@@ -173,7 +173,7 @@
     # invokes: Lcom/android/server/backup/BackupManagerService;->routeSocketDataToOutput(Landroid/os/ParcelFileDescriptor;Ljava/io/OutputStream;)V
     invoke-static {v4, v5, p2}, Lcom/android/server/backup/BackupManagerService;->access$900(Lcom/android/server/backup/BackupManagerService;Landroid/os/ParcelFileDescriptor;Ljava/io/OutputStream;)V
 
-    .line 3017
+    .line 3060
     iget-object v4, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     invoke-virtual {v4, v3}, Lcom/android/server/backup/BackupManagerService;->waitUntilOperationComplete(I)Z
@@ -183,14 +183,14 @@
 
     move-result v2
 
-    .line 3022
+    .line 3065
     :try_start_1
     invoke-virtual {p2}, Ljava/io/OutputStream;->flush()V
 
-    .line 3023
+    .line 3066
     if-eqz v1, :cond_1
 
-    .line 3024
+    .line 3067
     const/4 v4, 0x0
 
     aget-object v4, v1, v4
@@ -203,7 +203,7 @@
 
     invoke-virtual {v4}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 3025
+    .line 3068
     :cond_0
     const/4 v4, 0x1
 
@@ -219,18 +219,18 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 3031
+    .line 3074
     .end local v3    # "token":I
     :cond_1
     :goto_0
     return v2
 
-    .line 3027
+    .line 3070
     .restart local v3    # "token":I
     :catch_0
     move-exception v0
 
-    .line 3028
+    .line 3071
     .local v0, "e":Ljava/io/IOException;
     const-string v4, "BackupManagerService"
 
@@ -240,13 +240,13 @@
 
     goto :goto_0
 
-    .line 3018
+    .line 3061
     .end local v0    # "e":Ljava/io/IOException;
     .end local v3    # "token":I
     :catch_1
     move-exception v0
 
-    .line 3019
+    .line 3062
     .local v0, "e":Ljava/lang/Exception;
     :try_start_2
     const-string v4, "BackupManagerService"
@@ -273,14 +273,14 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 3022
+    .line 3065
     :try_start_3
     invoke-virtual {p2}, Ljava/io/OutputStream;->flush()V
 
-    .line 3023
+    .line 3066
     if-eqz v1, :cond_1
 
-    .line 3024
+    .line 3067
     const/4 v4, 0x0
 
     aget-object v4, v1, v4
@@ -293,7 +293,7 @@
 
     invoke-virtual {v4}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 3025
+    .line 3068
     :cond_2
     const/4 v4, 0x1
 
@@ -311,11 +311,11 @@
 
     goto :goto_0
 
-    .line 3027
+    .line 3070
     :catch_2
     move-exception v0
 
-    .line 3028
+    .line 3071
     .local v0, "e":Ljava/io/IOException;
     const-string v4, "BackupManagerService"
 
@@ -325,19 +325,19 @@
 
     goto :goto_0
 
-    .line 3021
+    .line 3064
     .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
-    .line 3022
+    .line 3065
     :try_start_4
     invoke-virtual {p2}, Ljava/io/OutputStream;->flush()V
 
-    .line 3023
+    .line 3066
     if-eqz v1, :cond_4
 
-    .line 3024
+    .line 3067
     const/4 v5, 0x0
 
     aget-object v5, v1, v5
@@ -350,7 +350,7 @@
 
     invoke-virtual {v5}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 3025
+    .line 3068
     :cond_3
     const/4 v5, 0x1
 
@@ -366,16 +366,16 @@
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    .line 3029
+    .line 3072
     :cond_4
     :goto_1
     throw v4
 
-    .line 3027
+    .line 3070
     :catch_3
     move-exception v0
 
-    .line 3028
+    .line 3071
     .restart local v0    # "e":Ljava/io/IOException;
     const-string v5, "BackupManagerService"
 
@@ -390,7 +390,7 @@
     .locals 5
 
     .prologue
-    .line 2994
+    .line 3037
     const-string v1, "BackupManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -413,7 +413,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2995
+    .line 3038
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
@@ -430,7 +430,7 @@
 
     move-result-object v0
 
-    .line 2998
+    .line 3041
     .local v0, "obbIntent":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->this$0:Lcom/android/server/backup/BackupManagerService;
 
@@ -440,7 +440,7 @@
 
     invoke-virtual {v1, v0, p0, v2}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    .line 3000
+    .line 3043
     return-void
 .end method
 
@@ -450,10 +450,10 @@
     .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 3061
+    .line 3105
     monitor-enter p0
 
-    .line 3062
+    .line 3106
     :try_start_0
     invoke-static {p2}, Lcom/android/internal/backup/IObbBackupService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/backup/IObbBackupService;
 
@@ -461,7 +461,7 @@
 
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->mService:Lcom/android/internal/backup/IObbBackupService;
 
-    .line 3063
+    .line 3107
     const-string v0, "BackupManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -496,16 +496,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3065
+    .line 3109
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 3066
+    .line 3110
     monitor-exit p0
 
-    .line 3067
+    .line 3111
     return-void
 
-    .line 3066
+    .line 3110
     :catchall_0
     move-exception v0
 
@@ -521,16 +521,16 @@
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
-    .line 3071
+    .line 3115
     monitor-enter p0
 
-    .line 3072
+    .line 3116
     const/4 v0, 0x0
 
     :try_start_0
     iput-object v0, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->mService:Lcom/android/internal/backup/IObbBackupService;
 
-    .line 3073
+    .line 3117
     const-string v0, "BackupManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -553,16 +553,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3074
+    .line 3118
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 3075
+    .line 3119
     monitor-exit p0
 
-    .line 3076
+    .line 3120
     return-void
 
-    .line 3075
+    .line 3119
     :catchall_0
     move-exception v0
 
@@ -584,12 +584,17 @@
     .param p9, "mtime"    # J
     .param p11, "token"    # I
     .param p12, "callbackBinder"    # Landroid/app/backup/IBackupManager;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
 
     .prologue
-    .line 3037
+    .line 3080
     invoke-direct/range {p0 .. p0}, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->waitForConnection()V
 
-    .line 3040
+    .line 3083
     :try_start_0
     move-object/from16 v0, p0
 
@@ -617,15 +622,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3045
-    :goto_0
+    .line 3089
     return-void
 
-    .line 3042
+    .line 3085
     :catch_0
     move-exception v2
 
-    .line 3043
+    .line 3086
     .local v2, "e":Ljava/lang/Exception;
     const-string v3, "BackupManagerService"
 
@@ -651,20 +655,45 @@
 
     invoke-static {v3, v4, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    .line 3087
+    new-instance v3, Ljava/lang/Exception;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Unable to restore OBBs for "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    throw v3
 .end method
 
 .method public tearDown()V
     .locals 1
 
     .prologue
-    .line 3003
+    .line 3046
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$FullBackupObbConnection;->this$0:Lcom/android/server/backup/BackupManagerService;
 
     iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 3004
+    .line 3047
     return-void
 .end method

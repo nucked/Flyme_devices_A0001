@@ -38,6 +38,13 @@
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 34
+    new-instance v1, Landroid/graphics/Region;
+
+    invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mTouchExcludeRegion:Landroid/graphics/Region;
+
     .line 40
     iput-object p1, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -45,16 +52,11 @@
     iput-object p2, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     .line 42
-    iget-object v1, p2, Lcom/android/server/wm/DisplayContent;->mTouchExcludeRegion:Landroid/graphics/Region;
-
-    iput-object v1, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mTouchExcludeRegion:Landroid/graphics/Region;
-
-    .line 43
     invoke-virtual {p2}, Lcom/android/server/wm/DisplayContent;->getDisplayInfo()Landroid/view/DisplayInfo;
 
     move-result-object v0
 
-    .line 44
+    .line 43
     .local v0, "info":Landroid/view/DisplayInfo;
     iget v1, v0, Landroid/view/DisplayInfo;->logicalDensityDpi:I
 
@@ -68,7 +70,7 @@
 
     iput v1, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mMotionSlop:I
 
-    .line 45
+    .line 44
     return-void
 .end method
 
@@ -83,24 +85,24 @@
 
     const/4 v8, -0x1
 
-    .line 49
+    .line 48
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 50
+    .line 49
     .local v0, "action":I
     and-int/lit16 v4, v0, 0xff
 
     packed-switch v4, :pswitch_data_0
 
-    .line 92
+    .line 94
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 52
+    .line 51
     :pswitch_1
     const/4 v4, 0x0
 
@@ -110,14 +112,14 @@
 
     iput v4, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
-    .line 53
+    .line 52
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v4
 
     iput v4, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mDownX:F
 
-    .line 54
+    .line 53
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v4
@@ -126,29 +128,29 @@
 
     goto :goto_0
 
-    .line 57
+    .line 56
     :pswitch_2
     iget v4, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
     if-ltz v4, :cond_0
 
-    .line 58
+    .line 57
     iget v4, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
     invoke-virtual {p1, v4}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
     move-result v1
 
-    .line 59
+    .line 58
     .local v1, "index":I
     if-gez v1, :cond_1
 
-    .line 60
+    .line 59
     iput v8, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
     goto :goto_0
 
-    .line 64
+    .line 63
     :cond_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
@@ -174,6 +176,10 @@
 
     sub-float/2addr v4, v5
 
+    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+
+    move-result v4
+
     iget v5, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mMotionSlop:I
 
     int-to-float v5, v5
@@ -190,6 +196,10 @@
 
     sub-float/2addr v4, v5
 
+    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+
+    move-result v4
+
     iget v5, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mMotionSlop:I
 
     int-to-float v5, v5
@@ -198,13 +208,13 @@
 
     if-lez v4, :cond_0
 
-    .line 68
+    .line 67
     :cond_2
     iput v8, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
     goto :goto_0
 
-    .line 74
+    .line 73
     .end local v1    # "index":I
     :pswitch_3
     const v4, 0xff00
@@ -213,7 +223,7 @@
 
     shr-int/lit8 v1, v4, 0x8
 
-    .line 77
+    .line 76
     .restart local v1    # "index":I
     iget v4, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
@@ -223,14 +233,14 @@
 
     if-ne v4, v5, :cond_0
 
-    .line 78
+    .line 77
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v4
 
     float-to-int v2, v4
 
-    .line 79
+    .line 78
     .local v2, "x":I
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getY(I)F
 
@@ -238,8 +248,12 @@
 
     float-to-int v3, v4
 
-    .line 80
+    .line 79
     .local v3, "y":I
+    monitor-enter p0
+
+    .line 80
+    :try_start_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v4
@@ -260,6 +274,10 @@
 
     sub-float/2addr v4, v5
 
+    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+
+    move-result v4
+
     iget v5, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mMotionSlop:I
 
     int-to-float v5, v5
@@ -273,6 +291,10 @@
     iget v5, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mDownY:F
 
     sub-float/2addr v4, v5
+
+    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+
+    move-result v4
 
     iget v5, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mMotionSlop:I
 
@@ -290,7 +312,7 @@
 
     if-nez v4, :cond_3
 
-    .line 84
+    .line 85
     iget-object v4, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v4, v4, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
@@ -305,13 +327,31 @@
 
     invoke-virtual {v4}, Landroid/os/Message;->sendToTarget()V
 
-    .line 87
+    .line 88
     :cond_3
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 89
     iput v8, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mPointerId:I
 
     goto/16 :goto_0
 
-    .line 50
+    .line 88
+    :catchall_0
+    move-exception v4
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v4
+
+    .line 49
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -322,4 +362,35 @@
         :pswitch_0
         :pswitch_3
     .end packed-switch
+.end method
+
+.method setTouchExcludeRegion(Landroid/graphics/Region;)V
+    .locals 1
+    .param p1, "newRegion"    # Landroid/graphics/Region;
+
+    .prologue
+    .line 97
+    monitor-enter p0
+
+    .line 98
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/wm/StackTapPointerEventListener;->mTouchExcludeRegion:Landroid/graphics/Region;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
+
+    .line 99
+    monitor-exit p0
+
+    .line 100
+    return-void
+
+    .line 99
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
 .end method

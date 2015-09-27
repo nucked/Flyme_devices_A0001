@@ -42,7 +42,7 @@
     .param p2, "parcel"    # Landroid/telecom/ParcelableConference;
 
     .prologue
-    .line 193
+    .line 196
     new-instance v1, Landroid/telecom/RemoteConference;
 
     iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -54,7 +54,7 @@
 
     invoke-direct {v1, p1, v4}, Landroid/telecom/RemoteConference;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;)V
 
-    .line 196
+    .line 199
     .local v1, "conference":Landroid/telecom/RemoteConference;
     invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getConnectionIds()Ljava/util/List;
 
@@ -79,7 +79,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    .line 197
+    .line 200
     .local v3, "id":Ljava/lang/String;
     iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -94,16 +94,16 @@
 
     check-cast v0, Landroid/telecom/RemoteConnection;
 
-    .line 198
+    .line 201
     .local v0, "c":Landroid/telecom/RemoteConnection;
     if-eqz v0, :cond_0
 
-    .line 199
+    .line 202
     invoke-virtual {v1, v0}, Landroid/telecom/RemoteConference;->addConnection(Landroid/telecom/RemoteConnection;)V
 
     goto :goto_0
 
-    .line 203
+    .line 206
     .end local v0    # "c":Landroid/telecom/RemoteConnection;
     .end local v3    # "id":Ljava/lang/String;
     :cond_1
@@ -117,11 +117,11 @@
 
     if-nez v4, :cond_2
 
-    .line 222
+    .line 225
     :goto_1
     return-void
 
-    .line 210
+    .line 213
     :cond_2
     invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getState()I
 
@@ -129,14 +129,14 @@
 
     invoke-virtual {v1, v4}, Landroid/telecom/RemoteConference;->setState(I)V
 
-    .line 211
+    .line 214
     invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getConnectionCapabilities()I
 
     move-result v4
 
     invoke-virtual {v1, v4}, Landroid/telecom/RemoteConference;->setConnectionCapabilities(I)V
 
-    .line 212
+    .line 215
     iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     # getter for: Landroid/telecom/RemoteConnectionService;->mConferenceById:Ljava/util/Map;
@@ -146,14 +146,14 @@
 
     invoke-interface {v4, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 213
+    .line 216
     new-instance v4, Landroid/telecom/RemoteConnectionService$1$1;
 
     invoke-direct {v4, p0, p1}, Landroid/telecom/RemoteConnectionService$1$1;-><init>(Landroid/telecom/RemoteConnectionService$1;Ljava/lang/String;)V
 
     invoke-virtual {v1, v4}, Landroid/telecom/RemoteConference;->registerCallback(Landroid/telecom/RemoteConference$Callback;)V
 
-    .line 221
+    .line 224
     iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     # getter for: Landroid/telecom/RemoteConnectionService;->mOurConnectionServiceImpl:Landroid/telecom/ConnectionService;
@@ -172,7 +172,7 @@
     .param p2, "connection"    # Landroid/telecom/ParcelableConnection;
 
     .prologue
-    .line 328
+    .line 331
     new-instance v0, Landroid/telecom/RemoteConnection;
 
     iget-object v1, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -184,7 +184,7 @@
 
     invoke-direct {v0, p1, v1, p2}, Landroid/telecom/RemoteConnection;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;Landroid/telecom/ParcelableConnection;)V
 
-    .line 331
+    .line 334
     .local v0, "remoteConnction":Landroid/telecom/RemoteConnection;
     iget-object v1, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -195,7 +195,7 @@
 
     invoke-virtual {v1, v0}, Landroid/telecom/ConnectionService;->addRemoteExistingConnection(Landroid/telecom/RemoteConnection;)V
 
-    .line 332
+    .line 335
     return-void
 .end method
 
@@ -203,7 +203,7 @@
     .locals 1
 
     .prologue
-    .line 291
+    .line 294
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -430,7 +430,7 @@
     .param p2, "nextChar"    # C
 
     .prologue
-    .line 243
+    .line 246
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "onPostDialChar"
@@ -442,7 +442,7 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->onPostDialChar(C)V
 
-    .line 245
+    .line 248
     return-void
 .end method
 
@@ -452,7 +452,7 @@
     .param p2, "remaining"    # Ljava/lang/String;
 
     .prologue
-    .line 237
+    .line 240
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "onPostDialWait"
@@ -464,7 +464,7 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setPostDialWait(Ljava/lang/String;)V
 
-    .line 239
+    .line 242
     return-void
 .end method
 
@@ -473,7 +473,7 @@
     .param p1, "callback"    # Lcom/android/internal/telecom/RemoteServiceCallback;
 
     .prologue
-    .line 250
+    .line 253
     return-void
 .end method
 
@@ -482,7 +482,7 @@
     .param p1, "callId"    # Ljava/lang/String;
 
     .prologue
-    .line 226
+    .line 229
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     # getter for: Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
@@ -496,7 +496,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 227
+    .line 230
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "removeCall"
@@ -508,11 +508,11 @@
 
     invoke-virtual {v0}, Landroid/telecom/RemoteConnection;->setDestroyed()V
 
-    .line 233
+    .line 236
     :goto_0
     return-void
 
-    .line 230
+    .line 233
     :cond_0
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -588,7 +588,7 @@
     .param p3, "presentation"    # I
 
     .prologue
-    .line 278
+    .line 281
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setAddress"
@@ -600,8 +600,60 @@
 
     invoke-virtual {v0, p2, p3}, Landroid/telecom/RemoteConnection;->setAddress(Landroid/net/Uri;I)V
 
-    .line 280
+    .line 283
     return-void
+.end method
+
+.method public setCallProperties(Ljava/lang/String;I)V
+    .locals 2
+    .param p1, "callId"    # Ljava/lang/String;
+    .param p2, "callProperties"    # I
+
+    .prologue
+    .line 162
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    # getter for: Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
+    invoke-static {v0}, Landroid/telecom/RemoteConnectionService;->access$300(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 163
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    const-string/jumbo v1, "setCallProperties"
+
+    # invokes: Landroid/telecom/RemoteConnectionService;->findConnectionForAction(Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->access$000(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setCallProperties(I)V
+
+    .line 169
+    :goto_0
+    return-void
+
+    .line 166
+    :cond_0
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    const-string/jumbo v1, "setCallProperties"
+
+    # invokes: Landroid/telecom/RemoteConnectionService;->findConferenceForAction(Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConference;
+    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->access$400(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConference;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Landroid/telecom/RemoteConference;->setCallProperties(I)V
+
+    goto :goto_0
 .end method
 
 .method public setCallSubstate(Ljava/lang/String;I)V
@@ -610,7 +662,7 @@
     .param p2, "callSubstate"    # I
 
     .prologue
-    .line 321
+    .line 324
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string v1, "callSubstate"
@@ -622,7 +674,7 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setCallSubstate(I)V
 
-    .line 323
+    .line 326
     return-void
 .end method
 
@@ -633,7 +685,7 @@
     .param p3, "presentation"    # I
 
     .prologue
-    .line 285
+    .line 288
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setCallerDisplayName"
@@ -645,7 +697,7 @@
 
     invoke-virtual {v0, p2, p3}, Landroid/telecom/RemoteConnection;->setCallerDisplayName(Ljava/lang/String;I)V
 
-    .line 287
+    .line 290
     return-void
 .end method
 
@@ -664,13 +716,13 @@
     .end annotation
 
     .prologue
-    .line 297
+    .line 300
     .local p2, "conferenceableConnectionIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 298
+    .line 301
     .local v0, "conferenceable":Ljava/util/List;, "Ljava/util/List<Landroid/telecom/RemoteConnection;>;"
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -691,7 +743,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 299
+    .line 302
     .local v2, "id":Ljava/lang/String;
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -706,7 +758,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 300
+    .line 303
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     # getter for: Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
@@ -722,7 +774,7 @@
 
     goto :goto_0
 
-    .line 304
+    .line 307
     .end local v2    # "id":Ljava/lang/String;
     :cond_1
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -734,7 +786,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 305
+    .line 308
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v4, "setConferenceableConnections"
@@ -746,11 +798,11 @@
 
     invoke-virtual {v3, v0}, Landroid/telecom/RemoteConnection;->setConferenceableConnections(Ljava/util/List;)V
 
-    .line 311
+    .line 314
     :goto_1
     return-void
 
-    .line 308
+    .line 311
     :cond_2
     iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -772,7 +824,7 @@
     .param p2, "connectionCapabilities"    # I
 
     .prologue
-    .line 159
+    .line 151
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     # getter for: Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
@@ -786,7 +838,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 160
+    .line 152
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setConnectionCapabilities"
@@ -798,11 +850,11 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setConnectionCapabilities(I)V
 
-    .line 166
+    .line 158
     :goto_0
     return-void
 
-    .line 163
+    .line 155
     :cond_0
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -893,31 +945,6 @@
     goto :goto_0
 .end method
 
-.method public setDisconnectedWithSsNotification(Ljava/lang/String;ILjava/lang/String;II)V
-    .locals 2
-    .param p1, "callId"    # Ljava/lang/String;
-    .param p2, "disconnectCause"    # I
-    .param p3, "disconnectMessage"    # Ljava/lang/String;
-    .param p4, "type"    # I
-    .param p5, "code"    # I
-
-    .prologue
-    .line 135
-    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
-
-    const-string/jumbo v1, "setDisconnectedWithSsNotification"
-
-    # invokes: Landroid/telecom/RemoteConnectionService;->findConnectionForAction(Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
-    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->access$000(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2, p3, p4, p5}, Landroid/telecom/RemoteConnection;->setDisconnectedWithSsNotification(ILjava/lang/String;II)V
-
-    .line 138
-    return-void
-.end method
-
 .method public setExtras(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
     .param p1, "callId"    # Ljava/lang/String;
@@ -934,7 +961,7 @@
     .param p2, "conferenceCallId"    # Ljava/lang/String;
 
     .prologue
-    .line 171
+    .line 174
     iget-object v2, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v3, "setIsConferenced"
@@ -944,7 +971,7 @@
 
     move-result-object v1
 
-    .line 173
+    .line 176
     .local v1, "connection":Landroid/telecom/RemoteConnection;
     # getter for: Landroid/telecom/RemoteConnectionService;->NULL_CONNECTION:Landroid/telecom/RemoteConnection;
     invoke-static {}, Landroid/telecom/RemoteConnectionService;->access$100()Landroid/telecom/RemoteConnection;
@@ -953,29 +980,29 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 174
+    .line 177
     if-nez p2, :cond_1
 
-    .line 176
+    .line 179
     invoke-virtual {v1}, Landroid/telecom/RemoteConnection;->getConference()Landroid/telecom/RemoteConference;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    .line 177
+    .line 180
     invoke-virtual {v1}, Landroid/telecom/RemoteConnection;->getConference()Landroid/telecom/RemoteConference;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Landroid/telecom/RemoteConference;->removeConnection(Landroid/telecom/RemoteConnection;)V
 
-    .line 187
+    .line 190
     :cond_0
     :goto_0
     return-void
 
-    .line 180
+    .line 183
     :cond_1
     iget-object v2, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -986,7 +1013,7 @@
 
     move-result-object v0
 
-    .line 182
+    .line 185
     .local v0, "conference":Landroid/telecom/RemoteConference;
     # getter for: Landroid/telecom/RemoteConnectionService;->NULL_CONFERENCE:Landroid/telecom/RemoteConference;
     invoke-static {}, Landroid/telecom/RemoteConnectionService;->access$500()Landroid/telecom/RemoteConference;
@@ -995,7 +1022,7 @@
 
     if-eq v0, v2, :cond_0
 
-    .line 183
+    .line 186
     invoke-virtual {v0, v1}, Landroid/telecom/RemoteConference;->addConnection(Landroid/telecom/RemoteConnection;)V
 
     goto :goto_0
@@ -1007,7 +1034,7 @@
     .param p2, "isVoip"    # Z
 
     .prologue
-    .line 266
+    .line 269
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setIsVoipAudioMode"
@@ -1019,7 +1046,7 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setIsVoipAudioMode(Z)V
 
-    .line 268
+    .line 271
     return-void
 .end method
 
@@ -1030,7 +1057,7 @@
     .prologue
     const/4 v2, 0x5
 
-    .line 142
+    .line 134
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     # getter for: Landroid/telecom/RemoteConnectionService;->mConnectionById:Ljava/util/Map;
@@ -1044,7 +1071,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 143
+    .line 135
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setOnHold"
@@ -1056,11 +1083,11 @@
 
     invoke-virtual {v0, v2}, Landroid/telecom/RemoteConnection;->setState(I)V
 
-    .line 149
+    .line 141
     :goto_0
     return-void
 
-    .line 146
+    .line 138
     :cond_0
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -1082,7 +1109,7 @@
     .param p2, "pHandle"    # Landroid/telecom/PhoneAccountHandle;
 
     .prologue
-    .line 315
+    .line 318
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setPhoneAccountHandle"
@@ -1094,7 +1121,7 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setPhoneAccountHandle(Landroid/telecom/PhoneAccountHandle;)V
 
-    .line 317
+    .line 320
     return-void
 .end method
 
@@ -1104,7 +1131,7 @@
     .param p2, "ringing"    # Z
 
     .prologue
-    .line 153
+    .line 145
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setRingbackRequested"
@@ -1116,7 +1143,7 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setRingbackRequested(Z)V
 
-    .line 155
+    .line 147
     return-void
 .end method
 
@@ -1149,7 +1176,7 @@
     .param p2, "statusHints"    # Landroid/telecom/StatusHints;
 
     .prologue
-    .line 272
+    .line 275
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setStatusHints"
@@ -1161,7 +1188,7 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setStatusHints(Landroid/telecom/StatusHints;)V
 
-    .line 274
+    .line 277
     return-void
 .end method
 
@@ -1171,7 +1198,7 @@
     .param p2, "videoProvider"    # Lcom/android/internal/telecom/IVideoProvider;
 
     .prologue
-    .line 254
+    .line 257
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setVideoProvider"
@@ -1187,7 +1214,7 @@
 
     invoke-virtual {v0, v1}, Landroid/telecom/RemoteConnection;->setVideoProvider(Landroid/telecom/RemoteConnection$VideoProvider;)V
 
-    .line 256
+    .line 259
     return-void
 .end method
 
@@ -1197,7 +1224,7 @@
     .param p2, "videoState"    # I
 
     .prologue
-    .line 260
+    .line 263
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
     const-string/jumbo v1, "setVideoState"
@@ -1209,6 +1236,6 @@
 
     invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->setVideoState(I)V
 
-    .line 262
+    .line 265
     return-void
 .end method

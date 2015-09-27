@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 859
+    .line 904
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$5;->this$0:Lcom/android/server/input/InputManagerService;
 
     iput-object p2, p0, Lcom/android/server/input/InputManagerService$5;->val$list:Ljava/util/ArrayList;
@@ -50,7 +50,7 @@
     .param p6, "priority"    # I
 
     .prologue
-    .line 863
+    .line 908
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$5;->val$list:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/hardware/input/KeyboardLayout;
@@ -59,6 +59,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 864
+    .line 909
     return-void
 .end method

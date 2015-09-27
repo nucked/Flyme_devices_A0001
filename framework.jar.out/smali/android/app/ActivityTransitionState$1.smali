@@ -60,6 +60,7 @@
     .line 287
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
+    # getter for: Landroid/app/ActivityTransitionState;->mReturnExitCoordinator:Landroid/app/ExitTransitionCoordinator;
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->access$000(Landroid/app/ActivityTransitionState;)Landroid/app/ExitTransitionCoordinator;
 
     move-result-object v0
@@ -69,6 +70,7 @@
     .line 288
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
+    # getter for: Landroid/app/ActivityTransitionState;->mReturnExitCoordinator:Landroid/app/ExitTransitionCoordinator;
     invoke-static {v0}, Landroid/app/ActivityTransitionState;->access$000(Landroid/app/ActivityTransitionState;)Landroid/app/ExitTransitionCoordinator;
 
     move-result-object v0

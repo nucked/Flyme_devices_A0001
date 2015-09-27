@@ -36,7 +36,7 @@
 
 .field static final TRANSACTION_getDevicesMatchingConnectionStates:I = 0x6
 
-.field static final TRANSACTION_isTetheringOn:I = 0x1
+.field static final TRANSACTION_isTetheringOn_0:I = 0x1
 
 .field static final TRANSACTION_setBluetoothTethering:I = 0x2
 

@@ -1,83 +1,56 @@
-.class Lcom/android/server/am/ActivityManagerService$4;
-.super Ljava/lang/Object;
+.class final Lcom/android/server/am/ActivityManagerService$4;
+.super Landroid/os/FileObserver;
 .source "ActivityManagerService.java"
-
-# interfaces
-.implements Ljava/util/Comparator;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/am/ActivityManagerService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/am/ActivityManagerService;->dumpStackTraces(Ljava/lang/String;Ljava/util/ArrayList;Lcom/android/internal/os/ProcessCpuTracker;Landroid/util/SparseArray;[Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Lcom/android/server/am/TaskRecord;",
-        ">;"
-    }
-.end annotation
-
-
-# instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method constructor <init>(Ljava/lang/String;I)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # I
 
     .prologue
-    .line 3875
-    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 4909
+    invoke-direct {p0, p1, p2}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public compare(Lcom/android/server/am/TaskRecord;Lcom/android/server/am/TaskRecord;)I
-    .locals 2
-    .param p1, "lhs"    # Lcom/android/server/am/TaskRecord;
-    .param p2, "rhs"    # Lcom/android/server/am/TaskRecord;
-
-    .prologue
-    .line 3878
-    iget v0, p2, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    iget v1, p1, Lcom/android/server/am/TaskRecord;->taskId:I
-
-    sub-int/2addr v0, v1
-
-    return v0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+.method public declared-synchronized onEvent(ILjava/lang/String;)V
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
     .prologue
-    .line 3875
-    check-cast p1, Lcom/android/server/am/TaskRecord;
+    .line 4911
+    monitor-enter p0
 
-    .end local p1    # "x0":Ljava/lang/Object;
-    check-cast p2, Lcom/android/server/am/TaskRecord;
+    :try_start_0
+    invoke-virtual {p0}, Ljava/lang/Object;->notify()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .end local p2    # "x1":Ljava/lang/Object;
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ActivityManagerService$4;->compare(Lcom/android/server/am/TaskRecord;Lcom/android/server/am/TaskRecord;)I
+    monitor-exit p0
 
-    move-result v0
+    return-void
 
-    return v0
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method

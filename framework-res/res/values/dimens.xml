@@ -10,14 +10,14 @@
     <item type="dimen" name="disabled_alpha_material_light">0.26</item>
     <item type="dimen" name="disabled_alpha_material_dark">0.3</item>
     <dimen name="config_prefDialogWidth">320.0dip</dimen>
-    <dimen name="config_viewConfigurationTouchSlop">8.0dip</dimen>
+    <dimen name="config_viewConfigurationTouchSlop">4.0dip</dimen>
     <dimen name="config_viewMinFlingVelocity">50.0dip</dimen>
     <dimen name="config_viewMaxFlingVelocity">8000.0dip</dimen>
     <dimen name="config_minScalingSpan">27.0mm</dimen>
     <dimen name="config_minScalingTouchMajor">48.0dip</dimen>
     <dimen name="config_mediaMetadataBitmapMaxSize">320.0dip</dimen>
     <dimen name="toast_y_offset">64.0dip</dimen>
-    <dimen name="status_bar_height">22.0dip</dimen>
+    <dimen name="status_bar_height">25.0dip</dimen>
     <dimen name="navigation_bar_height">48.0dip</dimen>
     <dimen name="navigation_bar_height_landscape">48.0dip</dimen>
     <dimen name="navigation_bar_width">42.0dip</dimen>
@@ -161,7 +161,6 @@
     <dimen name="circular_display_mask_offset">0.0px</dimen>
     <dimen name="lock_pattern_dot_line_width">3.0dip</dimen>
     <dimen name="lock_pattern_dot_size">12.0dip</dimen>
-    <dimen name="lock_pattern_dot_width">1.0dip</dimen>
     <dimen name="lock_pattern_dot_size_activated">28.0dip</dimen>
     <dimen name="text_handle_min_size">40.0dip</dimen>
     <dimen name="light_y">-200.0dip</dimen>
@@ -169,7 +168,10 @@
     <dimen name="light_radius">600.0dip</dimen>
     <item type="dimen" name="ambient_shadow_alpha">0.075</item>
     <item type="dimen" name="spot_shadow_alpha">0.15</item>
-    <dimen name="op_button_text_width">16.0dip</dimen>
+    <dimen name="edge_gesture_trigger_distance">12.0dip</dimen>
+    <dimen name="edge_gesture_perpendicular_distance">15.0dip</dimen>
+    <dimen name="edge_gesture_trigger_thickness">12.0dip</dimen>
+    <dimen name="global_actions_avatar_size">40.0dip</dimen>
     <item type="dimen" name="disabled_alpha_leanback_formwizard">0.2</item>
     <item type="dimen" name="leanback_setup_alpha_animiation_max_opacity">1.0</item>
     <item type="dimen" name="leanback_setup_alpha_animiation_min_opacity">0.0</item>
@@ -253,8 +255,4 @@
     <dimen name="dialog_padding_material">24.0dip</dimen>
     <dimen name="dialog_padding_top_material">18.0dip</dimen>
     <dimen name="dialog_list_padding_vertical_material">8.0dip</dimen>
-    <dimen name="demo_paddingTop">0.0dip</dimen>
-    <dimen name="uc_listview_undo_bottom_offset">15.0dip</dimen>
-    <dimen name="uc_listview_touch_slop">32.0dip</dimen>
-    <dimen name="uc_preference_fragment_padding_side_material">0.0dip</dimen>
 </resources>

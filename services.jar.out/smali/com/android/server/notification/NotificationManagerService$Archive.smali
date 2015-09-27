@@ -35,13 +35,13 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 272
+    .line 312
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 273
+    .line 313
     iput p1, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBufferSize:I
 
-    .line 274
+    .line 314
     new-instance v0, Ljava/util/ArrayDeque;
 
     iget v1, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBufferSize:I
@@ -50,7 +50,7 @@
 
     iput-object v0, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
-    .line 275
+    .line 315
     return-void
 .end method
 
@@ -69,7 +69,7 @@
     .end annotation
 
     .prologue
-    .line 306
+    .line 346
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->iterator()Ljava/util/Iterator;
@@ -83,12 +83,12 @@
     .locals 1
 
     .prologue
-    .line 299
+    .line 339
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->clear()V
 
-    .line 300
+    .line 340
     return-void
 .end method
 
@@ -105,7 +105,7 @@
     .end annotation
 
     .prologue
-    .line 303
+    .line 343
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->descendingIterator()Ljava/util/Iterator;
@@ -136,7 +136,7 @@
     .end annotation
 
     .prologue
-    .line 310
+    .line 350
     .local p1, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/service/notification/StatusBarNotification;>;"
     new-instance v0, Lcom/android/server/notification/NotificationManagerService$Archive$1;
 
@@ -150,12 +150,12 @@
     .param p1, "count"    # I
 
     .prologue
-    .line 347
+    .line 387
     if-nez p1, :cond_0
 
     iget p1, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBufferSize:I
 
-    .line 348
+    .line 388
     :cond_0
     iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
@@ -169,17 +169,17 @@
 
     new-array v0, v4, [Landroid/service/notification/StatusBarNotification;
 
-    .line 350
+    .line 390
     .local v0, "a":[Landroid/service/notification/StatusBarNotification;
     invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService$Archive;->descendingIterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .line 351
+    .line 391
     .local v3, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/service/notification/StatusBarNotification;>;"
     const/4 v1, 0x0
 
-    .line 352
+    .line 392
     .local v1, "i":I
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -190,7 +190,7 @@
 
     if-ge v1, p1, :cond_1
 
-    .line 353
+    .line 393
     add-int/lit8 v2, v1, 0x1
 
     .end local v1    # "i":I
@@ -209,7 +209,7 @@
     .restart local v1    # "i":I
     goto :goto_0
 
-    .line 355
+    .line 395
     :cond_1
     return-object v0
 .end method
@@ -221,12 +221,12 @@
     .param p3, "userId"    # I
 
     .prologue
-    .line 359
+    .line 399
     if-nez p1, :cond_0
 
     iget p1, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBufferSize:I
 
-    .line 360
+    .line 400
     :cond_0
     iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
@@ -240,7 +240,7 @@
 
     new-array v0, v4, [Landroid/service/notification/StatusBarNotification;
 
-    .line 362
+    .line 402
     .local v0, "a":[Landroid/service/notification/StatusBarNotification;
     invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService$Archive;->descendingIterator()Ljava/util/Iterator;
 
@@ -250,11 +250,11 @@
 
     move-result-object v3
 
-    .line 363
+    .line 403
     .local v3, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroid/service/notification/StatusBarNotification;>;"
     const/4 v1, 0x0
 
-    .line 364
+    .line 404
     .local v1, "i":I
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -265,7 +265,7 @@
 
     if-ge v1, p1, :cond_1
 
-    .line 365
+    .line 405
     add-int/lit8 v2, v1, 0x1
 
     .end local v1    # "i":I
@@ -284,7 +284,7 @@
     .restart local v1    # "i":I
     goto :goto_0
 
-    .line 367
+    .line 407
     :cond_1
     return-object v0
 .end method
@@ -294,7 +294,7 @@
     .param p1, "nr"    # Landroid/service/notification/StatusBarNotification;
 
     .prologue
-    .line 288
+    .line 328
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->size()I
@@ -305,12 +305,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 289
+    .line 329
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->removeFirst()Ljava/lang/Object;
 
-    .line 295
+    .line 335
     :cond_0
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
@@ -320,7 +320,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayDeque;->addLast(Ljava/lang/Object;)V
 
-    .line 296
+    .line 336
     return-void
 .end method
 
@@ -328,12 +328,12 @@
     .locals 3
 
     .prologue
-    .line 278
+    .line 318
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 279
+    .line 319
     .local v1, "sb":Ljava/lang/StringBuilder;
     iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$Archive;->mBuffer:Ljava/util/ArrayDeque;
 
@@ -341,21 +341,21 @@
 
     move-result v0
 
-    .line 280
+    .line 320
     .local v0, "N":I
     const-string v2, "Archive ("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 281
+    .line 321
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 282
+    .line 322
     const-string v2, " notification"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 283
+    .line 323
     const/4 v2, 0x1
 
     if-ne v0, v2, :cond_0
@@ -365,14 +365,14 @@
     :goto_0
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 284
+    .line 324
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 283
+    .line 323
     :cond_0
     const-string v2, "s)"
 

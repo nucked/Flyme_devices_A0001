@@ -72,7 +72,7 @@
     .locals 3
 
     .prologue
-    .line 2921
+    .line 3023
     const-string v0, "content://cellbroadcasts"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -81,7 +81,7 @@
 
     sput-object v0, Landroid/provider/Telephony$CellBroadcasts;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 3058
+    .line 3160
     const/16 v0, 0x14
 
     new-array v0, v0, [Ljava/lang/String;
@@ -215,7 +215,7 @@
     .locals 0
 
     .prologue
-    .line 2916
+    .line 3018
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

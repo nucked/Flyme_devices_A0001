@@ -32,6 +32,9 @@
 .method public abstract addFakeWindow(Landroid/os/Looper;Landroid/view/InputEventReceiver$Factory;Ljava/lang/String;IIIZZZ)Landroid/view/WindowManagerPolicy$FakeWindow;
 .end method
 
+.method public abstract addSystemUIVisibilityFlag(I)V
+.end method
+
 .method public abstract getCameraLensCoverState()I
 .end method
 
@@ -51,9 +54,6 @@
 .end method
 
 .method public abstract shutdown(Z)V
-.end method
-
-.method public abstract shutdown(ZZ)V
 .end method
 
 .method public abstract switchKeyboardLayout(II)V

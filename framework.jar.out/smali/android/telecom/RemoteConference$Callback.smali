@@ -42,7 +42,7 @@
     .end annotation
 
     .prologue
-    .line 48
+    .line 50
     .local p2, "conferenceableConnections":Ljava/util/List;, "Ljava/util/List<Landroid/telecom/RemoteConnection;>;"
     return-void
 .end method
@@ -82,7 +82,7 @@
     .param p1, "conference"    # Landroid/telecom/RemoteConference;
 
     .prologue
-    .line 49
+    .line 51
     return-void
 .end method
 
@@ -93,6 +93,16 @@
 
     .prologue
     .line 40
+    return-void
+.end method
+
+.method public onPropertiesChanged(Landroid/telecom/RemoteConference;I)V
+    .locals 0
+    .param p1, "conference"    # Landroid/telecom/RemoteConference;
+    .param p2, "properties"    # I
+
+    .prologue
+    .line 47
     return-void
 .end method
 

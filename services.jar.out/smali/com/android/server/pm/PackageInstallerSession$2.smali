@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 530
+    .line 538
     iput-object p1, p0, Lcom/android/server/pm/PackageInstallerSession$2;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageInstallObserver2$Stub;-><init>()V
@@ -41,19 +41,19 @@
     .param p4, "extras"    # Landroid/os/Bundle;
 
     .prologue
-    .line 539
+    .line 547
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$2;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
     # invokes: Lcom/android/server/pm/PackageInstallerSession;->destroyInternal()V
     invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$300(Lcom/android/server/pm/PackageInstallerSession;)V
 
-    .line 540
+    .line 548
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$2;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
     # invokes: Lcom/android/server/pm/PackageInstallerSession;->dispatchSessionFinished(ILjava/lang/String;Landroid/os/Bundle;)V
     invoke-static {v0, p2, p3, p4}, Lcom/android/server/pm/PackageInstallerSession;->access$400(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 541
+    .line 549
     return-void
 .end method
 
@@ -62,7 +62,7 @@
     .param p1, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 533
+    .line 541
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetoothHeadsetPhone"
 
-.field static final TRANSACTION_answerCall:I = 0x1
+.field static final TRANSACTION_answerCall_0:I = 0x1
 
 .field static final TRANSACTION_cdmaSetSecondCallState:I = 0xb
 
@@ -36,7 +36,7 @@
 
 .field static final TRANSACTION_getSubscriberNumber:I = 0x6
 
-.field static final TRANSACTION_hangupCall:I = 0x2
+.field static final TRANSACTION_hangupCall_1:I = 0x2
 
 .field static final TRANSACTION_listCurrentCalls:I = 0x7
 

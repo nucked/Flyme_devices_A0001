@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_onBluetoothServiceDown:I = 0x2
 
-.field static final TRANSACTION_onBluetoothServiceUp:I = 0x1
+.field static final TRANSACTION_onBluetoothServiceUp_0:I = 0x1
 
 
 # direct methods

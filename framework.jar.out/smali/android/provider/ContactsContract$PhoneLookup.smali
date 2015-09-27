@@ -35,7 +35,7 @@
     .locals 2
 
     .prologue
-    .line 5012
+    .line 5020
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "phone_lookup"
@@ -46,7 +46,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$PhoneLookup;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
-    .line 5047
+    .line 5055
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "phone_lookup_enterprise"
@@ -64,7 +64,7 @@
     .locals 0
 
     .prologue
-    .line 5002
+    .line 5010
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

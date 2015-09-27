@@ -26,9 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.net.INetworkScoreCache"
 
-.field static final TRANSACTION_clearScores:I = 0x2
+.field static final TRANSACTION_clearScores_1:I = 0x2
 
-.field static final TRANSACTION_updateScores:I = 0x1
+.field static final TRANSACTION_updateScores_0:I = 0x1
 
 
 # direct methods

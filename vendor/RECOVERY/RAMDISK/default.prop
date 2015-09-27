@@ -1,1 +1,2 @@
-ro.build.product=OnePlus
+ro.product.device=A0001
+ro.build.product=A0001

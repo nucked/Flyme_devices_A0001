@@ -162,29 +162,29 @@
 
     sput-object v0, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 1793
+    .line 1795
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/text/TextUtils;->sLock:Ljava/lang/Object;
 
-    .line 1795
+    .line 1797
     const/4 v0, 0x0
 
     sput-object v0, Landroid/text/TextUtils;->sTemp:[C
 
-    .line 1797
+    .line 1799
     new-array v0, v2, [Ljava/lang/String;
 
     sput-object v0, Landroid/text/TextUtils;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
-    .line 1801
+    .line 1803
     const-string v0, "Arab"
 
     sput-object v0, Landroid/text/TextUtils;->ARAB_SCRIPT_SUBTAG:Ljava/lang/String;
 
-    .line 1802
+    .line 1804
     const-string v0, "Hebr"
 
     sput-object v0, Landroid/text/TextUtils;->HEBR_SCRIPT_SUBTAG:Ljava/lang/String;
@@ -2453,7 +2453,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1782
+    .line 1784
     invoke-virtual {p0, p0}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v1
@@ -2468,17 +2468,17 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1789
+    .line 1791
     :goto_0
     return v0
 
-    .line 1785
+    .line 1787
     :pswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1782
+    .line 1784
     nop
 
     :pswitch_data_0
@@ -2489,81 +2489,97 @@
 .end method
 
 .method public static getLayoutDirectionFromLocale(Ljava/util/Locale;)I
-    .locals 4
+    .locals 5
     .param p0, "locale"    # Ljava/util/Locale;
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
     const/4 v2, 0x0
 
     .line 1752
-    if-eqz p0, :cond_2
+    const-string v4, "debug.force_rtl"
 
-    sget-object v3, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+    invoke-static {v4, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {p0, v3}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
+    move-result v0
 
     .line 1753
-    invoke-static {p0}, Llibcore/icu/ICU;->addLikelySubtags(Ljava/util/Locale;)Ljava/util/Locale;
+    .local v0, "mirror":Z
+    if-eqz p0, :cond_3
 
-    move-result-object v3
+    sget-object v4, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
-    invoke-virtual {v3}, Ljava/util/Locale;->getScript()Ljava/lang/String;
+    invoke-virtual {p0, v4}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v4
+
+    if-nez v4, :cond_3
 
     .line 1754
-    .local v0, "scriptSubtag":Ljava/lang/String;
-    if-nez v0, :cond_1
+    invoke-static {p0}, Llibcore/icu/ICU;->addLikelySubtags(Ljava/util/Locale;)Ljava/util/Locale;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/util/Locale;->getScript()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1755
+    .local v1, "scriptSubtag":Ljava/lang/String;
+    if-nez v1, :cond_1
 
     invoke-static {p0}, Landroid/text/TextUtils;->getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
 
-    move-result v1
+    move-result v2
 
-    .line 1762
-    .end local v0    # "scriptSubtag":Ljava/lang/String;
+    .line 1766
+    .end local v1    # "scriptSubtag":Ljava/lang/String;
     :cond_0
     :goto_0
-    return v1
+    return v2
 
-    .line 1756
-    .restart local v0    # "scriptSubtag":Ljava/lang/String;
+    .line 1757
+    .restart local v1    # "scriptSubtag":Ljava/lang/String;
     :cond_1
-    sget-object v3, Landroid/text/TextUtils;->ARAB_SCRIPT_SUBTAG:Ljava/lang/String;
+    sget-object v4, Landroid/text/TextUtils;->ARAB_SCRIPT_SUBTAG:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_2
 
-    sget-object v3, Landroid/text/TextUtils;->HEBR_SCRIPT_SUBTAG:Ljava/lang/String;
+    sget-object v4, Landroid/text/TextUtils;->HEBR_SCRIPT_SUBTAG:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-eqz v4, :cond_3
 
-    .line 1762
-    .end local v0    # "scriptSubtag":Ljava/lang/String;
+    .line 1761
     :cond_2
-    const-string v3, "debug.force_rtl"
+    if-nez v0, :cond_0
 
-    invoke-static {v3, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    move v1, v2
+    move v2, v3
 
     goto :goto_0
+
+    .line 1766
+    .end local v1    # "scriptSubtag":Ljava/lang/String;
+    :cond_3
+    if-eqz v0, :cond_4
+
+    :goto_1
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_4
+    move v3, v2
+
+    goto :goto_1
 .end method
 
 .method public static getOffsetAfter(Ljava/lang/CharSequence;I)I
@@ -3689,7 +3705,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040612
+    const v2, 0x10406a7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

@@ -21,15 +21,12 @@
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 310
+    .line 300
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract GetRealPositive()Z
-.end method
-
 .method public abstract getDisplayInfo(I)Landroid/view/DisplayInfo;
 .end method
 
@@ -37,9 +34,6 @@
 .end method
 
 .method public abstract isProximitySensorAvailable()Z
-.end method
-
-.method public abstract onSensorChanged(Z)V
 .end method
 
 .method public abstract performTraversalInTransactionFromWindowManager()V

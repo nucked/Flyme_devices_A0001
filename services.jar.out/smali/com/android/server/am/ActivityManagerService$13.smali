@@ -1,11 +1,11 @@
 .class Lcom/android/server/am/ActivityManagerService$13;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/content/IIntentReceiver$Stub;
 .source "ActivityManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/ActivityManagerService;->restart()V
+    value = Lcom/android/server/am/ActivityManagerService;->deliverPreBootCompleted(Ljava/lang/Runnable;Ljava/util/ArrayList;I)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,61 +17,46 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
+.field final synthetic val$onFinishCallback:Ljava/lang/Runnable;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/lang/Runnable;)V
     .locals 0
 
     .prologue
-    .line 11154
+    .line 11375
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$13;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$13;->val$onFinishCallback:Ljava/lang/Runnable;
+
+    invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
 
     .prologue
-    .line 11157
-    const-string v0, "ActivityManager"
-
-    const-string v1, "Shutting down activity manager..."
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 11158
+    .line 11382
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$13;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    const/16 v1, 0x2710
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mHandler:Lcom/android/server/am/ActivityManagerService$MainHandler;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityManagerService;->shutdown(I)Z
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$13;->val$onFinishCallback:Ljava/lang/Runnable;
 
-    .line 11159
-    const-string v0, "ActivityManager"
+    invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityManagerService$MainHandler;->post(Ljava/lang/Runnable;)Z
 
-    const-string v1, "Shutdown complete, restarting!"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 11160
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v0
-
-    invoke-static {v0}, Landroid/os/Process;->killProcess(I)V
-
-    .line 11161
-    const/16 v0, 0xa
-
-    invoke-static {v0}, Ljava/lang/System;->exit(I)V
-
-    .line 11162
+    .line 11383
     return-void
 .end method

@@ -581,11 +581,15 @@
 .end method
 
 .method public static getSimStateForSubscriber(I)I
-    .locals 5
+    .locals 4
     .param p0, "subId"    # I
 
     .prologue
+    .line 1270
+    const/4 v2, 0x0
+
     .line 1273
+    .local v2, "simState":I
     :try_start_0
     const-string v3, "isub"
 
@@ -599,59 +603,29 @@
 
     .line 1274
     .local v1, "iSub":Lcom/android/internal/telephony/ISub;
+    if-eqz v1, :cond_0
+
+    .line 1275
     invoke-interface {v1, p0}, Lcom/android/internal/telephony/ISub;->getSimStateForSubscriber(I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
-    .line 1278
+    .line 1280
     .end local v1    # "iSub":Lcom/android/internal/telephony/ISub;
-    .local v2, "simState":I
+    :cond_0
     :goto_0
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "getSimStateForSubscriber: simState="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, " subId="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/telephony/SubscriptionManager;->logd(Ljava/lang/String;)V
-
-    .line 1279
     return v2
 
-    .line 1275
-    .end local v2    # "simState":I
+    .line 1277
     :catch_0
     move-exception v0
 
-    .line 1276
+    .line 1278
     .local v0, "ex":Landroid/os/RemoteException;
     const/4 v2, 0x0
 
-    .restart local v2    # "simState":I
     goto :goto_0
 .end method
 

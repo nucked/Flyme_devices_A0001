@@ -1248,16 +1248,6 @@
     return-void
 .end method
 
-.method public getModemVersion()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 1783
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
 .method public getMute(Landroid/os/Message;)V
     .locals 0
     .param p1, "result"    # Landroid/os/Message;
@@ -1908,6 +1898,17 @@
     return-void
 .end method
 
+.method public needsOldRilFeature(Ljava/lang/String;)Z
+    .locals 1
+    .param p1, "feature"    # Ljava/lang/String;
+
+    .prologue
+    .line 1779
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public nvReadItem(ILandroid/os/Message;)V
     .locals 0
     .param p1, "itemID"    # I
@@ -1958,25 +1959,6 @@
     invoke-direct {p0, p3}, Lcom/android/internal/telephony/test/SimulatedCommands;->unimplemented(Landroid/os/Message;)V
 
     .line 1757
-    return-void
-.end method
-
-.method public oemGetMdmBaseBand(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1785
-    return-void
-.end method
-
-.method public oemGetRffeDevInfo(ILandroid/os/Message;)V
-    .locals 0
-    .param p1, "rf_tech"    # I
-    .param p2, "result"    # Landroid/os/Message;
-
-    .prologue
-    .line 1787
     return-void
 .end method
 
@@ -2394,15 +2376,6 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
     goto :goto_0
-.end method
-
-.method public reportBootupNVRestoreState(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "result"    # Landroid/os/Message;
-
-    .prologue
-    .line 1789
-    return-void
 .end method
 
 .method public reportSmsMemoryStatus(ZLandroid/os/Message;)V
@@ -3236,15 +3209,6 @@
     invoke-direct {p0, p2}, Lcom/android/internal/telephony/test/SimulatedCommands;->unimplemented(Landroid/os/Message;)V
 
     .line 1075
-    return-void
-.end method
-
-.method public setModemCrash(Landroid/os/Message;)V
-    .locals 0
-    .param p1, "response"    # Landroid/os/Message;
-
-    .prologue
-    .line 1781
     return-void
 .end method
 

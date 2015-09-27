@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field protected final mContext:Landroid/content/Context;
 
 
 # direct methods

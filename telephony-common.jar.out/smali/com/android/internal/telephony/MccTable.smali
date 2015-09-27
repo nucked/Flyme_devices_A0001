@@ -2519,7 +2519,7 @@
 
     const/16 v2, 0x276
 
-    const-string v3, "cg"
+    const-string v3, "cd"
 
     invoke-direct {v1, v2, v3, v4}, Lcom/android/internal/telephony/MccTable$MccEntry;-><init>(ILjava/lang/String;I)V
 

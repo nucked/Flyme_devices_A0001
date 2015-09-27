@@ -39,7 +39,7 @@
     .locals 2
 
     .prologue
-    .line 562
+    .line 587
     const-wide/high16 v0, 0x402e000000000000L    # 15.0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
@@ -57,12 +57,12 @@
     .locals 1
 
     .prologue
-    .line 575
+    .line 600
     sget v0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->DEFAULT_CAPACITY:I
 
     invoke-direct {p0, v0}, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;-><init>(I)V
 
-    .line 576
+    .line 601
     return-void
 .end method
 
@@ -71,27 +71,27 @@
     .param p1, "initialCapacity"    # I
 
     .prologue
-    .line 578
+    .line 603
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 579
+    .line 604
     iput p1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
-    .line 580
+    .line 605
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
-    .line 581
+    .line 606
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     new-array v0, v0, [J
 
     iput-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
-    .line 582
+    .line 607
     return-void
 .end method
 
@@ -100,14 +100,14 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 691
+    .line 716
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     if-ge p1, v0, :cond_0
 
     if-gez p1, :cond_1
 
-    .line 692
+    .line 717
     :cond_0
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
@@ -115,23 +115,23 @@
 
     throw v0
 
-    .line 694
+    .line 719
     :cond_1
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     add-int/2addr p1, v0
 
-    .line 695
+    .line 720
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     if-lt p1, v0, :cond_2
 
-    .line 696
+    .line 721
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     sub-int/2addr p1, v0
 
-    .line 698
+    .line 723
     :cond_2
     return p1
 .end method
@@ -144,16 +144,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 660
+    .line 685
     iput v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
-    .line 661
+    .line 686
     iput v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mEnd:I
 
-    .line 662
+    .line 687
     iput v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
-    .line 663
+    .line 688
     return-void
 .end method
 
@@ -162,7 +162,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 585
+    .line 610
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
     invoke-direct {p0, p1}, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->offsetOf(I)I
@@ -179,7 +179,7 @@
     .param p1, "index"    # I
 
     .prologue
-    .line 589
+    .line 614
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
     invoke-direct {p0, p1}, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->offsetOf(I)I
@@ -195,7 +195,7 @@
     .locals 1
 
     .prologue
-    .line 656
+    .line 681
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     if-nez v0, :cond_0
@@ -216,29 +216,29 @@
     .param p1, "horizon"    # J
 
     .prologue
-    .line 623
+    .line 648
     iget v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     if-nez v1, :cond_2
 
-    .line 649
+    .line 674
     :cond_0
     :goto_0
     return-void
 
-    .line 642
+    .line 667
     .local v0, "next":I
     :cond_1
     iput v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
-    .line 643
+    .line 668
     iget v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
-    .line 627
+    .line 652
     .end local v0    # "next":I
     :cond_2
     iget v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
@@ -247,23 +247,23 @@
 
     if-le v1, v2, :cond_4
 
-    .line 628
+    .line 653
     iget v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     add-int/lit8 v0, v1, 0x1
 
-    .line 629
+    .line 654
     .restart local v0    # "next":I
     iget v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     if-lt v0, v1, :cond_3
 
-    .line 630
+    .line 655
     iget v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     sub-int/2addr v0, v1
 
-    .line 632
+    .line 657
     :cond_3
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
@@ -273,7 +273,7 @@
 
     if-lez v1, :cond_1
 
-    .line 646
+    .line 671
     .end local v0    # "next":I
     :cond_4
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
@@ -286,7 +286,7 @@
 
     if-gez v1, :cond_0
 
-    .line 647
+    .line 672
     iget-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
     iget v2, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
@@ -304,10 +304,10 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 593
+    .line 618
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mEnd:I
 
-    .line 594
+    .line 619
     .local v4, "next":I
     iget v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
@@ -315,20 +315,20 @@
 
     if-ne v5, v6, :cond_1
 
-    .line 595
+    .line 620
     iget v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     mul-int/lit8 v3, v5, 0x2
 
-    .line 597
+    .line 622
     .local v3, "newSize":I
     new-array v1, v3, [F
 
-    .line 598
+    .line 623
     .local v1, "newRingLux":[F
     new-array v2, v3, [J
 
-    .line 599
+    .line 624
     .local v2, "newRingTime":[J
     iget v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
@@ -336,7 +336,7 @@
 
     sub-int v0, v5, v6
 
-    .line 600
+    .line 625
     .local v0, "length":I
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
@@ -344,49 +344,49 @@
 
     invoke-static {v5, v6, v1, v7, v0}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 601
+    .line 626
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
     iget v6, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     invoke-static {v5, v6, v2, v7, v0}, Ljava/lang/System;->arraycopy([JI[JII)V
 
-    .line 602
+    .line 627
     iget v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     if-eqz v5, :cond_0
 
-    .line 603
+    .line 628
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
     iget v6, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     invoke-static {v5, v7, v1, v0, v6}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 604
+    .line 629
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
     iget v6, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     invoke-static {v5, v7, v2, v0, v6}, Ljava/lang/System;->arraycopy([JI[JII)V
 
-    .line 606
+    .line 631
     :cond_0
     iput-object v1, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
-    .line 607
+    .line 632
     iput-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
-    .line 609
+    .line 634
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
-    .line 610
+    .line 635
     iput v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
-    .line 611
+    .line 636
     iput v7, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
-    .line 613
+    .line 638
     .end local v0    # "length":I
     .end local v1    # "newRingLux":[F
     .end local v2    # "newRingTime":[J
@@ -396,27 +396,27 @@
 
     aput-wide p1, v5, v4
 
-    .line 614
+    .line 639
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
     aput p3, v5, v4
 
-    .line 615
+    .line 640
     add-int/lit8 v5, v4, 0x1
 
     iput v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mEnd:I
 
-    .line 616
+    .line 641
     iget v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mEnd:I
 
     iget v6, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     if-ne v5, v6, :cond_2
 
-    .line 617
+    .line 642
     iput v7, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mEnd:I
 
-    .line 619
+    .line 644
     :cond_2
     iget v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
@@ -424,7 +424,7 @@
 
     iput v5, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
-    .line 620
+    .line 645
     return-void
 .end method
 
@@ -432,7 +432,7 @@
     .locals 1
 
     .prologue
-    .line 652
+    .line 677
     iget v0, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     return v0
@@ -444,32 +444,32 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 667
+    .line 692
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCapacity:I
 
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     sub-int v0, v3, v4
 
-    .line 668
+    .line 693
     .local v0, "length":I
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     new-array v1, v3, [F
 
-    .line 669
+    .line 694
     .local v1, "lux":[F
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     new-array v2, v3, [J
 
-    .line 671
+    .line 696
     .local v2, "time":[J
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
 
     if-gt v3, v0, :cond_0
 
-    .line 672
+    .line 697
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
@@ -478,7 +478,7 @@
 
     invoke-static {v3, v4, v1, v6, v5}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 673
+    .line 698
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
@@ -487,7 +487,7 @@
 
     invoke-static {v3, v4, v2, v6, v5}, Ljava/lang/System;->arraycopy([JI[JII)V
 
-    .line 681
+    .line 706
     :goto_0
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -581,7 +581,7 @@
 
     return-object v3
 
-    .line 675
+    .line 700
     :cond_0
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
@@ -589,7 +589,7 @@
 
     invoke-static {v3, v4, v1, v6, v0}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 676
+    .line 701
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingLux:[F
 
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I
@@ -598,14 +598,14 @@
 
     invoke-static {v3, v6, v1, v0, v4}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    .line 678
+    .line 703
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mStart:I
 
     invoke-static {v3, v4, v2, v6, v0}, Ljava/lang/System;->arraycopy([JI[JII)V
 
-    .line 679
+    .line 704
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mRingTime:[J
 
     iget v4, p0, Lcom/android/server/display/AutomaticBrightnessController$AmbientLightRingBuffer;->mCount:I

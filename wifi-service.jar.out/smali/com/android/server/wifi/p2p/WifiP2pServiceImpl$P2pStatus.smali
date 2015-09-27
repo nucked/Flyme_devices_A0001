@@ -68,7 +68,7 @@
 
     const/4 v3, 0x0
 
-    .line 247
+    .line 244
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "SUCCESS"
@@ -77,7 +77,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->SUCCESS:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 250
+    .line 247
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "INFORMATION_IS_CURRENTLY_UNAVAILABLE"
@@ -86,7 +86,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INFORMATION_IS_CURRENTLY_UNAVAILABLE:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 253
+    .line 250
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "INCOMPATIBLE_PARAMETERS"
@@ -95,7 +95,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INCOMPATIBLE_PARAMETERS:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 257
+    .line 254
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "LIMIT_REACHED"
@@ -104,7 +104,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->LIMIT_REACHED:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 260
+    .line 257
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "INVALID_PARAMETER"
@@ -113,7 +113,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INVALID_PARAMETER:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 263
+    .line 260
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "UNABLE_TO_ACCOMMODATE_REQUEST"
@@ -124,7 +124,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->UNABLE_TO_ACCOMMODATE_REQUEST:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 266
+    .line 263
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "PREVIOUS_PROTOCOL_ERROR"
@@ -135,7 +135,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->PREVIOUS_PROTOCOL_ERROR:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 269
+    .line 266
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "NO_COMMON_CHANNEL"
@@ -146,7 +146,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->NO_COMMON_CHANNEL:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 273
+    .line 270
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "UNKNOWN_P2P_GROUP"
@@ -157,7 +157,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->UNKNOWN_P2P_GROUP:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 276
+    .line 273
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "BOTH_GO_INTENT_15"
@@ -168,7 +168,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->BOTH_GO_INTENT_15:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 279
+    .line 276
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "INCOMPATIBLE_PROVISIONING_METHOD"
@@ -179,7 +179,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INCOMPATIBLE_PROVISIONING_METHOD:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 282
+    .line 279
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "REJECTED_BY_USER"
@@ -190,7 +190,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->REJECTED_BY_USER:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 285
+    .line 282
     new-instance v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     const-string v1, "UNKNOWN"
@@ -201,7 +201,7 @@
 
     sput-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->UNKNOWN:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
-    .line 245
+    .line 242
     const/16 v0, 0xd
 
     new-array v0, v0, [Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
@@ -288,7 +288,7 @@
     .end annotation
 
     .prologue
-    .line 245
+    .line 242
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -299,88 +299,88 @@
     .param p0, "error"    # I
 
     .prologue
-    .line 288
+    .line 285
     packed-switch p0, :pswitch_data_0
 
-    .line 314
+    .line 311
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->UNKNOWN:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     :goto_0
     return-object v0
 
-    .line 290
+    .line 287
     :pswitch_0
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->SUCCESS:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 292
+    .line 289
     :pswitch_1
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INFORMATION_IS_CURRENTLY_UNAVAILABLE:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 294
+    .line 291
     :pswitch_2
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INCOMPATIBLE_PARAMETERS:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 296
+    .line 293
     :pswitch_3
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->LIMIT_REACHED:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 298
+    .line 295
     :pswitch_4
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INVALID_PARAMETER:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 300
+    .line 297
     :pswitch_5
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->UNABLE_TO_ACCOMMODATE_REQUEST:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 302
+    .line 299
     :pswitch_6
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->PREVIOUS_PROTOCOL_ERROR:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 304
+    .line 301
     :pswitch_7
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->NO_COMMON_CHANNEL:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 306
+    .line 303
     :pswitch_8
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->UNKNOWN_P2P_GROUP:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 308
+    .line 305
     :pswitch_9
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->BOTH_GO_INTENT_15:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 310
+    .line 307
     :pswitch_a
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->INCOMPATIBLE_PROVISIONING_METHOD:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 312
+    .line 309
     :pswitch_b
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->REJECTED_BY_USER:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     goto :goto_0
 
-    .line 288
+    .line 285
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -403,7 +403,7 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 245
+    .line 242
     const-class v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -419,7 +419,7 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 242
     sget-object v0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->$VALUES:[Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;
 
     invoke-virtual {v0}, [Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$P2pStatus;->clone()Ljava/lang/Object;

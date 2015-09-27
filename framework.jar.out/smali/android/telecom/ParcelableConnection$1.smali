@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 168
+    .line 203
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,14 +45,14 @@
     .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
-    .line 171
+    .line 206
     const-class v2, Landroid/telecom/ParcelableConnection;
 
     invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v19
 
-    .line 173
+    .line 208
     .local v19, "classLoader":Ljava/lang/ClassLoader;
     move-object/from16 v0, p1
 
@@ -64,25 +64,25 @@
 
     check-cast v3, Landroid/telecom/PhoneAccountHandle;
 
-    .line 174
+    .line 209
     .local v3, "phoneAccount":Landroid/telecom/PhoneAccountHandle;
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 175
+    .line 210
     .local v4, "state":I
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 176
+    .line 211
     .local v5, "capabilities":I
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    .line 177
+    .line 212
     .local v6, "properties":I
     move-object/from16 v0, p1
 
@@ -94,25 +94,25 @@
 
     check-cast v7, Landroid/net/Uri;
 
-    .line 178
+    .line 213
     .local v7, "address":Landroid/net/Uri;
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
-    .line 179
+    .line 214
     .local v8, "addressPresentation":I
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 180
+    .line 215
     .local v9, "callerDisplayName":Ljava/lang/String;
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    .line 181
+    .line 216
     .local v10, "callerDisplayNamePresentation":I
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -122,13 +122,13 @@
 
     move-result-object v11
 
-    .line 183
+    .line 218
     .local v11, "videoCallProvider":Lcom/android/internal/telecom/IVideoProvider;
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v12
 
-    .line 184
+    .line 219
     .local v12, "videoState":I
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readByte()B
 
@@ -142,7 +142,7 @@
 
     const/4 v13, 0x1
 
-    .line 185
+    .line 220
     .local v13, "ringbackRequested":Z
     :goto_0
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readByte()B
@@ -157,7 +157,7 @@
 
     const/4 v14, 0x1
 
-    .line 186
+    .line 221
     .local v14, "audioModeIsVoip":Z
     :goto_1
     move-object/from16 v0, p1
@@ -170,7 +170,7 @@
 
     check-cast v15, Landroid/telecom/StatusHints;
 
-    .line 187
+    .line 222
     .local v15, "statusHints":Landroid/telecom/StatusHints;
     move-object/from16 v0, p1
 
@@ -182,13 +182,13 @@
 
     check-cast v16, Landroid/telecom/DisconnectCause;
 
-    .line 188
+    .line 223
     .local v16, "disconnectCause":Landroid/telecom/DisconnectCause;
     new-instance v17, Ljava/util/ArrayList;
 
     invoke-direct/range {v17 .. v17}, Ljava/util/ArrayList;-><init>()V
 
-    .line 189
+    .line 224
     .local v17, "conferenceableConnectionIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     move-object/from16 v0, p1
 
@@ -196,12 +196,12 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->readStringList(Ljava/util/List;)V
 
-    .line 190
+    .line 225
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v18
 
-    .line 192
+    .line 227
     .local v18, "callSubstate":I
     new-instance v2, Landroid/telecom/ParcelableConnection;
 
@@ -209,7 +209,7 @@
 
     return-object v2
 
-    .line 184
+    .line 219
     .end local v13    # "ringbackRequested":Z
     .end local v14    # "audioModeIsVoip":Z
     .end local v15    # "statusHints":Landroid/telecom/StatusHints;
@@ -221,7 +221,7 @@
 
     goto :goto_0
 
-    .line 185
+    .line 220
     .restart local v13    # "ringbackRequested":Z
     :cond_1
     const/4 v14, 0x0
@@ -234,7 +234,7 @@
     .param p1, "x0"    # Landroid/os/Parcel;
 
     .prologue
-    .line 168
+    .line 203
     invoke-virtual {p0, p1}, Landroid/telecom/ParcelableConnection$1;->createFromParcel(Landroid/os/Parcel;)Landroid/telecom/ParcelableConnection;
 
     move-result-object v0
@@ -247,7 +247,7 @@
     .param p1, "size"    # I
 
     .prologue
-    .line 213
+    .line 248
     new-array v0, p1, [Landroid/telecom/ParcelableConnection;
 
     return-object v0
@@ -258,7 +258,7 @@
     .param p1, "x0"    # I
 
     .prologue
-    .line 168
+    .line 203
     invoke-virtual {p0, p1}, Landroid/telecom/ParcelableConnection$1;->newArray(I)[Landroid/telecom/ParcelableConnection;
 
     move-result-object v0

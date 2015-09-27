@@ -48,29 +48,29 @@
     .param p2, "m"    # Landroid/os/Messenger;
 
     .prologue
-    .line 3274
+    .line 3260
     iput-object p1, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;->this$0:Lcom/android/server/wifi/p2p/WifiP2pServiceImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3275
+    .line 3261
     iput-object p2, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;->mMessenger:Landroid/os/Messenger;
 
-    .line 3276
+    .line 3262
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;->mReqList:Landroid/util/SparseArray;
 
-    .line 3277
+    .line 3263
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;->mServList:Ljava/util/List;
 
-    .line 3278
+    .line 3264
     return-void
 .end method
 
@@ -81,7 +81,7 @@
     .param p3, "x2"    # Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$1;
 
     .prologue
-    .line 3256
+    .line 3242
     invoke-direct {p0, p1, p2}, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;-><init>(Lcom/android/server/wifi/p2p/WifiP2pServiceImpl;Landroid/os/Messenger;)V
 
     return-void
@@ -92,7 +92,7 @@
     .param p0, "x0"    # Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;
 
     .prologue
-    .line 3256
+    .line 3242
     iget-object v0, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;->mReqList:Landroid/util/SparseArray;
 
     return-object v0
@@ -103,7 +103,7 @@
     .param p0, "x0"    # Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;
 
     .prologue
-    .line 3256
+    .line 3242
     iget-object v0, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;->mServList:Ljava/util/List;
 
     return-object v0
@@ -114,7 +114,7 @@
     .param p0, "x0"    # Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;
 
     .prologue
-    .line 3256
+    .line 3242
     iget-object v0, p0, Lcom/android/server/wifi/p2p/WifiP2pServiceImpl$ClientInfo;->mMessenger:Landroid/os/Messenger;
 
     return-object v0

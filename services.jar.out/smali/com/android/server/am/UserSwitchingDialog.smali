@@ -59,7 +59,7 @@
 
     move-result-object v3
 
-    const v4, 0x10900f6
+    const v4, 0x10900ea
 
     const/4 v5, 0x0
 
@@ -77,7 +77,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x1040658
+    const v4, 0x10406ed
 
     const/4 v5, 0x1
 

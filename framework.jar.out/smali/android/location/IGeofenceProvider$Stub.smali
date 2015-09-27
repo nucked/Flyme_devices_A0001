@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.IGeofenceProvider"
 
-.field static final TRANSACTION_setGeofenceHardware:I = 0x1
+.field static final TRANSACTION_setGeofenceHardware_0:I = 0x1
 
 
 # direct methods

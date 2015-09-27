@@ -44,11 +44,13 @@
 
 .field public static final MT_CODE_ON_HOLD_CALL_RELEASED:I = 0x5
 
+.field public static final NOTIFICATION_TYPE_MO:I = 0x0
+
+.field public static final NOTIFICATION_TYPE_MT:I = 0x1
+
 
 # instance fields
 .field public code:I
-
-.field public history:[Ljava/lang/String;
 
 .field public index:I
 
@@ -127,18 +129,6 @@
     iget v1, p0, Lcom/android/internal/telephony/gsm/SuppServiceNotification;->index:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " history: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/internal/telephony/gsm/SuppServiceNotification;->history:[Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

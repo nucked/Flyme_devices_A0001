@@ -54,22 +54,22 @@
     .end annotation
 
     .prologue
-    .line 63
+    .line 66
     .local p2, "fonts":Ljava/util/List;, "Ljava/util/List<Landroid/graphics/FontListParser$Font;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 64
+    .line 67
     iput-object p1, p0, Landroid/graphics/FontListParser$Family;->name:Ljava/lang/String;
 
-    .line 65
+    .line 68
     iput-object p2, p0, Landroid/graphics/FontListParser$Family;->fonts:Ljava/util/List;
 
-    .line 66
+    .line 69
     iput-object p3, p0, Landroid/graphics/FontListParser$Family;->lang:Ljava/lang/String;
 
-    .line 67
+    .line 70
     iput-object p4, p0, Landroid/graphics/FontListParser$Family;->variant:Ljava/lang/String;
 
-    .line 68
+    .line 71
     return-void
 .end method

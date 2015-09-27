@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 99
+    .line 100
     iput-object p1, p0, Lcom/android/server/LockSettingsService$2;->this$0:Lcom/android/server/LockSettingsService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -43,7 +43,7 @@
 
     const/4 v8, 0x0
 
-    .line 102
+    .line 103
     const-string v6, "android.intent.action.USER_ADDED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -56,30 +56,30 @@
 
     if-eqz v6, :cond_1
 
-    .line 103
+    .line 104
     const-string v6, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v6, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v4
 
-    .line 104
+    .line 105
     .local v4, "userHandle":I
     invoke-static {v4, v9}, Landroid/os/UserHandle;->getUid(II)I
 
     move-result v5
 
-    .line 105
+    .line 106
     .local v5, "userSysUid":I
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
     move-result-object v0
 
-    .line 108
+    .line 109
     .local v0, "ks":Landroid/security/KeyStore;
     invoke-virtual {v0, v5}, Landroid/security/KeyStore;->resetUid(I)Z
 
-    .line 111
+    .line 112
     iget-object v6, p0, Lcom/android/server/LockSettingsService$2;->this$0:Lcom/android/server/LockSettingsService;
 
     # getter for: Lcom/android/server/LockSettingsService;->mContext:Landroid/content/Context;
@@ -95,28 +95,28 @@
 
     check-cast v3, Landroid/os/UserManager;
 
-    .line 112
+    .line 113
     .local v3, "um":Landroid/os/UserManager;
     invoke-virtual {v3, v4}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
 
     move-result-object v1
 
-    .line 113
+    .line 114
     .local v1, "parentInfo":Landroid/content/pm/UserInfo;
     if-eqz v1, :cond_0
 
-    .line 114
+    .line 115
     iget v6, v1, Landroid/content/pm/UserInfo;->id:I
 
     invoke-static {v6, v9}, Landroid/os/UserHandle;->getUid(II)I
 
     move-result v2
 
-    .line 115
+    .line 116
     .local v2, "parentSysUid":I
     invoke-virtual {v0, v2, v5}, Landroid/security/KeyStore;->syncUid(II)Z
 
-    .line 121
+    .line 122
     .end local v0    # "ks":Landroid/security/KeyStore;
     .end local v1    # "parentInfo":Landroid/content/pm/UserInfo;
     .end local v2    # "parentSysUid":I
@@ -127,7 +127,7 @@
     :goto_0
     return-void
 
-    .line 117
+    .line 118
     :cond_1
     const-string v6, "android.intent.action.USER_STARTING"
 
@@ -141,14 +141,14 @@
 
     if-eqz v6, :cond_0
 
-    .line 118
+    .line 119
     const-string v6, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v6, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v4
 
-    .line 119
+    .line 120
     .restart local v4    # "userHandle":I
     iget-object v6, p0, Lcom/android/server/LockSettingsService$2;->this$0:Lcom/android/server/LockSettingsService;
 

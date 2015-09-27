@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.webkit.IWebViewUpdateService"
 
-.field static final TRANSACTION_notifyRelroCreationCompleted:I = 0x1
+.field static final TRANSACTION_notifyRelroCreationCompleted_0:I = 0x1
 
 .field static final TRANSACTION_waitForRelroCreationCompleted:I = 0x2
 

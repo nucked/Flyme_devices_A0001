@@ -722,7 +722,7 @@
 
     .local v7, "i":I
     :goto_2
-    if-ltz v7, :cond_1
+    if-lez v7, :cond_1
 
     .line 667
     add-int/lit8 v17, v7, -0x1

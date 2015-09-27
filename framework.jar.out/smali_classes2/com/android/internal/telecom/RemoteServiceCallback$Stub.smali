@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.telecom.RemoteServiceCallback"
 
-.field static final TRANSACTION_onError:I = 0x1
+.field static final TRANSACTION_onError_0:I = 0x1
 
 .field static final TRANSACTION_onResult:I = 0x2
 

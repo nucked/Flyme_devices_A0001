@@ -48,6 +48,8 @@
 
 .field public static final PROPERTY_LTE_ON_CDMA_PRODUCT_TYPE:Ljava/lang/String; = "telephony.lteOnCdmaProductType"
 
+.field public static final PROPERTY_LTE_ON_GSM_DEVICE:Ljava/lang/String; = "telephony.lteOnGsmDevice"
+
 .field public static final PROPERTY_MMS_TRANSACTION:Ljava/lang/String; = "mms.transaction"
 
 .field public static final PROPERTY_MULTI_SIM_CONFIG:Ljava/lang/String; = "persist.radio.multisim.config"

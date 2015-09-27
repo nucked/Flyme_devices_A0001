@@ -25,7 +25,7 @@
     .locals 0
 
     .prologue
-    .line 630
+    .line 695
     iput-object p1, p0, Lcom/android/internal/widget/LockPatternView$5;->this$0:Lcom/android/internal/widget/LockPatternView;
 
     iput-object p2, p0, Lcom/android/internal/widget/LockPatternView$5;->val$endRunnable:Ljava/lang/Runnable;
@@ -42,11 +42,11 @@
     .param p1, "animation"    # Landroid/animation/Animator;
 
     .prologue
-    .line 633
+    .line 698
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView$5;->val$endRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 634
+    .line 699
     return-void
 .end method

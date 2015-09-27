@@ -30,18 +30,18 @@
     .param p3, "reportedMetering"    # Landroid/graphics/Rect;
 
     .prologue
-    .line 109
+    .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 110
+    .line 107
     iput-object p1, p0, Landroid/hardware/camera2/legacy/ParameterUtils$MeteringData;->meteringArea:Landroid/hardware/Camera$Area;
 
-    .line 111
+    .line 108
     iput-object p2, p0, Landroid/hardware/camera2/legacy/ParameterUtils$MeteringData;->previewMetering:Landroid/graphics/Rect;
 
-    .line 112
+    .line 109
     iput-object p3, p0, Landroid/hardware/camera2/legacy/ParameterUtils$MeteringData;->reportedMetering:Landroid/graphics/Rect;
 
-    .line 113
+    .line 110
     return-void
 .end method

@@ -148,7 +148,7 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 76
+    .line 72
     new-instance v0, Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;
 
     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;-><init>(Landroid/content/Context;)V
@@ -186,10 +186,10 @@
     .locals 1
 
     .prologue
-    .line 71
-    new-instance v0, Lcom/android/internal/policy/impl/OemPhoneWindowManager;
+    .line 68
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-direct {v0}, Lcom/android/internal/policy/impl/OemPhoneWindowManager;-><init>()V
+    invoke-direct {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;-><init>()V
 
     return-object v0
 .end method

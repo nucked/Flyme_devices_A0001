@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 102
+    .line 100
     iput-object p1, p0, Lcom/android/server/wifi/WifiApConfigStore$InactiveState;->this$0:Lcom/android/server/wifi/WifiApConfigStore;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,31 +38,31 @@
     .param p1, "message"    # Landroid/os/Message;
 
     .prologue
-    .line 104
+    .line 102
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 115
+    .line 113
     const/4 v1, 0x0
 
-    .line 117
+    .line 115
     :goto_0
     return v1
 
-    .line 106
+    .line 104
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
-    .line 107
+    .line 105
     .local v0, "config":Landroid/net/wifi/WifiConfiguration;
     iget-object v1, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 108
+    .line 106
     iget-object v2, p0, Lcom/android/server/wifi/WifiApConfigStore$InactiveState;->this$0:Lcom/android/server/wifi/WifiApConfigStore;
 
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -72,7 +72,7 @@
     # setter for: Lcom/android/server/wifi/WifiApConfigStore;->mWifiApConfig:Landroid/net/wifi/WifiConfiguration;
     invoke-static {v2, v1}, Lcom/android/server/wifi/WifiApConfigStore;->access$002(Lcom/android/server/wifi/WifiApConfigStore;Landroid/net/wifi/WifiConfiguration;)Landroid/net/wifi/WifiConfiguration;
 
-    .line 109
+    .line 107
     iget-object v1, p0, Lcom/android/server/wifi/WifiApConfigStore$InactiveState;->this$0:Lcom/android/server/wifi/WifiApConfigStore;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiApConfigStore$InactiveState;->this$0:Lcom/android/server/wifi/WifiApConfigStore;
@@ -85,13 +85,13 @@
     # invokes: Lcom/android/server/wifi/WifiApConfigStore;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Lcom/android/server/wifi/WifiApConfigStore;->access$300(Lcom/android/server/wifi/WifiApConfigStore;Lcom/android/internal/util/IState;)V
 
-    .line 117
+    .line 115
     :goto_1
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 111
+    .line 109
     :cond_0
     const-string v1, "WifiApConfigStore"
 
@@ -117,7 +117,7 @@
 
     goto :goto_1
 
-    .line 104
+    .line 102
     :pswitch_data_0
     .packed-switch 0x20019
         :pswitch_0

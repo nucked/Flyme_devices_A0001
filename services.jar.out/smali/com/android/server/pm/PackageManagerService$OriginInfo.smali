@@ -39,32 +39,32 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 8976
+    .line 9658
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 8977
+    .line 9659
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->file:Ljava/io/File;
 
-    .line 8978
+    .line 9660
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->cid:Ljava/lang/String;
 
-    .line 8979
+    .line 9661
     iput-boolean p3, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->staged:Z
 
-    .line 8980
+    .line 9662
     iput-boolean p4, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->existing:Z
 
-    .line 8982
+    .line 9664
     if-eqz p2, :cond_0
 
-    .line 8983
+    .line 9665
     invoke-static {p2}, Lcom/android/internal/content/PackageHelper;->getSdDir(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->resolvedPath:Ljava/lang/String;
 
-    .line 8984
+    .line 9666
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->resolvedPath:Ljava/lang/String;
@@ -73,31 +73,31 @@
 
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->resolvedFile:Ljava/io/File;
 
-    .line 8992
+    .line 9674
     :goto_0
     return-void
 
-    .line 8985
+    .line 9667
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 8986
+    .line 9668
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->resolvedPath:Ljava/lang/String;
 
-    .line 8987
+    .line 9669
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->resolvedFile:Ljava/io/File;
 
     goto :goto_0
 
-    .line 8989
+    .line 9671
     :cond_1
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->resolvedPath:Ljava/lang/String;
 
-    .line 8990
+    .line 9672
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$OriginInfo;->resolvedFile:Ljava/io/File;
 
     goto :goto_0
@@ -108,7 +108,7 @@
     .param p0, "file"    # Ljava/io/File;
 
     .prologue
-    .line 8965
+    .line 9647
     new-instance v0, Lcom/android/server/pm/PackageManagerService$OriginInfo;
 
     const/4 v1, 0x0
@@ -130,7 +130,7 @@
 
     const/4 v1, 0x0
 
-    .line 8957
+    .line 9639
     new-instance v0, Lcom/android/server/pm/PackageManagerService$OriginInfo;
 
     invoke-direct {v0, v2, v2, v1, v1}, Lcom/android/server/pm/PackageManagerService$OriginInfo;-><init>(Ljava/io/File;Ljava/lang/String;ZZ)V
@@ -143,7 +143,7 @@
     .param p0, "cid"    # Ljava/lang/String;
 
     .prologue
-    .line 8973
+    .line 9655
     new-instance v0, Lcom/android/server/pm/PackageManagerService$OriginInfo;
 
     const/4 v1, 0x0
@@ -162,7 +162,7 @@
     .param p0, "file"    # Ljava/io/File;
 
     .prologue
-    .line 8969
+    .line 9651
     new-instance v0, Lcom/android/server/pm/PackageManagerService$OriginInfo;
 
     const/4 v1, 0x0
@@ -183,7 +183,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 8961
+    .line 9643
     new-instance v0, Lcom/android/server/pm/PackageManagerService$OriginInfo;
 
     const/4 v1, 0x0

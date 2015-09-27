@@ -213,9 +213,6 @@
 
 
 # virtual methods
-.method public abstract OEMPollSignalStrength(Landroid/os/Message;)V
-.end method
-
 .method public abstract acceptCall(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -296,15 +293,6 @@
 .method public abstract dispose()V
 .end method
 
-.method public abstract emDial(Ljava/lang/String;)V
-.end method
-
-.method public abstract emHungup(Ljava/lang/String;)V
-.end method
-
-.method public abstract enableEngineerTest(Z)V
-.end method
-
 .method public abstract enableEnhancedVoicePrivacy(ZLandroid/os/Message;)V
 .end method
 
@@ -344,12 +332,6 @@
 .end method
 
 .method public abstract getBackgroundCall()Lcom/android/internal/telephony/Call;
-.end method
-
-.method public abstract getBandMode(Landroid/os/Message;)V
-.end method
-
-.method public abstract getBaseServiceState()Landroid/telephony/ServiceState;
 .end method
 
 .method public abstract getCallBarringOption(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
@@ -460,13 +442,13 @@
 .method public abstract getLteOnCdmaMode()I
 .end method
 
+.method public abstract getLteOnGsmMode()I
+.end method
+
 .method public abstract getMeid()Ljava/lang/String;
 .end method
 
 .method public abstract getMessageWaitingIndicator()Z
-.end method
-
-.method public abstract getModemVersion()Ljava/lang/String;
 .end method
 
 .method public abstract getMsisdn()Ljava/lang/String;
@@ -533,9 +515,6 @@
 .end method
 
 .method public abstract getSmscAddress(Landroid/os/Message;)V
-.end method
-
-.method public abstract getSrvDomainPref(Landroid/os/Message;)V
 .end method
 
 .method public abstract getState()Lcom/android/internal/telephony/PhoneConstants$State;
@@ -621,9 +600,6 @@
 .method public abstract isRadioAvailable()Z
 .end method
 
-.method public abstract is_test_card()Z
-.end method
-
 .method public abstract needsOtaServiceProvisioning()Z
 .end method
 
@@ -640,9 +616,6 @@
 .end method
 
 .method public abstract nvWriteItem(ILjava/lang/String;Landroid/os/Message;)V
-.end method
-
-.method public abstract oemGetRffeDevInfo(ILandroid/os/Message;)V
 .end method
 
 .method public abstract queryAvailableBandMode(Landroid/os/Message;)V
@@ -738,9 +711,6 @@
 .method public abstract registerForT53AudioControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
-.method public abstract registerForTtyModeReceived(Landroid/os/Handler;ILjava/lang/Object;)V
-.end method
-
 .method public abstract registerForUnknownConnection(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
@@ -812,12 +782,6 @@
 .method public abstract setEchoSuppressionEnabled()V
 .end method
 
-.method public abstract setEngineerModeNvProcessCmd(I)V
-.end method
-
-.method public abstract setFactoryModeModemGPIO(IILandroid/os/Message;)V
-.end method
-
 .method public abstract setImsRegistrationState(Z)V
 .end method
 
@@ -825,9 +789,6 @@
 .end method
 
 .method public abstract setLocalCallHold(I)V
-.end method
-
-.method public abstract setModemCrash(Landroid/os/Message;)V
 .end method
 
 .method public abstract setMute(Z)V
@@ -879,9 +840,6 @@
 .end method
 
 .method public abstract setSmscAddress(Ljava/lang/String;Landroid/os/Message;)V
-.end method
-
-.method public abstract setSrvDomainPref(ILandroid/os/Message;)V
 .end method
 
 .method public abstract setTTYMode(ILandroid/os/Message;)V
@@ -998,9 +956,6 @@
 .end method
 
 .method public abstract unregisterForT53ClirInfo(Landroid/os/Handler;)V
-.end method
-
-.method public abstract unregisterForTtyModeReceived(Landroid/os/Handler;)V
 .end method
 
 .method public abstract unregisterForUnknownConnection(Landroid/os/Handler;)V

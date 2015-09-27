@@ -71,7 +71,7 @@
 
     .line 53
     .local v0, "result":F
-    const v1, 0x10400ac
+    const v1, 0x104014d
 
     .line 54
     .local v1, "suffix":I
@@ -80,7 +80,7 @@
     if-lez v3, :cond_1
 
     .line 55
-    const v1, 0x10400ad
+    const v1, 0x104014e
 
     .line 56
     div-float/2addr v0, v5
@@ -92,7 +92,7 @@
     if-lez v3, :cond_2
 
     .line 59
-    const v1, 0x10400ae
+    const v1, 0x104014f
 
     .line 60
     div-float/2addr v0, v5
@@ -104,7 +104,7 @@
     if-lez v3, :cond_3
 
     .line 63
-    const v1, 0x10400af
+    const v1, 0x1040150
 
     .line 64
     div-float/2addr v0, v5
@@ -116,7 +116,7 @@
     if-lez v3, :cond_4
 
     .line 67
-    const v1, 0x10400b0
+    const v1, 0x1040151
 
     .line 68
     div-float/2addr v0, v5
@@ -128,7 +128,7 @@
     if-lez v3, :cond_5
 
     .line 71
-    const v1, 0x10400b1
+    const v1, 0x1040152
 
     .line 72
     div-float/2addr v0, v5
@@ -163,7 +163,7 @@
 
     move-result-object v3
 
-    const v4, 0x10400b2
+    const v4, 0x1040153
 
     const/4 v5, 0x2
 
@@ -430,7 +430,7 @@
     add-int/2addr v0, v6
 
     .line 143
-    const v6, 0x10400b3
+    const v6, 0x1040154
 
     const/4 v7, 0x1
 
@@ -462,7 +462,7 @@
     if-ne v1, v6, :cond_4
 
     .line 146
-    const v6, 0x10400b5
+    const v6, 0x1040156
 
     const/4 v7, 0x2
 
@@ -492,7 +492,7 @@
 
     .line 148
     :cond_4
-    const v6, 0x10400b4
+    const v6, 0x1040155
 
     const/4 v7, 0x2
 
@@ -534,7 +534,7 @@
     add-int/2addr v1, v6
 
     .line 151
-    const v6, 0x10400b6
+    const v6, 0x1040157
 
     const/4 v7, 0x1
 
@@ -564,7 +564,7 @@
     if-ne v2, v6, :cond_7
 
     .line 154
-    const v6, 0x10400b8
+    const v6, 0x1040159
 
     const/4 v7, 0x2
 
@@ -594,7 +594,7 @@
 
     .line 157
     :cond_7
-    const v6, 0x10400b7
+    const v6, 0x1040158
 
     const/4 v7, 0x2
 
@@ -636,7 +636,7 @@
     add-int/2addr v2, v6
 
     .line 161
-    const v6, 0x10400b9
+    const v6, 0x104015a
 
     const/4 v7, 0x1
 
@@ -666,7 +666,7 @@
     if-ne v3, v6, :cond_a
 
     .line 164
-    const v6, 0x10400bc
+    const v6, 0x104015d
 
     const/4 v7, 0x2
 
@@ -696,7 +696,7 @@
 
     .line 167
     :cond_a
-    const v6, 0x10400bb
+    const v6, 0x104015c
 
     const/4 v7, 0x2
 
@@ -731,7 +731,7 @@
     if-ne v3, v6, :cond_c
 
     .line 170
-    const v6, 0x10400be
+    const v6, 0x104015f
 
     const/4 v7, 0x1
 
@@ -753,7 +753,7 @@
 
     .line 172
     :cond_c
-    const v6, 0x10400bd
+    const v6, 0x104015e
 
     const/4 v7, 0x1
 
@@ -804,7 +804,7 @@
     if-nez v2, :cond_0
 
     .line 188
-    const v2, 0x10400b9
+    const v2, 0x104015a
 
     new-array v3, v4, [Ljava/lang/Object;
 
@@ -829,7 +829,7 @@
     if-nez v2, :cond_1
 
     .line 190
-    const v2, 0x10400ba
+    const v2, 0x104015b
 
     new-array v3, v4, [Ljava/lang/Object;
 

@@ -57,10 +57,10 @@
     .end annotation
 
     .prologue
-    .line 443
+    .line 468
     const-wide/16 v4, 0x0
 
-    .line 446
+    .line 471
     .local v4, "sizeBytes":J
     invoke-virtual {p0}, Landroid/content/pm/PackageParser$PackageLite;->getAllCodePaths()Ljava/util/List;
 
@@ -85,13 +85,13 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 447
+    .line 472
     .local v1, "codePath":Ljava/lang/String;
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 448
+    .line 473
     .local v0, "codeFile":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->length()J
 
@@ -99,10 +99,10 @@
 
     add-long/2addr v4, v6
 
-    .line 450
+    .line 475
     if-eqz p2, :cond_0
 
-    .line 451
+    .line 476
     const/4 v3, 0x0
 
     invoke-static {v0, v3}, Lcom/android/internal/content/PackageHelper;->extractPublicFiles(Ljava/io/File;Ljava/io/File;)J
@@ -113,7 +113,7 @@
 
     goto :goto_0
 
-    .line 456
+    .line 481
     .end local v0    # "codeFile":Ljava/io/File;
     .end local v1    # "codePath":Ljava/lang/String;
     :cond_1
@@ -123,7 +123,7 @@
 
     add-long/2addr v4, v6
 
-    .line 458
+    .line 483
     return-wide v4
 .end method
 
@@ -139,24 +139,24 @@
     .end annotation
 
     .prologue
-    .line 432
+    .line 457
     const/4 v0, 0x0
 
-    .line 434
+    .line 459
     .local v0, "handle":Lcom/android/internal/content/NativeLibraryHelper$Handle;
     :try_start_0
     invoke-static {p0}, Lcom/android/internal/content/NativeLibraryHelper$Handle;->create(Landroid/content/pm/PackageParser$PackageLite;)Lcom/android/internal/content/NativeLibraryHelper$Handle;
 
     move-result-object v0
 
-    .line 435
+    .line 460
     invoke-static {p0, v0, p1, p2}, Lcom/android/internal/content/PackageHelper;->calculateInstalledSize(Landroid/content/pm/PackageParser$PackageLite;Lcom/android/internal/content/NativeLibraryHelper$Handle;ZLjava/lang/String;)J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
-    .line 437
+    .line 462
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-wide v2
@@ -1244,6 +1244,60 @@
     goto :goto_0
 .end method
 
+.method public static isExternalInstallPossible()Z
+    .locals 2
+
+    .prologue
+    .line 341
+    invoke-static {}, Landroid/os/Environment;->isExternalStorageEmulated()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "mounted"
+
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    invoke-static {}, Landroid/os/Environment;->isNoEmulatedStorageExist()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "mounted"
+
+    invoke-static {}, Landroid/os/Environment;->getSecondaryStorageState()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static mountSdDir(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
     .locals 1
     .param p0, "cid"    # Ljava/lang/String;
@@ -1492,14 +1546,14 @@
     .param p2, "after"    # Ljava/lang/String;
 
     .prologue
-    .line 462
+    .line 487
     invoke-virtual {p0, p1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 463
+    .line 488
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1534,7 +1588,7 @@
 
     throw v0
 
-    .line 466
+    .line 491
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1661,7 +1715,7 @@
 .end method
 
 .method public static resolveInstallLocation(Landroid/content/Context;Ljava/lang/String;IJI)I
-    .locals 11
+    .locals 13
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "packageName"    # Ljava/lang/String;
     .param p2, "installLocation"    # I
@@ -1669,361 +1723,445 @@
     .param p5, "installFlags"    # I
 
     .prologue
-    .line 342
+    .line 353
     const/4 v1, 0x0
 
-    .line 344
+    .line 355
     .local v1, "existingInfo":Landroid/content/pm/ApplicationInfo;
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v8
+    move-result-object v9
 
-    const/16 v9, 0x2000
+    const/16 v10, 0x2000
 
-    invoke-virtual {v8, p1, v9}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v9, p1, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    .line 351
+    .line 362
     :goto_0
-    and-int/lit8 v8, p5, 0x10
+    and-int/lit8 v9, p5, 0x10
 
-    if-eqz v8, :cond_4
+    if-eqz v9, :cond_6
 
-    .line 352
-    const/4 v5, 0x1
+    .line 363
+    const/4 v6, 0x1
 
-    .line 353
-    .local v5, "prefer":I
+    .line 364
+    .local v6, "prefer":I
     const/4 v0, 0x0
 
-    .line 380
+    .line 391
     .local v0, "checkBoth":Z
     :goto_1
+    invoke-static {}, Landroid/os/Environment;->isExternalStorageEmulated()Z
+
+    move-result v2
+
+    .line 392
+    .local v2, "externalIsEmulated":Z
     invoke-static {}, Landroid/os/Environment;->isNoEmulatedStorageExist()Z
 
-    move-result v4
+    move-result v5
 
-    .line 381
-    .local v4, "noemulated":Z
+    .line 393
+    .local v5, "noemulated":Z
     invoke-static {p0}, Landroid/os/storage/StorageManager;->from(Landroid/content/Context;)Landroid/os/storage/StorageManager;
 
-    move-result-object v6
+    move-result-object v7
 
-    .line 383
-    .local v6, "storage":Landroid/os/storage/StorageManager;
-    const/4 v3, 0x0
+    .line 395
+    .local v7, "storage":Landroid/os/storage/StorageManager;
+    const/4 v4, 0x0
 
-    .line 384
-    .local v3, "fitsOnInternal":Z
+    .line 396
+    .local v4, "fitsOnInternal":Z
     if-nez v0, :cond_0
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    if-ne v5, v8, :cond_1
+    if-ne v6, v9, :cond_1
 
-    .line 385
+    .line 397
     :cond_0
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
-    move-result-object v7
+    move-result-object v8
 
-    .line 386
-    .local v7, "target":Ljava/io/File;
-    invoke-virtual {v6, v7}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
+    .line 398
+    .local v8, "target":Ljava/io/File;
+    invoke-virtual {v7, v8}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
 
-    move-result-wide v8
+    move-result-wide v10
 
-    cmp-long v8, p3, v8
+    cmp-long v9, p3, v10
 
-    if-gtz v8, :cond_b
+    if-gtz v9, :cond_d
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    .line 389
-    .end local v7    # "target":Ljava/io/File;
+    .line 401
+    .end local v8    # "target":Ljava/io/File;
     :cond_1
     :goto_2
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    .line 390
-    .local v2, "fitsOnExternal":Z
-    if-eqz v4, :cond_3
+    .line 402
+    .local v3, "fitsOnExternal":Z
+    if-nez v2, :cond_3
 
     if-nez v0, :cond_2
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    if-ne v5, v8, :cond_3
+    if-ne v6, v9, :cond_3
 
-    .line 391
+    .line 403
     :cond_2
-    new-instance v8, Landroid/os/Environment$UserEnvironment;
+    new-instance v9, Landroid/os/Environment$UserEnvironment;
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    invoke-direct {v8, v9}, Landroid/os/Environment$UserEnvironment;-><init>(I)V
+    invoke-direct {v9, v10}, Landroid/os/Environment$UserEnvironment;-><init>(I)V
 
-    invoke-virtual {v8}, Landroid/os/Environment$UserEnvironment;->getSecondaryStorageDirectory()Ljava/io/File;
+    invoke-virtual {v9}, Landroid/os/Environment$UserEnvironment;->getExternalStorageDirectory()Ljava/io/File;
 
-    move-result-object v7
+    move-result-object v8
 
-    .line 394
-    .restart local v7    # "target":Ljava/io/File;
-    const-wide/16 v8, 0x0
+    .line 406
+    .restart local v8    # "target":Ljava/io/File;
+    const-wide/16 v10, 0x0
 
-    cmp-long v8, p3, v8
+    cmp-long v9, p3, v10
 
-    if-lez v8, :cond_3
+    if-lez v9, :cond_3
 
-    .line 395
-    invoke-virtual {v6, v7}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
+    .line 407
+    invoke-virtual {v7, v8}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
 
-    move-result-wide v8
+    move-result-wide v10
 
-    cmp-long v8, p3, v8
+    cmp-long v9, p3, v10
 
-    if-gtz v8, :cond_c
+    if-gtz v9, :cond_e
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    .line 399
-    .end local v7    # "target":Ljava/io/File;
+    .line 411
+    .end local v8    # "target":Ljava/io/File;
     :cond_3
     :goto_3
-    const/4 v8, 0x1
+    if-eqz v5, :cond_5
 
-    if-ne v5, v8, :cond_d
+    if-nez v0, :cond_4
 
-    .line 400
-    if-eqz v3, :cond_e
+    const/4 v9, 0x2
 
-    .line 401
-    const/4 v8, 0x1
+    if-ne v6, v9, :cond_5
 
-    .line 426
-    :goto_4
-    return v8
-
-    .line 354
-    .end local v0    # "checkBoth":Z
-    .end local v2    # "fitsOnExternal":Z
-    .end local v3    # "fitsOnInternal":Z
-    .end local v4    # "noemulated":Z
-    .end local v5    # "prefer":I
-    .end local v6    # "storage":Landroid/os/storage/StorageManager;
+    .line 412
     :cond_4
-    and-int/lit8 v8, p5, 0x8
+    new-instance v9, Landroid/os/Environment$UserEnvironment;
 
-    if-eqz v8, :cond_5
+    const/4 v10, 0x0
 
-    .line 355
-    const/4 v5, 0x2
+    invoke-direct {v9, v10}, Landroid/os/Environment$UserEnvironment;-><init>(I)V
 
-    .line 356
-    .restart local v5    # "prefer":I
-    const/4 v0, 0x0
+    invoke-virtual {v9}, Landroid/os/Environment$UserEnvironment;->getSecondaryStorageDirectory()Ljava/io/File;
 
-    .restart local v0    # "checkBoth":Z
-    goto :goto_1
+    move-result-object v8
 
-    .line 357
-    .end local v0    # "checkBoth":Z
-    .end local v5    # "prefer":I
+    .line 415
+    .restart local v8    # "target":Ljava/io/File;
+    const-wide/16 v10, 0x0
+
+    cmp-long v9, p3, v10
+
+    if-lez v9, :cond_5
+
+    .line 416
+    invoke-virtual {v7, v8}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
+
+    move-result-wide v10
+
+    cmp-long v9, p3, v10
+
+    if-gtz v9, :cond_f
+
+    const/4 v9, 0x1
+
+    :goto_4
+    or-int/2addr v3, v9
+
+    .line 421
+    .end local v8    # "target":Ljava/io/File;
     :cond_5
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    if-ne p2, v8, :cond_6
+    if-ne v6, v9, :cond_10
 
-    .line 358
-    const/4 v5, 0x1
+    .line 422
+    if-eqz v4, :cond_11
 
-    .line 359
-    .restart local v5    # "prefer":I
-    const/4 v0, 0x0
+    .line 423
+    const/4 v9, 0x1
 
-    .restart local v0    # "checkBoth":Z
-    goto :goto_1
-
-    .line 360
-    .end local v0    # "checkBoth":Z
-    .end local v5    # "prefer":I
-    :cond_6
-    const/4 v8, 0x2
-
-    if-ne p2, v8, :cond_7
-
-    .line 361
-    const/4 v5, 0x2
-
-    .line 362
-    .restart local v5    # "prefer":I
-    const/4 v0, 0x1
-
-    .restart local v0    # "checkBoth":Z
-    goto :goto_1
-
-    .line 363
-    .end local v0    # "checkBoth":Z
-    .end local v5    # "prefer":I
-    :cond_7
-    if-nez p2, :cond_a
+    .line 451
+    :goto_5
+    return v9
 
     .line 365
-    if-eqz v1, :cond_9
+    .end local v0    # "checkBoth":Z
+    .end local v2    # "externalIsEmulated":Z
+    .end local v3    # "fitsOnExternal":Z
+    .end local v4    # "fitsOnInternal":Z
+    .end local v5    # "noemulated":Z
+    .end local v6    # "prefer":I
+    .end local v7    # "storage":Landroid/os/storage/StorageManager;
+    :cond_6
+    and-int/lit8 v9, p5, 0x8
+
+    if-eqz v9, :cond_7
 
     .line 366
-    iget v8, v1, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    const/high16 v9, 0x40000
-
-    and-int/2addr v8, v9
-
-    if-eqz v8, :cond_8
+    const/4 v6, 0x2
 
     .line 367
-    const/4 v5, 0x2
-
-    .line 374
-    .restart local v5    # "prefer":I
-    :goto_5
-    const/4 v0, 0x1
-
-    .restart local v0    # "checkBoth":Z
-    goto :goto_1
-
-    .line 369
-    .end local v0    # "checkBoth":Z
-    .end local v5    # "prefer":I
-    :cond_8
-    const/4 v5, 0x1
-
-    .restart local v5    # "prefer":I
-    goto :goto_5
-
-    .line 372
-    .end local v5    # "prefer":I
-    :cond_9
-    const/4 v5, 0x1
-
-    .restart local v5    # "prefer":I
-    goto :goto_5
-
-    .line 376
-    .end local v5    # "prefer":I
-    :cond_a
-    const/4 v5, 0x1
-
-    .line 377
-    .restart local v5    # "prefer":I
+    .restart local v6    # "prefer":I
     const/4 v0, 0x0
 
     .restart local v0    # "checkBoth":Z
     goto :goto_1
 
-    .line 386
-    .restart local v3    # "fitsOnInternal":Z
-    .restart local v4    # "noemulated":Z
-    .restart local v6    # "storage":Landroid/os/storage/StorageManager;
-    .restart local v7    # "target":Ljava/io/File;
+    .line 368
+    .end local v0    # "checkBoth":Z
+    .end local v6    # "prefer":I
+    :cond_7
+    const/4 v9, 0x1
+
+    if-ne p2, v9, :cond_8
+
+    .line 369
+    const/4 v6, 0x1
+
+    .line 370
+    .restart local v6    # "prefer":I
+    const/4 v0, 0x0
+
+    .restart local v0    # "checkBoth":Z
+    goto :goto_1
+
+    .line 371
+    .end local v0    # "checkBoth":Z
+    .end local v6    # "prefer":I
+    :cond_8
+    const/4 v9, 0x2
+
+    if-ne p2, v9, :cond_9
+
+    .line 372
+    const/4 v6, 0x2
+
+    .line 373
+    .restart local v6    # "prefer":I
+    const/4 v0, 0x1
+
+    .restart local v0    # "checkBoth":Z
+    goto :goto_1
+
+    .line 374
+    .end local v0    # "checkBoth":Z
+    .end local v6    # "prefer":I
+    :cond_9
+    if-nez p2, :cond_c
+
+    .line 376
+    if-eqz v1, :cond_b
+
+    .line 377
+    iget v9, v1, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    const/high16 v10, 0x40000
+
+    and-int/2addr v9, v10
+
+    if-eqz v9, :cond_a
+
+    .line 378
+    const/4 v6, 0x2
+
+    .line 385
+    .restart local v6    # "prefer":I
+    :goto_6
+    const/4 v0, 0x1
+
+    .restart local v0    # "checkBoth":Z
+    goto/16 :goto_1
+
+    .line 380
+    .end local v0    # "checkBoth":Z
+    .end local v6    # "prefer":I
+    :cond_a
+    const/4 v6, 0x1
+
+    .restart local v6    # "prefer":I
+    goto :goto_6
+
+    .line 383
+    .end local v6    # "prefer":I
     :cond_b
-    const/4 v3, 0x0
+    const/4 v6, 0x1
+
+    .restart local v6    # "prefer":I
+    goto :goto_6
+
+    .line 387
+    .end local v6    # "prefer":I
+    :cond_c
+    const/4 v6, 0x1
+
+    .line 388
+    .restart local v6    # "prefer":I
+    const/4 v0, 0x0
+
+    .restart local v0    # "checkBoth":Z
+    goto/16 :goto_1
+
+    .line 398
+    .restart local v2    # "externalIsEmulated":Z
+    .restart local v4    # "fitsOnInternal":Z
+    .restart local v5    # "noemulated":Z
+    .restart local v7    # "storage":Landroid/os/storage/StorageManager;
+    .restart local v8    # "target":Ljava/io/File;
+    :cond_d
+    const/4 v4, 0x0
 
     goto :goto_2
 
-    .line 395
-    .restart local v2    # "fitsOnExternal":Z
-    :cond_c
-    const/4 v2, 0x0
+    .line 407
+    .restart local v3    # "fitsOnExternal":Z
+    :cond_e
+    const/4 v3, 0x0
 
     goto :goto_3
 
-    .line 403
-    .end local v7    # "target":Ljava/io/File;
-    :cond_d
-    if-eqz v4, :cond_e
-
-    const/4 v8, 0x2
-
-    if-ne v5, v8, :cond_e
-
-    .line 404
-    if-eqz v2, :cond_e
-
-    .line 405
-    const/4 v8, 0x2
-
-    goto :goto_4
-
-    .line 409
-    :cond_e
-    if-eqz v0, :cond_10
-
-    .line 410
-    if-eqz v3, :cond_f
-
-    .line 411
-    const/4 v8, 0x1
-
-    goto :goto_4
-
-    .line 412
+    .line 416
     :cond_f
-    if-eqz v4, :cond_10
-
-    if-eqz v2, :cond_10
-
-    .line 413
-    const/4 v8, 0x2
+    const/4 v9, 0x0
 
     goto :goto_4
 
-    .line 422
+    .line 425
+    .end local v8    # "target":Ljava/io/File;
     :cond_10
+    const/4 v9, 0x2
+
+    if-ne v6, v9, :cond_11
+
+    .line 426
+    if-eqz v3, :cond_11
+
+    .line 427
+    const/4 v9, 0x2
+
+    goto :goto_5
+
+    .line 431
+    :cond_11
+    if-eqz v0, :cond_13
+
+    .line 432
     if-eqz v4, :cond_12
 
-    if-nez v0, :cond_11
+    .line 433
+    const/4 v9, 0x1
 
-    const/4 v8, 0x2
+    goto :goto_5
 
-    if-ne v5, v8, :cond_12
+    .line 434
+    :cond_12
+    if-eqz v3, :cond_13
 
-    :cond_11
-    const-string v8, "mounted"
+    .line 435
+    const/4 v9, 0x2
+
+    goto :goto_5
+
+    .line 444
+    :cond_13
+    if-nez v2, :cond_15
+
+    if-nez v0, :cond_14
+
+    const/4 v9, 0x2
+
+    if-ne v6, v9, :cond_15
+
+    :cond_14
+    const-string v9, "mounted"
+
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_15
+
+    .line 446
+    const/4 v9, -0x5
+
+    goto :goto_5
+
+    .line 447
+    :cond_15
+    if-eqz v5, :cond_17
+
+    if-nez v0, :cond_16
+
+    const/4 v9, 0x2
+
+    if-ne v6, v9, :cond_17
+
+    :cond_16
+    const-string v9, "mounted"
 
     invoke-static {}, Landroid/os/Environment;->getSecondaryStorageState()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_12
+    if-nez v9, :cond_17
 
-    .line 424
-    const/4 v8, -0x5
+    .line 449
+    const/4 v9, -0x5
 
-    goto :goto_4
+    goto :goto_5
 
-    .line 426
-    :cond_12
-    const/4 v8, -0x1
+    .line 451
+    :cond_17
+    const/4 v9, -0x1
 
-    goto :goto_4
+    goto :goto_5
 
-    .line 346
+    .line 357
     .end local v0    # "checkBoth":Z
-    .end local v2    # "fitsOnExternal":Z
-    .end local v3    # "fitsOnInternal":Z
-    .end local v4    # "noemulated":Z
-    .end local v5    # "prefer":I
-    .end local v6    # "storage":Landroid/os/storage/StorageManager;
+    .end local v2    # "externalIsEmulated":Z
+    .end local v3    # "fitsOnExternal":Z
+    .end local v4    # "fitsOnInternal":Z
+    .end local v5    # "noemulated":Z
+    .end local v6    # "prefer":I
+    .end local v7    # "storage":Landroid/os/storage/StorageManager;
     :catch_0
-    move-exception v8
+    move-exception v9
 
     goto/16 :goto_0
 .end method

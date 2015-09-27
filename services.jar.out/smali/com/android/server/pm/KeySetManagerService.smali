@@ -2735,7 +2735,7 @@
 
     .line 432
     .local v5, "knownKeySets":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/Long;>;"
-    invoke-virtual {v0, v5}, Landroid/util/ArraySet;->removeAll(Ljava/util/Collection;)Z
+    invoke-virtual {v0, v5}, Landroid/util/ArraySet;->removeAll(Landroid/util/ArraySet;)Z
 
     .line 433
     new-instance v6, Landroid/util/ArraySet;
@@ -2784,7 +2784,7 @@
     if-eqz v6, :cond_3
 
     .line 437
-    invoke-virtual {v1, v6}, Landroid/util/ArraySet;->removeAll(Ljava/util/Collection;)Z
+    invoke-virtual {v1, v6}, Landroid/util/ArraySet;->removeAll(Landroid/util/ArraySet;)Z
 
     goto :goto_1
 

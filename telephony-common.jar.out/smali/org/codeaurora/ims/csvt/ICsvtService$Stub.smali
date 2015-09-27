@@ -26,17 +26,17 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "org.codeaurora.ims.csvt.ICsvtService"
 
-.field static final TRANSACTION_acceptCall:I = 0x3
+.field static final TRANSACTION_acceptCall_2:I = 0x3
 
-.field static final TRANSACTION_dial:I = 0x1
+.field static final TRANSACTION_dial_0:I = 0x1
 
 .field static final TRANSACTION_fallBack:I = 0x5
 
-.field static final TRANSACTION_getCallForwardingOption:I = 0x9
+.field static final TRANSACTION_getCallForwardingOption_8:I = 0x9
 
-.field static final TRANSACTION_getCallWaiting:I = 0xb
+.field static final TRANSACTION_getCallWaiting_10:I = 0xb
 
-.field static final TRANSACTION_hangup:I = 0x2
+.field static final TRANSACTION_hangup_1:I = 0x2
 
 .field static final TRANSACTION_isActive:I = 0x7
 
@@ -48,9 +48,9 @@
 
 .field static final TRANSACTION_rejectCall:I = 0x4
 
-.field static final TRANSACTION_setCallForwardingOption:I = 0xa
+.field static final TRANSACTION_setCallForwardingOption_9:I = 0xa
 
-.field static final TRANSACTION_setCallWaiting:I = 0xc
+.field static final TRANSACTION_setCallWaiting_11:I = 0xc
 
 .field static final TRANSACTION_unregisterListener:I = 0xe
 

@@ -30,7 +30,7 @@
     .locals 2
 
     .prologue
-    .line 7217
+    .line 7250
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "callables"
@@ -41,7 +41,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Callable;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 7223
+    .line 7256
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Callable;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "filter"
@@ -59,7 +59,7 @@
     .locals 0
 
     .prologue
-    .line 7211
+    .line 7244
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

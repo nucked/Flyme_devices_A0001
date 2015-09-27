@@ -32,7 +32,7 @@
 
 .field static final TRANSACTION_getClient:I = 0x2
 
-.field static final TRANSACTION_getState:I = 0x1
+.field static final TRANSACTION_getState_0:I = 0x1
 
 .field static final TRANSACTION_isConnected:I = 0x5
 

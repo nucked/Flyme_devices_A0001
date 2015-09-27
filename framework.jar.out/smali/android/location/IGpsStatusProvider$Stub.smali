@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.location.IGpsStatusProvider"
 
-.field static final TRANSACTION_addGpsStatusListener:I = 0x1
+.field static final TRANSACTION_addGpsStatusListener_0:I = 0x1
 
 .field static final TRANSACTION_removeGpsStatusListener:I = 0x2
 

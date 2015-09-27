@@ -167,56 +167,56 @@
     .param p0, "flags"    # I
 
     .prologue
-    .line 520
+    .line 523
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 521
+    .line 524
     .local v0, "result":Ljava/lang/StringBuilder;
     and-int/lit8 v1, p0, 0x2
 
     if-eqz v1, :cond_0
 
-    .line 522
+    .line 525
     const-string v1, ", FLAG_SECURE"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 524
+    .line 527
     :cond_0
     and-int/lit8 v1, p0, 0x1
 
     if-eqz v1, :cond_1
 
-    .line 525
+    .line 528
     const-string v1, ", FLAG_SUPPORTS_PROTECTED_BUFFERS"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 527
+    .line 530
     :cond_1
     and-int/lit8 v1, p0, 0x4
 
     if-eqz v1, :cond_2
 
-    .line 528
+    .line 531
     const-string v1, ", FLAG_PRIVATE"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 530
+    .line 533
     :cond_2
     and-int/lit8 v1, p0, 0x8
 
     if-eqz v1, :cond_3
 
-    .line 531
+    .line 534
     const-string v1, ", FLAG_PRESENTATION"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 533
+    .line 536
     :cond_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -292,14 +292,36 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 446
     invoke-virtual {p2, p1}, Landroid/content/res/CompatibilityInfo;->applyToDisplayMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 448
+    .line 451
     :cond_0
+    :goto_0
     return-void
+
+    .line 447
+    :cond_1
+    iget v0, p0, Landroid/view/DisplayInfo;->type:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Landroid/view/DisplayInfo;->flags:I
+
+    and-int/lit8 v0, v0, 0x8
+
+    if-nez v0, :cond_0
+
+    .line 449
+    sget v0, Landroid/util/DisplayMetrics;->DENSITY_PREFERRED:I
+
+    invoke-virtual {p1, v0}, Landroid/util/DisplayMetrics;->setDensity(I)V
+
+    goto :goto_0
 .end method
 
 
@@ -1103,73 +1125,73 @@
     .locals 4
 
     .prologue
-    .line 453
+    .line 456
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 454
+    .line 457
     .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "DisplayInfo{\""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 455
+    .line 458
     iget-object v1, p0, Landroid/view/DisplayInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 456
+    .line 459
     const-string v1, "\", uniqueId \""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 457
+    .line 460
     iget-object v1, p0, Landroid/view/DisplayInfo;->uniqueId:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 458
+    .line 461
     const-string v1, "\", app "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 459
+    .line 462
     iget v1, p0, Landroid/view/DisplayInfo;->appWidth:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 460
+    .line 463
     const-string v1, " x "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 461
+    .line 464
     iget v1, p0, Landroid/view/DisplayInfo;->appHeight:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 462
+    .line 465
     const-string v1, ", real "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 463
+    .line 466
     iget v1, p0, Landroid/view/DisplayInfo;->logicalWidth:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 464
+    .line 467
     const-string v1, " x "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 465
+    .line 468
     iget v1, p0, Landroid/view/DisplayInfo;->logicalHeight:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 466
+    .line 469
     iget v1, p0, Landroid/view/DisplayInfo;->overscanLeft:I
 
     if-nez v1, :cond_0
@@ -1186,109 +1208,109 @@
 
     if-eqz v1, :cond_1
 
-    .line 467
+    .line 470
     :cond_0
     const-string v1, ", overscan ("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 468
+    .line 471
     iget v1, p0, Landroid/view/DisplayInfo;->overscanLeft:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 469
+    .line 472
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 470
+    .line 473
     iget v1, p0, Landroid/view/DisplayInfo;->overscanTop:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 471
+    .line 474
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 472
+    .line 475
     iget v1, p0, Landroid/view/DisplayInfo;->overscanRight:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 473
+    .line 476
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 474
+    .line 477
     iget v1, p0, Landroid/view/DisplayInfo;->overscanBottom:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 475
+    .line 478
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 477
+    .line 480
     :cond_1
     const-string v1, ", largest app "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 478
+    .line 481
     iget v1, p0, Landroid/view/DisplayInfo;->largestNominalAppWidth:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 479
+    .line 482
     const-string v1, " x "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 480
+    .line 483
     iget v1, p0, Landroid/view/DisplayInfo;->largestNominalAppHeight:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 481
+    .line 484
     const-string v1, ", smallest app "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 482
+    .line 485
     iget v1, p0, Landroid/view/DisplayInfo;->smallestNominalAppWidth:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 483
+    .line 486
     const-string v1, " x "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 484
+    .line 487
     iget v1, p0, Landroid/view/DisplayInfo;->smallestNominalAppHeight:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 485
+    .line 488
     const-string v1, ", "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 486
+    .line 489
     iget v1, p0, Landroid/view/DisplayInfo;->refreshRate:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 487
+    .line 490
     const-string v1, " fps, supportedRefreshRates "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 488
+    .line 491
     iget-object v1, p0, Landroid/view/DisplayInfo;->supportedRefreshRates:[F
 
     invoke-static {v1}, Ljava/util/Arrays;->toString([F)Ljava/lang/String;
@@ -1297,82 +1319,82 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 489
+    .line 492
     const-string v1, ", rotation "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 490
+    .line 493
     iget v1, p0, Landroid/view/DisplayInfo;->rotation:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 491
+    .line 494
     const-string v1, ", density "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 492
+    .line 495
     iget v1, p0, Landroid/view/DisplayInfo;->logicalDensityDpi:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 493
+    .line 496
     const-string v1, " ("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 494
+    .line 497
     iget v1, p0, Landroid/view/DisplayInfo;->physicalXDpi:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 495
+    .line 498
     const-string v1, " x "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 496
+    .line 499
     iget v1, p0, Landroid/view/DisplayInfo;->physicalYDpi:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 497
+    .line 500
     const-string v1, ") dpi, layerStack "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 498
+    .line 501
     iget v1, p0, Landroid/view/DisplayInfo;->layerStack:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 499
+    .line 502
     const-string v1, ", appVsyncOff "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 500
+    .line 503
     iget-wide v2, p0, Landroid/view/DisplayInfo;->appVsyncOffsetNanos:J
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 501
+    .line 504
     const-string v1, ", presDeadline "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 502
+    .line 505
     iget-wide v2, p0, Landroid/view/DisplayInfo;->presentationDeadlineNanos:J
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 503
+    .line 506
     const-string v1, ", type "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 504
+    .line 507
     iget v1, p0, Landroid/view/DisplayInfo;->type:I
 
     invoke-static {v1}, Landroid/view/Display;->typeToString(I)Ljava/lang/String;
@@ -1381,12 +1403,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 505
+    .line 508
     iget-object v1, p0, Landroid/view/DisplayInfo;->address:Ljava/lang/String;
 
     if-eqz v1, :cond_2
 
-    .line 506
+    .line 509
     const-string v1, ", address "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1397,13 +1419,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 508
+    .line 511
     :cond_2
     const-string v1, ", state "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 509
+    .line 512
     iget v1, p0, Landroid/view/DisplayInfo;->state:I
 
     invoke-static {v1}, Landroid/view/Display;->stateToString(I)Ljava/lang/String;
@@ -1412,7 +1434,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 510
+    .line 513
     iget v1, p0, Landroid/view/DisplayInfo;->ownerUid:I
 
     if-nez v1, :cond_3
@@ -1421,7 +1443,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 511
+    .line 514
     :cond_3
     const-string v1, ", owner "
 
@@ -1433,7 +1455,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 512
+    .line 515
     const-string v1, " (uid "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1450,7 +1472,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 514
+    .line 517
     :cond_4
     iget v1, p0, Landroid/view/DisplayInfo;->flags:I
 
@@ -1460,12 +1482,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 515
+    .line 518
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 516
+    .line 519
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

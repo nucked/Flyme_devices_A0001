@@ -28,9 +28,9 @@
 
 .field static final TRANSACTION_onInputRestrictedStateChanged:I = 0x3
 
-.field static final TRANSACTION_onShowingStateChanged:I = 0x1
+.field static final TRANSACTION_onShowingStateChanged_0:I = 0x1
 
-.field static final TRANSACTION_onSimSecureStateChanged:I = 0x2
+.field static final TRANSACTION_onSimSecureStateChanged_1:I = 0x2
 
 
 # direct methods

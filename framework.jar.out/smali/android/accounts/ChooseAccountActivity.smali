@@ -402,7 +402,7 @@
 
     .line 75
     :cond_1
-    const v3, 0x109003f
+    const v3, 0x109003c
 
     invoke-virtual {p0, v3}, Landroid/accounts/ChooseAccountActivity;->setContentView(I)V
 

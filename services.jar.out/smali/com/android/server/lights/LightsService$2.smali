@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 203
+    .line 182
     iput-object p1, p0, Lcom/android/server/lights/LightsService$2;->this$0:Lcom/android/server/lights/LightsService;
 
     invoke-direct {p0}, Lcom/android/server/lights/LightsManager;-><init>()V
@@ -38,51 +38,21 @@
     .param p1, "id"    # I
 
     .prologue
-    .line 206
-    const/16 v0, 0x8
+    .line 185
+    const/16 v0, 0xa
 
     if-ge p1, v0, :cond_0
 
-    .line 207
+    .line 186
     iget-object v0, p0, Lcom/android/server/lights/LightsService$2;->this$0:Lcom/android/server/lights/LightsService;
 
     iget-object v0, v0, Lcom/android/server/lights/LightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
 
     aget-object v0, v0, p1
 
-    .line 209
+    .line 188
     :goto_0
     return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getLightState(I)Z
-    .locals 1
-    .param p1, "id"    # I
-
-    .prologue
-    .line 215
-    iget-object v0, p0, Lcom/android/server/lights/LightsService$2;->this$0:Lcom/android/server/lights/LightsService;
-
-    iget-object v0, v0, Lcom/android/server/lights/LightsService;->mLights:[Lcom/android/server/lights/LightsService$LightImpl;
-
-    aget-object v0, v0, p1
-
-    # getter for: Lcom/android/server/lights/LightsService$LightImpl;->mColor:I
-    invoke-static {v0}, Lcom/android/server/lights/LightsService$LightImpl;->access$300(Lcom/android/server/lights/LightsService$LightImpl;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
 
     :cond_0
     const/4 v0, 0x0

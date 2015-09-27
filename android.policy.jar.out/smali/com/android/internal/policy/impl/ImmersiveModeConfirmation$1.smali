@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 315
+    .line 314
     iput-object p1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 319
+    .line 318
     iget-object v0, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
     # getter for: Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mConfirmed:Z
@@ -50,7 +50,7 @@
 
     if-nez v0, :cond_0
 
-    .line 320
+    .line 319
     iget-object v0, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
     const/4 v1, 0x1
@@ -58,19 +58,19 @@
     # setter for: Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->mConfirmed:Z
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->access$602(Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;Z)Z
 
-    .line 321
+    .line 320
     iget-object v0, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
     # invokes: Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->saveSetting()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->access$700(Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;)V
 
-    .line 323
+    .line 322
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
     # invokes: Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->handleHide()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;->access$800(Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;)V
 
-    .line 324
+    .line 323
     return-void
 .end method

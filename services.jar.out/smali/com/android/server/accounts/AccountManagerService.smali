@@ -1656,7 +1656,7 @@
 
     iget-object v4, v0, Lcom/android/server/accounts/AccountManagerService;->mContext:Landroid/content/Context;
 
-    const v5, 0x104058b
+    const v5, 0x1040625
 
     const/4 v6, 0x1
 
@@ -1736,7 +1736,7 @@
 
     move-result-object v4
 
-    const v5, 0x1060059
+    const v5, 0x106005c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1946,7 +1946,7 @@
 
     .line 3010
     .local v10, "contextForUser":Landroid/content/Context;
-    const v4, 0x104011f
+    const v4, 0x10401c0
 
     invoke-virtual {v10, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1962,7 +1962,7 @@
 
     move-result-object v4
 
-    const v5, 0x1060059
+    const v5, 0x106005c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2584,7 +2584,7 @@
 
     move-result-object v21
 
-    const v22, 0x1040078
+    const v22, 0x1040117
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

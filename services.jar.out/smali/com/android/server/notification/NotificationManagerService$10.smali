@@ -1,11 +1,14 @@
 .class Lcom/android/server/notification/NotificationManagerService$10;
-.super Landroid/telephony/PhoneStateListener;
+.super Ljava/lang/Object;
 .source "NotificationManagerService.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/notification/NotificationManagerService;->listenForCallState()V
+    value = Lcom/android/server/notification/NotificationManagerService;->isNotificationSpam(Landroid/app/Notification;Ljava/lang/String;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,81 +20,66 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/notification/NotificationManagerService;
 
+.field final synthetic val$notifId:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NotificationManagerService;)V
+.method constructor <init>(Lcom/android/server/notification/NotificationManagerService;I)V
     .locals 0
 
     .prologue
-    .line 2990
+    .line 2663
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
+    iput p2, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$notifId:I
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onCallStateChanged(ILjava/lang/String;)V
-    .locals 3
-    .param p1, "state"    # I
-    .param p2, "incomingNumber"    # Ljava/lang/String;
+.method public run()V
+    .locals 4
 
     .prologue
-    .line 2993
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    const/4 v3, 0x0
 
-    # getter for: Lcom/android/server/notification/NotificationManagerService;->mCallState:I
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$4700(Lcom/android/server/notification/NotificationManagerService;)I
-
-    move-result v0
-
-    if-ne v0, p1, :cond_0
-
-    .line 2996
-    :goto_0
-    return-void
-
-    .line 2994
-    :cond_0
-    sget-boolean v0, Lcom/android/server/notification/NotificationManagerService;->DBG:Z
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "NotificationService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Call state changed: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 2666
+    # getter for: Lcom/android/server/notification/NotificationManagerService;->UPDATE_MSG_URI:Landroid/net/Uri;
+    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->access$5800()Landroid/net/Uri;
 
     move-result-object v1
 
-    # invokes: Lcom/android/server/notification/NotificationManagerService;->callStateToString(I)Ljava/lang/String;
-    invoke-static {p1}, Lcom/android/server/notification/NotificationManagerService;->access$4800(I)Ljava/lang/String;
+    iget v2, p0, Lcom/android/server/notification/NotificationManagerService$10;->val$notifId:I
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1, v2}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    .line 2667
+    .local v0, "updateUri":Landroid/net/Uri;
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-virtual {v1}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v2, Landroid/content/ContentValues;
 
-    .line 2995
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$10;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
 
-    # setter for: Lcom/android/server/notification/NotificationManagerService;->mCallState:I
-    invoke-static {v0, p1}, Lcom/android/server/notification/NotificationManagerService;->access$4702(Lcom/android/server/notification/NotificationManagerService;I)I
+    invoke-virtual {v1, v0, v2, v3, v3}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    goto :goto_0
+    .line 2669
+    return-void
 .end method

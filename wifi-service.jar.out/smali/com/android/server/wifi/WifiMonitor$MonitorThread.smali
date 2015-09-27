@@ -27,18 +27,18 @@
     .param p2, "wifiMonitorSingleton"    # Lcom/android/server/wifi/WifiMonitor$WifiMonitorSingleton;
 
     .prologue
-    .line 732
+    .line 727
     const-string v0, "WifiMonitor"
 
     invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
-    .line 733
+    .line 728
     iput-object p1, p0, Lcom/android/server/wifi/WifiMonitor$MonitorThread;->mWifiNative:Lcom/android/server/wifi/WifiNative;
 
-    .line 734
+    .line 729
     iput-object p2, p0, Lcom/android/server/wifi/WifiMonitor$MonitorThread;->mWifiMonitorSingleton:Lcom/android/server/wifi/WifiMonitor$WifiMonitorSingleton;
 
-    .line 735
+    .line 730
     return-void
 .end method
 
@@ -48,7 +48,7 @@
     .locals 4
 
     .prologue
-    .line 740
+    .line 735
     :cond_0
     iget-object v1, p0, Lcom/android/server/wifi/WifiMonitor$MonitorThread;->mWifiMonitorSingleton:Lcom/android/server/wifi/WifiMonitor$WifiMonitorSingleton;
 
@@ -59,19 +59,19 @@
 
     if-nez v1, :cond_2
 
-    .line 741
+    .line 736
     const-string v1, "WifiMonitor"
 
     const-string v2, "MonitorThread exit because mConnected is false"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 757
+    .line 752
     :cond_1
     :goto_0
     return-void
 
-    .line 745
+    .line 740
     :cond_2
     iget-object v1, p0, Lcom/android/server/wifi/WifiMonitor$MonitorThread;->mWifiNative:Lcom/android/server/wifi/WifiNative;
 
@@ -79,7 +79,7 @@
 
     move-result-object v0
 
-    .line 748
+    .line 743
     .local v0, "eventStr":Ljava/lang/String;
     # getter for: Lcom/android/server/wifi/WifiMonitor;->DBG:Z
     invoke-static {}, Lcom/android/server/wifi/WifiMonitor;->access$300()Z
@@ -98,7 +98,7 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 749
+    .line 744
     const-string v1, "WifiMonitor"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -127,7 +127,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 752
+    .line 747
     :cond_3
     iget-object v1, p0, Lcom/android/server/wifi/WifiMonitor$MonitorThread;->mWifiMonitorSingleton:Lcom/android/server/wifi/WifiMonitor$WifiMonitorSingleton;
 
@@ -138,7 +138,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 753
+    .line 748
     # getter for: Lcom/android/server/wifi/WifiMonitor;->DBG:Z
     invoke-static {}, Lcom/android/server/wifi/WifiMonitor;->access$300()Z
 

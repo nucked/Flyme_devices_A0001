@@ -24,7 +24,7 @@
     .param p2, "x0"    # Landroid/os/Looper;
 
     .prologue
-    .line 273
+    .line 271
     iput-object p1, p0, Landroid/telecom/ConnectionService$2;->this$0:Landroid/telecom/ConnectionService;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -39,19 +39,19 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 276
+    .line 274
     move-object/from16 v0, p1
 
     iget v1, v0, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 435
+    .line 433
     :goto_0
     :pswitch_0
     return-void
 
-    .line 278
+    .line 276
     :pswitch_1
     move-object/from16 v0, p0
 
@@ -70,7 +70,7 @@
 
     invoke-virtual {v2, v1}, Landroid/telecom/ConnectionServiceAdapter;->addAdapter(Lcom/android/internal/telecom/IConnectionServiceAdapter;)V
 
-    .line 279
+    .line 277
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/telecom/ConnectionService$2;->this$0:Landroid/telecom/ConnectionService;
@@ -80,7 +80,7 @@
 
     goto :goto_0
 
-    .line 282
+    .line 280
     :pswitch_2
     move-object/from16 v0, p0
 
@@ -101,7 +101,7 @@
 
     goto :goto_0
 
-    .line 285
+    .line 283
     :pswitch_3
     move-object/from16 v0, p1
 
@@ -109,26 +109,26 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 287
+    .line 285
     .local v8, "args":Lcom/android/internal/os/SomeArgs;
     :try_start_0
     iget-object v3, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v3, Landroid/telecom/PhoneAccountHandle;
 
-    .line 289
+    .line 287
     .local v3, "connectionManagerPhoneAccount":Landroid/telecom/PhoneAccountHandle;
     iget-object v4, v8, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v4, Ljava/lang/String;
 
-    .line 290
+    .line 288
     .local v4, "id":Ljava/lang/String;
     iget-object v5, v8, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
     check-cast v5, Landroid/telecom/ConnectionRequest;
 
-    .line 291
+    .line 289
     .local v5, "request":Landroid/telecom/ConnectionRequest;
     iget v1, v8, Lcom/android/internal/os/SomeArgs;->argi1:I
 
@@ -138,7 +138,7 @@
 
     const/4 v6, 0x1
 
-    .line 292
+    .line 290
     .local v6, "isIncoming":Z
     :goto_1
     iget v1, v8, Lcom/android/internal/os/SomeArgs;->argi2:I
@@ -149,7 +149,7 @@
 
     const/4 v7, 0x1
 
-    .line 293
+    .line 291
     .local v7, "isUnknown":Z
     :goto_2
     move-object/from16 v0, p0
@@ -163,7 +163,7 @@
 
     if-nez v1, :cond_2
 
-    .line 294
+    .line 292
     const-string v1, "Enqueueing pre-init request %s"
 
     const/4 v2, 0x1
@@ -178,7 +178,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 295
+    .line 293
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/telecom/ConnectionService$2;->this$0:Landroid/telecom/ConnectionService;
@@ -200,13 +200,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 315
+    .line 313
     :goto_3
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto :goto_0
 
-    .line 291
+    .line 289
     .end local v6    # "isIncoming":Z
     .end local v7    # "isUnknown":Z
     :cond_0
@@ -214,14 +214,14 @@
 
     goto :goto_1
 
-    .line 292
+    .line 290
     .restart local v6    # "isIncoming":Z
     :cond_1
     const/4 v7, 0x0
 
     goto :goto_2
 
-    .line 307
+    .line 305
     .restart local v7    # "isUnknown":Z
     :cond_2
     :try_start_1
@@ -236,7 +236,7 @@
 
     goto :goto_3
 
-    .line 315
+    .line 313
     .end local v3    # "connectionManagerPhoneAccount":Landroid/telecom/PhoneAccountHandle;
     .end local v4    # "id":Ljava/lang/String;
     .end local v5    # "request":Landroid/telecom/ConnectionRequest;
@@ -249,7 +249,7 @@
 
     throw v1
 
-    .line 320
+    .line 318
     .end local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_4
     move-object/from16 v0, p0
@@ -267,7 +267,7 @@
 
     goto/16 :goto_0
 
-    .line 323
+    .line 321
     :pswitch_5
     move-object/from16 v0, p0
 
@@ -284,7 +284,7 @@
 
     goto/16 :goto_0
 
-    .line 326
+    .line 324
     :pswitch_6
     move-object/from16 v0, p1
 
@@ -292,20 +292,20 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 328
+    .line 326
     .restart local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_2
     iget-object v10, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/String;
 
-    .line 329
+    .line 327
     .local v10, "callId":Ljava/lang/String;
     iget v0, v8, Lcom/android/internal/os/SomeArgs;->argi1:I
 
     move/from16 v17, v0
 
-    .line 330
+    .line 328
     .local v17, "videoState":I
     move-object/from16 v0, p0
 
@@ -318,7 +318,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 332
+    .line 330
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
@@ -332,7 +332,7 @@
 
     throw v1
 
-    .line 337
+    .line 335
     .end local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_7
     move-object/from16 v0, p0
@@ -350,7 +350,7 @@
 
     goto/16 :goto_0
 
-    .line 340
+    .line 338
     :pswitch_8
     move-object/from16 v0, p0
 
@@ -367,7 +367,7 @@
 
     goto/16 :goto_0
 
-    .line 343
+    .line 341
     :pswitch_9
     move-object/from16 v0, p0
 
@@ -384,7 +384,7 @@
 
     goto/16 :goto_0
 
-    .line 346
+    .line 344
     :pswitch_a
     move-object/from16 v0, p0
 
@@ -401,7 +401,7 @@
 
     goto/16 :goto_0
 
-    .line 349
+    .line 347
     :pswitch_b
     move-object/from16 v0, p1
 
@@ -409,20 +409,20 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 351
+    .line 349
     .restart local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_3
     iget-object v10, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/String;
 
-    .line 352
+    .line 350
     .restart local v10    # "callId":Ljava/lang/String;
     iget-object v9, v8, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v9, Landroid/telecom/AudioState;
 
-    .line 353
+    .line 351
     .local v9, "audioState":Landroid/telecom/AudioState;
     move-object/from16 v0, p0
 
@@ -433,7 +433,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    .line 355
+    .line 353
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
@@ -447,7 +447,7 @@
 
     throw v1
 
-    .line 360
+    .line 358
     .end local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_c
     move-object/from16 v0, p0
@@ -479,7 +479,7 @@
 
     goto/16 :goto_0
 
-    .line 363
+    .line 361
     :pswitch_d
     move-object/from16 v0, p0
 
@@ -496,7 +496,7 @@
 
     goto/16 :goto_0
 
-    .line 366
+    .line 364
     :pswitch_e
     move-object/from16 v0, p1
 
@@ -504,18 +504,18 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 368
+    .line 366
     .restart local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_4
     iget-object v10, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/String;
 
-    .line 369
+    .line 367
     .restart local v10    # "callId":Ljava/lang/String;
     iget v13, v8, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    .line 370
+    .line 368
     .local v13, "lchStatus":I
     move-object/from16 v0, p0
 
@@ -526,7 +526,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
-    .line 372
+    .line 370
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
@@ -540,7 +540,7 @@
 
     throw v1
 
-    .line 377
+    .line 375
     .end local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_f
     move-object/from16 v0, p0
@@ -558,7 +558,7 @@
 
     goto/16 :goto_0
 
-    .line 380
+    .line 378
     :pswitch_10
     move-object/from16 v0, p1
 
@@ -566,20 +566,20 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 382
+    .line 380
     .restart local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_5
     iget-object v11, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v11, Ljava/lang/String;
 
-    .line 383
+    .line 381
     .local v11, "callId1":Ljava/lang/String;
     iget-object v12, v8, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v12, Ljava/lang/String;
 
-    .line 384
+    .line 382
     .local v12, "callId2":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -590,7 +590,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_4
 
-    .line 386
+    .line 384
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
@@ -604,7 +604,7 @@
 
     throw v1
 
-    .line 391
+    .line 389
     .end local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_11
     move-object/from16 v0, p0
@@ -622,7 +622,7 @@
 
     goto/16 :goto_0
 
-    .line 394
+    .line 392
     :pswitch_12
     move-object/from16 v0, p1
 
@@ -630,20 +630,20 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 396
+    .line 394
     .restart local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_6
     iget-object v10, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/String;
 
-    .line 397
+    .line 395
     .restart local v10    # "callId":Ljava/lang/String;
     iget-object v15, v8, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v15, Ljava/lang/String;
 
-    .line 398
+    .line 396
     .local v15, "participant":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -654,7 +654,7 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_5
 
-    .line 400
+    .line 398
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
@@ -668,7 +668,7 @@
 
     throw v1
 
-    .line 405
+    .line 403
     .end local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_13
     move-object/from16 v0, p0
@@ -686,7 +686,7 @@
 
     goto/16 :goto_0
 
-    .line 408
+    .line 406
     :pswitch_14
     move-object/from16 v0, p0
 
@@ -703,7 +703,7 @@
 
     goto/16 :goto_0
 
-    .line 411
+    .line 409
     :pswitch_15
     move-object/from16 v0, p1
 
@@ -711,14 +711,14 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 413
+    .line 411
     .restart local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_7
     iget-object v10, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/String;
 
-    .line 414
+    .line 412
     .restart local v10    # "callId":Ljava/lang/String;
     iget v1, v8, Lcom/android/internal/os/SomeArgs;->argi1:I
 
@@ -728,7 +728,7 @@
 
     const/16 v16, 0x1
 
-    .line 415
+    .line 413
     .local v16, "proceed":Z
     :goto_4
     move-object/from16 v0, p0
@@ -742,19 +742,19 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_6
 
-    .line 417
+    .line 415
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
-    .line 414
+    .line 412
     .end local v16    # "proceed":Z
     :cond_3
     const/16 v16, 0x0
 
     goto :goto_4
 
-    .line 417
+    .line 415
     .end local v10    # "callId":Ljava/lang/String;
     :catchall_6
     move-exception v1
@@ -763,7 +763,7 @@
 
     throw v1
 
-    .line 422
+    .line 420
     .end local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :pswitch_16
     move-object/from16 v0, p1
@@ -772,20 +772,20 @@
 
     check-cast v8, Lcom/android/internal/os/SomeArgs;
 
-    .line 424
+    .line 422
     .restart local v8    # "args":Lcom/android/internal/os/SomeArgs;
     :try_start_8
     iget-object v10, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/String;
 
-    .line 425
+    .line 423
     .restart local v10    # "callId":Ljava/lang/String;
     iget-object v14, v8, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v14, Ljava/lang/String;
 
-    .line 426
+    .line 424
     .local v14, "number":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -796,7 +796,7 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_7
 
-    .line 428
+    .line 426
     invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
@@ -810,7 +810,7 @@
 
     throw v1
 
-    .line 276
+    .line 274
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

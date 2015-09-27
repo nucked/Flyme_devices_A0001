@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 220
+    .line 200
     iput-object p1, p0, Landroid/wipower/WipowerManager$2;->this$0:Landroid/wipower/WipowerManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .param p2, "service"    # Landroid/os/IBinder;
 
     .prologue
-    .line 222
+    .line 202
     invoke-static {p2}, Landroid/wipower/IWipower$Stub;->asInterface(Landroid/os/IBinder;)Landroid/wipower/IWipower;
 
     move-result-object v1
@@ -50,7 +50,7 @@
     # setter for: Landroid/wipower/WipowerManager;->mService:Landroid/wipower/IWipower;
     invoke-static {v1}, Landroid/wipower/WipowerManager;->access$102(Landroid/wipower/IWipower;)Landroid/wipower/IWipower;
 
-    .line 224
+    .line 204
     const-string v1, "WipowerManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -78,7 +78,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 226
+    .line 206
     :try_start_0
     # getter for: Landroid/wipower/WipowerManager;->mService:Landroid/wipower/IWipower;
     invoke-static {}, Landroid/wipower/WipowerManager;->access$100()Landroid/wipower/IWipower;
@@ -96,7 +96,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 231
+    .line 211
     :goto_0
     const-string v1, "WipowerManager"
 
@@ -104,19 +104,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 232
+    .line 212
     iget-object v1, p0, Landroid/wipower/WipowerManager$2;->this$0:Landroid/wipower/WipowerManager;
 
     invoke-virtual {v1}, Landroid/wipower/WipowerManager;->updateWipowerReady()V
 
-    .line 234
+    .line 214
     return-void
 
-    .line 227
+    .line 207
     :catch_0
     move-exception v0
 
-    .line 228
+    .line 208
     .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "WipowerManager"
 
@@ -132,14 +132,14 @@
     .param p1, "className"    # Landroid/content/ComponentName;
 
     .prologue
-    .line 236
+    .line 216
     const-string v1, "WipowerManager"
 
     const-string v2, "Proxy object disconnected"
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 238
+    .line 218
     :try_start_0
     # getter for: Landroid/wipower/WipowerManager;->mService:Landroid/wipower/IWipower;
     invoke-static {}, Landroid/wipower/WipowerManager;->access$100()Landroid/wipower/IWipower;
@@ -157,21 +157,21 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 242
+    .line 222
     :goto_0
     const/4 v1, 0x0
 
     # setter for: Landroid/wipower/WipowerManager;->mService:Landroid/wipower/IWipower;
     invoke-static {v1}, Landroid/wipower/WipowerManager;->access$102(Landroid/wipower/IWipower;)Landroid/wipower/IWipower;
 
-    .line 243
+    .line 223
     return-void
 
-    .line 239
+    .line 219
     :catch_0
     move-exception v0
 
-    .line 240
+    .line 220
     .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "WipowerManager"
 

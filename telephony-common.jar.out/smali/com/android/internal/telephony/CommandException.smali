@@ -411,6 +411,7 @@
         :pswitch_1c
         :pswitch_14
         :pswitch_1d
+        :pswitch_0
         :pswitch_13
     .end packed-switch
 .end method

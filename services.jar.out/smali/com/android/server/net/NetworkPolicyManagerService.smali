@@ -471,14 +471,14 @@
 
     iput-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mAlertObserver:Landroid/net/INetworkManagementEventObserver;
 
-    .line 958
+    .line 959
     new-instance v1, Lcom/android/server/net/NetworkPolicyManagerService$13;
 
     invoke-direct {v1, p0}, Lcom/android/server/net/NetworkPolicyManagerService$13;-><init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
 
     iput-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mConnReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 2045
+    .line 2046
     new-instance v1, Lcom/android/server/net/NetworkPolicyManagerService$14;
 
     invoke-direct {v1, p0}, Lcom/android/server/net/NetworkPolicyManagerService$14;-><init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
@@ -665,7 +665,7 @@
     .locals 2
 
     .prologue
-    .line 2226
+    .line 2218
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.server.net.action.ALLOW_BACKGROUND"
@@ -680,12 +680,12 @@
     .param p0, "template"    # Landroid/net/NetworkTemplate;
 
     .prologue
-    .line 2236
+    .line 2228
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 2237
+    .line 2229
     .local v0, "intent":Landroid/content/Intent;
     new-instance v1, Landroid/content/ComponentName;
 
@@ -697,17 +697,17 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 2239
+    .line 2231
     const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 2240
+    .line 2232
     const-string v1, "android.net.NETWORK_TEMPLATE"
 
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 2241
+    .line 2233
     return-object v0
 .end method
 
@@ -717,7 +717,7 @@
     .param p2, "type"    # I
 
     .prologue
-    .line 783
+    .line 784
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -760,20 +760,20 @@
     .param p0, "template"    # Landroid/net/NetworkTemplate;
 
     .prologue
-    .line 2230
+    .line 2222
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.server.net.action.SNOOZE_WARNING"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2231
+    .line 2223
     .local v0, "intent":Landroid/content/Intent;
     const-string v1, "android.net.NETWORK_TEMPLATE"
 
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 2232
+    .line 2224
     return-object v0
 .end method
 
@@ -782,12 +782,12 @@
     .param p0, "template"    # Landroid/net/NetworkTemplate;
 
     .prologue
-    .line 2245
+    .line 2237
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 2246
+    .line 2238
     .local v0, "intent":Landroid/content/Intent;
     new-instance v1, Landroid/content/ComponentName;
 
@@ -799,17 +799,17 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 2248
+    .line 2240
     const/high16 v1, 0x10000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 2249
+    .line 2241
     const-string v1, "android.net.NETWORK_TEMPLATE"
 
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 2250
+    .line 2242
     return-object v0
 .end method
 
@@ -818,7 +818,7 @@
     .param p1, "tag"    # Ljava/lang/String;
 
     .prologue
-    .line 946
+    .line 947
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
@@ -826,7 +826,7 @@
 
     move-result-object v0
 
-    .line 947
+    .line 948
     .local v0, "packageName":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNotifManager:Landroid/app/INotificationManager;
 
@@ -838,12 +838,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 952
+    .line 953
     .end local v0    # "packageName":Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 949
+    .line 950
     :catch_0
     move-exception v1
 
@@ -856,12 +856,12 @@
     .param p1, "target"    # Landroid/util/SparseBooleanArray;
 
     .prologue
-    .line 2259
+    .line 2251
     invoke-virtual {p0}, Landroid/util/SparseIntArray;->size()I
 
     move-result v1
 
-    .line 2260
+    .line 2252
     .local v1, "size":I
     const/4 v0, 0x0
 
@@ -869,7 +869,7 @@
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 2261
+    .line 2253
     invoke-virtual {p0, v0}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v2
@@ -878,12 +878,12 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    .line 2260
+    .line 2252
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2263
+    .line 2255
     :cond_0
     return-void
 .end method
@@ -892,7 +892,7 @@
     .locals 2
 
     .prologue
-    .line 2222
+    .line 2214
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mTime:Landroid/util/TrustedTime;
 
     invoke-interface {v0}, Landroid/util/TrustedTime;->hasCache()Z
@@ -924,17 +924,17 @@
     .param p1, "value"    # Landroid/util/SparseIntArray;
 
     .prologue
-    .line 2266
+    .line 2258
     const-string v2, "["
 
     invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 2267
+    .line 2259
     invoke-virtual {p1}, Landroid/util/SparseIntArray;->size()I
 
     move-result v1
 
-    .line 2268
+    .line 2260
     .local v1, "size":I
     const/4 v0, 0x0
 
@@ -942,7 +942,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 2269
+    .line 2261
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -975,7 +975,7 @@
 
     invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 2270
+    .line 2262
     add-int/lit8 v2, v1, -0x1
 
     if-ge v0, v2, :cond_0
@@ -984,19 +984,19 @@
 
     invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 2268
+    .line 2260
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2272
+    .line 2264
     :cond_1
     const-string v2, "]"
 
     invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 2273
+    .line 2265
     return-void
 .end method
 
@@ -1007,12 +1007,12 @@
     .param p3, "totalBytes"    # J
 
     .prologue
-    .line 791
+    .line 792
     invoke-direct/range {p0 .. p2}, Lcom/android/server/net/NetworkPolicyManagerService;->buildNotificationTag(Landroid/net/NetworkPolicy;I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 792
+    .line 793
     .local v5, "tag":Ljava/lang/String;
     new-instance v11, Landroid/app/Notification$Builder;
 
@@ -1022,18 +1022,18 @@
 
     invoke-direct {v11, v2}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 793
+    .line 794
     .local v11, "builder":Landroid/app/Notification$Builder;
     const/4 v2, 0x1
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
 
-    .line 794
+    .line 795
     const-wide/16 v6, 0x0
 
     invoke-virtual {v11, v6, v7}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
-    .line 795
+    .line 796
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -1042,7 +1042,7 @@
 
     move-result-object v2
 
-    const v4, 0x1060059
+    const v4, 0x106005c
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1050,7 +1050,7 @@
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
-    .line 798
+    .line 799
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -1059,11 +1059,11 @@
 
     move-result-object v16
 
-    .line 799
+    .line 800
     .local v16, "res":Landroid/content/res/Resources;
     packed-switch p2, :pswitch_data_0
 
-    .line 894
+    .line 895
     :goto_0
     :try_start_0
     move-object/from16 v0, p0
@@ -1074,13 +1074,13 @@
 
     move-result-object v3
 
-    .line 895
+    .line 896
     .local v3, "packageName":Ljava/lang/String;
     const/4 v2, 0x1
 
     new-array v8, v2, [I
 
-    .line 896
+    .line 897
     .local v8, "idReceived":[I
     move-object/from16 v0, p0
 
@@ -1098,7 +1098,7 @@
 
     invoke-interface/range {v2 .. v9}, Landroid/app/INotificationManager;->enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[II)V
 
-    .line 899
+    .line 900
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
@@ -1107,15 +1107,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 903
+    .line 904
     .end local v3    # "packageName":Ljava/lang/String;
     .end local v8    # "idReceived":[I
     :goto_1
     return-void
 
-    .line 801
+    .line 802
     :pswitch_0
-    const v2, 0x10405f3
+    const v2, 0x1040688
 
     move-object/from16 v0, v16
 
@@ -1123,9 +1123,9 @@
 
     move-result-object v18
 
-    .line 802
+    .line 803
     .local v18, "title":Ljava/lang/CharSequence;
-    const v2, 0x10405f4
+    const v2, 0x1040689
 
     move-object/from16 v0, v16
 
@@ -1133,26 +1133,26 @@
 
     move-result-object v10
 
-    .line 804
+    .line 805
     .local v10, "body":Ljava/lang/CharSequence;
     const v2, 0x1080078
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
-    .line 805
+    .line 806
     move-object/from16 v0, v18
 
     invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 806
+    .line 807
     move-object/from16 v0, v18
 
     invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 807
+    .line 808
     invoke-virtual {v11, v10}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 809
+    .line 810
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
@@ -1161,7 +1161,7 @@
 
     move-result-object v17
 
-    .line 810
+    .line 811
     .local v17, "snoozeIntent":Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -1179,7 +1179,7 @@
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setDeleteIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
-    .line 813
+    .line 814
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
@@ -1188,7 +1188,7 @@
 
     move-result-object v19
 
-    .line 814
+    .line 815
     .local v19, "viewIntent":Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -1208,13 +1208,13 @@
 
     goto :goto_0
 
-    .line 820
+    .line 821
     .end local v10    # "body":Ljava/lang/CharSequence;
     .end local v17    # "snoozeIntent":Landroid/content/Intent;
     .end local v18    # "title":Ljava/lang/CharSequence;
     .end local v19    # "viewIntent":Landroid/content/Intent;
     :pswitch_1
-    const v2, 0x10405f9
+    const v2, 0x104068e
 
     move-object/from16 v0, v16
 
@@ -1222,11 +1222,11 @@
 
     move-result-object v10
 
-    .line 823
-    .restart local v10    # "body":Ljava/lang/CharSequence;
-    const v12, 0x108067d
-
     .line 824
+    .restart local v10    # "body":Ljava/lang/CharSequence;
+    const v12, 0x1080654
+
+    .line 825
     .local v12, "icon":I
     move-object/from16 v0, p1
 
@@ -1238,33 +1238,33 @@
 
     packed-switch v2, :pswitch_data_1
 
-    .line 839
+    .line 840
     const/16 v18, 0x0
 
-    .line 843
+    .line 844
     .restart local v18    # "title":Ljava/lang/CharSequence;
     :goto_2
     const/4 v2, 0x1
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
-    .line 844
-    invoke-virtual {v11, v12}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
-
     .line 845
-    move-object/from16 v0, v18
-
-    invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+    invoke-virtual {v11, v12}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     .line 846
     move-object/from16 v0, v18
 
-    invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+    invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 847
+    move-object/from16 v0, v18
+
+    invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    .line 848
     invoke-virtual {v11, v10}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 849
+    .line 850
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
@@ -1273,7 +1273,7 @@
 
     move-result-object v13
 
-    .line 850
+    .line 851
     .local v13, "intent":Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -1291,11 +1291,11 @@
 
     goto/16 :goto_0
 
-    .line 826
+    .line 827
     .end local v13    # "intent":Landroid/content/Intent;
     .end local v18    # "title":Ljava/lang/CharSequence;
     :pswitch_2
-    const v2, 0x10405f5
+    const v2, 0x104068a
 
     move-object/from16 v0, v16
 
@@ -1303,44 +1303,29 @@
 
     move-result-object v18
 
-    .line 827
+    .line 828
     .restart local v18    # "title":Ljava/lang/CharSequence;
     goto :goto_2
-
-    .line 829
-    .end local v18    # "title":Ljava/lang/CharSequence;
-    :pswitch_3
-    const v2, 0x10405f6
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v18
 
     .line 830
-    .restart local v18    # "title":Ljava/lang/CharSequence;
-    goto :goto_2
-
-    .line 832
     .end local v18    # "title":Ljava/lang/CharSequence;
-    :pswitch_4
-    const v2, 0x10405f7
+    :pswitch_3
+    const v2, 0x104068b
 
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v18
+
+    .line 831
+    .restart local v18    # "title":Ljava/lang/CharSequence;
+    goto :goto_2
 
     .line 833
-    .restart local v18    # "title":Ljava/lang/CharSequence;
-    goto :goto_2
-
-    .line 835
     .end local v18    # "title":Ljava/lang/CharSequence;
-    :pswitch_5
-    const v2, 0x10405f8
+    :pswitch_4
+    const v2, 0x104068c
 
     move-object/from16 v0, v16
 
@@ -1348,14 +1333,29 @@
 
     move-result-object v18
 
+    .line 834
+    .restart local v18    # "title":Ljava/lang/CharSequence;
+    goto :goto_2
+
     .line 836
+    .end local v18    # "title":Ljava/lang/CharSequence;
+    :pswitch_5
+    const v2, 0x104068d
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v18
+
+    .line 837
     .restart local v18    # "title":Ljava/lang/CharSequence;
     const v12, 0x1080078
 
-    .line 837
+    .line 838
     goto :goto_2
 
-    .line 855
+    .line 856
     .end local v10    # "body":Ljava/lang/CharSequence;
     .end local v12    # "icon":I
     .end local v18    # "title":Ljava/lang/CharSequence;
@@ -1366,9 +1366,9 @@
 
     sub-long v14, p3, v6
 
-    .line 856
+    .line 857
     .local v14, "overBytes":J
-    const v2, 0x10405fe
+    const v2, 0x1040693
 
     const/4 v4, 0x1
 
@@ -1392,7 +1392,7 @@
 
     move-result-object v10
 
-    .line 860
+    .line 861
     .restart local v10    # "body":Ljava/lang/CharSequence;
     move-object/from16 v0, p1
 
@@ -1404,35 +1404,35 @@
 
     packed-switch v2, :pswitch_data_2
 
-    .line 874
+    .line 875
     const/16 v18, 0x0
 
-    .line 878
+    .line 879
     .restart local v18    # "title":Ljava/lang/CharSequence;
     :goto_3
     const/4 v2, 0x1
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
-    .line 879
+    .line 880
     const v2, 0x1080078
 
     invoke-virtual {v11, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
-    .line 880
+    .line 881
     move-object/from16 v0, v18
 
     invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 881
+    .line 882
     move-object/from16 v0, v18
 
     invoke-virtual {v11, v0}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 882
+    .line 883
     invoke-virtual {v11, v10}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 884
+    .line 885
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
@@ -1441,7 +1441,7 @@
 
     move-result-object v13
 
-    .line 885
+    .line 886
     .restart local v13    # "intent":Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -1459,11 +1459,11 @@
 
     goto/16 :goto_0
 
-    .line 862
+    .line 863
     .end local v13    # "intent":Landroid/content/Intent;
     .end local v18    # "title":Ljava/lang/CharSequence;
     :pswitch_7
-    const v2, 0x10405fa
+    const v2, 0x104068f
 
     move-object/from16 v0, v16
 
@@ -1471,44 +1471,29 @@
 
     move-result-object v18
 
-    .line 863
+    .line 864
     .restart local v18    # "title":Ljava/lang/CharSequence;
     goto :goto_3
-
-    .line 865
-    .end local v18    # "title":Ljava/lang/CharSequence;
-    :pswitch_8
-    const v2, 0x10405fb
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v18
 
     .line 866
-    .restart local v18    # "title":Ljava/lang/CharSequence;
-    goto :goto_3
-
-    .line 868
     .end local v18    # "title":Ljava/lang/CharSequence;
-    :pswitch_9
-    const v2, 0x10405fc
+    :pswitch_8
+    const v2, 0x1040690
 
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v18
+
+    .line 867
+    .restart local v18    # "title":Ljava/lang/CharSequence;
+    goto :goto_3
 
     .line 869
-    .restart local v18    # "title":Ljava/lang/CharSequence;
-    goto :goto_3
-
-    .line 871
     .end local v18    # "title":Ljava/lang/CharSequence;
-    :pswitch_a
-    const v2, 0x10405fd
+    :pswitch_9
+    const v2, 0x1040691
 
     move-object/from16 v0, v16
 
@@ -1516,11 +1501,26 @@
 
     move-result-object v18
 
-    .line 872
+    .line 870
     .restart local v18    # "title":Ljava/lang/CharSequence;
     goto :goto_3
 
-    .line 900
+    .line 872
+    .end local v18    # "title":Ljava/lang/CharSequence;
+    :pswitch_a
+    const v2, 0x1040692
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v18
+
+    .line 873
+    .restart local v18    # "title":Ljava/lang/CharSequence;
+    goto :goto_3
+
+    .line 901
     .end local v10    # "body":Ljava/lang/CharSequence;
     .end local v14    # "overBytes":J
     .end local v18    # "title":Ljava/lang/CharSequence;
@@ -1529,7 +1529,7 @@
 
     goto/16 :goto_1
 
-    .line 799
+    .line 800
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1537,7 +1537,7 @@
         :pswitch_6
     .end packed-switch
 
-    .line 824
+    .line 825
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_4
@@ -1546,7 +1546,7 @@
         :pswitch_5
     .end packed-switch
 
-    .line 860
+    .line 861
     :pswitch_data_2
     .packed-switch 0x1
         :pswitch_9
@@ -1565,14 +1565,14 @@
 
     const/4 v3, 0x0
 
-    .line 910
+    .line 911
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
 
-    .line 911
+    .line 912
     .local v11, "res":Landroid/content/res/Resources;
     new-instance v9, Landroid/app/Notification$Builder;
 
@@ -1580,51 +1580,51 @@
 
     invoke-direct {v9, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 913
+    .line 914
     .local v9, "builder":Landroid/app/Notification$Builder;
-    const v0, 0x10405ff
+    const v0, 0x1040694
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v12
 
-    .line 914
+    .line 915
     .local v12, "title":Ljava/lang/CharSequence;
-    const v0, 0x1040600
+    const v0, 0x1040695
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 916
+    .line 917
     .local v8, "body":Ljava/lang/CharSequence;
     invoke-virtual {v9, v2}, Landroid/app/Notification$Builder;->setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
 
-    .line 917
+    .line 918
     invoke-virtual {v9, v2}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
-    .line 918
+    .line 919
     const v0, 0x1080078
 
     invoke-virtual {v9, v0}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
-    .line 919
+    .line 920
     invoke-virtual {v9, v12}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 920
+    .line 921
     invoke-virtual {v9, v12}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 921
+    .line 922
     invoke-virtual {v9, v8}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 922
+    .line 923
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v2, 0x1060059
+    const v2, 0x106005c
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1632,12 +1632,12 @@
 
     invoke-virtual {v9, v0}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
-    .line 925
+    .line 926
     invoke-static {}, Lcom/android/server/net/NetworkPolicyManagerService;->buildAllowBackgroundDataIntent()Landroid/content/Intent;
 
     move-result-object v10
 
-    .line 926
+    .line 927
     .local v10, "intent":Landroid/content/Intent;
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
@@ -1649,7 +1649,7 @@
 
     invoke-virtual {v9, v0}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
-    .line 932
+    .line 933
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
@@ -1657,13 +1657,13 @@
 
     move-result-object v1
 
-    .line 933
+    .line 934
     .local v1, "packageName":Ljava/lang/String;
     const/4 v0, 0x1
 
     new-array v6, v0, [I
 
-    .line 934
+    .line 935
     .local v6, "idReceived":[I
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNotifManager:Landroid/app/INotificationManager;
 
@@ -1681,20 +1681,20 @@
 
     invoke-interface/range {v0 .. v7}, Landroid/app/INotificationManager;->enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[II)V
 
-    .line 936
+    .line 937
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 940
+    .line 941
     .end local v1    # "packageName":Ljava/lang/String;
     .end local v6    # "idReceived":[I
     :goto_0
     return-void
 
-    .line 937
+    .line 938
     :catch_0
     move-exception v0
 
@@ -1705,19 +1705,19 @@
     .locals 24
 
     .prologue
-    .line 1206
+    .line 1207
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mSuppressDefaultPolicy:Z
 
     if-eqz v3, :cond_1
 
-    .line 1245
+    .line 1246
     :cond_0
     :goto_0
     return-void
 
-    .line 1208
+    .line 1209
     :cond_1
     move-object/from16 v0, p0
 
@@ -1727,7 +1727,7 @@
 
     move-result-object v22
 
-    .line 1211
+    .line 1212
     .local v22, "tele":Landroid/telephony/TelephonyManager;
     invoke-direct/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->isDdsSimStateReady()Z
 
@@ -1735,7 +1735,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 1213
+    .line 1214
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubId()I
 
     move-result v3
@@ -1746,7 +1746,7 @@
 
     move-result-object v5
 
-    .line 1214
+    .line 1215
     .local v5, "subscriberId":Ljava/lang/String;
     new-instance v2, Landroid/net/NetworkIdentity;
 
@@ -1760,11 +1760,11 @@
 
     invoke-direct/range {v2 .. v7}, Landroid/net/NetworkIdentity;-><init>(IILjava/lang/String;Ljava/lang/String;Z)V
 
-    .line 1218
+    .line 1219
     .local v2, "probeIdent":Landroid/net/NetworkIdentity;
     const/16 v21, 0x0
 
-    .line 1219
+    .line 1220
     .local v21, "mobileDefined":Z
     move-object/from16 v0, p0
 
@@ -1780,7 +1780,7 @@
     :goto_1
     if-ltz v20, :cond_2
 
-    .line 1220
+    .line 1221
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
@@ -1801,21 +1801,21 @@
 
     if-eqz v3, :cond_3
 
-    .line 1221
+    .line 1222
     const/16 v21, 0x1
 
-    .line 1226
+    .line 1227
     :cond_2
     if-nez v21, :cond_0
 
-    .line 1227
+    .line 1228
     const-string v3, "NetworkPolicy"
 
     const-string v4, "no policy for active mobile network; generating default policy"
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1230
+    .line 1231
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -1824,7 +1824,7 @@
 
     move-result-object v3
 
-    const v4, 0x10e006d
+    const v4, 0x10e0072
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1836,34 +1836,34 @@
 
     mul-long v10, v12, v14
 
-    .line 1234
+    .line 1235
     .local v10, "warningBytes":J
     new-instance v23, Landroid/text/format/Time;
 
     invoke-direct/range {v23 .. v23}, Landroid/text/format/Time;-><init>()V
 
-    .line 1235
+    .line 1236
     .local v23, "time":Landroid/text/format/Time;
     invoke-virtual/range {v23 .. v23}, Landroid/text/format/Time;->setToNow()V
 
-    .line 1237
+    .line 1238
     move-object/from16 v0, v23
 
     iget v8, v0, Landroid/text/format/Time;->monthDay:I
 
-    .line 1238
+    .line 1239
     .local v8, "cycleDay":I
     move-object/from16 v0, v23
 
     iget-object v9, v0, Landroid/text/format/Time;->timezone:Ljava/lang/String;
 
-    .line 1240
+    .line 1241
     .local v9, "cycleTimezone":Ljava/lang/String;
     invoke-static {v5}, Landroid/net/NetworkTemplate;->buildTemplateMobileAll(Ljava/lang/String;)Landroid/net/NetworkTemplate;
 
     move-result-object v7
 
-    .line 1241
+    .line 1242
     .local v7, "template":Landroid/net/NetworkTemplate;
     new-instance v6, Landroid/net/NetworkPolicy;
 
@@ -1879,7 +1879,7 @@
 
     invoke-direct/range {v6 .. v19}, Landroid/net/NetworkPolicy;-><init>(Landroid/net/NetworkTemplate;ILjava/lang/String;JJJJZZ)V
 
-    .line 1243
+    .line 1244
     .local v6, "policy":Landroid/net/NetworkPolicy;
     move-object/from16 v0, p0
 
@@ -1887,7 +1887,7 @@
 
     goto/16 :goto_0
 
-    .line 1219
+    .line 1220
     .end local v6    # "policy":Landroid/net/NetworkPolicy;
     .end local v7    # "template":Landroid/net/NetworkTemplate;
     .end local v8    # "cycleDay":I
@@ -1905,7 +1905,7 @@
     .param p1, "ident"    # Landroid/net/NetworkIdentity;
 
     .prologue
-    .line 1696
+    .line 1697
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
     invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
@@ -1918,7 +1918,7 @@
     :goto_0
     if-ltz v0, :cond_1
 
-    .line 1697
+    .line 1698
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
     invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
@@ -1927,7 +1927,7 @@
 
     check-cast v1, Landroid/net/NetworkPolicy;
 
-    .line 1698
+    .line 1699
     .local v1, "policy":Landroid/net/NetworkPolicy;
     iget-object v2, v1, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
@@ -1937,19 +1937,19 @@
 
     if-eqz v2, :cond_0
 
-    .line 1702
+    .line 1703
     .end local v1    # "policy":Landroid/net/NetworkPolicy;
     :goto_1
     return-object v1
 
-    .line 1696
+    .line 1697
     .restart local v1    # "policy":Landroid/net/NetworkPolicy;
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 1702
+    .line 1703
     .end local v1    # "policy":Landroid/net/NetworkPolicy;
     :cond_1
     const/4 v1, 0x0
@@ -1962,7 +1962,7 @@
     .param p1, "state"    # Landroid/net/NetworkState;
 
     .prologue
-    .line 1720
+    .line 1721
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -1973,7 +1973,7 @@
 
     move-result-object v8
 
-    .line 1723
+    .line 1724
     .local v8, "ident":Landroid/net/NetworkIdentity;
     move-object/from16 v0, p0
 
@@ -1981,7 +1981,7 @@
 
     monitor-enter v3
 
-    .line 1724
+    .line 1725
     :try_start_0
     move-object/from16 v0, p0
 
@@ -1989,13 +1989,13 @@
 
     move-result-object v18
 
-    .line 1725
+    .line 1726
     .local v18, "policy":Landroid/net/NetworkPolicy;
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1727
+    .line 1728
     if-eqz v18, :cond_0
 
     invoke-virtual/range {v18 .. v18}, Landroid/net/NetworkPolicy;->hasCycle()Z
@@ -2004,15 +2004,15 @@
 
     if-nez v2, :cond_1
 
-    .line 1729
+    .line 1730
     :cond_0
     const/4 v9, 0x0
 
-    .line 1745
+    .line 1746
     :goto_0
     return-object v9
 
-    .line 1725
+    .line 1726
     .end local v18    # "policy":Landroid/net/NetworkPolicy;
     :catchall_0
     move-exception v2
@@ -2024,24 +2024,24 @@
 
     throw v2
 
-    .line 1732
+    .line 1733
     .restart local v18    # "policy":Landroid/net/NetworkPolicy;
     :cond_1
     invoke-direct/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->currentTimeMillis()J
 
     move-result-wide v16
 
-    .line 1735
+    .line 1736
     .local v16, "currentTime":J
     invoke-static/range {v16 .. v18}, Landroid/net/NetworkPolicyManager;->computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
 
     move-result-wide v4
 
-    .line 1736
+    .line 1737
     .local v4, "start":J
     move-wide/from16 v6, v16
 
-    .line 1737
+    .line 1738
     .local v6, "end":J
     move-object/from16 v0, v18
 
@@ -2053,7 +2053,7 @@
 
     move-result-wide v10
 
-    .line 1740
+    .line 1741
     .local v10, "totalBytes":J
     move-object/from16 v0, v18
 
@@ -2069,7 +2069,7 @@
 
     iget-wide v12, v0, Landroid/net/NetworkPolicy;->warningBytes:J
 
-    .line 1742
+    .line 1743
     .local v12, "softLimitBytes":J
     :goto_1
     move-object/from16 v0, v18
@@ -2086,7 +2086,7 @@
 
     iget-wide v14, v0, Landroid/net/NetworkPolicy;->limitBytes:J
 
-    .line 1745
+    .line 1746
     .local v14, "hardLimitBytes":J
     :goto_2
     new-instance v9, Landroid/net/NetworkQuotaInfo;
@@ -2095,7 +2095,7 @@
 
     goto :goto_0
 
-    .line 1740
+    .line 1741
     .end local v12    # "softLimitBytes":J
     .end local v14    # "hardLimitBytes":J
     :cond_2
@@ -2103,7 +2103,7 @@
 
     goto :goto_1
 
-    .line 1742
+    .line 1743
     .restart local v12    # "softLimitBytes":J
     :cond_3
     const-wide/16 v14, -0x1
@@ -2138,7 +2138,7 @@
     .prologue
     const-wide/16 v8, 0x0
 
-    .line 2190
+    .line 2182
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkStats:Landroid/net/INetworkStatsService;
 
@@ -2155,15 +2155,15 @@
 
     move-result-wide v0
 
-    .line 2196
+    .line 2188
     :goto_0
     return-wide v0
 
-    .line 2191
+    .line 2183
     :catch_0
     move-exception v6
 
-    .line 2192
+    .line 2184
     .local v6, "e":Ljava/lang/RuntimeException;
     const-string v0, "NetworkPolicy"
 
@@ -2189,10 +2189,10 @@
 
     move-wide v0, v8
 
-    .line 2193
+    .line 2185
     goto :goto_0
 
-    .line 2194
+    .line 2186
     .end local v6    # "e":Ljava/lang/RuntimeException;
     :catch_1
     move-exception v6
@@ -2200,7 +2200,7 @@
     .local v6, "e":Landroid/os/RemoteException;
     move-wide v0, v8
 
-    .line 2196
+    .line 2188
     goto :goto_0
 .end method
 
@@ -2208,12 +2208,12 @@
     .locals 4
 
     .prologue
-    .line 2201
+    .line 2193
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    .line 2203
+    .line 2195
     .local v2, "token":J
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkManager:Landroid/os/INetworkManagementService;
@@ -2225,21 +2225,21 @@
 
     move-result v1
 
-    .line 2208
+    .line 2200
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_0
     return v1
 
-    .line 2204
+    .line 2196
     :catch_0
     move-exception v0
 
-    .line 2206
+    .line 2198
     .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    .line 2208
+    .line 2200
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_0
@@ -2257,14 +2257,14 @@
     .locals 4
 
     .prologue
-    .line 2277
+    .line 2269
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {v2}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
     move-result-object v1
 
-    .line 2278
+    .line 2270
     .local v1, "tm":Landroid/telephony/TelephonyManager;
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubId()I
 
@@ -2274,7 +2274,7 @@
 
     move-result v0
 
-    .line 2279
+    .line 2271
     .local v0, "slotId":I
     invoke-virtual {v1, v0}, Landroid/telephony/TelephonyManager;->getSimState(I)I
 
@@ -2300,14 +2300,14 @@
     .param p1, "template"    # Landroid/net/NetworkTemplate;
 
     .prologue
-    .line 744
+    .line 745
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
-    .line 746
+    .line 747
     .local v0, "tele":Landroid/telephony/TelephonyManager;
     invoke-virtual {p1}, Landroid/net/NetworkTemplate;->getMatchRule()I
 
@@ -2315,13 +2315,13 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 760
+    .line 761
     const/4 v1, 0x1
 
     :goto_0
     return v1
 
-    .line 752
+    .line 753
     :pswitch_0
     invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->isDdsSimStateReady()Z
 
@@ -2329,7 +2329,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 753
+    .line 754
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubId()I
 
     move-result v1
@@ -2348,13 +2348,13 @@
 
     goto :goto_0
 
-    .line 757
+    .line 758
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 746
+    .line 747
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2368,7 +2368,7 @@
     .param p0, "uid"    # I
 
     .prologue
-    .line 1988
+    .line 1989
     const/16 v0, 0x3f5
 
     if-eq p0, v0, :cond_0
@@ -2383,11 +2383,11 @@
 
     if-eqz v0, :cond_1
 
-    .line 1990
+    .line 1991
     :cond_0
     const/4 v0, 0x1
 
-    .line 1993
+    .line 1994
     :goto_0
     return v0
 
@@ -2402,7 +2402,7 @@
     .param p1, "template"    # Landroid/net/NetworkTemplate;
 
     .prologue
-    .line 768
+    .line 769
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mOverLimitNotified:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
@@ -2411,7 +2411,7 @@
 
     if-nez v0, :cond_0
 
-    .line 769
+    .line 770
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {p1}, Lcom/android/server/net/NetworkPolicyManagerService;->buildNetworkOverLimitIntent(Landroid/net/NetworkTemplate;)Landroid/content/Intent;
@@ -2420,12 +2420,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 770
+    .line 771
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mOverLimitNotified:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 772
+    .line 773
     :cond_0
     return-void
 .end method
@@ -2435,12 +2435,12 @@
     .param p1, "template"    # Landroid/net/NetworkTemplate;
 
     .prologue
-    .line 775
+    .line 776
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mOverLimitNotified:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    .line 776
+    .line 777
     return-void
 .end method
 
@@ -2448,24 +2448,24 @@
     .locals 32
 
     .prologue
-    .line 1251
+    .line 1252
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
     invoke-virtual {v4}, Landroid/util/ArrayMap;->clear()V
 
-    .line 1252
+    .line 1253
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
     invoke-virtual {v4}, Landroid/util/SparseIntArray;->clear()V
 
-    .line 1254
+    .line 1255
     const/16 v20, 0x0
 
-    .line 1256
+    .line 1257
     .local v20, "fis":Ljava/io/FileInputStream;
     :try_start_0
     move-object/from16 v0, p0
@@ -2476,12 +2476,12 @@
 
     move-result-object v20
 
-    .line 1257
+    .line 1258
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v21
 
-    .line 1258
+    .line 1259
     .local v21, "in":Lorg/xmlpull/v1/XmlPullParser;
     const/4 v4, 0x0
 
@@ -2491,10 +2491,10 @@
 
     invoke-interface {v0, v1, v4}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    .line 1261
+    .line 1262
     const/16 v29, 0x1
 
-    .line 1262
+    .line 1263
     .local v29, "version":I
     :cond_0
     :goto_0
@@ -2509,12 +2509,12 @@
 
     if-eq v0, v4, :cond_e
 
-    .line 1263
+    .line 1264
     invoke-interface/range {v21 .. v21}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v26
 
-    .line 1264
+    .line 1265
     .local v26, "tag":Ljava/lang/String;
     const/4 v4, 0x2
 
@@ -2522,7 +2522,7 @@
 
     if-ne v0, v4, :cond_0
 
-    .line 1265
+    .line 1266
     const-string v4, "policy-list"
 
     move-object/from16 v0, v26
@@ -2533,7 +2533,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 1266
+    .line 1267
     const-string v4, "version"
 
     move-object/from16 v0, v21
@@ -2542,14 +2542,14 @@
 
     move-result v29
 
-    .line 1267
+    .line 1268
     const/4 v4, 0x3
 
     move/from16 v0, v29
 
     if-lt v0, v4, :cond_1
 
-    .line 1268
+    .line 1269
     const-string v4, "restrictBackground"
 
     move-object/from16 v0, v21
@@ -2569,7 +2569,7 @@
 
     goto :goto_0
 
-    .line 1357
+    .line 1358
     .end local v21    # "in":Lorg/xmlpull/v1/XmlPullParser;
     .end local v26    # "tag":Ljava/lang/String;
     .end local v27    # "type":I
@@ -2577,22 +2577,22 @@
     :catch_0
     move-exception v19
 
-    .line 1359
+    .line 1360
     .local v19, "e":Ljava/io/FileNotFoundException;
     :try_start_1
     invoke-direct/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->upgradeLegacyBackgroundData()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1365
+    .line 1366
     invoke-static/range {v20 .. v20}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    .line 1367
+    .line 1368
     .end local v19    # "e":Ljava/io/FileNotFoundException;
     :goto_1
     return-void
 
-    .line 1271
+    .line 1272
     .restart local v21    # "in":Lorg/xmlpull/v1/XmlPullParser;
     .restart local v26    # "tag":Ljava/lang/String;
     .restart local v27    # "type":I
@@ -2612,7 +2612,7 @@
 
     goto :goto_0
 
-    .line 1360
+    .line 1361
     .end local v21    # "in":Lorg/xmlpull/v1/XmlPullParser;
     .end local v26    # "tag":Ljava/lang/String;
     .end local v27    # "type":I
@@ -2620,7 +2620,7 @@
     :catch_1
     move-exception v19
 
-    .line 1361
+    .line 1362
     .local v19, "e":Ljava/io/IOException;
     :try_start_3
     const-string v4, "NetworkPolicy"
@@ -2635,12 +2635,12 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 1365
+    .line 1366
     invoke-static/range {v20 .. v20}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     goto :goto_1
 
-    .line 1274
+    .line 1275
     .end local v19    # "e":Ljava/io/IOException;
     .restart local v21    # "in":Lorg/xmlpull/v1/XmlPullParser;
     .restart local v26    # "tag":Ljava/lang/String;
@@ -2658,7 +2658,7 @@
 
     if-eqz v4, :cond_a
 
-    .line 1275
+    .line 1276
     const-string v4, "networkTemplate"
 
     move-object/from16 v0, v21
@@ -2667,7 +2667,7 @@
 
     move-result v23
 
-    .line 1276
+    .line 1277
     .local v23, "networkTemplate":I
     const/4 v4, 0x0
 
@@ -2681,7 +2681,7 @@
 
     move-result-object v25
 
-    .line 1278
+    .line 1279
     .local v25, "subscriberId":Ljava/lang/String;
     const/16 v4, 0x9
 
@@ -2689,7 +2689,7 @@
 
     if-lt v0, v4, :cond_3
 
-    .line 1279
+    .line 1280
     const/4 v4, 0x0
 
     const-string v30, "networkId"
@@ -2702,7 +2702,7 @@
 
     move-result-object v22
 
-    .line 1283
+    .line 1284
     .local v22, "networkId":Ljava/lang/String;
     :goto_2
     const-string v4, "cycleDay"
@@ -2713,7 +2713,7 @@
 
     move-result v6
 
-    .line 1285
+    .line 1286
     .local v6, "cycleDay":I
     const/4 v4, 0x6
 
@@ -2721,7 +2721,7 @@
 
     if-lt v0, v4, :cond_4
 
-    .line 1286
+    .line 1287
     const/4 v4, 0x0
 
     const-string v30, "cycleTimezone"
@@ -2734,7 +2734,7 @@
 
     move-result-object v7
 
-    .line 1290
+    .line 1291
     .local v7, "cycleTimezone":Ljava/lang/String;
     :goto_3
     const-string v4, "warningBytes"
@@ -2745,7 +2745,7 @@
 
     move-result-wide v8
 
-    .line 1291
+    .line 1292
     .local v8, "warningBytes":J
     const-string v4, "limitBytes"
 
@@ -2755,7 +2755,7 @@
 
     move-result-wide v10
 
-    .line 1293
+    .line 1294
     .local v10, "limitBytes":J
     const/4 v4, 0x5
 
@@ -2763,7 +2763,7 @@
 
     if-lt v0, v4, :cond_5
 
-    .line 1294
+    .line 1295
     const-string v4, "lastLimitSnooze"
 
     move-object/from16 v0, v21
@@ -2772,7 +2772,7 @@
 
     move-result-wide v14
 
-    .line 1301
+    .line 1302
     .local v14, "lastLimitSnooze":J
     :goto_4
     const/4 v4, 0x4
@@ -2781,7 +2781,7 @@
 
     if-lt v0, v4, :cond_7
 
-    .line 1302
+    .line 1303
     const-string v4, "metered"
 
     move-object/from16 v0, v21
@@ -2790,7 +2790,7 @@
 
     move-result v16
 
-    .line 1315
+    .line 1316
     .local v16, "metered":Z
     :goto_5
     const/4 v4, 0x5
@@ -2799,7 +2799,7 @@
 
     if-lt v0, v4, :cond_8
 
-    .line 1316
+    .line 1317
     const-string v4, "lastWarningSnooze"
 
     move-object/from16 v0, v21
@@ -2808,7 +2808,7 @@
 
     move-result-wide v12
 
-    .line 1321
+    .line 1322
     .local v12, "lastWarningSnooze":J
     :goto_6
     const/4 v4, 0x7
@@ -2817,7 +2817,7 @@
 
     if-lt v0, v4, :cond_9
 
-    .line 1322
+    .line 1323
     const-string v4, "inferred"
 
     move-object/from16 v0, v21
@@ -2826,7 +2826,7 @@
 
     move-result v17
 
-    .line 1327
+    .line 1328
     .local v17, "inferred":Z
     :goto_7
     new-instance v5, Landroid/net/NetworkTemplate;
@@ -2839,7 +2839,7 @@
 
     invoke-direct {v5, v0, v1, v2}, Landroid/net/NetworkTemplate;-><init>(ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 1329
+    .line 1330
     .local v5, "template":Landroid/net/NetworkTemplate;
     move-object/from16 v0, p0
 
@@ -2862,7 +2862,7 @@
 
     goto/16 :goto_0
 
-    .line 1362
+    .line 1363
     .end local v5    # "template":Landroid/net/NetworkTemplate;
     .end local v6    # "cycleDay":I
     .end local v7    # "cycleTimezone":Ljava/lang/String;
@@ -2882,7 +2882,7 @@
     :catch_2
     move-exception v19
 
-    .line 1363
+    .line 1364
     .local v19, "e":Lorg/xmlpull/v1/XmlPullParserException;
     :try_start_5
     const-string v4, "NetworkPolicy"
@@ -2897,12 +2897,12 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 1365
+    .line 1366
     invoke-static/range {v20 .. v20}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     goto/16 :goto_1
 
-    .line 1281
+    .line 1282
     .end local v19    # "e":Lorg/xmlpull/v1/XmlPullParserException;
     .restart local v21    # "in":Lorg/xmlpull/v1/XmlPullParser;
     .restart local v23    # "networkTemplate":I
@@ -2916,7 +2916,7 @@
     .restart local v22    # "networkId":Ljava/lang/String;
     goto/16 :goto_2
 
-    .line 1288
+    .line 1289
     .restart local v6    # "cycleDay":I
     :cond_4
     :try_start_6
@@ -2925,7 +2925,7 @@
     .restart local v7    # "cycleTimezone":Ljava/lang/String;
     goto :goto_3
 
-    .line 1295
+    .line 1296
     .restart local v8    # "warningBytes":J
     .restart local v10    # "limitBytes":J
     :cond_5
@@ -2935,7 +2935,7 @@
 
     if-lt v0, v4, :cond_6
 
-    .line 1296
+    .line 1297
     const-string v4, "lastSnooze"
 
     move-object/from16 v0, v21
@@ -2947,7 +2947,7 @@
     .restart local v14    # "lastLimitSnooze":J
     goto :goto_4
 
-    .line 1298
+    .line 1299
     .end local v14    # "lastLimitSnooze":J
     :cond_6
     const-wide/16 v14, -0x1
@@ -2955,40 +2955,40 @@
     .restart local v14    # "lastLimitSnooze":J
     goto :goto_4
 
-    .line 1304
+    .line 1305
     :cond_7
     packed-switch v23, :pswitch_data_0
 
-    .line 1311
+    .line 1312
     const/16 v16, 0x0
 
     .restart local v16    # "metered":Z
     goto :goto_5
 
-    .line 1308
+    .line 1309
     .end local v16    # "metered":Z
     :pswitch_0
     const/16 v16, 0x1
 
-    .line 1309
+    .line 1310
     .restart local v16    # "metered":Z
     goto :goto_5
 
-    .line 1318
+    .line 1319
     :cond_8
     const-wide/16 v12, -0x1
 
     .restart local v12    # "lastWarningSnooze":J
     goto :goto_6
 
-    .line 1324
+    .line 1325
     :cond_9
     const/16 v17, 0x0
 
     .restart local v17    # "inferred":Z
     goto :goto_7
 
-    .line 1333
+    .line 1334
     .end local v6    # "cycleDay":I
     .end local v7    # "cycleTimezone":Ljava/lang/String;
     .end local v8    # "warningBytes":J
@@ -3011,7 +3011,7 @@
 
     if-eqz v4, :cond_c
 
-    .line 1334
+    .line 1335
     const-string v4, "uid"
 
     move-object/from16 v0, v21
@@ -3020,7 +3020,7 @@
 
     move-result v28
 
-    .line 1335
+    .line 1336
     .local v28, "uid":I
     const-string v4, "policy"
 
@@ -3030,7 +3030,7 @@
 
     move-result v24
 
-    .line 1337
+    .line 1338
     .local v24, "policy":I
     invoke-static/range {v28 .. v28}, Landroid/os/UserHandle;->isApp(I)Z
 
@@ -3038,7 +3038,7 @@
 
     if-eqz v4, :cond_b
 
-    .line 1338
+    .line 1339
     const/4 v4, 0x0
 
     move-object/from16 v0, p0
@@ -3056,7 +3056,7 @@
 
     goto/16 :goto_0
 
-    .line 1365
+    .line 1366
     .end local v21    # "in":Lorg/xmlpull/v1/XmlPullParser;
     .end local v24    # "policy":I
     .end local v26    # "tag":Ljava/lang/String;
@@ -3070,7 +3070,7 @@
 
     throw v4
 
-    .line 1340
+    .line 1341
     .restart local v21    # "in":Lorg/xmlpull/v1/XmlPullParser;
     .restart local v24    # "policy":I
     .restart local v26    # "tag":Ljava/lang/String;
@@ -3115,7 +3115,7 @@
 
     goto/16 :goto_0
 
-    .line 1342
+    .line 1343
     .end local v24    # "policy":I
     .end local v28    # "uid":I
     :cond_c
@@ -3129,7 +3129,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 1343
+    .line 1344
     const-string v4, "appId"
 
     move-object/from16 v0, v21
@@ -3138,7 +3138,7 @@
 
     move-result v18
 
-    .line 1344
+    .line 1345
     .local v18, "appId":I
     const-string v4, "policy"
 
@@ -3148,7 +3148,7 @@
 
     move-result v24
 
-    .line 1347
+    .line 1348
     .restart local v24    # "policy":I
     const/4 v4, 0x0
 
@@ -3158,7 +3158,7 @@
 
     move-result v28
 
-    .line 1348
+    .line 1349
     .restart local v28    # "uid":I
     invoke-static/range {v28 .. v28}, Landroid/os/UserHandle;->isApp(I)Z
 
@@ -3166,7 +3166,7 @@
 
     if-eqz v4, :cond_d
 
-    .line 1349
+    .line 1350
     const/4 v4, 0x0
 
     move-object/from16 v0, p0
@@ -3179,7 +3179,7 @@
 
     goto/16 :goto_0
 
-    .line 1351
+    .line 1352
     :cond_d
     const-string v4, "NetworkPolicy"
 
@@ -3222,7 +3222,7 @@
 
     goto/16 :goto_0
 
-    .line 1365
+    .line 1366
     .end local v18    # "appId":I
     .end local v24    # "policy":I
     .end local v26    # "tag":Ljava/lang/String;
@@ -3232,7 +3232,7 @@
 
     goto/16 :goto_1
 
-    .line 1304
+    .line 1305
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -3246,7 +3246,7 @@
     .param p1, "iface"    # Ljava/lang/String;
 
     .prologue
-    .line 2153
+    .line 2151
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkManager:Landroid/os/INetworkManagementService;
 
@@ -3255,25 +3255,25 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 2162
+    .line 2157
     :goto_0
     return-void
 
-    .line 2154
+    .line 2152
     :catch_0
     move-exception v0
 
-    .line 2157
+    .line 2153
     .local v0, "e":Ljava/lang/IllegalStateException;
     const-string v1, "NetworkPolicy"
 
     const-string v2, "problem removing interface quota"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 2159
+    .line 2154
     .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v1
@@ -3287,7 +3287,7 @@
     .param p2, "quotaBytes"    # J
 
     .prologue
-    .line 2140
+    .line 2141
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkManager:Landroid/os/INetworkManagementService;
 
@@ -3296,25 +3296,25 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 2149
+    .line 2147
     :goto_0
     return-void
 
-    .line 2141
+    .line 2142
     :catch_0
     move-exception v0
 
-    .line 2144
+    .line 2143
     .local v0, "e":Ljava/lang/IllegalStateException;
     const-string v1, "NetworkPolicy"
 
     const-string v2, "problem setting interface quota"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 2146
+    .line 2144
     .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v1
@@ -3328,14 +3328,14 @@
     .param p2, "enabled"    # Z
 
     .prologue
-    .line 1011
+    .line 1012
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/telephony/TelephonyManager;->from(Landroid/content/Context;)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
-    .line 1013
+    .line 1014
     .local v0, "tele":Landroid/telephony/TelephonyManager;
     invoke-virtual {p1}, Landroid/net/NetworkTemplate;->getMatchRule()I
 
@@ -3343,7 +3343,7 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1032
+    .line 1033
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "unexpected template"
@@ -3352,7 +3352,7 @@
 
     throw v1
 
-    .line 1019
+    .line 1020
     :pswitch_0
     invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->isDdsSimStateReady()Z
 
@@ -3378,22 +3378,22 @@
 
     if-eqz v1, :cond_0
 
-    .line 1021
+    .line 1022
     const/4 v1, 0x0
 
     invoke-direct {p0, v1, p2}, Lcom/android/server/net/NetworkPolicyManagerService;->setPolicyDataEnable(IZ)V
 
-    .line 1022
+    .line 1023
     const/4 v1, 0x6
 
     invoke-direct {p0, v1, p2}, Lcom/android/server/net/NetworkPolicyManagerService;->setPolicyDataEnable(IZ)V
 
-    .line 1034
+    .line 1035
     :cond_0
     :goto_0
     return-void
 
-    .line 1026
+    .line 1027
     :pswitch_1
     const/4 v1, 0x1
 
@@ -3401,7 +3401,7 @@
 
     goto :goto_0
 
-    .line 1029
+    .line 1030
     :pswitch_2
     const/16 v1, 0x9
 
@@ -3409,7 +3409,7 @@
 
     goto :goto_0
 
-    .line 1013
+    .line 1014
     nop
 
     :pswitch_data_0
@@ -3428,7 +3428,7 @@
     .param p2, "enabled"    # Z
 
     .prologue
-    .line 2182
+    .line 2174
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mConnManager:Landroid/net/IConnectivityManager;
 
@@ -3436,11 +3436,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2186
+    .line 2178
     :goto_0
     return-void
 
-    .line 2183
+    .line 2175
     :catch_0
     move-exception v0
 
@@ -3453,7 +3453,7 @@
     .param p2, "rejectOnQuotaInterfaces"    # Z
 
     .prologue
-    .line 2166
+    .line 2161
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkManager:Landroid/os/INetworkManagementService;
 
@@ -3462,25 +3462,25 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 2175
+    .line 2167
     :goto_0
     return-void
 
-    .line 2167
+    .line 2162
     :catch_0
     move-exception v0
 
-    .line 2170
+    .line 2163
     .local v0, "e":Ljava/lang/IllegalStateException;
     const-string v1, "NetworkPolicy"
 
     const-string v2, "problem setting uid rules"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 2172
+    .line 2164
     .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v1
@@ -3495,21 +3495,21 @@
     .param p3, "persist"    # Z
 
     .prologue
-    .line 1502
+    .line 1503
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 1505
+    .line 1506
     invoke-virtual {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
 
-    .line 1506
+    .line 1507
     if-eqz p3, :cond_0
 
-    .line 1507
+    .line 1508
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
 
-    .line 1509
+    .line 1510
     :cond_0
     return-void
 .end method
@@ -3518,14 +3518,14 @@
     .locals 5
 
     .prologue
-    .line 1940
+    .line 1941
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
 
     invoke-virtual {v3}, Landroid/util/SparseIntArray;->size()I
 
     move-result v1
 
-    .line 1941
+    .line 1942
     .local v1, "size":I
     const/4 v0, 0x0
 
@@ -3533,7 +3533,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 1942
+    .line 1943
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseIntArray;->valueAt(I)I
@@ -3544,25 +3544,25 @@
 
     if-gt v3, v4, :cond_0
 
-    .line 1943
+    .line 1944
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v2
 
-    .line 1944
+    .line 1945
     .local v2, "uid":I
     invoke-virtual {p0, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
 
-    .line 1941
+    .line 1942
     .end local v2    # "uid":I
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1947
+    .line 1948
     :cond_1
     return-void
 .end method
@@ -3571,12 +3571,12 @@
     .locals 2
 
     .prologue
-    .line 1925
+    .line 1926
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1927
+    .line 1928
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerManager:Landroid/os/IPowerManager;
 
@@ -3589,18 +3589,18 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1931
+    .line 1932
     :goto_0
     :try_start_1
     invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForScreenLocked()V
 
-    .line 1932
+    .line 1933
     monitor-exit v1
 
-    .line 1933
+    .line 1934
     return-void
 
-    .line 1932
+    .line 1933
     :catchall_0
     move-exception v0
 
@@ -3610,7 +3610,7 @@
 
     throw v0
 
-    .line 1928
+    .line 1929
     :catch_0
     move-exception v0
 
@@ -3623,7 +3623,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 1374
+    .line 1375
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -3641,19 +3641,19 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
-    .line 1378
+    .line 1379
     iget-boolean v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
     if-eqz v1, :cond_0
 
-    .line 1379
+    .line 1380
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.net.conn.BACKGROUND_DATA_SETTING_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1381
+    .line 1382
     .local v0, "broadcast":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
@@ -3661,12 +3661,12 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    .line 1383
+    .line 1384
     .end local v0    # "broadcast":Landroid/content/Intent;
     :cond_0
     return-void
 
-    .line 1374
+    .line 1375
     :cond_1
     const/4 v1, 0x0
 
@@ -3680,7 +3680,7 @@
     .param p1, "handler"    # Landroid/os/MessageQueue$IdleHandler;
 
     .prologue
-    .line 2255
+    .line 2247
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
@@ -3693,7 +3693,7 @@
 
     invoke-virtual {v0, p1}, Landroid/os/MessageQueue;->addIdleHandler(Landroid/os/MessageQueue$IdleHandler;)V
 
-    .line 2256
+    .line 2248
     return-void
 .end method
 
@@ -3702,26 +3702,26 @@
     .param p1, "policy"    # Landroid/net/NetworkPolicy;
 
     .prologue
-    .line 1612
+    .line 1613
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
     iget-object v1, p1, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
     invoke-virtual {v0, v1, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1614
+    .line 1615
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkEnabledLocked()V
 
-    .line 1615
+    .line 1616
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesLocked()V
 
-    .line 1616
+    .line 1617
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNotificationsLocked()V
 
-    .line 1617
+    .line 1618
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
 
-    .line 1618
+    .line 1619
     return-void
 .end method
 
@@ -3731,7 +3731,7 @@
     .param p2, "policy"    # I
 
     .prologue
-    .line 1469
+    .line 1470
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.MANAGE_NETWORK_POLICY"
@@ -3740,14 +3740,14 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1471
+    .line 1472
     invoke-static {p1}, Landroid/os/UserHandle;->isApp(I)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 1472
+    .line 1473
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3772,13 +3772,13 @@
 
     throw v1
 
-    .line 1475
+    .line 1476
     :cond_0
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1476
+    .line 1477
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
@@ -3788,26 +3788,26 @@
 
     move-result v0
 
-    .line 1477
+    .line 1478
     .local v0, "oldPolicy":I
     or-int/2addr p2, v0
 
-    .line 1478
+    .line 1479
     if-eq v0, p2, :cond_1
 
-    .line 1479
+    .line 1480
     const/4 v1, 0x1
 
     invoke-direct {p0, p1, p2, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->setUidPolicyUncheckedLocked(IIZ)V
 
-    .line 1481
+    .line 1482
     :cond_1
     monitor-exit v2
 
-    .line 1482
+    .line 1483
     return-void
 
-    .line 1481
+    .line 1482
     .end local v0    # "oldPolicy":I
     :catchall_0
     move-exception v1
@@ -3868,7 +3868,7 @@
 
     const/4 v9, 0x0
 
-    .line 1898
+    .line 1899
     iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPidState:Landroid/util/SparseArray;
 
     invoke-virtual {v10, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -3877,20 +3877,20 @@
 
     check-cast v4, Landroid/util/SparseIntArray;
 
-    .line 1901
+    .line 1902
     .local v4, "pidState":Landroid/util/SparseIntArray;
     const/16 v7, 0xd
 
-    .line 1902
+    .line 1903
     .local v7, "uidState":I
     if-eqz v4, :cond_1
 
-    .line 1903
+    .line 1904
     invoke-virtual {v4}, Landroid/util/SparseIntArray;->size()I
 
     move-result v5
 
-    .line 1904
+    .line 1905
     .local v5, "size":I
     const/4 v0, 0x0
 
@@ -3898,25 +3898,25 @@
     :goto_0
     if-ge v0, v5, :cond_1
 
-    .line 1905
+    .line 1906
     invoke-virtual {v4, v0}, Landroid/util/SparseIntArray;->valueAt(I)I
 
     move-result v6
 
-    .line 1906
+    .line 1907
     .local v6, "state":I
     if-ge v6, v7, :cond_0
 
-    .line 1907
+    .line 1908
     move v7, v6
 
-    .line 1904
+    .line 1905
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1912
+    .line 1913
     .end local v0    # "i":I
     .end local v5    # "size":I
     .end local v6    # "state":I
@@ -3929,23 +3929,23 @@
 
     move-result v3
 
-    .line 1913
+    .line 1914
     .local v3, "oldUidState":I
     if-eq v3, v7, :cond_2
 
-    .line 1915
+    .line 1916
     iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
 
     invoke-virtual {v10, p1, v7}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 1916
+    .line 1917
     iget v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mCurForegroundState:I
 
     if-gt v3, v10, :cond_3
 
     move v2, v8
 
-    .line 1917
+    .line 1918
     .local v2, "oldForeground":Z
     :goto_1
     iget v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mCurForegroundState:I
@@ -3954,15 +3954,15 @@
 
     move v1, v8
 
-    .line 1918
+    .line 1919
     .local v1, "newForeground":Z
     :goto_2
     if-eq v2, v1, :cond_2
 
-    .line 1919
+    .line 1920
     invoke-virtual {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
 
-    .line 1922
+    .line 1923
     .end local v1    # "newForeground":Z
     .end local v2    # "oldForeground":Z
     :cond_2
@@ -3971,14 +3971,14 @@
     :cond_3
     move v2, v9
 
-    .line 1916
+    .line 1917
     goto :goto_1
 
     .restart local v2    # "oldForeground":Z
     :cond_4
     move v1, v9
 
-    .line 1917
+    .line 1918
     goto :goto_2
 .end method
 
@@ -3989,7 +3989,7 @@
     .param p3, "args"    # [Ljava/lang/String;
 
     .prologue
-    .line 1775
+    .line 1776
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -4000,7 +4000,7 @@
 
     invoke-virtual/range {v15 .. v17}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1777
+    .line 1778
     new-instance v5, Lcom/android/internal/util/IndentingPrintWriter;
 
     const-string v15, "  "
@@ -4009,7 +4009,7 @@
 
     invoke-direct {v5, v0, v15}, Lcom/android/internal/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
 
-    .line 1779
+    .line 1780
     .local v5, "fout":Lcom/android/internal/util/IndentingPrintWriter;
     new-instance v2, Landroid/util/ArraySet;
 
@@ -4019,7 +4019,7 @@
 
     invoke-direct {v2, v15}, Landroid/util/ArraySet;-><init>(I)V
 
-    .line 1780
+    .line 1781
     .local v2, "argSet":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     move-object/from16 v3, p3
 
@@ -4035,16 +4035,16 @@
 
     aget-object v1, v3, v7
 
-    .line 1781
+    .line 1782
     .local v1, "arg":Ljava/lang/String;
     invoke-virtual {v2, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 1780
+    .line 1781
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
-    .line 1784
+    .line 1785
     .end local v1    # "arg":Ljava/lang/String;
     :cond_0
     move-object/from16 v0, p0
@@ -4055,7 +4055,7 @@
 
     monitor-enter v16
 
-    .line 1785
+    .line 1786
     :try_start_0
     const-string v15, "--unsnooze"
 
@@ -4065,7 +4065,7 @@
 
     if-eqz v15, :cond_2
 
-    .line 1786
+    .line 1787
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
@@ -4080,7 +4080,7 @@
     :goto_1
     if-ltz v6, :cond_1
 
-    .line 1787
+    .line 1788
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
@@ -4093,37 +4093,37 @@
 
     invoke-virtual {v15}, Landroid/net/NetworkPolicy;->clearSnooze()V
 
-    .line 1786
+    .line 1787
     add-int/lit8 v6, v6, -0x1
 
     goto :goto_1
 
-    .line 1790
+    .line 1791
     :cond_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkEnabledLocked()V
 
-    .line 1791
+    .line 1792
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesLocked()V
 
-    .line 1792
+    .line 1793
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNotificationsLocked()V
 
-    .line 1793
+    .line 1794
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
 
-    .line 1795
+    .line 1796
     const-string v15, "Cleared snooze timestamps"
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1796
+    .line 1797
     monitor-exit v16
 
-    .line 1876
+    .line 1877
     :goto_2
     return-void
 
-    .line 1799
+    .line 1800
     .end local v6    # "i":I
     :cond_2
     const-string v15, "Restrict background: "
@@ -4136,7 +4136,7 @@
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Z)V
 
-    .line 1800
+    .line 1801
     const-string v15, "Restrict power: "
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
@@ -4147,7 +4147,7 @@
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Z)V
 
-    .line 1801
+    .line 1802
     const-string v15, "Current foreground state: "
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
@@ -4158,15 +4158,15 @@
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(I)V
 
-    .line 1802
+    .line 1803
     const-string v15, "Network policies:"
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1803
+    .line 1804
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1804
+    .line 1805
     const/4 v6, 0x0
 
     .restart local v6    # "i":I
@@ -4181,7 +4181,7 @@
 
     if-ge v6, v15, :cond_3
 
-    .line 1805
+    .line 1806
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
@@ -4198,16 +4198,16 @@
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1804
+    .line 1805
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_3
 
-    .line 1807
+    .line 1808
     :cond_3
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1809
+    .line 1810
     const-string v15, "Metered ifaces: "
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
@@ -4222,15 +4222,15 @@
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1811
+    .line 1812
     const-string v15, "Policy for UIDs:"
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1812
+    .line 1813
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1813
+    .line 1814
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
@@ -4239,14 +4239,14 @@
 
     move-result v12
 
-    .line 1814
+    .line 1815
     .local v12, "size":I
     const/4 v6, 0x0
 
     :goto_4
     if-ge v6, v12, :cond_4
 
-    .line 1815
+    .line 1816
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
@@ -4255,7 +4255,7 @@
 
     move-result v14
 
-    .line 1816
+    .line 1817
     .local v14, "uid":I
     move-object/from16 v0, p0
 
@@ -4265,38 +4265,38 @@
 
     move-result v10
 
-    .line 1817
+    .line 1818
     .local v10, "policy":I
     const-string v15, "UID="
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1818
+    .line 1819
     invoke-virtual {v5, v14}, Lcom/android/internal/util/IndentingPrintWriter;->print(I)V
 
-    .line 1819
+    .line 1820
     const-string v15, " policy="
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1820
+    .line 1821
     invoke-static {v5, v10}, Landroid/net/NetworkPolicyManager;->dumpPolicy(Ljava/io/PrintWriter;I)V
 
-    .line 1821
+    .line 1822
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
-    .line 1814
+    .line 1815
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_4
 
-    .line 1823
+    .line 1824
     .end local v10    # "policy":I
     .end local v14    # "uid":I
     :cond_4
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1825
+    .line 1826
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
@@ -4305,29 +4305,29 @@
 
     move-result v12
 
-    .line 1826
+    .line 1827
     if-lez v12, :cond_6
 
-    .line 1827
+    .line 1828
     const-string v15, "Power save whitelist app ids:"
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1828
+    .line 1829
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1829
+    .line 1830
     const/4 v6, 0x0
 
     :goto_5
     if-ge v6, v12, :cond_5
 
-    .line 1830
+    .line 1831
     const-string v15, "UID="
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1831
+    .line 1832
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
@@ -4338,12 +4338,12 @@
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(I)V
 
-    .line 1832
+    .line 1833
     const-string v15, ": "
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1833
+    .line 1834
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
@@ -4354,25 +4354,25 @@
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Z)V
 
-    .line 1834
+    .line 1835
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
-    .line 1829
+    .line 1830
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_5
 
-    .line 1836
+    .line 1837
     :cond_5
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1839
+    .line 1840
     :cond_6
     new-instance v8, Landroid/util/SparseBooleanArray;
 
     invoke-direct {v8}, Landroid/util/SparseBooleanArray;-><init>()V
 
-    .line 1840
+    .line 1841
     .local v8, "knownUids":Landroid/util/SparseBooleanArray;
     move-object/from16 v0, p0
 
@@ -4380,47 +4380,47 @@
 
     invoke-static {v15, v8}, Lcom/android/server/net/NetworkPolicyManagerService;->collectKeys(Landroid/util/SparseIntArray;Landroid/util/SparseBooleanArray;)V
 
-    .line 1841
+    .line 1842
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
 
     invoke-static {v15, v8}, Lcom/android/server/net/NetworkPolicyManagerService;->collectKeys(Landroid/util/SparseIntArray;Landroid/util/SparseBooleanArray;)V
 
-    .line 1843
+    .line 1844
     const-string v15, "Status for known UIDs:"
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1844
+    .line 1845
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
-    .line 1845
+    .line 1846
     invoke-virtual {v8}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v12
 
-    .line 1846
+    .line 1847
     const/4 v6, 0x0
 
     :goto_6
     if-ge v6, v12, :cond_a
 
-    .line 1847
+    .line 1848
     invoke-virtual {v8, v6}, Landroid/util/SparseBooleanArray;->keyAt(I)I
 
     move-result v14
 
-    .line 1848
+    .line 1849
     .restart local v14    # "uid":I
     const-string v15, "UID="
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1849
+    .line 1850
     invoke-virtual {v5, v14}, Lcom/android/internal/util/IndentingPrintWriter;->print(I)V
 
-    .line 1851
+    .line 1852
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
@@ -4433,16 +4433,16 @@
 
     move-result v13
 
-    .line 1852
+    .line 1853
     .local v13, "state":I
     const-string v15, " state="
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1853
+    .line 1854
     invoke-virtual {v5, v13}, Lcom/android/internal/util/IndentingPrintWriter;->print(I)V
 
-    .line 1854
+    .line 1855
     move-object/from16 v0, p0
 
     iget v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mCurForegroundState:I
@@ -4454,12 +4454,12 @@
     :goto_7
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1856
+    .line 1857
     const-string v15, " pids="
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1857
+    .line 1858
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPidState:Landroid/util/SparseArray;
@@ -4468,22 +4468,22 @@
 
     move-result v4
 
-    .line 1858
+    .line 1859
     .local v4, "foregroundIndex":I
     if-gez v4, :cond_8
 
-    .line 1859
+    .line 1860
     const-string v15, "UNKNOWN"
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1864
+    .line 1865
     :goto_8
     const-string v15, " rules="
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1865
+    .line 1866
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
@@ -4492,25 +4492,25 @@
 
     move-result v11
 
-    .line 1866
+    .line 1867
     .local v11, "rulesIndex":I
     if-gez v11, :cond_9
 
-    .line 1867
+    .line 1868
     const-string v15, "UNKNOWN"
 
     invoke-virtual {v5, v15}, Lcom/android/internal/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1872
+    .line 1873
     :goto_9
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->println()V
 
-    .line 1846
+    .line 1847
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_6
 
-    .line 1854
+    .line 1855
     .end local v4    # "foregroundIndex":I
     .end local v11    # "rulesIndex":I
     :cond_7
@@ -4518,7 +4518,7 @@
 
     goto :goto_7
 
-    .line 1861
+    .line 1862
     .restart local v4    # "foregroundIndex":I
     :cond_8
     move-object/from16 v0, p0
@@ -4535,7 +4535,7 @@
 
     goto :goto_8
 
-    .line 1875
+    .line 1876
     .end local v4    # "foregroundIndex":I
     .end local v6    # "i":I
     .end local v8    # "knownUids":Landroid/util/SparseBooleanArray;
@@ -4551,7 +4551,7 @@
 
     throw v15
 
-    .line 1869
+    .line 1870
     .restart local v4    # "foregroundIndex":I
     .restart local v6    # "i":I
     .restart local v8    # "knownUids":Landroid/util/SparseBooleanArray;
@@ -4573,7 +4573,7 @@
 
     goto :goto_9
 
-    .line 1874
+    .line 1875
     .end local v4    # "foregroundIndex":I
     .end local v11    # "rulesIndex":I
     .end local v13    # "state":I
@@ -4581,7 +4581,7 @@
     :cond_a
     invoke-virtual {v5}, Lcom/android/internal/util/IndentingPrintWriter;->decreaseIndent()V
 
-    .line 1875
+    .line 1876
     monitor-exit v16
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -4593,7 +4593,7 @@
     .locals 3
 
     .prologue
-    .line 1622
+    .line 1623
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.MANAGE_NETWORK_POLICY"
@@ -4602,7 +4602,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1623
+    .line 1624
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.READ_PHONE_STATE"
@@ -4611,12 +4611,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1625
+    .line 1626
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1626
+    .line 1627
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
@@ -4642,7 +4642,7 @@
 
     return-object v0
 
-    .line 1627
+    .line 1628
     :catchall_0
     move-exception v0
 
@@ -4658,7 +4658,7 @@
     .param p1, "state"    # Landroid/net/NetworkState;
 
     .prologue
-    .line 1707
+    .line 1708
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.ACCESS_NETWORK_STATE"
@@ -4667,12 +4667,12 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1711
+    .line 1712
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 1713
+    .line 1714
     .local v0, "token":J
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->getNetworkQuotaInfoUnchecked(Landroid/net/NetworkState;)Landroid/net/NetworkQuotaInfo;
@@ -4681,7 +4681,7 @@
 
     move-result-object v2
 
-    .line 1715
+    .line 1716
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-object v2
@@ -4698,7 +4698,7 @@
     .locals 6
 
     .prologue
-    .line 1539
+    .line 1540
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v4, "android.permission.MANAGE_NETWORK_POLICY"
@@ -4707,12 +4707,12 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1541
+    .line 1542
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 1542
+    .line 1543
     :try_start_0
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
@@ -4720,11 +4720,11 @@
 
     move-result v2
 
-    .line 1543
+    .line 1544
     .local v2, "size":I
     new-array v0, v2, [I
 
-    .line 1544
+    .line 1545
     .local v0, "appids":[I
     const/4 v1, 0x0
 
@@ -4732,7 +4732,7 @@
     :goto_0
     if-ge v1, v2, :cond_0
 
-    .line 1545
+    .line 1546
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v3, v1}, Landroid/util/SparseBooleanArray;->keyAt(I)I
@@ -4741,18 +4741,18 @@
 
     aput v3, v0, v1
 
-    .line 1544
+    .line 1545
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1547
+    .line 1548
     :cond_0
     monitor-exit v4
 
     return-object v0
 
-    .line 1548
+    .line 1549
     .end local v0    # "appids":[I
     .end local v1    # "i":I
     .end local v2    # "size":I
@@ -4770,7 +4770,7 @@
     .locals 3
 
     .prologue
-    .line 1688
+    .line 1689
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.MANAGE_NETWORK_POLICY"
@@ -4779,12 +4779,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1690
+    .line 1691
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1691
+    .line 1692
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
@@ -4792,7 +4792,7 @@
 
     return v0
 
-    .line 1692
+    .line 1693
     :catchall_0
     move-exception v0
 
@@ -4808,7 +4808,7 @@
     .param p1, "uid"    # I
 
     .prologue
-    .line 1513
+    .line 1514
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.MANAGE_NETWORK_POLICY"
@@ -4817,12 +4817,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1515
+    .line 1516
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1516
+    .line 1517
     :try_start_0
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
@@ -4836,7 +4836,7 @@
 
     return v0
 
-    .line 1517
+    .line 1518
     :catchall_0
     move-exception v0
 
@@ -4852,7 +4852,7 @@
     .param p1, "policy"    # I
 
     .prologue
-    .line 1522
+    .line 1523
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v5, "android.permission.MANAGE_NETWORK_POLICY"
@@ -4861,18 +4861,18 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1524
+    .line 1525
     const/4 v4, 0x0
 
     new-array v3, v4, [I
 
-    .line 1525
+    .line 1526
     .local v3, "uids":[I
     iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 1526
+    .line 1527
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -4886,14 +4886,14 @@
 
     if-ge v0, v4, :cond_1
 
-    .line 1527
+    .line 1528
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
     invoke-virtual {v4, v0}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v1
 
-    .line 1528
+    .line 1529
     .local v1, "uid":I
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
@@ -4901,31 +4901,31 @@
 
     move-result v2
 
-    .line 1529
+    .line 1530
     .local v2, "uidPolicy":I
     if-ne v2, p1, :cond_0
 
-    .line 1530
+    .line 1531
     invoke-static {v3, v1}, Lcom/android/internal/util/ArrayUtils;->appendInt([II)[I
 
     move-result-object v3
 
-    .line 1526
+    .line 1527
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1533
+    .line 1534
     .end local v1    # "uid":I
     .end local v2    # "uidPolicy":I
     :cond_1
     monitor-exit v5
 
-    .line 1534
+    .line 1535
     return-object v3
 
-    .line 1533
+    .line 1534
     :catchall_0
     move-exception v4
 
@@ -4943,14 +4943,14 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1750
+    .line 1751
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {v4, p1}, Landroid/net/NetworkIdentity;->buildNetworkIdentity(Landroid/content/Context;Landroid/net/NetworkState;)Landroid/net/NetworkIdentity;
 
     move-result-object v0
 
-    .line 1753
+    .line 1754
     .local v0, "ident":Landroid/net/NetworkIdentity;
     invoke-virtual {v0}, Landroid/net/NetworkIdentity;->getRoaming()Z
 
@@ -4958,38 +4958,38 @@
 
     if-eqz v4, :cond_1
 
-    .line 1769
+    .line 1770
     :cond_0
     :goto_0
     return v3
 
-    .line 1758
+    .line 1759
     :cond_1
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 1759
+    .line 1760
     :try_start_0
     invoke-direct {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->findPolicyForNetworkLocked(Landroid/net/NetworkIdentity;)Landroid/net/NetworkPolicy;
 
     move-result-object v1
 
-    .line 1760
+    .line 1761
     .local v1, "policy":Landroid/net/NetworkPolicy;
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1762
+    .line 1763
     if-eqz v1, :cond_2
 
-    .line 1763
+    .line 1764
     iget-boolean v3, v1, Landroid/net/NetworkPolicy;->metered:Z
 
     goto :goto_0
 
-    .line 1760
+    .line 1761
     .end local v1    # "policy":Landroid/net/NetworkPolicy;
     :catchall_0
     move-exception v3
@@ -5001,7 +5001,7 @@
 
     throw v3
 
-    .line 1765
+    .line 1766
     .restart local v1    # "policy":Landroid/net/NetworkPolicy;
     :cond_2
     iget-object v4, p1, Landroid/net/NetworkState;->networkInfo:Landroid/net/NetworkInfo;
@@ -5010,7 +5010,7 @@
 
     move-result v2
 
-    .line 1766
+    .line 1767
     .local v2, "type":I
     invoke-static {v2}, Landroid/net/ConnectivityManager;->isNetworkTypeMobile(I)Z
 
@@ -5022,7 +5022,7 @@
 
     if-eq v2, v4, :cond_0
 
-    .line 1769
+    .line 1770
     const/4 v3, 0x0
 
     goto :goto_0
@@ -5033,7 +5033,7 @@
     .param p1, "uid"    # I
 
     .prologue
-    .line 1880
+    .line 1881
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.MANAGE_NETWORK_POLICY"
@@ -5042,12 +5042,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1882
+    .line 1883
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1883
+    .line 1884
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->isUidForegroundLocked(I)Z
 
@@ -5057,7 +5057,7 @@
 
     return v0
 
-    .line 1884
+    .line 1885
     :catchall_0
     move-exception v0
 
@@ -5073,7 +5073,7 @@
     .param p1, "uid"    # I
 
     .prologue
-    .line 1889
+    .line 1890
     iget-boolean v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mScreenOn:Z
 
     if-eqz v0, :cond_0
@@ -5105,7 +5105,7 @@
     .locals 4
 
     .prologue
-    .line 2216
+    .line 2208
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mTime:Landroid/util/TrustedTime;
 
     invoke-interface {v0}, Landroid/util/TrustedTime;->getCacheAge()J
@@ -5118,12 +5118,12 @@
 
     if-lez v0, :cond_0
 
-    .line 2217
+    .line 2209
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mTime:Landroid/util/TrustedTime;
 
     invoke-interface {v0}, Landroid/util/TrustedTime;->forceRefresh()Z
 
-    .line 2219
+    .line 2211
     :cond_0
     return-void
 .end method
@@ -5134,21 +5134,21 @@
     .param p2, "type"    # I
 
     .prologue
-    .line 1643
+    .line 1644
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->maybeRefreshTrustedTime()V
 
-    .line 1644
+    .line 1645
     invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 1645
+    .line 1646
     .local v0, "currentTime":J
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 1647
+    .line 1648
     :try_start_0
     iget-object v3, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
@@ -5158,11 +5158,11 @@
 
     check-cast v2, Landroid/net/NetworkPolicy;
 
-    .line 1648
+    .line 1649
     .local v2, "policy":Landroid/net/NetworkPolicy;
     if-nez v2, :cond_0
 
-    .line 1649
+    .line 1650
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -5187,7 +5187,7 @@
 
     throw v3
 
-    .line 1667
+    .line 1668
     .end local v2    # "policy":Landroid/net/NetworkPolicy;
     :catchall_0
     move-exception v3
@@ -5198,12 +5198,12 @@
 
     throw v3
 
-    .line 1652
+    .line 1653
     .restart local v2    # "policy":Landroid/net/NetworkPolicy;
     :cond_0
     packed-switch p2, :pswitch_data_0
 
-    .line 1660
+    .line 1661
     :try_start_1
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -5213,30 +5213,30 @@
 
     throw v3
 
-    .line 1654
+    .line 1655
     :pswitch_0
     iput-wide v0, v2, Landroid/net/NetworkPolicy;->lastWarningSnooze:J
 
-    .line 1663
+    .line 1664
     :goto_0
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkEnabledLocked()V
 
-    .line 1664
+    .line 1665
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesLocked()V
 
-    .line 1665
+    .line 1666
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNotificationsLocked()V
 
-    .line 1666
+    .line 1667
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
 
-    .line 1667
+    .line 1668
     monitor-exit v4
 
-    .line 1668
+    .line 1669
     return-void
 
-    .line 1657
+    .line 1658
     :pswitch_1
     iput-wide v0, v2, Landroid/net/NetworkPolicy;->lastLimitSnooze:J
     :try_end_1
@@ -5244,7 +5244,7 @@
 
     goto :goto_0
 
-    .line 1652
+    .line 1653
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -5257,7 +5257,7 @@
     .param p1, "listener"    # Landroid/net/INetworkPolicyListener;
 
     .prologue
-    .line 1578
+    .line 1579
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.CONNECTIVITY_INTERNAL"
@@ -5266,12 +5266,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1580
+    .line 1581
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
 
-    .line 1583
+    .line 1584
     return-void
 .end method
 
@@ -5280,12 +5280,12 @@
     .param p1, "userId"    # I
 
     .prologue
-    .line 1558
+    .line 1559
     const/4 v6, 0x0
 
     new-array v5, v6, [I
 
-    .line 1559
+    .line 1560
     .local v5, "uids":[I
     const/4 v1, 0x0
 
@@ -5299,14 +5299,14 @@
 
     if-ge v1, v6, :cond_1
 
-    .line 1560
+    .line 1561
     iget-object v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
     invoke-virtual {v6, v1}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v4
 
-    .line 1561
+    .line 1562
     .local v4, "uid":I
     invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -5314,25 +5314,25 @@
 
     if-ne v6, p1, :cond_0
 
-    .line 1562
+    .line 1563
     invoke-static {v5, v4}, Lcom/android/internal/util/ArrayUtils;->appendInt([II)[I
 
     move-result-object v5
 
-    .line 1559
+    .line 1560
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1566
+    .line 1567
     .end local v4    # "uid":I
     :cond_1
     array-length v6, v5
 
     if-lez v6, :cond_3
 
-    .line 1567
+    .line 1568
     move-object v0, v5
 
     .local v0, "arr$":[I
@@ -5347,26 +5347,26 @@
 
     aget v4, v0, v2
 
-    .line 1568
+    .line 1569
     .restart local v4    # "uid":I
     iget-object v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
     invoke-virtual {v6, v4}, Landroid/util/SparseIntArray;->delete(I)V
 
-    .line 1569
+    .line 1570
     invoke-virtual {p0, v4}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
 
-    .line 1567
+    .line 1568
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 1571
+    .line 1572
     .end local v4    # "uid":I
     :cond_2
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
 
-    .line 1573
+    .line 1574
     .end local v0    # "arr$":[I
     .end local v2    # "i$":I
     .end local v3    # "len$":I
@@ -5380,7 +5380,7 @@
     .param p2, "policy"    # I
 
     .prologue
-    .line 1486
+    .line 1487
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.MANAGE_NETWORK_POLICY"
@@ -5389,14 +5389,14 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1488
+    .line 1489
     invoke-static {p1}, Landroid/os/UserHandle;->isApp(I)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 1489
+    .line 1490
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5421,13 +5421,13 @@
 
     throw v1
 
-    .line 1492
+    .line 1493
     :cond_0
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1493
+    .line 1494
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
@@ -5437,28 +5437,28 @@
 
     move-result v0
 
-    .line 1494
+    .line 1495
     .local v0, "oldPolicy":I
     xor-int/lit8 v1, p2, -0x1
 
     and-int p2, v0, v1
 
-    .line 1495
+    .line 1496
     if-eq v0, p2, :cond_1
 
-    .line 1496
+    .line 1497
     const/4 v1, 0x1
 
     invoke-direct {p0, p1, p2, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->setUidPolicyUncheckedLocked(IIZ)V
 
-    .line 1498
+    .line 1499
     :cond_1
     monitor-exit v2
 
-    .line 1499
+    .line 1500
     return-void
 
-    .line 1498
+    .line 1499
     .end local v0    # "oldPolicy":I
     :catchall_0
     move-exception v1
@@ -5475,7 +5475,7 @@
     .param p1, "policies"    # [Landroid/net/NetworkPolicy;
 
     .prologue
-    .line 1595
+    .line 1596
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v5, "android.permission.MANAGE_NETWORK_POLICY"
@@ -5484,21 +5484,21 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1597
+    .line 1598
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->maybeRefreshTrustedTime()V
 
-    .line 1598
+    .line 1599
     iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 1599
+    .line 1600
     :try_start_0
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
     invoke-virtual {v4}, Landroid/util/ArrayMap;->clear()V
 
-    .line 1600
+    .line 1601
     move-object v0, p1
 
     .local v0, "arr$":[Landroid/net/NetworkPolicy;
@@ -5513,7 +5513,7 @@
 
     aget-object v3, v0, v1
 
-    .line 1601
+    .line 1602
     .local v3, "policy":Landroid/net/NetworkPolicy;
     iget-object v4, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
@@ -5521,32 +5521,32 @@
 
     invoke-virtual {v4, v6, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1600
+    .line 1601
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1604
+    .line 1605
     .end local v3    # "policy":Landroid/net/NetworkPolicy;
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkEnabledLocked()V
 
-    .line 1605
+    .line 1606
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesLocked()V
 
-    .line 1606
+    .line 1607
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNotificationsLocked()V
 
-    .line 1607
+    .line 1608
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
 
-    .line 1608
+    .line 1609
     monitor-exit v5
 
-    .line 1609
+    .line 1610
     return-void
 
-    .line 1608
+    .line 1609
     .end local v0    # "arr$":[Landroid/net/NetworkPolicy;
     .end local v1    # "i$":I
     .end local v2    # "len$":I
@@ -5567,7 +5567,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1672
+    .line 1673
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.MANAGE_NETWORK_POLICY"
@@ -5576,35 +5576,35 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1674
+    .line 1675
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->maybeRefreshTrustedTime()V
 
-    .line 1675
+    .line 1676
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1676
+    .line 1677
     :try_start_0
     iput-boolean p1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
-    .line 1677
+    .line 1678
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForGlobalChangeLocked(Z)V
 
-    .line 1678
+    .line 1679
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNotificationsLocked()V
 
-    .line 1679
+    .line 1680
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
 
-    .line 1680
+    .line 1681
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1682
+    .line 1683
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
 
     const/4 v3, 0x6
@@ -5620,10 +5620,10 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1684
+    .line 1685
     return-void
 
-    .line 1680
+    .line 1681
     :catchall_0
     move-exception v0
 
@@ -5637,7 +5637,7 @@
     :cond_0
     move v0, v1
 
-    .line 1682
+    .line 1683
     goto :goto_0
 .end method
 
@@ -5647,7 +5647,7 @@
     .param p2, "policy"    # I
 
     .prologue
-    .line 1453
+    .line 1454
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.MANAGE_NETWORK_POLICY"
@@ -5656,14 +5656,14 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1455
+    .line 1456
     invoke-static {p1}, Landroid/os/UserHandle;->isApp(I)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 1456
+    .line 1457
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5688,13 +5688,13 @@
 
     throw v1
 
-    .line 1459
+    .line 1460
     :cond_0
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1460
+    .line 1461
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
@@ -5704,23 +5704,23 @@
 
     move-result v0
 
-    .line 1461
+    .line 1462
     .local v0, "oldPolicy":I
     if-eq v0, p2, :cond_1
 
-    .line 1462
+    .line 1463
     const/4 v1, 0x1
 
     invoke-direct {p0, p1, p2, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->setUidPolicyUncheckedLocked(IIZ)V
 
-    .line 1464
+    .line 1465
     :cond_1
     monitor-exit v2
 
-    .line 1465
+    .line 1466
     return-void
 
-    .line 1464
+    .line 1465
     .end local v0    # "oldPolicy":I
     :catchall_0
     move-exception v1
@@ -5737,7 +5737,7 @@
     .param p1, "template"    # Landroid/net/NetworkTemplate;
 
     .prologue
-    .line 1632
+    .line 1633
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.MANAGE_NETWORK_POLICY"
@@ -5746,12 +5746,12 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1634
+    .line 1635
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
-    .line 1636
+    .line 1637
     .local v0, "token":J
     const/4 v2, 0x2
 
@@ -5760,13 +5760,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1638
+    .line 1639
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1640
+    .line 1641
     return-void
 
-    .line 1638
+    .line 1639
     :catchall_0
     move-exception v2
 
@@ -6516,7 +6516,7 @@
     .param p1, "listener"    # Landroid/net/INetworkPolicyListener;
 
     .prologue
-    .line 1588
+    .line 1589
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.CONNECTIVITY_INTERNAL"
@@ -6525,12 +6525,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1590
+    .line 1591
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
 
-    .line 1591
+    .line 1592
     return-void
 .end method
 
@@ -6538,12 +6538,12 @@
     .locals 18
 
     .prologue
-    .line 984
+    .line 985
     invoke-direct/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->currentTimeMillis()J
 
     move-result-wide v8
 
-    .line 985
+    .line 986
     .local v8, "currentTime":J
     move-object/from16 v0, p0
 
@@ -6559,7 +6559,7 @@
     :goto_0
     if-ltz v10, :cond_4
 
-    .line 986
+    .line 987
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
@@ -6570,7 +6570,7 @@
 
     check-cast v13, Landroid/net/NetworkPolicy;
 
-    .line 988
+    .line 989
     .local v13, "policy":Landroid/net/NetworkPolicy;
     iget-wide v2, v13, Landroid/net/NetworkPolicy;->limitBytes:J
 
@@ -6586,7 +6586,7 @@
 
     if-nez v2, :cond_1
 
-    .line 989
+    .line 990
     :cond_0
     iget-object v2, v13, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
@@ -6596,23 +6596,23 @@
 
     invoke-direct {v0, v2, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->setNetworkTemplateEnabled(Landroid/net/NetworkTemplate;Z)V
 
-    .line 985
+    .line 986
     :goto_1
     add-int/lit8 v10, v10, -0x1
 
     goto :goto_0
 
-    .line 993
+    .line 994
     :cond_1
     invoke-static {v8, v9, v13}, Landroid/net/NetworkPolicyManager;->computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
 
     move-result-wide v4
 
-    .line 994
+    .line 995
     .local v4, "start":J
     move-wide v6, v8
 
-    .line 995
+    .line 996
     .local v6, "end":J
     iget-object v3, v13, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
@@ -6622,7 +6622,7 @@
 
     move-result-wide v14
 
-    .line 998
+    .line 999
     .local v14, "totalBytes":J
     invoke-virtual {v13, v14, v15}, Landroid/net/NetworkPolicy;->isOverLimit(J)Z
 
@@ -6638,14 +6638,14 @@
 
     const/4 v12, 0x1
 
-    .line 1000
+    .line 1001
     .local v12, "overLimitWithoutSnooze":Z
     :goto_2
     if-nez v12, :cond_3
 
     const/4 v11, 0x1
 
-    .line 1002
+    .line 1003
     .local v11, "networkEnabled":Z
     :goto_3
     iget-object v2, v13, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
@@ -6656,7 +6656,7 @@
 
     goto :goto_1
 
-    .line 998
+    .line 999
     .end local v11    # "networkEnabled":Z
     .end local v12    # "overLimitWithoutSnooze":Z
     :cond_2
@@ -6664,14 +6664,14 @@
 
     goto :goto_2
 
-    .line 1000
+    .line 1001
     .restart local v12    # "overLimitWithoutSnooze":Z
     :cond_3
     const/4 v11, 0x0
 
     goto :goto_3
 
-    .line 1004
+    .line 1005
     .end local v4    # "start":J
     .end local v6    # "end":J
     .end local v12    # "overLimitWithoutSnooze":Z
@@ -6685,7 +6685,7 @@
     .locals 44
 
     .prologue
-    .line 1046
+    .line 1047
     :try_start_0
     move-object/from16 v0, p0
 
@@ -6697,7 +6697,7 @@
 
     move-result-object v39
 
-    .line 1057
+    .line 1058
     .local v39, "states":[Landroid/net/NetworkState;
     move-object/from16 v0, p0
 
@@ -6713,7 +6713,7 @@
 
     const/16 v32, 0x1
 
-    .line 1061
+    .line 1062
     .local v32, "powerSave":Z
     :goto_0
     new-instance v12, Ljava/util/ArrayList;
@@ -6724,7 +6724,7 @@
 
     invoke-direct {v12, v4}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 1062
+    .line 1063
     .local v12, "connIdents":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/util/Pair<Ljava/lang/String;Landroid/net/NetworkIdentity;>;>;"
     new-instance v13, Landroid/util/ArraySet;
 
@@ -6734,7 +6734,7 @@
 
     invoke-direct {v13, v4}, Landroid/util/ArraySet;-><init>(I)V
 
-    .line 1063
+    .line 1064
     .local v13, "connIfaces":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     move-object/from16 v10, v39
 
@@ -6760,7 +6760,7 @@
 
     aget-object v38, v10, v19
 
-    .line 1064
+    .line 1065
     .local v38, "state":Landroid/net/NetworkState;
     move-object/from16 v0, v38
 
@@ -6772,7 +6772,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 1065
+    .line 1066
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -6783,7 +6783,7 @@
 
     move-result-object v20
 
-    .line 1067
+    .line 1068
     .local v20, "ident":Landroid/net/NetworkIdentity;
     move-object/from16 v0, v38
 
@@ -6793,11 +6793,11 @@
 
     move-result-object v11
 
-    .line 1068
+    .line 1069
     .local v11, "baseIface":Ljava/lang/String;
     if-eqz v11, :cond_0
 
-    .line 1069
+    .line 1070
     move-object/from16 v0, v20
 
     invoke-static {v11, v0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
@@ -6806,13 +6806,13 @@
 
     invoke-virtual {v12, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1070
+    .line 1071
     if-eqz v32, :cond_0
 
-    .line 1071
+    .line 1072
     invoke-virtual {v13, v11}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 1077
+    .line 1078
     :cond_0
     move-object/from16 v0, v38
 
@@ -6822,7 +6822,7 @@
 
     move-result-object v37
 
-    .line 1078
+    .line 1079
     .local v37, "stackedLinks":Ljava/util/List;, "Ljava/util/List<Landroid/net/LinkProperties;>;"
     invoke-interface/range {v37 .. v37}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -6844,17 +6844,17 @@
 
     check-cast v36, Landroid/net/LinkProperties;
 
-    .line 1079
+    .line 1080
     .local v36, "stackedLink":Landroid/net/LinkProperties;
     invoke-virtual/range {v36 .. v36}, Landroid/net/LinkProperties;->getInterfaceName()Ljava/lang/String;
 
     move-result-object v33
 
-    .line 1080
+    .line 1081
     .local v33, "stackedIface":Ljava/lang/String;
     if-eqz v33, :cond_1
 
-    .line 1081
+    .line 1082
     move-object/from16 v0, v33
 
     move-object/from16 v1, v20
@@ -6865,17 +6865,17 @@
 
     invoke-virtual {v12, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1082
+    .line 1083
     if-eqz v32, :cond_1
 
-    .line 1083
+    .line 1084
     move-object/from16 v0, v33
 
     invoke-virtual {v13, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    .line 1047
+    .line 1048
     .end local v10    # "arr$":[Landroid/net/NetworkState;
     .end local v11    # "baseIface":Ljava/lang/String;
     .end local v12    # "connIdents":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/util/Pair<Ljava/lang/String;Landroid/net/NetworkIdentity;>;>;"
@@ -6892,18 +6892,18 @@
     :catch_0
     move-exception v14
 
-    .line 1198
+    .line 1199
     :goto_3
     return-void
 
-    .line 1057
+    .line 1058
     .restart local v39    # "states":[Landroid/net/NetworkState;
     :cond_2
     const/16 v32, 0x0
 
     goto/16 :goto_0
 
-    .line 1063
+    .line 1064
     .restart local v10    # "arr$":[Landroid/net/NetworkState;
     .restart local v12    # "connIdents":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/util/Pair<Ljava/lang/String;Landroid/net/NetworkIdentity;>;>;"
     .restart local v13    # "connIfaces":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
@@ -6920,7 +6920,7 @@
     .restart local v19    # "i$":I
     goto :goto_1
 
-    .line 1091
+    .line 1092
     .end local v38    # "state":Landroid/net/NetworkState;
     :cond_4
     move-object/from16 v0, p0
@@ -6929,12 +6929,12 @@
 
     invoke-virtual {v4}, Landroid/util/ArrayMap;->clear()V
 
-    .line 1092
+    .line 1093
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v23
 
-    .line 1093
+    .line 1094
     .local v23, "ifaceList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     move-object/from16 v0, p0
 
@@ -6950,7 +6950,7 @@
     :goto_4
     if-ltz v17, :cond_8
 
-    .line 1094
+    .line 1095
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
@@ -6963,11 +6963,11 @@
 
     check-cast v31, Landroid/net/NetworkPolicy;
 
-    .line 1096
+    .line 1097
     .local v31, "policy":Landroid/net/NetworkPolicy;
     invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->clear()V
 
-    .line 1097
+    .line 1098
     invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
     move-result v4
@@ -6978,7 +6978,7 @@
     :goto_5
     if-ltz v25, :cond_6
 
-    .line 1098
+    .line 1099
     move/from16 v0, v25
 
     invoke-virtual {v12, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -6987,7 +6987,7 @@
 
     check-cast v21, Landroid/util/Pair;
 
-    .line 1099
+    .line 1100
     .local v21, "ident":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Landroid/net/NetworkIdentity;>;"
     move-object/from16 v0, v31
 
@@ -7005,7 +7005,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 1100
+    .line 1101
     move-object/from16 v0, v21
 
     iget-object v4, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
@@ -7014,13 +7014,13 @@
 
     invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1097
+    .line 1098
     :cond_5
     add-int/lit8 v25, v25, -0x1
 
     goto :goto_5
 
-    .line 1104
+    .line 1105
     .end local v21    # "ident":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Landroid/net/NetworkIdentity;>;"
     :cond_6
     invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->size()I
@@ -7029,7 +7029,7 @@
 
     if-lez v4, :cond_7
 
-    .line 1105
+    .line 1106
     invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->size()I
 
     move-result v4
@@ -7044,7 +7044,7 @@
 
     check-cast v24, [Ljava/lang/String;
 
-    .line 1106
+    .line 1107
     .local v24, "ifaces":[Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -7056,20 +7056,20 @@
 
     invoke-virtual {v4, v0, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1093
+    .line 1094
     .end local v24    # "ifaces":[Ljava/lang/String;
     :cond_7
     add-int/lit8 v17, v17, -0x1
 
     goto :goto_4
 
-    .line 1110
+    .line 1111
     .end local v25    # "j":I
     .end local v31    # "policy":Landroid/net/NetworkPolicy;
     :cond_8
     const-wide v28, 0x7fffffffffffffffL
 
-    .line 1111
+    .line 1112
     .local v28, "lowestRule":J
     new-instance v30, Landroid/util/ArraySet;
 
@@ -7081,13 +7081,13 @@
 
     invoke-direct {v0, v4}, Landroid/util/ArraySet;-><init>(I)V
 
-    .line 1115
+    .line 1116
     .local v30, "newMeteredIfaces":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     invoke-direct/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->currentTimeMillis()J
 
     move-result-wide v8
 
-    .line 1116
+    .line 1117
     .local v8, "currentTime":J
     move-object/from16 v0, p0
 
@@ -7104,7 +7104,7 @@
     :goto_6
     if-ltz v17, :cond_14
 
-    .line 1117
+    .line 1118
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkRules:Landroid/util/ArrayMap;
@@ -7117,7 +7117,7 @@
 
     check-cast v31, Landroid/net/NetworkPolicy;
 
-    .line 1118
+    .line 1119
     .restart local v31    # "policy":Landroid/net/NetworkPolicy;
     move-object/from16 v0, p0
 
@@ -7131,7 +7131,7 @@
 
     check-cast v24, [Ljava/lang/String;
 
-    .line 1122
+    .line 1123
     .restart local v24    # "ifaces":[Ljava/lang/String;
     invoke-virtual/range {v31 .. v31}, Landroid/net/NetworkPolicy;->hasCycle()Z
 
@@ -7139,14 +7139,14 @@
 
     if-eqz v4, :cond_c
 
-    .line 1123
+    .line 1124
     move-object/from16 v0, v31
 
     invoke-static {v8, v9, v0}, Landroid/net/NetworkPolicyManager;->computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
 
     move-result-wide v6
 
-    .line 1124
+    .line 1125
     .local v6, "start":J
     move-object/from16 v0, v31
 
@@ -7158,7 +7158,7 @@
 
     move-result-wide v40
 
-    .line 1135
+    .line 1136
     .local v40, "totalBytes":J
     :goto_7
     move-object/from16 v0, v31
@@ -7173,7 +7173,7 @@
 
     const/16 v16, 0x1
 
-    .line 1136
+    .line 1137
     .local v16, "hasWarning":Z
     :goto_8
     move-object/from16 v0, v31
@@ -7188,7 +7188,7 @@
 
     const/4 v15, 0x1
 
-    .line 1137
+    .line 1138
     .local v15, "hasLimit":Z
     :goto_9
     if-nez v15, :cond_9
@@ -7199,14 +7199,14 @@
 
     if-eqz v4, :cond_11
 
-    .line 1139
+    .line 1140
     :cond_9
     if-nez v15, :cond_f
 
-    .line 1142
+    .line 1143
     const-wide v34, 0x7fffffffffffffffL
 
-    .line 1154
+    .line 1155
     .local v34, "quotaBytes":J
     :goto_a
     move-object/from16 v0, v24
@@ -7217,14 +7217,14 @@
 
     if-le v4, v5, :cond_a
 
-    .line 1156
+    .line 1157
     const-string v4, "NetworkPolicy"
 
     const-string v5, "shared quota unsupported; generating rule for each iface"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1159
+    .line 1160
     :cond_a
     move-object/from16 v10, v24
 
@@ -7245,7 +7245,7 @@
 
     aget-object v22, v10, v18
 
-    .line 1160
+    .line 1161
     .local v22, "iface":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -7253,7 +7253,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->removeInterfaceQuota(Ljava/lang/String;)V
 
-    .line 1161
+    .line 1162
     move-object/from16 v0, p0
 
     move-object/from16 v1, v22
@@ -7262,28 +7262,28 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->setInterfaceQuota(Ljava/lang/String;J)V
 
-    .line 1162
+    .line 1163
     move-object/from16 v0, v30
 
     move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 1163
+    .line 1164
     if-eqz v32, :cond_b
 
-    .line 1164
+    .line 1165
     move-object/from16 v0, v22
 
     invoke-virtual {v13, v0}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    .line 1159
+    .line 1160
     :cond_b
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_b
 
-    .line 1126
+    .line 1127
     .end local v6    # "start":J
     .end local v10    # "arr$":[Ljava/lang/String;
     .end local v15    # "hasLimit":Z
@@ -7295,27 +7295,27 @@
     :cond_c
     const-wide v6, 0x7fffffffffffffffL
 
-    .line 1127
+    .line 1128
     .restart local v6    # "start":J
     const-wide/16 v40, 0x0
 
     .restart local v40    # "totalBytes":J
     goto :goto_7
 
-    .line 1135
+    .line 1136
     :cond_d
     const/16 v16, 0x0
 
     goto :goto_8
 
-    .line 1136
+    .line 1137
     .restart local v16    # "hasWarning":Z
     :cond_e
     const/4 v15, 0x0
 
     goto :goto_9
 
-    .line 1143
+    .line 1144
     .restart local v15    # "hasLimit":Z
     :cond_f
     move-object/from16 v0, v31
@@ -7326,13 +7326,13 @@
 
     if-ltz v4, :cond_10
 
-    .line 1146
+    .line 1147
     const-wide v34, 0x7fffffffffffffffL
 
     .restart local v34    # "quotaBytes":J
     goto :goto_a
 
-    .line 1151
+    .line 1152
     .end local v34    # "quotaBytes":J
     :cond_10
     const-wide/16 v4, 0x1
@@ -7354,7 +7354,7 @@
     .restart local v34    # "quotaBytes":J
     goto :goto_a
 
-    .line 1170
+    .line 1171
     .end local v34    # "quotaBytes":J
     :cond_11
     if-eqz v16, :cond_12
@@ -7367,14 +7367,14 @@
 
     if-gez v4, :cond_12
 
-    .line 1171
+    .line 1172
     move-object/from16 v0, v31
 
     iget-wide v0, v0, Landroid/net/NetworkPolicy;->warningBytes:J
 
     move-wide/from16 v28, v0
 
-    .line 1173
+    .line 1174
     :cond_12
     if-eqz v15, :cond_13
 
@@ -7386,20 +7386,20 @@
 
     if-gez v4, :cond_13
 
-    .line 1174
+    .line 1175
     move-object/from16 v0, v31
 
     iget-wide v0, v0, Landroid/net/NetworkPolicy;->limitBytes:J
 
     move-wide/from16 v28, v0
 
-    .line 1116
+    .line 1117
     :cond_13
     add-int/lit8 v17, v17, -0x1
 
     goto/16 :goto_6
 
-    .line 1178
+    .line 1179
     .end local v6    # "start":J
     .end local v15    # "hasLimit":Z
     .end local v16    # "hasWarning":Z
@@ -7416,7 +7416,7 @@
     :goto_c
     if-ltz v17, :cond_15
 
-    .line 1179
+    .line 1180
     move/from16 v0, v17
 
     invoke-virtual {v13, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
@@ -7425,7 +7425,7 @@
 
     check-cast v22, Ljava/lang/String;
 
-    .line 1180
+    .line 1181
     .restart local v22    # "iface":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -7433,7 +7433,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->removeInterfaceQuota(Ljava/lang/String;)V
 
-    .line 1181
+    .line 1182
     const-wide v4, 0x7fffffffffffffffL
 
     move-object/from16 v0, p0
@@ -7442,19 +7442,19 @@
 
     invoke-direct {v0, v1, v4, v5}, Lcom/android/server/net/NetworkPolicyManagerService;->setInterfaceQuota(Ljava/lang/String;J)V
 
-    .line 1182
+    .line 1183
     move-object/from16 v0, v30
 
     move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 1178
+    .line 1179
     add-int/lit8 v17, v17, -0x1
 
     goto :goto_c
 
-    .line 1185
+    .line 1186
     .end local v22    # "iface":Ljava/lang/String;
     :cond_15
     move-object/from16 v0, p0
@@ -7475,7 +7475,7 @@
 
     invoke-virtual {v4}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1188
+    .line 1189
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mMeteredIfaces:Landroid/util/ArraySet;
@@ -7489,7 +7489,7 @@
     :goto_d
     if-ltz v17, :cond_17
 
-    .line 1189
+    .line 1190
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mMeteredIfaces:Landroid/util/ArraySet;
@@ -7502,7 +7502,7 @@
 
     check-cast v22, Ljava/lang/String;
 
-    .line 1190
+    .line 1191
     .restart local v22    # "iface":Ljava/lang/String;
     move-object/from16 v0, v30
 
@@ -7514,20 +7514,20 @@
 
     if-nez v4, :cond_16
 
-    .line 1191
+    .line 1192
     move-object/from16 v0, p0
 
     move-object/from16 v1, v22
 
     invoke-direct {v0, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->removeInterfaceQuota(Ljava/lang/String;)V
 
-    .line 1188
+    .line 1189
     :cond_16
     add-int/lit8 v17, v17, -0x1
 
     goto :goto_d
 
-    .line 1194
+    .line 1195
     .end local v22    # "iface":Ljava/lang/String;
     :cond_17
     move-object/from16 v0, v30
@@ -7536,7 +7536,7 @@
 
     iput-object v0, v1, Lcom/android/server/net/NetworkPolicyManagerService;->mMeteredIfaces:Landroid/util/ArraySet;
 
-    .line 1196
+    .line 1197
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mMeteredIfaces:Landroid/util/ArraySet;
@@ -7557,7 +7557,7 @@
 
     check-cast v27, [Ljava/lang/String;
 
-    .line 1197
+    .line 1198
     .local v27, "meteredIfaces":[Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -7577,209 +7577,245 @@
 .end method
 
 .method updateNotificationsLocked()V
-    .locals 14
+    .locals 18
 
     .prologue
     .line 688
-    new-instance v6, Landroid/util/ArraySet;
+    new-instance v8, Landroid/util/ArraySet;
 
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
+    move-object/from16 v0, p0
 
-    invoke-direct {v6, v0}, Landroid/util/ArraySet;-><init>(Landroid/util/ArraySet;)V
+    iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
+
+    invoke-direct {v8, v2}, Landroid/util/ArraySet;-><init>(Landroid/util/ArraySet;)V
 
     .line 689
-    .local v6, "beforeNotifs":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
+    .local v8, "beforeNotifs":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->clear()V
+    iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
+
+    invoke-virtual {v2}, Landroid/util/ArraySet;->clear()V
 
     .line 695
-    invoke-direct {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->currentTimeMillis()J
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/net/NetworkPolicyManagerService;->currentTimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v10
 
     .line 696
-    .local v8, "currentTime":J
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
+    .local v10, "currentTime":J
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
+    iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
-    move-result v0
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
 
-    add-int/lit8 v7, v0, -0x1
+    move-result v2
 
-    .local v7, "i":I
+    add-int/lit8 v9, v2, -0x1
+
+    .local v9, "i":I
     :goto_0
-    if-ltz v7, :cond_4
+    if-ltz v9, :cond_4
 
     .line 697
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v7}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
-    move-result-object v10
+    invoke-virtual {v2, v9}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    check-cast v10, Landroid/net/NetworkPolicy;
+    move-result-object v12
+
+    check-cast v12, Landroid/net/NetworkPolicy;
 
     .line 699
-    .local v10, "policy":Landroid/net/NetworkPolicy;
-    iget-object v0, v10, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
+    .local v12, "policy":Landroid/net/NetworkPolicy;
+    iget-object v2, v12, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
-    invoke-direct {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->isTemplateRelevant(Landroid/net/NetworkTemplate;)Z
+    move-object/from16 v0, p0
 
-    move-result v0
+    invoke-direct {v0, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->isTemplateRelevant(Landroid/net/NetworkTemplate;)Z
 
-    if-nez v0, :cond_1
+    move-result v2
+
+    if-nez v2, :cond_1
 
     .line 696
     :cond_0
     :goto_1
-    add-int/lit8 v7, v7, -0x1
+    add-int/lit8 v9, v9, -0x1
 
     goto :goto_0
 
     .line 700
     :cond_1
-    invoke-virtual {v10}, Landroid/net/NetworkPolicy;->hasCycle()Z
+    invoke-virtual {v12}, Landroid/net/NetworkPolicy;->hasCycle()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     .line 702
-    invoke-static {v8, v9, v10}, Landroid/net/NetworkPolicyManager;->computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
+    invoke-static {v10, v11, v12}, Landroid/net/NetworkPolicyManager;->computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 703
-    .local v2, "start":J
-    move-wide v4, v8
+    .local v4, "start":J
+    move-wide v6, v10
 
     .line 704
-    .local v4, "end":J
-    iget-object v1, v10, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
+    .local v6, "end":J
+    iget-object v3, v12, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
-    move-object v0, p0
+    move-object/from16 v2, p0
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/net/NetworkPolicyManagerService;->getTotalBytes(Landroid/net/NetworkTemplate;JJ)J
+    invoke-direct/range {v2 .. v7}, Lcom/android/server/net/NetworkPolicyManagerService;->getTotalBytes(Landroid/net/NetworkTemplate;JJ)J
 
-    move-result-wide v12
+    move-result-wide v14
 
     .line 706
-    .local v12, "totalBytes":J
-    invoke-virtual {v10, v12, v13}, Landroid/net/NetworkPolicy;->isOverLimit(J)Z
+    .local v14, "totalBytes":J
+    invoke-virtual {v12, v14, v15}, Landroid/net/NetworkPolicy;->isOverLimit(J)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
 
     .line 707
-    iget-wide v0, v10, Landroid/net/NetworkPolicy;->lastLimitSnooze:J
+    iget-wide v2, v12, Landroid/net/NetworkPolicy;->lastLimitSnooze:J
 
-    cmp-long v0, v0, v2
+    cmp-long v2, v2, v4
 
-    if-ltz v0, :cond_2
+    if-ltz v2, :cond_2
 
     .line 708
-    const/4 v0, 0x3
+    const/4 v2, 0x3
 
-    invoke-direct {p0, v10, v0, v12, v13}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v2, v14, v15}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
 
     goto :goto_1
 
     .line 710
     :cond_2
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    invoke-direct {p0, v10, v0, v12, v13}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v2, v14, v15}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
 
     .line 711
-    iget-object v0, v10, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
+    iget-object v2, v12, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
-    invoke-direct {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->notifyOverLimitLocked(Landroid/net/NetworkTemplate;)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->notifyOverLimitLocked(Landroid/net/NetworkTemplate;)V
 
     goto :goto_1
 
     .line 715
     :cond_3
-    iget-object v0, v10, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
+    iget-object v2, v12, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
-    invoke-direct {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->notifyUnderLimitLocked(Landroid/net/NetworkTemplate;)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->notifyUnderLimitLocked(Landroid/net/NetworkTemplate;)V
 
     .line 717
-    invoke-virtual {v10, v12, v13}, Landroid/net/NetworkPolicy;->isOverWarning(J)Z
+    invoke-virtual {v12, v14, v15}, Landroid/net/NetworkPolicy;->isOverWarning(J)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-wide v0, v10, Landroid/net/NetworkPolicy;->lastWarningSnooze:J
+    iget-wide v2, v12, Landroid/net/NetworkPolicy;->lastWarningSnooze:J
 
-    cmp-long v0, v0, v2
+    cmp-long v2, v2, v4
 
-    if-gez v0, :cond_0
+    if-gez v2, :cond_0
 
-    .line 718
-    const/4 v0, 0x1
+    iget-wide v2, v12, Landroid/net/NetworkPolicy;->limitBytes:J
 
-    invoke-direct {p0, v10, v0, v12, v13}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
+    const-wide/16 v16, -0x1
+
+    cmp-long v2, v2, v16
+
+    if-eqz v2, :cond_0
+
+    .line 719
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v2, v14, v15}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueNotification(Landroid/net/NetworkPolicy;IJ)V
 
     goto :goto_1
 
-    .line 724
-    .end local v2    # "start":J
-    .end local v4    # "end":J
-    .end local v10    # "policy":Landroid/net/NetworkPolicy;
-    .end local v12    # "totalBytes":J
-    :cond_4
-    iget-boolean v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
-
-    if-eqz v0, :cond_5
-
     .line 725
-    const-string v0, "NetworkPolicy:allowBackground"
+    .end local v4    # "start":J
+    .end local v6    # "end":J
+    .end local v12    # "policy":Landroid/net/NetworkPolicy;
+    .end local v14    # "totalBytes":J
+    :cond_4
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueRestrictedNotification(Ljava/lang/String;)V
+    iget-boolean v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
-    .line 729
-    :cond_5
-    invoke-virtual {v6}, Landroid/util/ArraySet;->size()I
+    if-eqz v2, :cond_5
 
-    move-result v0
+    .line 726
+    const-string v2, "NetworkPolicy:allowBackground"
 
-    add-int/lit8 v7, v0, -0x1
+    move-object/from16 v0, p0
 
-    :goto_2
-    if-ltz v7, :cond_7
+    invoke-direct {v0, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->enqueueRestrictedNotification(Ljava/lang/String;)V
 
     .line 730
-    invoke-virtual {v6, v7}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    :cond_5
+    invoke-virtual {v8}, Landroid/util/ArraySet;->size()I
 
-    move-result-object v11
+    move-result v2
 
-    check-cast v11, Ljava/lang/String;
+    add-int/lit8 v9, v2, -0x1
+
+    :goto_2
+    if-ltz v9, :cond_7
 
     .line 731
-    .local v11, "tag":Ljava/lang/String;
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
+    invoke-virtual {v8, v9}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, v11}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+    move-result-object v13
 
-    move-result v0
-
-    if-nez v0, :cond_6
+    check-cast v13, Ljava/lang/String;
 
     .line 732
-    invoke-direct {p0, v11}, Lcom/android/server/net/NetworkPolicyManagerService;->cancelNotification(Ljava/lang/String;)V
+    .local v13, "tag":Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    .line 729
+    iget-object v2, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mActiveNotifs:Landroid/util/ArraySet;
+
+    invoke-virtual {v2, v13}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    .line 733
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v13}, Lcom/android/server/net/NetworkPolicyManagerService;->cancelNotification(Ljava/lang/String;)V
+
+    .line 730
     :cond_6
-    add-int/lit8 v7, v7, -0x1
+    add-int/lit8 v9, v9, -0x1
 
     goto :goto_2
 
-    .line 735
-    .end local v11    # "tag":Ljava/lang/String;
+    .line 736
+    .end local v13    # "tag":Ljava/lang/String;
     :cond_7
     return-void
 .end method
@@ -7789,14 +7825,14 @@
     .param p1, "restrictedNetworksChanged"    # Z
 
     .prologue
-    .line 1954
+    .line 1955
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v9}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
-    .line 1955
+    .line 1956
     .local v4, "pm":Landroid/content/pm/PackageManager;
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
 
@@ -7808,7 +7844,7 @@
 
     check-cast v6, Landroid/os/UserManager;
 
-    .line 1960
+    .line 1961
     .local v6, "um":Landroid/os/UserManager;
     iget-boolean v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
@@ -7823,12 +7859,12 @@
     :goto_0
     iput v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mCurForegroundState:I
 
-    .line 1965
+    .line 1966
     invoke-virtual {v6}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
     move-result-object v8
 
-    .line 1966
+    .line 1967
     .local v8, "users":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     const/16 v9, 0x2200
 
@@ -7836,7 +7872,7 @@
 
     move-result-object v1
 
-    .line 1969
+    .line 1970
     .local v1, "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -7855,7 +7891,7 @@
 
     check-cast v7, Landroid/content/pm/UserInfo;
 
-    .line 1970
+    .line 1971
     .local v7, "user":Landroid/content/pm/UserInfo;
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -7875,7 +7911,7 @@
 
     check-cast v0, Landroid/content/pm/ApplicationInfo;
 
-    .line 1971
+    .line 1972
     .local v0, "app":Landroid/content/pm/ApplicationInfo;
     iget v9, v7, Landroid/content/pm/UserInfo;->id:I
 
@@ -7885,13 +7921,13 @@
 
     move-result v5
 
-    .line 1972
+    .line 1973
     .local v5, "uid":I
     invoke-virtual {p0, v5}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
 
     goto :goto_1
 
-    .line 1960
+    .line 1961
     .end local v0    # "app":Landroid/content/pm/ApplicationInfo;
     .end local v1    # "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     .end local v3    # "i$":Ljava/util/Iterator;
@@ -7903,7 +7939,7 @@
 
     goto :goto_0
 
-    .line 1977
+    .line 1978
     .restart local v1    # "apps":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     .restart local v8    # "users":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     :cond_2
@@ -7911,18 +7947,18 @@
 
     invoke-virtual {p0, v9}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
 
-    .line 1978
+    .line 1979
     const/16 v9, 0x3fb
 
     invoke-virtual {p0, v9}, Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
 
-    .line 1981
+    .line 1982
     if-eqz p1, :cond_3
 
-    .line 1982
+    .line 1983
     invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesLocked()V
 
-    .line 1984
+    .line 1985
     :cond_3
     return-void
 .end method
@@ -7936,18 +7972,18 @@
 
     const/4 v0, 0x0
 
-    .line 1997
+    .line 1998
     invoke-static {p1}, Lcom/android/server/net/NetworkPolicyManagerService;->isUidValidForRules(I)Z
 
     move-result v6
 
     if-nez v6, :cond_0
 
-    .line 2043
+    .line 2044
     :goto_0
     return-void
 
-    .line 1999
+    .line 2000
     :cond_0
     iget-object v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
@@ -7955,17 +7991,17 @@
 
     move-result v2
 
-    .line 2000
+    .line 2001
     .local v2, "uidPolicy":I
     invoke-virtual {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->isUidForegroundLocked(I)Z
 
     move-result v1
 
-    .line 2003
+    .line 2004
     .local v1, "uidForeground":Z
     const/4 v3, 0x0
 
-    .line 2004
+    .line 2005
     .local v3, "uidRules":I
     if-nez v1, :cond_3
 
@@ -7973,20 +8009,20 @@
 
     if-eqz v6, :cond_3
 
-    .line 2006
+    .line 2007
     const/4 v3, 0x1
 
-    .line 2025
+    .line 2026
     :cond_1
     :goto_1
     if-nez v3, :cond_5
 
-    .line 2026
+    .line 2027
     iget-object v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
 
     invoke-virtual {v6, p1}, Landroid/util/SparseIntArray;->delete(I)V
 
-    .line 2031
+    .line 2032
     :goto_2
     and-int/lit8 v6, v3, 0x1
 
@@ -7994,12 +8030,12 @@
 
     move v0, v5
 
-    .line 2032
+    .line 2033
     .local v0, "rejectMetered":Z
     :cond_2
     invoke-direct {p0, p1, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->setUidNetworkRules(IZ)V
 
-    .line 2035
+    .line 2036
     iget-object v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v6, v5, p1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
@@ -8008,7 +8044,7 @@
 
     invoke-virtual {v5}, Landroid/os/Message;->sendToTarget()V
 
-    .line 2039
+    .line 2040
     :try_start_0
     iget-object v5, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkStats:Landroid/net/INetworkStatsService;
 
@@ -8018,34 +8054,34 @@
 
     goto :goto_0
 
-    .line 2040
+    .line 2041
     :catch_0
     move-exception v5
 
     goto :goto_0
 
-    .line 2007
+    .line 2008
     .end local v0    # "rejectMetered":Z
     :cond_3
     iget-boolean v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
     if-eqz v6, :cond_4
 
-    .line 2008
+    .line 2009
     if-nez v1, :cond_1
 
-    .line 2010
+    .line 2011
     const/4 v3, 0x1
 
     goto :goto_1
 
-    .line 2012
+    .line 2013
     :cond_4
     iget-boolean v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictPower:Z
 
     if-eqz v6, :cond_1
 
-    .line 2013
+    .line 2014
     iget-object v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
     invoke-static {p1}, Landroid/os/UserHandle;->getAppId(I)I
@@ -8056,7 +8092,7 @@
 
     move-result v4
 
-    .line 2014
+    .line 2015
     .local v4, "whitelisted":Z
     if-nez v4, :cond_1
 
@@ -8066,12 +8102,12 @@
 
     if-nez v6, :cond_1
 
-    .line 2019
+    .line 2020
     const/4 v3, 0x1
 
     goto :goto_1
 
-    .line 2028
+    .line 2029
     .end local v4    # "whitelisted":Z
     :cond_5
     iget-object v6, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
@@ -8085,10 +8121,10 @@
     .locals 12
 
     .prologue
-    .line 1388
+    .line 1389
     const/4 v1, 0x0
 
-    .line 1390
+    .line 1391
     .local v1, "fos":Ljava/io/FileOutputStream;
     :try_start_0
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPolicyFile:Landroid/util/AtomicFile;
@@ -8097,18 +8133,18 @@
 
     move-result-object v1
 
-    .line 1392
+    .line 1393
     new-instance v4, Lcom/android/internal/util/FastXmlSerializer;
 
     invoke-direct {v4}, Lcom/android/internal/util/FastXmlSerializer;-><init>()V
 
-    .line 1393
+    .line 1394
     .local v4, "out":Lorg/xmlpull/v1/XmlSerializer;
     const-string v9, "utf-8"
 
     invoke-interface {v4, v1, v9}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    .line 1394
+    .line 1395
     const/4 v9, 0x0
 
     const/4 v10, 0x1
@@ -8119,28 +8155,28 @@
 
     invoke-interface {v4, v9, v10}, Lorg/xmlpull/v1/XmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    .line 1396
+    .line 1397
     const/4 v9, 0x0
 
     const-string v10, "policy-list"
 
     invoke-interface {v4, v9, v10}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1397
+    .line 1398
     const-string v9, "version"
 
     const/16 v10, 0xa
 
     invoke-static {v4, v9, v10}, Lcom/android/internal/util/XmlUtils;->writeIntAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;I)V
 
-    .line 1398
+    .line 1399
     const-string v9, "restrictBackground"
 
     iget-boolean v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
     invoke-static {v4, v9, v10}, Lcom/android/internal/util/XmlUtils;->writeBooleanAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;Z)V
 
-    .line 1401
+    .line 1402
     const/4 v2, 0x0
 
     .local v2, "i":I
@@ -8153,7 +8189,7 @@
 
     if-ge v2, v9, :cond_2
 
-    .line 1402
+    .line 1403
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
     invoke-virtual {v9, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
@@ -8162,11 +8198,11 @@
 
     check-cast v5, Landroid/net/NetworkPolicy;
 
-    .line 1403
+    .line 1404
     .local v5, "policy":Landroid/net/NetworkPolicy;
     iget-object v7, v5, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
-    .line 1405
+    .line 1406
     .local v7, "template":Landroid/net/NetworkTemplate;
     const/4 v9, 0x0
 
@@ -8174,7 +8210,7 @@
 
     invoke-interface {v4, v9, v10}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1406
+    .line 1407
     const-string v9, "networkTemplate"
 
     invoke-virtual {v7}, Landroid/net/NetworkTemplate;->getMatchRule()I
@@ -8183,40 +8219,40 @@
 
     invoke-static {v4, v9, v10}, Lcom/android/internal/util/XmlUtils;->writeIntAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;I)V
 
-    .line 1407
+    .line 1408
     invoke-virtual {v7}, Landroid/net/NetworkTemplate;->getSubscriberId()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 1408
+    .line 1409
     .local v6, "subscriberId":Ljava/lang/String;
     if-eqz v6, :cond_0
 
-    .line 1409
+    .line 1410
     const/4 v9, 0x0
 
     const-string v10, "subscriberId"
 
     invoke-interface {v4, v9, v10, v6}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1411
+    .line 1412
     :cond_0
     invoke-virtual {v7}, Landroid/net/NetworkTemplate;->getNetworkId()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 1412
+    .line 1413
     .local v3, "networkId":Ljava/lang/String;
     if-eqz v3, :cond_1
 
-    .line 1413
+    .line 1414
     const/4 v9, 0x0
 
     const-string v10, "networkId"
 
     invoke-interface {v4, v9, v10, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1415
+    .line 1416
     :cond_1
     const-string v9, "cycleDay"
 
@@ -8224,7 +8260,7 @@
 
     invoke-static {v4, v9, v10}, Lcom/android/internal/util/XmlUtils;->writeIntAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;I)V
 
-    .line 1416
+    .line 1417
     const/4 v9, 0x0
 
     const-string v10, "cycleTimezone"
@@ -8233,61 +8269,61 @@
 
     invoke-interface {v4, v9, v10, v11}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1417
+    .line 1418
     const-string v9, "warningBytes"
 
     iget-wide v10, v5, Landroid/net/NetworkPolicy;->warningBytes:J
 
     invoke-static {v4, v9, v10, v11}, Lcom/android/internal/util/XmlUtils;->writeLongAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;J)V
 
-    .line 1418
+    .line 1419
     const-string v9, "limitBytes"
 
     iget-wide v10, v5, Landroid/net/NetworkPolicy;->limitBytes:J
 
     invoke-static {v4, v9, v10, v11}, Lcom/android/internal/util/XmlUtils;->writeLongAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;J)V
 
-    .line 1419
+    .line 1420
     const-string v9, "lastWarningSnooze"
 
     iget-wide v10, v5, Landroid/net/NetworkPolicy;->lastWarningSnooze:J
 
     invoke-static {v4, v9, v10, v11}, Lcom/android/internal/util/XmlUtils;->writeLongAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;J)V
 
-    .line 1420
+    .line 1421
     const-string v9, "lastLimitSnooze"
 
     iget-wide v10, v5, Landroid/net/NetworkPolicy;->lastLimitSnooze:J
 
     invoke-static {v4, v9, v10, v11}, Lcom/android/internal/util/XmlUtils;->writeLongAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;J)V
 
-    .line 1421
+    .line 1422
     const-string v9, "metered"
 
     iget-boolean v10, v5, Landroid/net/NetworkPolicy;->metered:Z
 
     invoke-static {v4, v9, v10}, Lcom/android/internal/util/XmlUtils;->writeBooleanAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;Z)V
 
-    .line 1422
+    .line 1423
     const-string v9, "inferred"
 
     iget-boolean v10, v5, Landroid/net/NetworkPolicy;->inferred:Z
 
     invoke-static {v4, v9, v10}, Lcom/android/internal/util/XmlUtils;->writeBooleanAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;Z)V
 
-    .line 1423
+    .line 1424
     const/4 v9, 0x0
 
     const-string v10, "network-policy"
 
     invoke-interface {v4, v9, v10}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1401
+    .line 1402
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 1427
+    .line 1428
     .end local v3    # "networkId":Ljava/lang/String;
     .end local v5    # "policy":Landroid/net/NetworkPolicy;
     .end local v6    # "subscriberId":Ljava/lang/String;
@@ -8304,14 +8340,14 @@
 
     if-ge v2, v9, :cond_5
 
-    .line 1428
+    .line 1429
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
     invoke-virtual {v9, v2}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v8
 
-    .line 1429
+    .line 1430
     .local v8, "uid":I
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
@@ -8319,17 +8355,17 @@
 
     move-result v5
 
-    .line 1432
+    .line 1433
     .local v5, "policy":I
     if-nez v5, :cond_3
 
-    .line 1427
+    .line 1428
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 1434
+    .line 1435
     :cond_3
     const/4 v9, 0x0
 
@@ -8337,17 +8373,17 @@
 
     invoke-interface {v4, v9, v10}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1435
+    .line 1436
     const-string v9, "uid"
 
     invoke-static {v4, v9, v8}, Lcom/android/internal/util/XmlUtils;->writeIntAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;I)V
 
-    .line 1436
+    .line 1437
     const-string v9, "policy"
 
     invoke-static {v4, v9, v5}, Lcom/android/internal/util/XmlUtils;->writeIntAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;I)V
 
-    .line 1437
+    .line 1438
     const/4 v9, 0x0
 
     const-string v10, "uid-policy"
@@ -8358,7 +8394,7 @@
 
     goto :goto_2
 
-    .line 1444
+    .line 1445
     .end local v2    # "i":I
     .end local v4    # "out":Lorg/xmlpull/v1/XmlSerializer;
     .end local v5    # "policy":I
@@ -8366,22 +8402,22 @@
     :catch_0
     move-exception v0
 
-    .line 1445
+    .line 1446
     .local v0, "e":Ljava/io/IOException;
     if-eqz v1, :cond_4
 
-    .line 1446
+    .line 1447
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPolicyFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v9, v1}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
-    .line 1449
+    .line 1450
     .end local v0    # "e":Ljava/io/IOException;
     :cond_4
     :goto_3
     return-void
 
-    .line 1440
+    .line 1441
     .restart local v2    # "i":I
     .restart local v4    # "out":Lorg/xmlpull/v1/XmlSerializer;
     :cond_5
@@ -8392,10 +8428,10 @@
 
     invoke-interface {v4, v9, v10}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 1441
+    .line 1442
     invoke-interface {v4}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
 
-    .line 1443
+    .line 1444
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPolicyFile:Landroid/util/AtomicFile;
 
     invoke-virtual {v9, v1}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V

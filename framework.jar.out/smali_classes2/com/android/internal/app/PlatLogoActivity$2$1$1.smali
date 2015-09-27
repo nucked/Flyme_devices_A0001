@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 183
+    .line 189
     iput-object p1, p0, Lcom/android/internal/app/PlatLogoActivity$2$1$1;->this$2:Lcom/android/internal/app/PlatLogoActivity$2$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +37,10 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 5
 
     .prologue
-    .line 187
+    .line 193
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$2$1$1;->this$2:Lcom/android/internal/app/PlatLogoActivity$2$1;
 
@@ -60,6 +60,23 @@
 
     move-result-object v2
 
+    const-string v3, "is_cm"
+
+    iget-object v4, p0, Lcom/android/internal/app/PlatLogoActivity$2$1$1;->this$2:Lcom/android/internal/app/PlatLogoActivity$2$1;
+
+    iget-object v4, v4, Lcom/android/internal/app/PlatLogoActivity$2$1;->this$1:Lcom/android/internal/app/PlatLogoActivity$2;
+
+    iget-object v4, v4, Lcom/android/internal/app/PlatLogoActivity$2;->this$0:Lcom/android/internal/app/PlatLogoActivity;
+
+    # getter for: Lcom/android/internal/app/PlatLogoActivity;->mIsCM:Z
+    invoke-static {v4}, Lcom/android/internal/app/PlatLogoActivity;->access$000(Lcom/android/internal/app/PlatLogoActivity;)Z
+
+    move-result v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    move-result-object v2
+
     const-string v3, "com.android.internal.category.PLATLOGO"
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
@@ -70,7 +87,7 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 195
+    .line 202
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$2$1$1;->this$2:Lcom/android/internal/app/PlatLogoActivity$2$1;
 
@@ -80,14 +97,14 @@
 
     invoke-virtual {v1}, Lcom/android/internal/app/PlatLogoActivity;->finish()V
 
-    .line 196
+    .line 203
     return-void
 
-    .line 192
+    .line 199
     :catch_0
     move-exception v0
 
-    .line 193
+    .line 200
     .local v0, "ex":Landroid/content/ActivityNotFoundException;
     const-string v1, "PlatLogoActivity"
 

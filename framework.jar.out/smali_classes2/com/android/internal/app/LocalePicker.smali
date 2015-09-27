@@ -51,7 +51,7 @@
 
     .prologue
     .line 170
-    const v0, 0x109006f
+    const v0, 0x109006a
 
     const v1, 0x10201b8
 
@@ -194,7 +194,7 @@
     invoke-static {v5}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     .line 115
-    const v11, 0x107000e
+    const v11, 0x1070008
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -202,7 +202,7 @@
 
     .line 116
     .local v9, "specialLocaleCodes":[Ljava/lang/String;
-    const v11, 0x107000f
+    const v11, 0x1070009
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -493,7 +493,7 @@
 
     .prologue
     .line 91
-    const v3, 0x1040081
+    const v3, 0x1040128
 
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

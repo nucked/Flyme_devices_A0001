@@ -33,7 +33,7 @@
     .locals 1
 
     .prologue
-    .line 788
+    .line 783
     const-string v0, "content://sms/conversations"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -49,9 +49,9 @@
     .locals 0
 
     .prologue
-    .line 782
+    .line 777
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 783
+    .line 778
     return-void
 .end method

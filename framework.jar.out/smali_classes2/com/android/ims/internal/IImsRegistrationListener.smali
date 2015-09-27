@@ -23,6 +23,14 @@
     .end annotation
 .end method
 
+.method public abstract registrationDisconnected()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract registrationDisconnected(Lcom/android/ims/ImsReasonInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

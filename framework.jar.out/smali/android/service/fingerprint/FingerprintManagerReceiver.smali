@@ -61,3 +61,12 @@
     .line 75
     return-void
 .end method
+
+.method public onStateChanged(I)V
+    .locals 0
+    .param p1, "state"    # I
+
+    .prologue
+    .line 81
+    return-void
+.end method

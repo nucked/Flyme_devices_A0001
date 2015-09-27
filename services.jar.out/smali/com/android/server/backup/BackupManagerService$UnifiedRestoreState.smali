@@ -54,7 +54,7 @@
 
     const/4 v3, 0x0
 
-    .line 6923
+    .line 7107
     new-instance v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     const-string v1, "INITIAL"
@@ -63,7 +63,7 @@
 
     sput-object v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->INITIAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
-    .line 6924
+    .line 7108
     new-instance v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     const-string v1, "RUNNING_QUEUE"
@@ -72,7 +72,7 @@
 
     sput-object v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RUNNING_QUEUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
-    .line 6925
+    .line 7109
     new-instance v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     const-string v1, "RESTORE_KEYVALUE"
@@ -81,7 +81,7 @@
 
     sput-object v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RESTORE_KEYVALUE:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
-    .line 6926
+    .line 7110
     new-instance v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     const-string v1, "RESTORE_FULL"
@@ -90,7 +90,7 @@
 
     sput-object v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RESTORE_FULL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
-    .line 6927
+    .line 7111
     new-instance v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     const-string v1, "RESTORE_FINISHED"
@@ -99,7 +99,7 @@
 
     sput-object v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->RESTORE_FINISHED:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
-    .line 6928
+    .line 7112
     new-instance v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     const-string v1, "FINAL"
@@ -110,7 +110,7 @@
 
     sput-object v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->FINAL:Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
-    .line 6922
+    .line 7106
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
@@ -155,7 +155,7 @@
     .end annotation
 
     .prologue
-    .line 6922
+    .line 7106
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -166,7 +166,7 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 6922
+    .line 7106
     const-class v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -182,7 +182,7 @@
     .locals 1
 
     .prologue
-    .line 6922
+    .line 7106
     sget-object v0, Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->$VALUES:[Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;
 
     invoke-virtual {v0}, [Lcom/android/server/backup/BackupManagerService$UnifiedRestoreState;->clone()Ljava/lang/Object;

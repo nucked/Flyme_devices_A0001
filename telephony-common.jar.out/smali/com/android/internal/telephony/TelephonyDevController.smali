@@ -350,7 +350,7 @@
 
     .line 83
     .local v6, "resource":Landroid/content/res/Resources;
-    const v7, 0x107003e
+    const v7, 0x1070042
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

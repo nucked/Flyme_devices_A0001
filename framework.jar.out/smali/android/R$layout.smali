@@ -23,8 +23,6 @@
 
 .field public static final list_content:I = 0x1090014
 
-.field public static final oneplus_single_textview_item:I = 0x1090019
-
 .field public static final preference_category:I = 0x1090002
 
 .field public static final select_dialog_item:I = 0x1090011
@@ -65,19 +63,13 @@
 
 .field public static final two_line_list_item:I = 0x109000d
 
-.field public static final uc_listview_fragment_undo_popup:I = 0x1090020
-
-.field public static final uc_listview_item_parent:I = 0x1090021
-
-.field public static final uc_preference_category_material:I = 0x1090043
-
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 14031
+    .line 13360
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

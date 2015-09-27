@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.hdmi.IHdmiRecordListener"
 
-.field static final TRANSACTION_getOneTouchRecordSource:I = 0x1
+.field static final TRANSACTION_getOneTouchRecordSource_0:I = 0x1
 
 .field static final TRANSACTION_onClearTimerRecordingResult:I = 0x4
 

@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 334
+    .line 336
     const-string v0, "content://sms"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -56,10 +56,10 @@
     .locals 0
 
     .prologue
-    .line 297
+    .line 299
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 298
+    .line 300
     return-void
 .end method
 
@@ -76,7 +76,7 @@
     .param p8, "deliveryReport"    # Z
 
     .prologue
-    .line 380
+    .line 382
     const-wide/16 v10, -0x1
 
     move v1, p0
@@ -118,7 +118,7 @@
     .param p9, "threadId"    # J
 
     .prologue
-    .line 426
+    .line 428
     const/4 v12, -0x1
 
     move v1, p0
@@ -163,14 +163,14 @@
     .param p11, "priority"    # I
 
     .prologue
-    .line 451
+    .line 453
     new-instance v1, Landroid/content/ContentValues;
 
     const/16 v2, 0x9
 
     invoke-direct {v1, v2}, Landroid/content/ContentValues;-><init>(I)V
 
-    .line 452
+    .line 454
     .local v1, "values":Landroid/content/ContentValues;
     const-string v2, "Telephony"
 
@@ -194,10 +194,12 @@
 
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 460
-    move v0, p0
+    .line 456
+    invoke-static {p0}, Landroid/telephony/SubscriptionManager;->getPhoneId(I)I
 
-    .line 462
+    move-result v0
+
+    .line 457
     .local v0, "phoneId":I
     const-string v2, "sub_id"
 
@@ -207,7 +209,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 463
+    .line 458
     const-string v2, "phone_id"
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -216,20 +218,20 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 464
+    .line 459
     const-string v2, "address"
 
     invoke-virtual {v1, v2, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 465
+    .line 460
     if-eqz p6, :cond_0
 
-    .line 466
+    .line 461
     const-string v2, "date"
 
     invoke-virtual {v1, v2, p6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 468
+    .line 463
     :cond_0
     const-string v3, "read"
 
@@ -244,17 +246,17 @@
     :goto_0
     invoke-virtual {v1, v3, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 469
+    .line 464
     const-string v2, "subject"
 
     invoke-virtual {v1, v2, p5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 470
+    .line 465
     const-string v2, "body"
 
     invoke-virtual {v1, v2, p4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 471
+    .line 466
     const-string v2, "priority"
 
     invoke-static/range {p11 .. p11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -263,10 +265,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 472
+    .line 467
     if-eqz p8, :cond_1
 
-    .line 473
+    .line 468
     const-string v2, "status"
 
     const/16 v3, 0x20
@@ -277,7 +279,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 475
+    .line 470
     :cond_1
     const-wide/16 v2, -0x1
 
@@ -285,7 +287,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 476
+    .line 471
     const-string v2, "thread_id"
 
     invoke-static {p9, p10}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -294,7 +296,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 478
+    .line 473
     :cond_2
     invoke-virtual {p1, p2, v1}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
@@ -302,7 +304,7 @@
 
     return-object v2
 
-    .line 468
+    .line 463
     :cond_3
     const/4 v2, 0x0
 
@@ -325,7 +327,7 @@
     .param p7, "deliveryReport"    # Z
 
     .prologue
-    .line 358
+    .line 360
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSmsSubId()I
 
     move-result v1
@@ -368,7 +370,7 @@
     .param p8, "threadId"    # J
 
     .prologue
-    .line 402
+    .line 404
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSmsSubId()I
 
     move-result v1
@@ -403,23 +405,23 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 306
+    .line 308
     const/4 v1, 0x0
 
     invoke-static {p0, v1}, Lcom/android/internal/telephony/SmsApplication;->getDefaultSmsApplication(Landroid/content/Context;Z)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    .line 307
+    .line 309
     .local v0, "component":Landroid/content/ComponentName;
     if-eqz v0, :cond_0
 
-    .line 308
+    .line 310
     invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 310
+    .line 312
     :goto_0
     return-object v1
 
@@ -434,7 +436,7 @@
     .param p0, "messageType"    # I
 
     .prologue
-    .line 534
+    .line 529
     const/4 v0, 0x5
 
     if-eq p0, v0, :cond_0
@@ -477,28 +479,28 @@
 
     const/4 v9, 0x0
 
-    .line 492
+    .line 487
     if-nez p1, :cond_0
 
-    .line 524
+    .line 519
     :goto_0
     return v9
 
-    .line 496
+    .line 491
     :cond_0
     const/4 v7, 0x0
 
-    .line 497
+    .line 492
     .local v7, "markAsUnread":Z
     const/4 v6, 0x0
 
-    .line 498
+    .line 493
     .local v6, "markAsRead":Z
     packed-switch p2, :pswitch_data_0
 
     goto :goto_0
 
-    .line 514
+    .line 509
     :goto_1
     :pswitch_0
     new-instance v3, Landroid/content/ContentValues;
@@ -507,7 +509,7 @@
 
     invoke-direct {v3, v0}, Landroid/content/ContentValues;-><init>(I)V
 
-    .line 516
+    .line 511
     .local v3, "values":Landroid/content/ContentValues;
     const-string v0, "type"
 
@@ -517,10 +519,10 @@
 
     invoke-virtual {v3, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 517
+    .line 512
     if-eqz v7, :cond_2
 
-    .line 518
+    .line 513
     const-string v0, "read"
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -529,7 +531,7 @@
 
     invoke-virtual {v3, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 522
+    .line 517
     :cond_1
     :goto_2
     const-string v0, "error_code"
@@ -540,7 +542,7 @@
 
     invoke-virtual {v3, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 524
+    .line 519
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -564,27 +566,27 @@
 
     goto :goto_0
 
-    .line 504
+    .line 499
     .end local v3    # "values":Landroid/content/ContentValues;
     :pswitch_1
     const/4 v6, 0x1
 
-    .line 505
+    .line 500
     goto :goto_1
 
-    .line 508
+    .line 503
     :pswitch_2
     const/4 v7, 0x1
 
-    .line 509
+    .line 504
     goto :goto_1
 
-    .line 519
+    .line 514
     .restart local v3    # "values":Landroid/content/ContentValues;
     :cond_2
     if-eqz v6, :cond_1
 
-    .line 520
+    .line 515
     const-string v0, "read"
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -598,10 +600,10 @@
     :cond_3
     move v0, v9
 
-    .line 524
+    .line 519
     goto :goto_3
 
-    .line 498
+    .line 493
     nop
 
     :pswitch_data_0
@@ -623,7 +625,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 318
+    .line 320
     sget-object v1, Landroid/provider/Telephony$Sms;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v5, "date DESC"
@@ -649,7 +651,7 @@
     .param p3, "orderBy"    # Ljava/lang/String;
 
     .prologue
-    .line 327
+    .line 329
     sget-object v1, Landroid/provider/Telephony$Sms;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v4, 0x0

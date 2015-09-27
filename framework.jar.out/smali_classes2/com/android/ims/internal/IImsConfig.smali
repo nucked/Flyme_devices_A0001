@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract getMasterStringValue(I)Ljava/lang/String;
+.method public abstract getProvisionedStringValue(I)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract getMasterValue(I)I
+.method public abstract getProvisionedValue(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -40,6 +40,14 @@
 .end method
 
 .method public abstract getVideoQuality(Lcom/android/ims/ImsConfigListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getVolteProvisioned()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

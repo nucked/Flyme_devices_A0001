@@ -154,16 +154,6 @@
 
     if-nez v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/wm/KeyguardDisableHandler$KeyguardTokenWatcher;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
-
-    iget-object v1, v1, Lcom/android/server/wm/KeyguardDisableHandler;->mPolicy:Landroid/view/WindowManagerPolicy;
-
-    invoke-interface {v1}, Landroid/view/WindowManagerPolicy;->isKeyguardSecure()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
     const/4 v1, 0x1
 
     :goto_0

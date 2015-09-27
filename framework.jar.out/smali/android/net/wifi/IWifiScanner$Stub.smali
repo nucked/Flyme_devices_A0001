@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_getAvailableChannels:I = 0x2
 
-.field static final TRANSACTION_getMessenger:I = 0x1
+.field static final TRANSACTION_getMessenger_0:I = 0x1
 
 
 # direct methods

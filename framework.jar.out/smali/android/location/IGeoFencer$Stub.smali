@@ -30,7 +30,7 @@
 
 .field static final TRANSACTION_clearGeoFenceUser:I = 0x3
 
-.field static final TRANSACTION_setGeoFence:I = 0x1
+.field static final TRANSACTION_setGeoFence_0:I = 0x1
 
 
 # direct methods

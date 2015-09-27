@@ -150,7 +150,7 @@
     iput-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mNewApp:Ljava/lang/String;
 
     .line 73
-    const v0, 0x109005b
+    const v0, 0x1090057
 
     invoke-virtual {p0, v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setContentView(I)V
 
@@ -163,9 +163,9 @@
 
     iget-object v4, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mCurApp:Ljava/lang/String;
 
-    const v5, 0x10404e6
+    const v5, 0x1040582
 
-    const v6, 0x10404e7
+    const v6, 0x1040583
 
     move-object v0, p0
 
@@ -180,9 +180,9 @@
 
     iget-object v4, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mNewApp:Ljava/lang/String;
 
-    const v5, 0x10404e8
+    const v5, 0x1040584
 
-    const v6, 0x10404e9
+    const v6, 0x1040585
 
     move-object v0, p0
 

@@ -30,7 +30,7 @@
 
 .field static final TRANSACTION_onRestrictBackgroundChanged:I = 0x3
 
-.field static final TRANSACTION_onUidRulesChanged:I = 0x1
+.field static final TRANSACTION_onUidRulesChanged_0:I = 0x1
 
 
 # direct methods

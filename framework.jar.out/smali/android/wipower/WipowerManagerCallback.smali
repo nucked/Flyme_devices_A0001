@@ -7,7 +7,7 @@
 .method public abstract onPowerApply(Landroid/wipower/WipowerManager$PowerApplyEvent;)V
 .end method
 
-.method public abstract onWipowerAlert(Landroid/wipower/WipowerManager$WipowerAlert;)V
+.method public abstract onWipowerAlert(B)V
 .end method
 
 .method public abstract onWipowerData(Landroid/wipower/WipowerDynamicParam;)V

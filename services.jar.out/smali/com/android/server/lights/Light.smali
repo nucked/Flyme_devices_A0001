@@ -43,9 +43,6 @@
 .method public abstract setColor(I)V
 .end method
 
-.method public abstract setEnabled(Z)V
-.end method
-
 .method public abstract setFlashing(IIII)V
 .end method
 

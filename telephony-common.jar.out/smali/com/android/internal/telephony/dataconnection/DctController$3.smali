@@ -1,5 +1,5 @@
 .class Lcom/android/internal/telephony/dataconnection/DctController$3;
-.super Landroid/database/ContentObserver;
+.super Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 .source "DctController.java"
 
 
@@ -19,38 +19,30 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/telephony/dataconnection/DctController;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/internal/telephony/dataconnection/DctController;)V
     .locals 0
-    .param p2, "x0"    # Landroid/os/Handler;
 
     .prologue
-    .line 150
+    .line 146
     iput-object p1, p0, Lcom/android/internal/telephony/dataconnection/DctController$3;->this$0:Lcom/android/internal/telephony/dataconnection/DctController;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
+.method public onSubscriptionsChanged()V
     .locals 1
-    .param p1, "selfChange"    # Z
 
     .prologue
-    .line 153
-    const-string v0, "Settings change"
-
-    # invokes: Lcom/android/internal/telephony/dataconnection/DctController;->logd(Ljava/lang/String;)V
-    invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$000(Ljava/lang/String;)V
-
-    .line 154
+    .line 149
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/DctController$3;->this$0:Lcom/android/internal/telephony/dataconnection/DctController;
 
-    # invokes: Lcom/android/internal/telephony/dataconnection/DctController;->onSettingsChange()V
-    invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$300(Lcom/android/internal/telephony/dataconnection/DctController;)V
+    # invokes: Lcom/android/internal/telephony/dataconnection/DctController;->onSubInfoReady()V
+    invoke-static {v0}, Lcom/android/internal/telephony/dataconnection/DctController;->access$200(Lcom/android/internal/telephony/dataconnection/DctController;)V
 
-    .line 155
+    .line 150
     return-void
 .end method

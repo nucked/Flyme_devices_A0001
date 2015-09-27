@@ -228,7 +228,7 @@
     .prologue
     const/4 v4, 0x0
 
-    const v10, 0x10405a2
+    const v10, 0x104063c
 
     const/4 v1, 0x0
 
@@ -315,7 +315,7 @@
 
     .line 598
     .local v6, "n":Landroid/app/Notification;
-    const v3, 0x108067c
+    const v3, 0x1080653
 
     iput v3, v6, Landroid/app/Notification;->icon:I
 
@@ -339,7 +339,7 @@
 
     move-result-object v3
 
-    const v5, 0x1060059
+    const v5, 0x106005c
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -352,7 +352,7 @@
 
     move-result-object v7
 
-    const v3, 0x10405a3
+    const v3, 0x104063d
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

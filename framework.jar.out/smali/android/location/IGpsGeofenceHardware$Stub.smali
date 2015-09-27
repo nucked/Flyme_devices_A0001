@@ -28,7 +28,7 @@
 
 .field static final TRANSACTION_addCircularHardwareGeofence:I = 0x2
 
-.field static final TRANSACTION_isHardwareGeofenceSupported:I = 0x1
+.field static final TRANSACTION_isHardwareGeofenceSupported_0:I = 0x1
 
 .field static final TRANSACTION_pauseHardwareGeofence:I = 0x4
 

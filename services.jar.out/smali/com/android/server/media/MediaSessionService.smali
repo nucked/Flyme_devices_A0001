@@ -322,18 +322,7 @@
     return v0
 .end method
 
-.method static synthetic access$1800(Lcom/android/server/media/MediaSessionService;)Landroid/util/SparseArray;
-    .locals 1
-    .param p0, "x0"    # Lcom/android/server/media/MediaSessionService;
-
-    .prologue
-    .line 75
-    iget-object v0, p0, Lcom/android/server/media/MediaSessionService;->mUserRecords:Landroid/util/SparseArray;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/media/MediaSessionService;)I
+.method static synthetic access$1800(Lcom/android/server/media/MediaSessionService;)I
     .locals 1
     .param p0, "x0"    # Lcom/android/server/media/MediaSessionService;
 
@@ -342,6 +331,17 @@
     iget v0, p0, Lcom/android/server/media/MediaSessionService;->mCurrentUserId:I
 
     return v0
+.end method
+
+.method static synthetic access$1900(Lcom/android/server/media/MediaSessionService;)Landroid/util/SparseArray;
+    .locals 1
+    .param p0, "x0"    # Lcom/android/server/media/MediaSessionService;
+
+    .prologue
+    .line 75
+    iget-object v0, p0, Lcom/android/server/media/MediaSessionService;->mUserRecords:Landroid/util/SparseArray;
+
+    return-object v0
 .end method
 
 .method static synthetic access$2000(Lcom/android/server/media/MediaSessionService;Ljava/lang/String;II)V
@@ -1300,7 +1300,7 @@
     :goto_0
     invoke-interface {v3, v2}, Landroid/media/IRemoteVolumeController;->updateRemoteController(Landroid/media/session/ISessionController;)V
 
-    .line 501
+    .line 498
     .end local v1    # "record":Lcom/android/server/media/MediaSessionRecord;
     :cond_0
     :goto_1
@@ -1322,13 +1322,13 @@
     :catch_0
     move-exception v0
 
-    .line 497
+    .line 495
     .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "MediaSessionService"
 
     const-string v3, "Error sending default remote volume to sys ui."
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 .end method
@@ -1544,12 +1544,12 @@
     .param p1, "record"    # Lcom/android/server/media/MediaSessionRecord;
 
     .prologue
-    .line 504
+    .line 501
     invoke-virtual {p1}, Lcom/android/server/media/MediaSessionRecord;->getMediaButtonReceiver()Landroid/app/PendingIntent;
 
     move-result-object v0
 
-    .line 505
+    .line 502
     .local v0, "receiver":Landroid/app/PendingIntent;
     iget-object v2, p0, Lcom/android/server/media/MediaSessionService;->mUserRecords:Landroid/util/SparseArray;
 
@@ -1563,17 +1563,17 @@
 
     check-cast v1, Lcom/android/server/media/MediaSessionService$UserRecord;
 
-    .line 506
+    .line 503
     .local v1, "user":Lcom/android/server/media/MediaSessionService$UserRecord;
     if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0
 
-    .line 507
+    .line 504
     # setter for: Lcom/android/server/media/MediaSessionService$UserRecord;->mLastMediaButtonReceiver:Landroid/app/PendingIntent;
     invoke-static {v1, v0}, Lcom/android/server/media/MediaSessionService$UserRecord;->access$802(Lcom/android/server/media/MediaSessionService$UserRecord;Landroid/app/PendingIntent;)Landroid/app/PendingIntent;
 
-    .line 509
+    .line 506
     :cond_0
     return-void
 .end method

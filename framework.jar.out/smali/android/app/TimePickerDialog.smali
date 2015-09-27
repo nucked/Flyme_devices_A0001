@@ -87,7 +87,7 @@
 
     .line 109
     .local v0, "inflater":Landroid/view/LayoutInflater;
-    const v3, 0x10900e8
+    const v3, 0x10900e2
 
     const/4 v4, 0x0
 
@@ -127,7 +127,7 @@
     invoke-virtual {p0, v3}, Landroid/app/TimePickerDialog;->setButtonPanelLayoutHint(I)V
 
     .line 115
-    const v3, 0x10203c1
+    const v3, 0x10203bf
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

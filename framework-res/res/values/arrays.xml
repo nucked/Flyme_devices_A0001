@@ -38,78 +38,6 @@
         <item>Custom</item>
     </string-array>
     <array name="config_keySystemUuidMapping" />
-    <string-array name="uc_ringtone_resources">
-        <item>oneplus_tune.ogg</item>
-        <item>longing.ogg</item>
-        <item>Innocence.ogg</item>
-        <item>Journey.ogg</item>
-        <item>capriccioso.ogg</item>
-        <item>beep.ogg</item>
-        <item>In_high_spirit.ogg</item>
-        <item>echo.ogg</item>
-        <item>Talk_about.ogg</item>
-        <item>Rotation.ogg</item>
-        <item>Cloud.ogg</item>
-        <item>Old_telephone.ogg</item>
-    </string-array>
-    <string-array name="uc_ringtone_name">
-        <item>@string/uc_ringtones_oneplus_tune</item>
-        <item>@string/uc_ringtones_longing</item>
-        <item>@string/uc_ringtones_sinnocence</item>
-        <item>@string/uc_ringtones_journey</item>
-        <item>@string/uc_ringtones_cap</item>
-        <item>@string/uc_ringtones_beep</item>
-        <item>@string/uc_ringtones_Smart</item>
-        <item>@string/uc_ringtones_echo</item>
-        <item>@string/uc_ringtones_talk_about</item>
-        <item>@string/uc_ringtones_rotation</item>
-        <item>@string/uc_ringtones_cloud</item>
-        <item>@string/uc_ringtones_old</item>
-    </string-array>
-    <string-array name="uc_notification_resources">
-        <item>Free.ogg</item>
-        <item>harp.ogg</item>
-        <item>Ding.ogg</item>
-        <item>surprise.ogg</item>
-        <item>Drops.ogg</item>
-        <item>Linger.ogg</item>
-        <item>Meet.ogg</item>
-        <item>Elegant.ogg</item>
-        <item>Quickly.ogg</item>
-        <item>Tactfully.ogg</item>
-        <item>Wind_chime.ogg</item>
-        <item>Distant.ogg</item>
-    </string-array>
-    <string-array name="uc_notification_name">
-        <item>@string/uc_notifications_free</item>
-        <item>@string/uc_notifications_harp</item>
-        <item>@string/uc_notifications_ding</item>
-        <item>@string/uc_notifications_surprise</item>
-        <item>@string/uc_notifications_drops</item>
-        <item>@string/uc_notifications_linger</item>
-        <item>@string/uc_notifications_meet</item>
-        <item>@string/uc_notifications_elegant</item>
-        <item>@string/uc_notifications_quickly</item>
-        <item>@string/uc_notifications_tactfully</item>
-        <item>@string/uc_notifications_wind_chime</item>
-        <item>@string/uc_notifications_distant</item>
-    </string-array>
-    <string-array name="uc_alarms_resources">
-        <item>Spring.ogg</item>
-        <item>Walking_in_the_rain.ogg</item>
-        <item>alarm_clock1.ogg</item>
-        <item>alarm_clock2.ogg</item>
-        <item>flyer.ogg</item>
-        <item>A_starry_night.ogg</item>
-    </string-array>
-    <string-array name="uc_alarms_name">
-        <item>@string/uc_alarms_spring</item>
-        <item>@string/uc_alarms_walking_in_the_rain</item>
-        <item>@string/uc_alarms_alarm_clock1</item>
-        <item>@string/uc_alarms_alarm_clock2</item>
-        <item>@string/uc_alarms_flyer</item>
-        <item>@string/uc_alarms_a_starry_night</item>
-    </string-array>
     <array name="preloaded_drawables">
         <item>@drawable/toast_frame</item>
         <item>@drawable/btn_check_on_pressed_holo_light</item>
@@ -516,6 +444,116 @@
         <item>@color/Pink_700</item>
         <item>@color/Red_700</item>
     </array>
+    <string-array name="shutdown_reboot_options">
+        <item>@string/reboot_reboot</item>
+        <item>@string/reboot_soft</item>
+        <item>@string/reboot_recovery</item>
+        <item>@string/reboot_bootloader</item>
+    </string-array>
+    <string-array name="shutdown_reboot_actions">
+        <item></item>
+        <item>soft_reboot</item>
+        <item>recovery</item>
+        <item>bootloader</item>
+    </string-array>
+    <string-array name="notification_light_package_mapping">
+        <item>com.google.android.gsf|com.google.android.talk</item>
+    </string-array>
+    <string-array name="app_ops_labels">
+        <item>@string/app_ops_access_location</item>
+        <item>@string/app_ops_access_location</item>
+        <item>@string/app_ops_access_location</item>
+        <item>@string/app_ops_use_vibrate</item>
+        <item>@string/app_ops_read_contacts</item>
+        <item>@string/app_ops_modify_contacts</item>
+        <item>@string/app_ops_read_call_log</item>
+        <item>@string/app_ops_modify_call_log</item>
+        <item>@string/app_ops_read_calendar</item>
+        <item>@string/app_ops_modify_calendar</item>
+        <item>@string/app_ops_access_location</item>
+        <item>@string/app_ops_post_notification</item>
+        <item>@string/app_ops_access_location</item>
+        <item>@string/app_ops_make_phone_call</item>
+        <item>@string/app_ops_read_sms</item>
+        <item>@string/app_ops_write_sms</item>
+        <item>@string/app_ops_receive_sms</item>
+        <item>@string/app_ops_receive_sms</item>
+        <item>@string/app_ops_receive_sms</item>
+        <item>@string/app_ops_receive_sms</item>
+        <item>@string/app_ops_send_sms</item>
+        <item>@string/app_ops_read_sms</item>
+        <item>@string/app_ops_write_sms</item>
+        <item>@string/app_ops_modify_settings</item>
+        <item>@string/app_ops_draw_on_top</item>
+        <item>@string/app_ops_access_notifications</item>
+        <item>@string/app_ops_access_camera</item>
+        <item>@string/app_ops_record_audio</item>
+        <item>@string/app_ops_play_audio</item>
+        <item>@string/app_ops_read_clipboard</item>
+        <item>@string/app_ops_modify_clipboard</item>
+        <item>@string/app_ops_use_media_buttons</item>
+        <item>@string/app_ops_use_audio_focus</item>
+        <item>@string/app_ops_use_master_volume</item>
+        <item>@string/app_ops_use_voice_volume</item>
+        <item>@string/app_ops_use_ring_volume</item>
+        <item>@string/app_ops_use_media_volume</item>
+        <item>@string/app_ops_use_alarm_volume</item>
+        <item>@string/app_ops_use_notification_volume</item>
+        <item>@string/app_ops_use_bluetooth_volume</item>
+        <item>@string/app_ops_keep_device_awake</item>
+        <item>@string/app_ops_access_location</item>
+        <item>@string/app_ops_access_location</item>
+        <item>@string/app_ops_get_usage_stats</item>
+        <item>@string/app_ops_mute_unmute_microphone</item>
+        <item>@string/app_ops_toast_window</item>
+        <item>@string/app_ops_project_media</item>
+        <item>@string/app_ops_activate_vpn</item>
+        <item>@string/app_ops_toggle_wifi</item>
+        <item>@string/app_ops_toggle_bluetooth</item>
+        <item>@string/app_ops_send_mms</item>
+        <item>@string/app_ops_read_mms</item>
+        <item>@string/app_ops_write_mms</item>
+        <item>@string/app_ops_auto_start</item>
+        <item>@string/app_ops_toggle_nfc</item>
+        <item>@string/app_ops_delete_sms</item>
+        <item>@string/app_ops_delete_mms</item>
+        <item>@string/app_ops_delete_contacts</item>
+        <item>@string/app_ops_delete_call_log</item>
+        <item>@string/app_ops_toggle_mobile_data</item>
+        <item>@string/app_ops_alarm_wakeup</item>
+        <item>@string/app_ops_su</item>
+    </string-array>
+    <string-array name="perf_profile_entries">
+        <item>@string/perf_profile_pwrsv</item>
+        <item>@string/perf_profile_bal</item>
+        <item>@string/perf_profile_perf</item>
+    </string-array>
+    <string-array name="perf_profile_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="live_display_entries">
+        <item>@string/live_display_auto</item>
+        <item>@string/live_display_off</item>
+        <item>@string/live_display_day</item>
+        <item>@string/live_display_night</item>
+        <item>@string/live_display_outdoor</item>
+    </string-array>
+    <string-array name="live_display_summaries">
+        <item>@string/live_display_auto_summary</item>
+        <item>@string/live_display_off_summary</item>
+        <item>@string/live_display_day_summary</item>
+        <item>@string/live_display_night_summary</item>
+        <item>@string/live_display_outdoor_summary</item>
+    </string-array>
+    <string-array name="live_display_values">
+        <item>2</item>
+        <item>0</item>
+        <item>4</item>
+        <item>1</item>
+        <item>3</item>
+    </string-array>
     <string-array name="config_statusBarIcons">
         <item>ime</item>
         <item>sync_failing</item>
@@ -523,6 +561,7 @@
         <item>cast</item>
         <item>hotspot</item>
         <item>location</item>
+        <item>su</item>
         <item>bluetooth</item>
         <item>nfc</item>
         <item>tty</item>
@@ -554,7 +593,9 @@
         <item>mobile_fota,10,0,2,60000,true</item>
         <item>mobile_ims,11,0,2,60000,true</item>
         <item>mobile_cbs,12,0,2,60000,true</item>
+        <item>mobile_ia,14,0,2,-1,true</item>
         <item>bluetooth,7,7,2,-1,true</item>
+        <item>ethernet,9,9,9,-1,true</item>
     </string-array>
     <integer-array name="config_protectedNetworks">
         <item>10</item>
@@ -606,18 +647,16 @@
     <array name="config_serialPorts" />
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>1</item>
-        <item>20</item>
-        <item>21</item>
+        <item>25</item>
+        <item>10</item>
     </integer-array>
     <integer-array name="config_virtualKeyVibePattern">
         <item>0</item>
-        <item>10</item>
-        <item>20</item>
-        <item>30</item>
+        <item>25</item>
+        <item>8</item>
     </integer-array>
     <integer-array name="config_keyboardTapVibePattern">
-        <item>40</item>
+        <item>25</item>
     </integer-array>
     <integer-array name="config_clockTickVibePattern">
         <item>125</item>
@@ -648,7 +687,8 @@
         <item>10</item>
     </integer-array>
     <integer-array name="config_autoBrightnessLevels">
-        <item>5</item>
+        <item>2</item>
+        <item>7</item>
         <item>15</item>
         <item>50</item>
         <item>100</item>
@@ -662,16 +702,17 @@
         <item>30000</item>
     </integer-array>
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>11</item>
-        <item>18</item>
-        <item>27</item>
-        <item>38</item>
-        <item>48</item>
-        <item>55</item>
-        <item>64</item>
-        <item>74</item>
-        <item>120</item>
-        <item>164</item>
+        <item>13</item>
+        <item>25</item>
+        <item>32</item>
+        <item>41</item>
+        <item>52</item>
+        <item>62</item>
+        <item>69</item>
+        <item>78</item>
+        <item>88</item>
+        <item>134</item>
+        <item>178</item>
         <item>225</item>
         <item>255</item>
         <item>255</item>
@@ -679,25 +720,15 @@
     <array name="config_autoBrightnessButtonBacklightValues" />
     <array name="config_autoBrightnessKeyboardBacklightValues" />
     <string-array name="config_locationProviderPackageNames">
+        <item>com.google.android.gms</item>
         <item>com.android.location.fused</item>
-        <item>com.amap.android.location</item>
     </string-array>
     <array name="config_testLocationProviders" />
     <array name="config_twoDigitNumberPattern" />
     <array name="config_sms_enabled_single_shift_tables" />
     <array name="config_sms_enabled_locking_shift_tables" />
     <array name="config_oemUsbModeOverride" />
-    <string-array name="config_mobile_tcp_buffers">
-        <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
-        <item>umts:4094,87380,1220608,4096,16384,1220608</item>
-        <item>hspa:4094,87380,1220608,4096,16384,1220608</item>
-        <item>hsupa:4094,87380,1220608,4096,16384,1220608</item>
-        <item>hsdpa:4094,87380,1220608,4096,16384,1220608</item>
-        <item>hspap:4094,87380,1220608,4096,16384,1220608</item>
-        <item>edge:4093,26280,35040,4096,16384,35040</item>
-        <item>gprs:4092,8760,11680,4096,8760,11680</item>
-        <item>evdo:4094,87380,524288,4096,16384,262144</item>
-    </string-array>
+    <array name="config_mobile_tcp_buffers" />
     <integer-array name="config_onlySingleDcAllowed">
         <item>4</item>
         <item>5</item>
@@ -717,6 +748,12 @@
         <item>100</item>
         <item>150</item>
         <item>100</item>
+    </integer-array>
+    <integer-array name="config_notificationNoAlertsVibePattern">
+        <item>0</item>
+        <item>50</item>
+        <item>100</item>
+        <item>50</item>
     </integer-array>
     <string-array name="config_disabledUntilUsedPreinstalledImes">
         <item>com.android.inputmethod.latin</item>
@@ -741,6 +778,9 @@
     </string-array>
     <string-array name="config_globalActionsList">
         <item>power</item>
+        <item>reboot</item>
+        <item>profile</item>
+        <item>airplane</item>
         <item>bugreport</item>
         <item>users</item>
     </string-array>
@@ -780,18 +820,6 @@
         <item>中國移動</item>
         <item>中國聯通</item>
         <item>中國電信</item>
-        <item>Far EasTone</item>
-        <item>T Star</item>
-        <item>Chunghwa Telecom</item>
-        <item>TW Mobile</item>
-        <item>遠傳電信</item>
-        <item>台灣之星</item>
-        <item>中華電信</item>
-        <item>台灣大哥大</item>
-        <item>远传电信</item>
-        <item>台湾之星</item>
-        <item>中华电信</item>
-        <item>台湾大哥大</item>
         <item>Searching for Service</item>
     </string-array>
     <string-array name="locale_carrier_names">
@@ -807,81 +835,7 @@
         <item>China_Mobile</item>
         <item>China_Unicom</item>
         <item>China_Telecom</item>
-        <item>Far_EasTone</item>
-        <item>T_Star</item>
-        <item>Chunghwa_Telecom</item>
-        <item>TW_Mobile</item>
-        <item>Far_EasTone</item>
-        <item>T_Star</item>
-        <item>Chunghwa_Telecom</item>
-        <item>TW_Mobile</item>
-        <item>Far_EasTone</item>
-        <item>T_Star</item>
-        <item>Chunghwa_Telecom</item>
-        <item>TW_Mobile</item>
         <item>roamingTextSearching</item>
-    </string-array>
-    <string-array name="app_ops_labels">
-        <item>Trying to access location</item>
-        <item>Trying to access location</item>
-        <item>Trying to access location</item>
-        <item>Trying to use vibrate</item>
-        <item>Trying to read contacts</item>
-        <item>Trying to write contacts</item>
-        <item>Trying to read call log</item>
-        <item>Trying to write call log</item>
-        <item>Trying to read calendar</item>
-        <item>Trying to modify calendar</item>
-        <item>Trying to access location</item>
-        <item>Trying to post notification</item>
-        <item>Trying to access location</item>
-        <item>Trying to make phone call</item>
-        <item>Trying to read SMS</item>
-        <item>Trying to write SMS</item>
-        <item>Trying to receive SMS</item>
-        <item>Trying to receive emergency SMS</item>
-        <item>Trying to receive MMS</item>
-        <item>Trying to receive WAP push</item>
-        <item>Trying to send SMS</item>
-        <item>Trying to read ICC SMS</item>
-        <item>Trying to write ICC SMS</item>
-        <item>Trying to modify settings</item>
-        <item>Trying to draw on top</item>
-        <item>Trying to access notifications</item>
-        <item>Trying to access Camera</item>
-        <item>Trying to record audio</item>
-        <item>Trying to play audio</item>
-        <item>Trying to read clipboard</item>
-        <item>Trying to modify clipboard</item>
-        <item>Trying to use media buttons</item>
-        <item>Trying to use audio focus</item>
-        <item>Trying to use master volume</item>
-        <item>Trying to use voice volume</item>
-        <item>Trying to use ring volume</item>
-        <item>Trying to use media volume</item>
-        <item>Trying to use alarm volume</item>
-        <item>Trying to use notification volume</item>
-        <item>Trying to use bluetooth volume</item>
-        <item>Trying to Keep device awake</item>
-        <item>Trying to access location</item>
-        <item>Trying to access location</item>
-        <item>Trying to get usage stats</item>
-        <item>Trying to mute microphone</item>
-        <item>Trying to toast window</item>
-        <item>Trying to project media</item>
-        <item>Trying to activate vpn</item>
-        <item>Trying to turn on/off WLAN</item>
-        <item>Trying to trun on/off bluetooth</item>
-        <item>Trying to send MMS</item>
-        <item>Trying to read MMS</item>
-        <item>Trying to write MMS</item>
-        <item>Trying to start at bootup</item>
-        <item>Trying to turn on/off NFC</item>
-        <item>Trying to delete SMS</item>
-        <item>Trying to delete MMS</item>
-        <item>Trying to delete contacts</item>
-        <item>Trying to delete call log</item>
-        <item>Trying to turn on mobile data</item>
     </string-array>
     <string-array name="config_system_condition_providers">
         <item>countdown</item>
@@ -892,6 +846,29 @@
         <item>false</item>
     </string-array>
     <array name="config_cdma_international_roaming_indicators" />
+    <string-array name="config_disabledComponents">
+        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateActivity</item>
+        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateService$Receiver</item>
+        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateService$SecretCodeReceiver</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateActivity</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService$Receiver</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService$ActiveReceiver</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService$SecretCodeReceiver</item>
+    </string-array>
+    <string-array name="config_forceEnabledComponents">
+        <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateService</item>
+        <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService</item>
+    </string-array>
+    <string-array name="config_auto_perf_activities">
+        <item>com.aurorasoftworks.quadrant.*BenchmarkExecutionActivity,2</item>
+        <item>com.antutu.ABenchMark.*,2</item>
+        <item>.*com.antutu.benchmark.*,2</item>
+    </string-array>
+    <array name="config_packagesAllowedAccessToKillSwitch" />
+    <array name="config_ignored_sms_packages" />
+    <string-array name="config_externalCMServices">
+        <item>org.cyanogenmod.platform.internal.CMStatusBarManagerService</item>
+    </string-array>
     <integer-array name="maps_starting_lat_lng">
         <item>36149777</item>
         <item>-95993398</item>
@@ -907,40 +884,4 @@
         <item>Custom</item>
     </string-array>
     <array name="carrier_properties" />
-    <array name="uc_preloaded_drawables">
-        <item>@drawable/load_00000</item>
-        <item>@drawable/load_00001</item>
-        <item>@drawable/load_00002</item>
-        <item>@drawable/load_00003</item>
-        <item>@drawable/load_00004</item>
-        <item>@drawable/load_00005</item>
-        <item>@drawable/load_00006</item>
-        <item>@drawable/load_00007</item>
-        <item>@drawable/load_00008</item>
-        <item>@drawable/load_00009</item>
-        <item>@drawable/load_00010</item>
-        <item>@drawable/load_00011</item>
-        <item>@drawable/load_00012</item>
-        <item>@drawable/load_00013</item>
-        <item>@drawable/load_00014</item>
-        <item>@drawable/load_00015</item>
-        <item>@drawable/load_00016</item>
-        <item>@drawable/load_00017</item>
-        <item>@drawable/load_00018</item>
-        <item>@drawable/load_00019</item>
-        <item>@drawable/load_00020</item>
-        <item>@drawable/load_00021</item>
-        <item>@drawable/load_00022</item>
-        <item>@drawable/load_00023</item>
-        <item>@drawable/load_00024</item>
-        <item>@drawable/load_00025</item>
-        <item>@drawable/load_00026</item>
-        <item>@drawable/load_00027</item>
-        <item>@drawable/load_00028</item>
-        <item>@drawable/load_00029</item>
-        <item>@drawable/load_diban</item>
-        <item>@drawable/uc_switch_track_mtrl_alpha</item>
-        <item>@drawable/elv_ic_action_undo</item>
-        <item>@drawable/elv_toast_frame</item>
-    </array>
 </resources>

@@ -370,7 +370,7 @@
 
 .field public static final closeIcon:I = 0x1010481
 
-.field public static final closeItemLayout:I = 0x1160081
+.field public static final closeItemLayout:I = 0x1160082
 
 .field public static final codes:I = 0x1010242
 
@@ -381,8 +381,6 @@
 .field public static final color:I = 0x10101a5
 
 .field public static final colorAccent:I = 0x1010435
-
-.field public static final colorAccentCategory:I = 0x11600c1
 
 .field public static final colorActivatedHighlight:I = 0x1010390
 
@@ -676,7 +674,7 @@
 
 .field public static final exported:I = 0x1010010
 
-.field public static final externalRouteEnabledDrawable:I = 0x1160095
+.field public static final externalRouteEnabledDrawable:I = 0x1160096
 
 .field public static final extraTension:I = 0x101026b
 
@@ -1069,7 +1067,7 @@
 
 .field public static final keyboardMode:I = 0x101024d
 
-.field public static final keyboardViewStyle:I = 0x116006c
+.field public static final keyboardViewStyle:I = 0x116006d
 
 .field public static final keycode:I = 0x10100c5
 
@@ -2316,8 +2314,6 @@
 
 .field public static final typeface:I = 0x1010096
 
-.field public static final ucSwitchStyle:I = 0x11600c0
-
 .field public static final uiOptions:I = 0x1010398
 
 .field public static final uncertainGestureColor:I = 0x1010276
@@ -2548,7 +2544,7 @@
     .locals 0
 
     .prologue
-    .line 987
+    .line 1035
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

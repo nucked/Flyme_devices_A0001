@@ -175,6 +175,22 @@
     .end annotation
 .end method
 
+.method public abstract getLastWallpaperX()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getLastWallpaperY()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getPendingAppTransition()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -208,6 +224,14 @@
 .end method
 
 .method public abstract hasNavigationBar()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract hasPermanentMenuKey()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -271,7 +295,7 @@
     .end annotation
 .end method
 
-.method public abstract keyguardGoingAway(ZZ)V
+.method public abstract keyguardGoingAway(ZZZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -280,6 +304,14 @@
 .end method
 
 .method public abstract lockNow(Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract needsNavigationBar()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

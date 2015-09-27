@@ -322,7 +322,7 @@
     .end local v2    # "np":[B
     .end local v4    # "opticalInsets":Landroid/graphics/Rect;
     :cond_4
-    sget v0, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
+    const/16 v0, 0xa0
 
     goto :goto_1
 

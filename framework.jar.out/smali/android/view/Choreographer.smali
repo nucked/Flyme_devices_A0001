@@ -1191,7 +1191,7 @@
     .line 271
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v1, "mFrameScheduled="
+    const-string/jumbo v1, "mFrameScheduled="
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -1203,7 +1203,7 @@
     .line 273
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v1, "mLastFrameTime="
+    const-string/jumbo v1, "mLastFrameTime="
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
