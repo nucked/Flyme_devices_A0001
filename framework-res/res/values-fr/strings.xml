@@ -1789,4 +1789,6 @@ L'économiseur de batterie s'éteint automatiquement lorsque votre appareil est 
     <string name="adb_active_custom_tile_net">Réseau</string>
     <string name="permlab_resetBatteryStats">réinitialiser les statistiques de la batterie</string>
     <string name="permdesc_resetBatteryStats">"Permet à une application de réinitialiser les données actuelles d'utilisation de la batterie à faible niveau."</string>
+    <string name="silent_mode_priority">Priorité</string>
+    <string name="silent_mode_none">Aucun</string>
 </resources>

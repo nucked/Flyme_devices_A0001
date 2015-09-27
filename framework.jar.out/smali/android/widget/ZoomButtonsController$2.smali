@@ -51,6 +51,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
+    # invokes: Landroid/widget/ZoomButtonsController;->onPostConfigurationChanged()V
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$200(Landroid/widget/ZoomButtonsController;)V
 
     goto :goto_0
@@ -69,6 +70,7 @@
     :pswitch_2
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
+    # getter for: Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$300(Landroid/widget/ZoomButtonsController;)Landroid/view/View;
 
     move-result-object v0

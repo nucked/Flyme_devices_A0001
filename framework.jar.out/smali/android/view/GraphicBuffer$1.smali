@@ -72,7 +72,6 @@
 
     .line 274
     .local v5, "usage":I
-    # invokes: Landroid/view/GraphicBuffer;->nReadGraphicBufferFromParcel(Landroid/os/Parcel;)J
     invoke-static {p1}, Landroid/view/GraphicBuffer;->access$000(Landroid/os/Parcel;)J
 
     move-result-wide v6

@@ -219,6 +219,7 @@
     <string name="fingerprint_default_name">‏‮Fingerprint‬‏ ‏‮‬‏%d</string>
     <string name="permlab_accessFingerprintService">‏‮access‬‏ ‏‮fingerprint‬‏ ‏‮service‬‏</string>
     <string name="permdesc_accessFingerprintService">‏‮Allows‬‏ ‏‮an‬‏ ‏‮app‬‏ ‏‮to‬‏ ‏‮access‬‏ ‏‮the‬‏ ‏‮fingerprint‬‏ ‏‮service.‬‏ ‏‮The‬‏ ‏‮app‬‏ ‏‮can‬‏ ‏‮add,‬‏ ‏‮delete,‬‏ ‏‮rename‬‏ ‏‮and‬‏ ‏‮authenticate‬‏ ‏‮against‬‏ ‏‮fingerprints‬‏</string>
+    <string name="subscription_change_disabled_wifi_ap">‏‮Disabled‬‏ ‏‮WiFi‬‏ ‏‮hotspot‬‏ ‏‮due‬‏ ‏‮to‬‏ ‏‮SIM‬‏ ‏‮subscription‬‏ ‏‮change‬‏</string>
     <string name="widget_default_package_name" />
     <string name="widget_default_class_name" />
     <string name="db_default_journal_mode">‏‮PERSIST‬‏</string>
@@ -236,9 +237,8 @@
     <string name="config_customVpnConfirmDialogComponent">‏‮com.android.vpndialogs/com.android.vpndialogs.ConfirmDialog‬‏</string>
     <string name="config_appsAuthorizedForSharedAccounts">‏‮;com.android.settings;‬‏</string>
     <string name="config_defaultNetworkScorerPackageName" />
-    <string name="config_persistentDataPackageName">‏‮com.google.android.gms‬‏</string>
     <string name="config_partial_segment_expire_age">‏‮2592000000‬‏</string>
-    <string name="config_perf_profile_prop">‏‮powerhal‬‏</string>
+    <string name="config_perf_profile_prop">‏‮sys.perf.profile‬‏</string>
     <string name="config_perf_profile_default_entry">‏‮1‬‏</string>
     <string name="config_defaultQuickSettingsTiles">‏‮wifi,bt,cell,airplane,rotation,flashlight,location,cast,visualizer,hotspot,live_display‬‏</string>
     <string name="byteShort">‏‮B‬‏</string>

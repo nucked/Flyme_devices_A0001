@@ -56,7 +56,6 @@
     .line 764
     iget-object v0, p0, Landroid/view/Choreographer$CallbackRecord;->token:Ljava/lang/Object;
 
-    # getter for: Landroid/view/Choreographer;->FRAME_CALLBACK_TOKEN:Ljava/lang/Object;
     invoke-static {}, Landroid/view/Choreographer;->access$400()Ljava/lang/Object;
 
     move-result-object v1

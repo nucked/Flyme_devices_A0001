@@ -151,7 +151,7 @@
     .line 260
     iget-object v0, p0, Landroid/widget/AppSecurityPermissions;->mContext:Landroid/content/Context;
 
-    const v1, 0x10405c6
+    const v1, 0x10405c7
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

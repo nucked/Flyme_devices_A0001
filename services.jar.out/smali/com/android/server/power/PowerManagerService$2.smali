@@ -28,12 +28,12 @@
     .locals 1
 
     .prologue
-    .line 2136
+    .line 2137
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2137
+    .line 2138
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/power/PowerManagerService$2;->mDisplayState:I
@@ -47,7 +47,7 @@
     .locals 1
 
     .prologue
-    .line 2196
+    .line 2197
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mDisplaySuspendBlocker:Lcom/android/server/power/SuspendBlocker;
@@ -57,7 +57,7 @@
 
     invoke-interface {v0}, Lcom/android/server/power/SuspendBlocker;->acquire()V
 
-    .line 2197
+    .line 2198
     return-void
 .end method
 
@@ -68,7 +68,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 2172
+    .line 2173
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
@@ -78,19 +78,19 @@
 
     monitor-enter v1
 
-    .line 2173
+    .line 2174
     :try_start_0
     iget v0, p0, Lcom/android/server/power/PowerManagerService$2;->mDisplayState:I
 
     if-eq v0, p1, :cond_1
 
-    .line 2174
+    .line 2175
     iput p1, p0, Lcom/android/server/power/PowerManagerService$2;->mDisplayState:I
 
-    .line 2175
+    .line 2176
     if-ne p1, v2, :cond_2
 
-    .line 2176
+    .line 2177
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mDecoupleHalInteractiveModeFromDisplayConfig:Z
@@ -100,7 +100,7 @@
 
     if-nez v0, :cond_0
 
-    .line 2177
+    .line 2178
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     const/4 v2, 0x0
@@ -108,7 +108,7 @@
     # invokes: Lcom/android/server/power/PowerManagerService;->setHalInteractiveModeLocked(Z)V
     invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->access$1500(Lcom/android/server/power/PowerManagerService;Z)V
 
-    .line 2179
+    .line 2180
     :cond_0
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -119,7 +119,7 @@
 
     if-nez v0, :cond_1
 
-    .line 2180
+    .line 2181
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     const/4 v2, 0x1
@@ -127,15 +127,15 @@
     # invokes: Lcom/android/server/power/PowerManagerService;->setHalAutoSuspendModeLocked(Z)V
     invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->access$1700(Lcom/android/server/power/PowerManagerService;Z)V
 
-    .line 2191
+    .line 2192
     :cond_1
     :goto_0
     monitor-exit v1
 
-    .line 2192
+    .line 2193
     return-void
 
-    .line 2183
+    .line 2184
     :cond_2
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -146,7 +146,7 @@
 
     if-nez v0, :cond_3
 
-    .line 2184
+    .line 2185
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     const/4 v2, 0x0
@@ -154,7 +154,7 @@
     # invokes: Lcom/android/server/power/PowerManagerService;->setHalAutoSuspendModeLocked(Z)V
     invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->access$1700(Lcom/android/server/power/PowerManagerService;Z)V
 
-    .line 2186
+    .line 2187
     :cond_3
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -165,7 +165,7 @@
 
     if-nez v0, :cond_1
 
-    .line 2187
+    .line 2188
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     const/4 v2, 0x1
@@ -175,7 +175,7 @@
 
     goto :goto_0
 
-    .line 2191
+    .line 2192
     :catchall_0
     move-exception v0
 
@@ -190,7 +190,7 @@
     .locals 8
 
     .prologue
-    .line 2158
+    .line 2159
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
@@ -200,7 +200,7 @@
 
     monitor-enter v7
 
-    .line 2159
+    .line 2160
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -209,7 +209,7 @@
     # setter for: Lcom/android/server/power/PowerManagerService;->mProximityPositive:Z
     invoke-static {v0, v1}, Lcom/android/server/power/PowerManagerService;->access$1202(Lcom/android/server/power/PowerManagerService;Z)Z
 
-    .line 2160
+    .line 2161
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     const/16 v1, 0x200
@@ -217,7 +217,7 @@
     # |= operator for: Lcom/android/server/power/PowerManagerService;->mDirty:I
     invoke-static {v0, v1}, Lcom/android/server/power/PowerManagerService;->access$1076(Lcom/android/server/power/PowerManagerService;I)I
 
-    .line 2161
+    .line 2162
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -233,19 +233,19 @@
     # invokes: Lcom/android/server/power/PowerManagerService;->userActivityNoUpdateLocked(JIII)Z
     invoke-static/range {v1 .. v6}, Lcom/android/server/power/PowerManagerService;->access$1300(Lcom/android/server/power/PowerManagerService;JIII)Z
 
-    .line 2163
+    .line 2164
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # invokes: Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$1100(Lcom/android/server/power/PowerManagerService;)V
 
-    .line 2164
+    .line 2165
     monitor-exit v7
 
-    .line 2165
+    .line 2166
     return-void
 
-    .line 2164
+    .line 2165
     :catchall_0
     move-exception v0
 
@@ -260,7 +260,7 @@
     .locals 3
 
     .prologue
-    .line 2149
+    .line 2150
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
@@ -270,7 +270,7 @@
 
     monitor-enter v1
 
-    .line 2150
+    .line 2151
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -279,7 +279,7 @@
     # setter for: Lcom/android/server/power/PowerManagerService;->mProximityPositive:Z
     invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->access$1202(Lcom/android/server/power/PowerManagerService;Z)Z
 
-    .line 2151
+    .line 2152
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     const/16 v2, 0x200
@@ -287,19 +287,19 @@
     # |= operator for: Lcom/android/server/power/PowerManagerService;->mDirty:I
     invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->access$1076(Lcom/android/server/power/PowerManagerService;I)I
 
-    .line 2152
+    .line 2153
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # invokes: Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$1100(Lcom/android/server/power/PowerManagerService;)V
 
-    .line 2153
+    .line 2154
     monitor-exit v1
 
-    .line 2154
+    .line 2155
     return-void
 
-    .line 2153
+    .line 2154
     :catchall_0
     move-exception v0
 
@@ -314,7 +314,7 @@
     .locals 3
 
     .prologue
-    .line 2141
+    .line 2142
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
@@ -324,7 +324,7 @@
 
     monitor-enter v1
 
-    .line 2142
+    .line 2143
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -333,19 +333,19 @@
     # |= operator for: Lcom/android/server/power/PowerManagerService;->mDirty:I
     invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->access$1076(Lcom/android/server/power/PowerManagerService;I)I
 
-    .line 2143
+    .line 2144
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # invokes: Lcom/android/server/power/PowerManagerService;->updatePowerStateLocked()V
     invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->access$1100(Lcom/android/server/power/PowerManagerService;)V
 
-    .line 2144
+    .line 2145
     monitor-exit v1
 
-    .line 2145
+    .line 2146
     return-void
 
-    .line 2144
+    .line 2145
     :catchall_0
     move-exception v0
 
@@ -360,7 +360,7 @@
     .locals 1
 
     .prologue
-    .line 2201
+    .line 2202
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mDisplaySuspendBlocker:Lcom/android/server/power/SuspendBlocker;
@@ -370,7 +370,7 @@
 
     invoke-interface {v0}, Lcom/android/server/power/SuspendBlocker;->release()V
 
-    .line 2202
+    .line 2203
     return-void
 .end method
 
@@ -378,10 +378,10 @@
     .locals 2
 
     .prologue
-    .line 2206
+    .line 2207
     monitor-enter p0
 
-    .line 2207
+    .line 2208
     :try_start_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -411,7 +411,7 @@
 
     return-object v0
 
-    .line 2208
+    .line 2209
     :catchall_0
     move-exception v0
 

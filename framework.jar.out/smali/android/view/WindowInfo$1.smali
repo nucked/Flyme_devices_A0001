@@ -52,7 +52,6 @@
 
     .line 156
     .local v0, "window":Landroid/view/WindowInfo;
-    # invokes: Landroid/view/WindowInfo;->initFromParcel(Landroid/os/Parcel;)V
     invoke-static {v0, p1}, Landroid/view/WindowInfo;->access$000(Landroid/view/WindowInfo;Landroid/os/Parcel;)V
 
     .line 157

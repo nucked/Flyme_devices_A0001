@@ -42,11 +42,13 @@
     .line 137
     iget-object v0, p0, Landroid/widget/TextClock$1;->this$0:Landroid/widget/TextClock;
 
+    # invokes: Landroid/widget/TextClock;->chooseFormat()V
     invoke-static {v0}, Landroid/widget/TextClock;->access$000(Landroid/widget/TextClock;)V
 
     .line 138
     iget-object v0, p0, Landroid/widget/TextClock$1;->this$0:Landroid/widget/TextClock;
 
+    # invokes: Landroid/widget/TextClock;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TextClock;->access$100(Landroid/widget/TextClock;)V
 
     .line 139
@@ -62,11 +64,13 @@
     .line 143
     iget-object v0, p0, Landroid/widget/TextClock$1;->this$0:Landroid/widget/TextClock;
 
+    # invokes: Landroid/widget/TextClock;->chooseFormat()V
     invoke-static {v0}, Landroid/widget/TextClock;->access$000(Landroid/widget/TextClock;)V
 
     .line 144
     iget-object v0, p0, Landroid/widget/TextClock$1;->this$0:Landroid/widget/TextClock;
 
+    # invokes: Landroid/widget/TextClock;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TextClock;->access$100(Landroid/widget/TextClock;)V
 
     .line 145

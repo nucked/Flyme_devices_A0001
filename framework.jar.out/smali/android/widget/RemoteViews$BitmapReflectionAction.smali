@@ -53,6 +53,7 @@
     iput-object p3, p0, Landroid/widget/RemoteViews$BitmapReflectionAction;->methodName:Ljava/lang/String;
 
     .line 1013
+    # getter for: Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
     invoke-static {p1}, Landroid/widget/RemoteViews;->access$400(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews$BitmapCache;
 
     move-result-object v0
@@ -101,6 +102,7 @@
     iput v0, p0, Landroid/widget/RemoteViews$BitmapReflectionAction;->bitmapId:I
 
     .line 1020
+    # getter for: Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
     invoke-static {p1}, Landroid/widget/RemoteViews;->access$400(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews$BitmapCache;
 
     move-result-object v0

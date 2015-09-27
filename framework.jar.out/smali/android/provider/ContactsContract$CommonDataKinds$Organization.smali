@@ -100,20 +100,20 @@
     packed-switch p0, :pswitch_data_0
 
     .line 6625
-    const v0, 0x1040444
+    const v0, 0x1040445
 
     :goto_0
     return v0
 
     .line 6623
     :pswitch_0
-    const v0, 0x1040442
+    const v0, 0x1040443
 
     goto :goto_0
 
     .line 6624
     :pswitch_1
-    const v0, 0x1040443
+    const v0, 0x1040444
 
     goto :goto_0
 

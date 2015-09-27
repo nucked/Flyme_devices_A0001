@@ -125,9 +125,9 @@
 
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    const v2, 0x1040230
+    const v2, 0x1040231
 
-    const v3, 0x1040231
+    const v3, 0x1040232
 
     invoke-direct {v1, v4, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 
@@ -138,9 +138,9 @@
 
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    const v2, 0x1040232
+    const v2, 0x1040233
 
-    const v3, 0x1040233
+    const v3, 0x1040234
 
     invoke-direct {v1, v5, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 
@@ -151,9 +151,9 @@
 
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    const v2, 0x1040234
+    const v2, 0x1040235
 
-    const v3, 0x1040235
+    const v3, 0x1040236
 
     invoke-direct {v1, v6, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 
@@ -164,9 +164,9 @@
 
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    const v2, 0x1040236
+    const v2, 0x1040237
 
-    const v3, 0x1040237
+    const v3, 0x1040238
 
     invoke-direct {v1, v7, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 

@@ -81,12 +81,14 @@
     .local v1, "inflater":Landroid/view/LayoutInflater;
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
+    # getter for: Landroid/widget/TabHost;->mTabLayoutId:I
     invoke-static {v4}, Landroid/widget/TabHost;->access$900(Landroid/widget/TabHost;)I
 
     move-result v4
 
     iget-object v5, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
+    # getter for: Landroid/widget/TabHost;->mTabWidget:Landroid/widget/TabWidget;
     invoke-static {v5}, Landroid/widget/TabHost;->access$1000(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
 
     move-result-object v5

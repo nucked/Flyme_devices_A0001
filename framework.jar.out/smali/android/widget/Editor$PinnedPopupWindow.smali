@@ -110,6 +110,7 @@
     .local v1, "offset":I
     iget-object v3, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -139,6 +140,7 @@
 
     iget-object v4, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v4}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -154,6 +156,7 @@
     .line 2270
     iget-object v3, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -179,6 +182,7 @@
 
     iget-object v4, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v4}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -225,6 +229,7 @@
     .line 2282
     iget-object v4, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v4}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -282,6 +287,7 @@
 
     iget-object v5, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v5}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v5
@@ -317,6 +323,7 @@
     .line 2297
     iget-object v0, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # invokes: Landroid/widget/Editor;->getPositionListener()Landroid/widget/Editor$PositionListener;
     invoke-static {v0}, Landroid/widget/Editor;->access$1400(Landroid/widget/Editor;)Landroid/widget/Editor$PositionListener;
 
     move-result-object v0
@@ -353,6 +360,7 @@
     .line 2251
     iget-object v1, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -394,6 +402,7 @@
     .line 2242
     iget-object v1, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # invokes: Landroid/widget/Editor;->getPositionListener()Landroid/widget/Editor$PositionListener;
     invoke-static {v1}, Landroid/widget/Editor;->access$1400(Landroid/widget/Editor;)Landroid/widget/Editor$PositionListener;
 
     move-result-object v1
@@ -408,6 +417,7 @@
     .line 2246
     iget-object v1, p0, Landroid/widget/Editor$PinnedPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # invokes: Landroid/widget/Editor;->getPositionListener()Landroid/widget/Editor$PositionListener;
     invoke-static {v1}, Landroid/widget/Editor;->access$1400(Landroid/widget/Editor;)Landroid/widget/Editor$PositionListener;
 
     move-result-object v0
@@ -449,6 +459,7 @@
 
     move-result v1
 
+    # invokes: Landroid/widget/Editor;->isOffsetVisible(I)Z
     invoke-static {v0, v1}, Landroid/widget/Editor;->access$1500(Landroid/widget/Editor;I)Z
 
     move-result v0

@@ -54,7 +54,7 @@ vendor_modify_images := boot
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := Bluetooth NfcNci KeyChain TagGoogle HTMLViewer UserDictionaryProvider BackupRestoreConfirmation \
+vendor_saved_apps := Bluetooth NfcNci KeyChain Tag HTMLViewer UserDictionaryProvider BackupRestoreConfirmation \
                      FusedLocation PrintSpooler SharedStorageBackup  ExternalStorageProvider InputDevices \
                      ProxyHandler Shell DefaultContainerService WAPPushManager Stk TimeService qcrilmsgtunnel
 
@@ -107,7 +107,7 @@ board_remove_apps := LogReport
 # The command idtoname how to use: first use "apktool d source/system/framework/framework-res.apk other/TMP/framework-res",
 # and then use "idtoname other/TMP/framework-res/res/values/public_master.xml XXXX/smali"(XXXX is the directory where you decode board system apk).
 #-----------------------------------------------------------------------------
-board_modify_apps := TeleService SystemUI Telecom FlymeLauncher
+board_modify_apps := TeleService Keyguard SystemUI Telecom FlymeLauncher
 
 ##############################################################################
 # The value decides which jar you want to modify, when the jar is based on the board framework jar.
@@ -140,8 +140,8 @@ board_modify_apps := TeleService SystemUI Telecom FlymeLauncher
 # The default value is Nexus-5_Unofficial.
 # You should configure the property according to your device and your ID with replace the "Nexus-5_Unofficial".
 override_property += \
-    ro.flyme.romer=Unofficial \
-    ro.product.model_romer=A0001_Unofficial
+    ro.flyme.romer=Nucked\
+    ro.product.model_romer=A0001_Nucked
 
 ##############################################################################
 # The value decides which property you will remove from the build.prop.

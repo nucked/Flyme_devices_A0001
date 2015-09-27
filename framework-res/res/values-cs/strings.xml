@@ -1789,4 +1789,6 @@ Při nabíjení zařízení se spořič baterie automaticky vypne."</string>
     <string name="adb_active_custom_tile_net">Síť</string>
     <string name="permlab_resetBatteryStats">obnovení statistiky baterie</string>
     <string name="permdesc_resetBatteryStats">Umožní provést obnovení/vyčištění informací o využívání baterie.</string>
+    <string name="silent_mode_priority">Priorita</string>
+    <string name="silent_mode_none">Žádný</string>
 </resources>

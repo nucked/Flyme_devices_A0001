@@ -1257,7 +1257,7 @@ Szeretné bezárni?"</string>
     <string name="android_start_title">Az Android indítása…</string>
     <string name="android_upgrading_fstrim">Tárhely-optimalizálás.</string>
     <string name="android_upgrading_apk">Alkalmazás optimalizálása: %1$d/%2$d.</string>
-    <string name="android_upgrading_starting_apps">Kezdő alkalmazások.</string>
+    <string name="android_upgrading_starting_apps">Alkalmazások indítása.</string>
     <string name="android_upgrading_complete">Rendszerindítás befejezése.</string>
     <string name="heavy_weight_notification">%1$s fut</string>
     <string name="heavy_weight_notification_detail">Érintse meg az alkalmazásra váltáshoz</string>
@@ -1789,4 +1789,6 @@ Az energiatakarékos mód automatikusan kikapcsol, ha eszköze töltőn van."</s
     <string name="adb_active_custom_tile_net">Hálózat</string>
     <string name="permlab_resetBatteryStats">akkumulátor használati statisztika törlése</string>
     <string name="permdesc_resetBatteryStats">Lehetővé teszi az alkalmazás számára, hogy törölhesse alacsony szintű akkumulátor használatára vonatkozó adatokat.</string>
+    <string name="silent_mode_priority">Prioritás</string>
+    <string name="silent_mode_none">Nincs</string>
 </resources>

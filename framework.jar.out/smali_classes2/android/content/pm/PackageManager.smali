@@ -120,7 +120,7 @@
 
 .field public static final FEATURE_FAKETOUCH_MULTITOUCH_JAZZHAND:Ljava/lang/String; = "android.hardware.faketouch.multitouch.jazzhand"
 
-.field public static final FEATURE_FINGERPRINT:Ljava/lang/String; = "android.hardware.fingerprint"
+.field public static final FEATURE_FINGERPRINT:Ljava/lang/String; = "cyanogenmod.hardware.fingerprint"
 
 .field public static final FEATURE_GAMEPAD:Ljava/lang/String; = "android.hardware.gamepad"
 

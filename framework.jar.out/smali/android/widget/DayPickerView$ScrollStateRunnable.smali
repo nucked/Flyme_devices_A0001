@@ -83,6 +83,7 @@
 
     iget v9, p0, Landroid/widget/DayPickerView$ScrollStateRunnable;->mNewState:I
 
+    # setter for: Landroid/widget/DayPickerView;->mCurrentScrollState:I
     invoke-static {v8, v9}, Landroid/widget/DayPickerView;->access$002(Landroid/widget/DayPickerView;I)I
 
     .line 336
@@ -123,6 +124,7 @@
 
     iget-object v10, p0, Landroid/widget/DayPickerView$ScrollStateRunnable;->this$0:Landroid/widget/DayPickerView;
 
+    # getter for: Landroid/widget/DayPickerView;->mPreviousScrollState:I
     invoke-static {v10}, Landroid/widget/DayPickerView;->access$100(Landroid/widget/DayPickerView;)I
 
     move-result v10
@@ -145,6 +147,7 @@
 
     iget-object v8, p0, Landroid/widget/DayPickerView$ScrollStateRunnable;->this$0:Landroid/widget/DayPickerView;
 
+    # getter for: Landroid/widget/DayPickerView;->mPreviousScrollState:I
     invoke-static {v8}, Landroid/widget/DayPickerView;->access$100(Landroid/widget/DayPickerView;)I
 
     move-result v8
@@ -153,6 +156,7 @@
 
     iget-object v8, p0, Landroid/widget/DayPickerView$ScrollStateRunnable;->this$0:Landroid/widget/DayPickerView;
 
+    # getter for: Landroid/widget/DayPickerView;->mPreviousScrollState:I
     invoke-static {v8}, Landroid/widget/DayPickerView;->access$100(Landroid/widget/DayPickerView;)I
 
     move-result v8
@@ -164,6 +168,7 @@
 
     iget v9, p0, Landroid/widget/DayPickerView$ScrollStateRunnable;->mNewState:I
 
+    # setter for: Landroid/widget/DayPickerView;->mPreviousScrollState:I
     invoke-static {v8, v9}, Landroid/widget/DayPickerView;->access$102(Landroid/widget/DayPickerView;I)I
 
     .line 345
@@ -319,6 +324,7 @@
 
     iget v9, p0, Landroid/widget/DayPickerView$ScrollStateRunnable;->mNewState:I
 
+    # setter for: Landroid/widget/DayPickerView;->mPreviousScrollState:I
     invoke-static {v8, v9}, Landroid/widget/DayPickerView;->access$102(Landroid/widget/DayPickerView;I)I
 
     goto :goto_1

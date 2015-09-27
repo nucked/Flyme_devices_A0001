@@ -11881,7 +11881,7 @@
     .line 5403
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "mConsumeBatchedInputScheduled="
+    const-string v1, "mConsumeBatchedInputScheduled="
 
     invoke-virtual {p3, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -11893,7 +11893,7 @@
     .line 5405
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "mConsumeBatchedInputImmediatelyScheduled="
+    const-string v1, "mConsumeBatchedInputImmediatelyScheduled="
 
     invoke-virtual {p3, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 

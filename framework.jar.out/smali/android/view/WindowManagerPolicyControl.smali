@@ -97,7 +97,6 @@
     :cond_0
     sget-object v0, Landroid/view/WindowManagerPolicyControl;->sImmersiveNavigationFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v0}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v0
@@ -111,7 +110,6 @@
     .line 251
     sget-object v0, Landroid/view/WindowManagerPolicyControl;->sImmersiveNavigationFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v0}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v0
@@ -154,7 +152,6 @@
     :cond_0
     sget-object v0, Landroid/view/WindowManagerPolicyControl;->sImmersiveStatusFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v0}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v0
@@ -168,7 +165,6 @@
     .line 241
     sget-object v0, Landroid/view/WindowManagerPolicyControl;->sImmersiveStatusFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v0}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v0
@@ -632,7 +628,6 @@
     .line 268
     sget-object v1, Landroid/view/WindowManagerPolicyControl;->sImmersiveStatusFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1
@@ -654,7 +649,6 @@
     .line 272
     sget-object v1, Landroid/view/WindowManagerPolicyControl;->sImmersiveNavigationFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1
@@ -1017,7 +1011,6 @@
     .line 257
     sget-object v0, Landroid/view/WindowManagerPolicyControl;->sImmersiveStatusFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v0}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v0
@@ -1033,7 +1026,6 @@
     .line 260
     sget-object v0, Landroid/view/WindowManagerPolicyControl;->sImmersiveNavigationFilter:Landroid/view/WindowManagerPolicyControl$Filter;
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {v0}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v0
@@ -1465,7 +1457,6 @@
 
     .prologue
     .line 279
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {p1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1
@@ -1476,7 +1467,6 @@
 
     if-eqz v1, :cond_1
 
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mBlacklist:Landroid/util/ArraySet;
     invoke-static {p1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$200(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1
@@ -1506,7 +1496,6 @@
 
     .line 286
     .local v0, "needComma":Z
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {p1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1
@@ -1518,7 +1507,6 @@
     if-nez v1, :cond_2
 
     .line 287
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mWhitelist:Landroid/util/ArraySet;
     invoke-static {p1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$100(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1
@@ -1532,7 +1520,6 @@
 
     .line 290
     :cond_2
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mBlacklist:Landroid/util/ArraySet;
     invoke-static {p1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$200(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1
@@ -1553,7 +1540,6 @@
 
     .line 294
     :cond_3
-    # getter for: Landroid/view/WindowManagerPolicyControl$Filter;->mBlacklist:Landroid/util/ArraySet;
     invoke-static {p1}, Landroid/view/WindowManagerPolicyControl$Filter;->access$200(Landroid/view/WindowManagerPolicyControl$Filter;)Landroid/util/ArraySet;
 
     move-result-object v1

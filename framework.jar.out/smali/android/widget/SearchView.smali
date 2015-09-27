@@ -275,7 +275,7 @@
     .local v3, "inflater":Landroid/view/LayoutInflater;
     const/4 v8, 0x1
 
-    const v9, 0x10900c1
+    const v9, 0x10900c0
 
     invoke-virtual {v0, v8, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -484,7 +484,7 @@
     :goto_0
     const/16 v8, 0xc
 
-    const v9, 0x10900c0
+    const v9, 0x10900bf
 
     invoke-virtual {v0, v8, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

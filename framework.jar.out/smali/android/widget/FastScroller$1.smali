@@ -45,6 +45,7 @@
 
     const/4 v1, 0x0
 
+    # invokes: Landroid/widget/FastScroller;->setState(I)V
     invoke-static {v0, v1}, Landroid/widget/FastScroller;->access$000(Landroid/widget/FastScroller;I)V
 
     .line 223

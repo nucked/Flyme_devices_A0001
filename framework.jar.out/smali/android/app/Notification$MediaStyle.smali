@@ -97,7 +97,7 @@
 
     move-result-object v4
 
-    const v5, 0x1090076
+    const v5, 0x1090075
 
     invoke-direct {v0, v4, v5}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -153,14 +153,14 @@
     if-gt p1, v0, :cond_0
 
     .line 4326
-    const v0, 0x109007b
+    const v0, 0x109007a
 
     .line 4328
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x109007a
+    const v0, 0x1090079
 
     goto :goto_0
 .end method
@@ -295,7 +295,7 @@
     .line 4279
     iget-object v7, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    const v8, 0x109007f
+    const v8, 0x109007e
 
     # invokes: Landroid/app/Notification$Builder;->applyStandardTemplate(IZ)Landroid/widget/RemoteViews;
     invoke-static {v7, v8, v6}, Landroid/app/Notification$Builder;->access$2200(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;

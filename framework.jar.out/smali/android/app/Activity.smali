@@ -2181,7 +2181,7 @@
     .line 5356
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "mChangingConfigurations="
+    const-string v1, "mChangingConfigurations="
 
     invoke-virtual {p3, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -2193,7 +2193,7 @@
     .line 5358
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "mCurrentConfig="
+    const-string v1, "mCurrentConfig="
 
     invoke-virtual {p3, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 

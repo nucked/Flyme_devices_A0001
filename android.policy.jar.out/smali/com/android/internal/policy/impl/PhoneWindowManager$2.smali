@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 359
+    .line 358
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$2;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .param p1, "windowToken"    # Landroid/os/IBinder;
 
     .prologue
-    .line 363
+    .line 362
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$2;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
@@ -49,6 +49,11 @@
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    .line 363
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$2;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->hideBootMessages()V
 
     .line 364
     return-void

@@ -43,7 +43,6 @@
     .line 237
     iget-object v1, p0, Landroid/view/WindowManagerGlobal$2;->this$0:Landroid/view/WindowManagerGlobal;
 
-    # getter for: Landroid/view/WindowManagerGlobal;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/view/WindowManagerGlobal;->access$000(Landroid/view/WindowManagerGlobal;)Ljava/lang/Object;
 
     move-result-object v2
@@ -54,7 +53,6 @@
     :try_start_0
     iget-object v1, p0, Landroid/view/WindowManagerGlobal$2;->this$0:Landroid/view/WindowManagerGlobal;
 
-    # getter for: Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
     invoke-static {v1}, Landroid/view/WindowManagerGlobal;->access$100(Landroid/view/WindowManagerGlobal;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -72,7 +70,6 @@
     .line 239
     iget-object v1, p0, Landroid/view/WindowManagerGlobal$2;->this$0:Landroid/view/WindowManagerGlobal;
 
-    # getter for: Landroid/view/WindowManagerGlobal;->mRoots:Ljava/util/ArrayList;
     invoke-static {v1}, Landroid/view/WindowManagerGlobal;->access$100(Landroid/view/WindowManagerGlobal;)Ljava/util/ArrayList;
 
     move-result-object v1

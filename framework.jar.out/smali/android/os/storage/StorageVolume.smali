@@ -395,7 +395,7 @@
     invoke-virtual {p1, v0, v1}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 283
-    const-string/jumbo v0, "mDescriptionId"
+    const-string v0, "mDescriptionId"
 
     iget v1, p0, Landroid/os/storage/StorageVolume;->mDescriptionId:I
 
@@ -428,7 +428,7 @@
     invoke-virtual {p1, v0, v1}, Lcom/android/internal/util/IndentingPrintWriter;->printPair(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 286
-    const-string/jumbo v0, "mEmulated"
+    const-string v0, "mEmulated"
 
     iget-boolean v1, p0, Landroid/os/storage/StorageVolume;->mEmulated:Z
 

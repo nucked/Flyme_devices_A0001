@@ -1789,4 +1789,6 @@
     <string name="adb_active_custom_tile_net">Мережа</string>
     <string name="permlab_resetBatteryStats">скинути статистику акумулятора</string>
     <string name="permdesc_resetBatteryStats">Дозволити програмі скидати дані про використання акумулятора.</string>
+    <string name="silent_mode_priority">Пріоритет</string>
+    <string name="silent_mode_none">Немає</string>
 </resources>

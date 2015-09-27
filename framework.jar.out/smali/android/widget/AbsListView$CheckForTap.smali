@@ -116,6 +116,7 @@
     .line 3280
     iget-object v5, p0, Landroid/widget/AbsListView$CheckForTap;->this$0:Landroid/widget/AbsListView;
 
+    # getter for: Landroid/widget/AbsListView;->mTmpPoint:[F
     invoke-static {v5}, Landroid/widget/AbsListView;->access$700(Landroid/widget/AbsListView;)[F
 
     move-result-object v4
@@ -237,6 +238,7 @@
     .line 3307
     iget-object v5, p0, Landroid/widget/AbsListView$CheckForTap;->this$0:Landroid/widget/AbsListView;
 
+    # getter for: Landroid/widget/AbsListView;->mPendingCheckForLongPress:Landroid/widget/AbsListView$CheckForLongPress;
     invoke-static {v5}, Landroid/widget/AbsListView;->access$800(Landroid/widget/AbsListView;)Landroid/widget/AbsListView$CheckForLongPress;
 
     move-result-object v5
@@ -254,12 +256,14 @@
 
     invoke-direct {v6, v7, v8}, Landroid/widget/AbsListView$CheckForLongPress;-><init>(Landroid/widget/AbsListView;Landroid/widget/AbsListView$1;)V
 
+    # setter for: Landroid/widget/AbsListView;->mPendingCheckForLongPress:Landroid/widget/AbsListView$CheckForLongPress;
     invoke-static {v5, v6}, Landroid/widget/AbsListView;->access$802(Landroid/widget/AbsListView;Landroid/widget/AbsListView$CheckForLongPress;)Landroid/widget/AbsListView$CheckForLongPress;
 
     .line 3310
     :cond_2
     iget-object v5, p0, Landroid/widget/AbsListView$CheckForTap;->this$0:Landroid/widget/AbsListView;
 
+    # getter for: Landroid/widget/AbsListView;->mPendingCheckForLongPress:Landroid/widget/AbsListView$CheckForLongPress;
     invoke-static {v5}, Landroid/widget/AbsListView;->access$800(Landroid/widget/AbsListView;)Landroid/widget/AbsListView$CheckForLongPress;
 
     move-result-object v5
@@ -271,6 +275,7 @@
 
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForTap;->this$0:Landroid/widget/AbsListView;
 
+    # getter for: Landroid/widget/AbsListView;->mPendingCheckForLongPress:Landroid/widget/AbsListView$CheckForLongPress;
     invoke-static {v6}, Landroid/widget/AbsListView;->access$800(Landroid/widget/AbsListView;)Landroid/widget/AbsListView$CheckForLongPress;
 
     move-result-object v6

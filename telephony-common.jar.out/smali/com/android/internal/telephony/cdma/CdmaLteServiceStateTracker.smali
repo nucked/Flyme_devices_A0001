@@ -4558,7 +4558,7 @@
 
     move-result-object v43
 
-    const v44, 0x10401aa
+    const v44, 0x10401ab
 
     invoke-virtual/range {v43 .. v44}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -5101,7 +5101,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0065
+    const v3, 0x10e0066
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

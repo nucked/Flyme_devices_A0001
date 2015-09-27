@@ -88,7 +88,7 @@
     .param p0, "type"    # Ljava/lang/Integer;
 
     .prologue
-    const v0, 0x104042a
+    const v0, 0x104042b
 
     .line 6840
     if-nez p0, :cond_0
@@ -107,19 +107,19 @@
     packed-switch v1, :pswitch_data_0
 
     .line 6848
-    const v0, 0x1040427
+    const v0, 0x1040428
 
     goto :goto_0
 
     .line 6845
     :pswitch_1
-    const v0, 0x1040429
+    const v0, 0x104042a
 
     goto :goto_0
 
     .line 6846
     :pswitch_2
-    const v0, 0x1040428
+    const v0, 0x1040429
 
     goto :goto_0
 

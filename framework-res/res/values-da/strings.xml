@@ -1789,4 +1789,6 @@ Batterisparefunktionen slukker automatisk, når enheden oplader."</string>
     <string name="adb_active_custom_tile_net">Netværk</string>
     <string name="permlab_resetBatteryStats">nulstil batteristatistik</string>
     <string name="permdesc_resetBatteryStats">Tillader en app at nulstille den aktuelle statistik over batteriforbruget.</string>
+    <string name="silent_mode_priority">Prioritet</string>
+    <string name="silent_mode_none">Ingen</string>
 </resources>

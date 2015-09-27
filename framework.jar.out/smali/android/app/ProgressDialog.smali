@@ -695,7 +695,7 @@
     :cond_8
     const/16 v3, 0x10
 
-    const v4, 0x10900a8
+    const v4, 0x10900a7
 
     invoke-virtual {v0, v3, v4}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

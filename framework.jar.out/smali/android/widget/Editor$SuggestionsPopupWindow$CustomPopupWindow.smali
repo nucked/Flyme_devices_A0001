@@ -51,6 +51,7 @@
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # invokes: Landroid/widget/Editor;->getPositionListener()Landroid/widget/Editor$PositionListener;
     invoke-static {v0}, Landroid/widget/Editor;->access$1400(Landroid/widget/Editor;)Landroid/widget/Editor$PositionListener;
 
     move-result-object v0
@@ -64,6 +65,7 @@
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -87,12 +89,14 @@
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$700(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/widget/Editor$SuggestionsPopupWindow$CustomPopupWindow;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
+    # getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mCursorWasVisibleBeforeSuggestions:Z
     invoke-static {v1}, Landroid/widget/Editor$SuggestionsPopupWindow;->access$1600(Landroid/widget/Editor$SuggestionsPopupWindow;)Z
 
     move-result v1

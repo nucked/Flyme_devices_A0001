@@ -1789,4 +1789,6 @@
     <string name="adb_active_custom_tile_net">네트워크</string>
     <string name="permlab_resetBatteryStats">배터리 통계 재설정</string>
     <string name="permdesc_resetBatteryStats">앱이 현재의 배터리 사용 데이터를 초기화할 수 있도록 허용합니다.</string>
+    <string name="silent_mode_priority">우선순위</string>
+    <string name="silent_mode_none">없음</string>
 </resources>

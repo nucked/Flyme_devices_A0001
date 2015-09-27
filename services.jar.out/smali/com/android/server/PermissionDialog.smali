@@ -95,7 +95,7 @@
     .line 73
     const/4 v4, -0x1
 
-    const v5, 0x1040622
+    const v5, 0x1040623
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -112,7 +112,7 @@
     .line 76
     const/4 v4, -0x2
 
-    const v5, 0x1040623
+    const v5, 0x1040624
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     move-result-object v4
 
-    const v5, 0x109008a
+    const v5, 0x1090089
 
     const/4 v6, 0x0
 

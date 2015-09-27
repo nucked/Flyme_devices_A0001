@@ -37,7 +37,7 @@
     <bool name="config_annoy_dianne">true</bool>
     <bool name="config_unplugTurnsOnScreen">true</bool>
     <bool name="config_useAttentionLight">false</bool>
-    <bool name="config_animateScreenLights">true</bool>
+    <bool name="config_animateScreenLights">false</bool>
     <bool name="config_enableScreenshotChord">true</bool>
     <bool name="config_allowTheaterModeWakeFromUnplug">false</bool>
     <bool name="config_allowTheaterModeWakeFromGesture">false</bool>
@@ -76,8 +76,8 @@
     <bool name="config_deviceHasVariableButtonBrightness">true</bool>
     <bool name="config_swipeDisambiguation">true</bool>
     <bool name="config_enableWallpaperService">true</bool>
-    <bool name="config_enableNetworkLocationOverlay">true</bool>
-    <bool name="config_enableFusedLocationOverlay">true</bool>
+    <bool name="config_enableNetworkLocationOverlay">false</bool>
+    <bool name="config_enableFusedLocationOverlay">false</bool>
     <bool name="config_enableHardwareFlpOverlay">true</bool>
     <bool name="config_enableGeocoderOverlay">true</bool>
     <bool name="config_enableGeofenceOverlay">true</bool>
@@ -125,7 +125,7 @@
     <bool name="config_dontPreferApn">false</bool>
     <bool name="config_restartRadioAfterProvisioning">false</bool>
     <bool name="config_requireRadioPowerOffOnSimRefreshReset">false</bool>
-    <bool name="config_speed_up_audio_on_mt_calls">true</bool>
+    <bool name="config_speed_up_audio_on_mt_calls">false</bool>
     <bool name="config_useFixedVolume">false</bool>
     <bool name="config_forceDefaultOrientation">false</bool>
     <bool name="config_forceDisableHardwareKeyboard">false</bool>
@@ -182,8 +182,9 @@
     <bool name="config_samsung_stk">false</bool>
     <bool name="config_hasRemovableLid">false</bool>
     <bool name="config_stylusGestures">false</bool>
-    <bool name="config_ui_blur_enabled">true</bool>
+    <bool name="config_ui_blur_enabled">false</bool>
     <bool name="config_advancedSettingsMode">true</bool>
+    <bool name="config_excludeRingtonesFromRemovableStorage">false</bool>
     <bool name="def_telephony_spn_spec_enabled">false</bool>
     <bool name="def_custom_dateformat">false</bool>
     <bool name="lockscreen_isPortrait">true</bool>

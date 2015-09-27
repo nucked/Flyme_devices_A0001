@@ -603,7 +603,7 @@
     .line 1925
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "mFragmentId=#"
+    const-string v0, "mFragmentId=#"
 
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -727,7 +727,7 @@
     .line 1939
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "mHidden="
+    const-string v0, "mHidden="
 
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -799,7 +799,7 @@
     .line 1947
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "mFragmentManager="
+    const-string v0, "mFragmentManager="
 
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -950,7 +950,7 @@
     .line 1978
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "mContainer="
+    const-string v0, "mContainer="
 
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 

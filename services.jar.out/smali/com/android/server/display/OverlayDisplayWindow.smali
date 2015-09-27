@@ -209,7 +209,7 @@
 
     move-result-object v0
 
-    const v1, 0x10406c3
+    const v1, 0x10406c4
 
     const/4 v2, 0x4
 
@@ -273,7 +273,7 @@
 
     move-result-object v1
 
-    const v2, 0x10406c4
+    const v2, 0x10406c5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -496,7 +496,7 @@
 
     .line 183
     .local v0, "inflater":Landroid/view/LayoutInflater;
-    const v1, 0x1090089
+    const v1, 0x1090088
 
     const/4 v3, 0x0
 

@@ -172,7 +172,7 @@
     const/4 v3, 0x0
 
     .line 165
-    const v1, 0x10900bf
+    const v1, 0x10900be
 
     invoke-virtual {p0, v1}, Landroid/app/SearchDialog;->setContentView(I)V
 

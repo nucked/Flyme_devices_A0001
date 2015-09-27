@@ -137,7 +137,7 @@
     <string name="permission_remember_choice">Zapamiętaj mój wybór</string>
     <string name="perf_profile_pwrsv">Oszczędny</string>
     <string name="perf_profile_bal">Zbalansowany</string>
-    <string name="perf_profile_perf">Wydajny</string>
+    <string name="perf_profile_perf">Wydajność</string>
     <string name="theme_install_error_title">Nie udało się zainstalować motywu</string>
     <string name="theme_install_error_message">%s nie udało się zainstalować</string>
     <string name="theme_reset_notification_title">Reset motywu</string>
@@ -1789,4 +1789,6 @@ Oszczędzanie baterii wyłącza się automatycznie podczas ładowania urządzeni
     <string name="adb_active_custom_tile_net">Sieć</string>
     <string name="permlab_resetBatteryStats">resetowanie statystyk baterii</string>
     <string name="permdesc_resetBatteryStats">Umożliwia aplikacji na zresetowanie statystyk użycia baterii.</string>
+    <string name="silent_mode_priority">Priorytet</string>
+    <string name="silent_mode_none">Brak</string>
 </resources>
