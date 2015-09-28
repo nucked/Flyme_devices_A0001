@@ -844,7 +844,7 @@
 
     move-result-object v7
 
-    const v8, 0x107003f
+    const v8, #android:array@config_operatorConsideredNonRoaming#t
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -923,7 +923,7 @@
 
     move-result-object v7
 
-    const v8, 0x1070040
+    const v8, #android:array@config_sameNamedOperatorConsideredRoaming#t
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -4709,7 +4709,7 @@
 
     move-result-object v8
 
-    const v9, 0x1120059
+    const v9, #android:bool@config_user_notification_of_restrictied_mobile_access#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -4754,26 +4754,22 @@
 
     iput-wide v10, v8, Landroid/app/Notification;->when:J
 
-    .line 2018
     iget-object v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
     const/16 v9, 0x10
 
     iput v9, v8, Landroid/app/Notification;->flags:I
 
-    .line 2019
     iget-object v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
-    const v9, 0x108008a
+    const v9, #android:drawable@stat_sys_warning#t
 
     iput v9, v8, Landroid/app/Notification;->icon:I
 
-    .line 2020
     new-instance v3, Landroid/content/Intent;
 
     invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
-    .line 2021
     .local v3, "intent":Landroid/content/Intent;
     iget-object v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
@@ -4792,7 +4788,7 @@
 
     .line 2025
     .local v2, "details":Ljava/lang/CharSequence;
-    const v8, 0x1040189
+    const v8, #android:string@RestrictedChangedTitle#t
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -4851,7 +4847,7 @@
 
     move-result-object v9
 
-    const v10, 0x106005c
+    const v10, #android:color@system_notification_accent_color#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4910,30 +4906,24 @@
 
     if-ne v1, v8, :cond_0
 
-    .line 2034
     const/16 v5, 0x378
 
-    .line 2035
-    const v8, 0x104018a
+    const v8, #android:string@RestrictedOnData#t
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 2036
     goto :goto_1
 
-    .line 2038
     .end local v1    # "dataSubId":I
     :pswitch_2
     const/16 v5, 0x378
 
-    .line 2039
     goto :goto_1
 
-    .line 2041
     :pswitch_3
-    const v8, 0x104018d
+    const v8, #android:string@RestrictedOnAllVoice#t
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -4944,7 +4934,7 @@
 
     .line 2044
     :pswitch_4
-    const v8, 0x104018c
+    const v8, #android:string@RestrictedOnNormal#t
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -4955,7 +4945,7 @@
 
     .line 2047
     :pswitch_5
-    const v8, 0x104018b
+    const v8, #android:string@RestrictedOnEmergency#t
 
     invoke-virtual {v0, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -7327,7 +7317,7 @@
 
     move-result-object v18
 
-    const v19, 0x112005e
+    const v19, #android:bool@skip_restoring_network_selection#t
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9069,7 +9059,9 @@
 
     move/from16 v1, v24
 
-    invoke-virtual {v10, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    int-to-long v1, v1
+
+    invoke-virtual {v10, v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
     .line 746
     move-object/from16 v0, p0
@@ -9109,7 +9101,7 @@
 
     move-result-object v23
 
-    const v24, 0x1120058
+    const v24, #android:bool@config_voice_capable#t
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -11325,7 +11317,7 @@
     .locals 12
 
     .prologue
-    const v11, 0x1040464
+    const v11, #android:string@lockscreen_carrier_default#t
 
     const/4 v10, 0x2
 
@@ -11385,7 +11377,7 @@
 
     move-result-object v9
 
-    const v10, 0x104047c
+    const v10, #android:string@emergency_calls_only#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
