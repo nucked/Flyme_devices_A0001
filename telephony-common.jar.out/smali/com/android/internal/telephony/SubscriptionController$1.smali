@@ -68,13 +68,13 @@
     .line 171
     const-string v0, "subscription"
 
-    const-wide/16 v4, -0x1
+    const-wide/16 v2, -0x1
 
-    invoke-virtual {p2, v3, v4, v5}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+    invoke-virtual {p2, v0, v2, v3}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
 
-    move-result-wide v2
-
-    long-to-int v2, v2
+    move-result-wide v1
+    
+    long-to-int v1, v1
 
     .line 173
     .local v1, "subId":I
