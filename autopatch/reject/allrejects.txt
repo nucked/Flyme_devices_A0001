@@ -1,4 +1,0 @@
-    1 conflicts in: boot.img.out/RAMDISK/default.prop
-    1 conflicts in: boot.img.out/RAMDISK/init.environ.rc
-    1 conflicts in: framework.jar.out/smali_classes2/android/content/ContentProvider$Transport.smali
-    3 conflicts in: telephony-common.jar.out/smali/com/android/internal/telephony/SubscriptionController$1.smali
