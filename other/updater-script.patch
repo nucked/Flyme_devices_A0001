@@ -1,13 +1,13 @@
---- a/META-INF/com/google/android/updater-script	2008-04-16 07:40:50.000000000 +0800
-+++ b/META-INF/com/google/android/updater-script	2015-09-30 20:46:10.850104528 +0800
-@@ -386,7 +386,17 @@
- set_metadata("/system/xbin/sugote", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
- set_metadata("/system/xbin/sugote-mksh", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
- set_metadata("/system/xbin/supolicy", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-+set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+--- a/META-INF/com/google/android/updater-script
++++ b/META-INF/com/google/android/updater-script
+@@ -330,4 +330,17 @@
  show_progress(0.050000, 5);
  package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
  show_progress(0.200000, 10);
++ui_print("flash Supersu...");
++package_extract_dir("su", "/tmp/supersu");
++run_program("/sbin/busybox", "unzip", "/tmp/supersu/su.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");
++run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/su.zip");
 +ui_print("Writing radio image...");
 +package_extract_file("static_nvbk.bin", "/dev/block/platform/msm_sdcc.1/by-name/oppostanvbk");
 +package_extract_file("tz.mbn", "/dev/block/platform/msm_sdcc.1/by-name/tz");
