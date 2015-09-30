@@ -22,10 +22,9 @@ mv ./out/flyme*.zip ./out/flyme
 cd ./out/flyme
 unzip flyme*.zip
 rm -rf flyme*.zip
-cp -rf ../../patch/updater-script.patch ./
-patch -p1 < updater-script.patch
-rm -rf updater-script.patch
-cp -rf ../../patch/SuperSU/* ./
+patch -p1 < ../../other/updater-script.patch
+cp -rf ../../other/radio/* ./
+cp -rf ../../other/update-binary ./META-INF/com/google/android/
 zip -r flyme.zip *
 java -jar ../../../../build/tools/signapk.jar ../../../../build/security/platform.x509.pem ../../../../build/security/platform.pk8 flyme.zip flyme_A0001_Nucked_$(date +%Y%m%d).zip
 mv flyme*.zip ../
@@ -36,4 +35,5 @@ echo "刷机包编译完成！刷机包在out目录中"
 cd ..
 pwd
 echo
+fi
 fi
