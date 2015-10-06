@@ -73,7 +73,7 @@
     invoke-virtual {p2, v0, v2, v3}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
 
     move-result-wide v1
-    
+
     long-to-int v1, v1
 
     .line 173
