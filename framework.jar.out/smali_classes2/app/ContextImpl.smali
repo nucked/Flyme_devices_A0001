@@ -1084,7 +1084,9 @@
 
     move-object/from16 v1, p3
 
-    invoke-direct {v0, v14, v1}, Landroid/app/ContextImpl;->setFlymeThemeResource(Landroid/content/res/Resources;Landroid/app/LoadedApk;)V
+	move-object/from16 v2, v22
+
+    invoke-direct {v0, v2, v1}, Landroid/app/ContextImpl;->setFlymeThemeResource(Landroid/content/res/Resources;Landroid/app/LoadedApk;)V
 
     :cond_4
     :goto_0
