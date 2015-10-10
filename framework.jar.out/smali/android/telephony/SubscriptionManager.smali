@@ -1049,18 +1049,22 @@
     .param p2, "subId"    # I
 
     .prologue
-    const-string v0, "subscription"
+    .line 1164
+    const-string/jumbo v0, "subscription"
 
     invoke-virtual {p0, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const-string v0, "phone"
+    .line 1165
+    const-string/jumbo v0, "phone"
 
     invoke-virtual {p0, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    const-string v0, "slot"
+    .line 1168
+    const-string/jumbo v0, "slot"
 
     invoke-virtual {p0, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 1169
     return-void
 .end method
 
