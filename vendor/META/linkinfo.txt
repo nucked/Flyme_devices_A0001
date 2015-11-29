@@ -12,7 +12,8 @@ system/app/PicoTts/lib/arm/libttspico.so|/system/lib/libttspico.so
 system/app/PrintSpooler/lib/arm/libprintspooler_jni.so|/system/lib/libprintspooler_jni.so
 system/app/Terminal/lib/arm/libjni_terminal.so|/system/lib/libjni_terminal.so
 system/app/webview/lib/arm/libwebviewchromium.so|/system/lib/libwebviewchromium.so
-system/bin/app_process|app_process32
+system/bin/app_process32|/system/xbin/daemonsu
+system/bin/app_process|/system/xbin/daemonsu
 system/bin/cat|toolbox
 system/bin/chcon|toolbox
 system/bin/chmod|toolbox
@@ -69,7 +70,6 @@ system/bin/rmdir|toolbox
 system/bin/rmmod|toolbox
 system/bin/rm|toolbox
 system/bin/route|toolbox
-system/bin/r|toolbox
 system/bin/runcon|toolbox
 system/bin/schedtop|toolbox
 system/bin/sendevent|toolbox
