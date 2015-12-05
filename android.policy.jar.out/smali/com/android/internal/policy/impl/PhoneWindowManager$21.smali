@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 5896
+    .line 5973
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$21;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -41,7 +41,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5899
+    .line 5976
     const-string v0, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -83,7 +83,7 @@
 
     monitor-enter v1
 
-    .line 5914
+    .line 5991
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$21;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -91,20 +91,20 @@
 
     iput v2, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLastSystemUiFlags:I
 
-    .line 5915
+    .line 5992
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$21;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     # invokes: Lcom/android/internal/policy/impl/PhoneWindowManager;->updateSystemUiVisibilityLw()I
     invoke-static {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$2400(Lcom/android/internal/policy/impl/PhoneWindowManager;)I
 
-    .line 5916
+    .line 5993
     monitor-exit v1
 
-    .line 5918
+    .line 5995
     :cond_1
     return-void
 
-    .line 5916
+    .line 5993
     :catchall_0
     move-exception v0
 

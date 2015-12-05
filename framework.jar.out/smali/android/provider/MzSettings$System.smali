@@ -283,6 +283,8 @@
 
 .field public static final MZ_USE_FLYME_COMMUNICATION:Ljava/lang/String; = "mz_use_flyme_communication"
 
+.field public static final MZ_VPN_CONNECT_STATE:Ljava/lang/String; = "mz_vpn_connect_state"
+
 .field public static final NETWORK_PROVIDER_PACKAGE:Ljava/lang/String; = "network_provider_package"
 
 .field public static final NOTIFICATION_SOUND_FILE_PATH:Ljava/lang/String; = "notification_sound_file_path"
@@ -310,6 +312,8 @@
 .field public static final SPAM_CALL_FILTER_FROM_CLOUD_LEVEL:Ljava/lang/String; = "spam_call_filter_from_cloud_level"
 
 .field public static final STATUSBAR_BATTERY_PERCENT:Ljava/lang/String; = "statusbar_battery_percent"
+
+.field public static final VOICE_ASSISTENT_USE_IN_LOCKSCREEN:Ljava/lang/String; = "voice_assistent_use_in_lockscreen"
 
 
 # direct methods

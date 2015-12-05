@@ -55,6 +55,7 @@
     .line 974
     iget-object v2, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
+    # getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlink:Z
     invoke-static {v2}, Landroid/view/LayoutInflater$BlinkLayout;->access$000(Landroid/view/LayoutInflater$BlinkLayout;)Z
 
     move-result v2
@@ -66,6 +67,7 @@
 
     iget-object v3, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
+    # getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
     invoke-static {v3}, Landroid/view/LayoutInflater$BlinkLayout;->access$100(Landroid/view/LayoutInflater$BlinkLayout;)Z
 
     move-result v3
@@ -75,11 +77,13 @@
     move v0, v1
 
     :cond_0
+    # setter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
     invoke-static {v2, v0}, Landroid/view/LayoutInflater$BlinkLayout;->access$102(Landroid/view/LayoutInflater$BlinkLayout;Z)Z
 
     .line 976
     iget-object v0, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
+    # invokes: Landroid/view/LayoutInflater$BlinkLayout;->makeBlink()V
     invoke-static {v0}, Landroid/view/LayoutInflater$BlinkLayout;->access$200(Landroid/view/LayoutInflater$BlinkLayout;)V
 
     .line 978

@@ -90,6 +90,10 @@
     <integer name="config_screenBrightnessSettingMaximum">255</integer>
     <integer name="config_screenBrightnessSettingDefault">102</integer>
     <integer name="config_screenBrightnessDoze">5</integer>
+    <integer name="config_autoBrightnessBrighteningLightDebounce">3000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
+    <integer name="config_autoBrightnessLightSensorRate">1000</integer>
+    <integer name="config_autoBrightnessAmbientLightHorizon">10000</integer>
     <integer name="config_screenBrightnessDim">10</integer>
     <integer name="config_screenBrightnessDark">1</integer>
     <integer name="config_buttonBrightnessSettingDefault">255</integer>
@@ -134,7 +138,7 @@
     <integer name="config_LTE_RSRP_threshold_type">1</integer>
     <integer name="config_next_alarm_condition_lookahead_threshold_hrs">12</integer>
     <integer name="config_downtime_condition_lookahead_threshold_hrs">4</integer>
-    <integer name="config_proximityCheckTimeout">100</integer>
+    <integer name="config_proximityCheckTimeout">250</integer>
     <integer name="config_backKillTimeout">2000</integer>
     <integer name="config_dayColorTemperature">6500</integer>
     <integer name="config_nightColorTemperature">4500</integer>

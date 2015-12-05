@@ -869,6 +869,11 @@
     <array name="config_ignored_sms_packages" />
     <string-array name="config_externalCMServices">
         <item>org.cyanogenmod.platform.internal.CMStatusBarManagerService</item>
+        <item>org.cyanogenmod.platform.internal.ProfileManagerService</item>
+        <item>org.cyanogenmod.platform.internal.PartnerInterfaceService</item>
+        <item>org.cyanogenmod.platform.internal.CMTelephonyManagerService</item>
+        <item>org.cyanogenmod.platform.internal.CMHardwareService</item>
+        <item>org.cyanogenmod.platform.internal.AppSuggestManagerService</item>
     </string-array>
     <integer-array name="config_LTE_RSRP_custom_levels">
         <item>-140</item>
@@ -878,6 +883,8 @@
         <item>-98</item>
         <item>-44</item>
     </integer-array>
+    <array name="config_region_locked_packages" />
+    <array name="config_restrict_to_region_locked_devices" />
     <integer-array name="maps_starting_lat_lng">
         <item>36149777</item>
         <item>-95993398</item>

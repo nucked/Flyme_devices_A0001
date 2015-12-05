@@ -54,7 +54,7 @@ vendor_modify_images := boot
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/pri-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := Bluetooth NfcNci KeyChain Tag HTMLViewer UserDictionaryProvider BackupRestoreConfirmation SnapdragonCamera\
+vendor_saved_apps := Bluetooth NfcNci KeyChain Tag HTMLViewer UserDictionaryProvider BackupRestoreConfirmation SnapdragonCamera ConfigPanel \
                      FusedLocation PrintSpooler SharedStorageBackup  ExternalStorageProvider InputDevices \
                      ProxyHandler Shell DefaultContainerService WAPPushManager Stk TimeService qcrilmsgtunnel
 
@@ -177,7 +177,7 @@ override_property += \
 # Will fall back to a file-based OTA if the target_files is older and doesn't support block-based OTAs.
 # Default: false
 #-----------------------------------------------------------------------------
-#PRODUCE_BLOCK_BASED_OTA := true
+PRODUCE_BLOCK_BASED_OTA := true
 
 
 include $(PORT_BUILD)/main.mk

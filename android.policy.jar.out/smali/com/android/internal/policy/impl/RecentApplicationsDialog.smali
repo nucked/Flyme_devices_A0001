@@ -807,7 +807,7 @@
     .line 110
     iget-object v8, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
 
-    const v7, 0x1020367
+    const v7, 0x1020368
 
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->findViewById(I)Landroid/view/View;
 
@@ -863,7 +863,7 @@
 
     const/4 v9, 0x4
 
-    const v7, 0x1020368
+    const v7, 0x1020369
 
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->findViewById(I)Landroid/view/View;
 
@@ -878,7 +878,7 @@
 
     const/4 v9, 0x5
 
-    const v7, 0x1020369
+    const v7, 0x102036a
 
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->findViewById(I)Landroid/view/View;
 
@@ -893,7 +893,7 @@
 
     const/4 v9, 0x6
 
-    const v7, 0x102036a
+    const v7, 0x102036b
 
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->findViewById(I)Landroid/view/View;
 
@@ -908,7 +908,7 @@
 
     const/4 v9, 0x7
 
-    const v7, 0x102036b
+    const v7, 0x102036c
 
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->findViewById(I)Landroid/view/View;
 
@@ -919,7 +919,7 @@
     aput-object v7, v8, v9
 
     .line 118
-    const v7, 0x1020366
+    const v7, 0x1020367
 
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->findViewById(I)Landroid/view/View;
 

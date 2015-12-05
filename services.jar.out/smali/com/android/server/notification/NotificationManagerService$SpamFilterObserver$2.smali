@@ -28,7 +28,7 @@
     .locals 0
 
     .prologue
-    .line 906
+    .line 923
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->this$1:Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;
 
     iput-object p2, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->val$uri:Landroid/net/Uri;
@@ -46,14 +46,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 909
+    .line 926
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->val$uri:Landroid/net/Uri;
 
     invoke-virtual {v0}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 910
+    .line 927
     .local v7, "id":Ljava/lang/String;
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->this$1:Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;
 
@@ -79,30 +79,30 @@
 
     move-result-object v6
 
-    .line 913
+    .line 930
     .local v6, "c":Landroid/database/Cursor;
     if-eqz v6, :cond_2
 
-    .line 915
+    .line 932
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->this$1:Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;
 
     iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     # getter for: Lcom/android/server/notification/NotificationManagerService;->mSpamCache:Landroid/util/SparseIntArray;
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1700(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1800(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 916
+    .line 933
     :try_start_0
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->this$1:Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;
 
     iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     # getter for: Lcom/android/server/notification/NotificationManagerService;->mSpamCache:Landroid/util/SparseIntArray;
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1700(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1800(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
 
     move-result-object v0
 
@@ -114,64 +114,64 @@
 
     move-result v8
 
-    .line 917
+    .line 934
     .local v8, "index":I
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 918
+    .line 935
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
     if-nez v0, :cond_3
 
-    .line 919
+    .line 936
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->this$1:Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;
 
     iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     # getter for: Lcom/android/server/notification/NotificationManagerService;->mSpamCache:Landroid/util/SparseIntArray;
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1700(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1800(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 921
+    .line 938
     if-ltz v8, :cond_0
 
-    .line 922
+    .line 939
     :try_start_1
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->this$1:Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;
 
     iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     # getter for: Lcom/android/server/notification/NotificationManagerService;->mSpamCache:Landroid/util/SparseIntArray;
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1700(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$1800(Lcom/android/server/notification/NotificationManagerService;)Landroid/util/SparseIntArray;
 
     move-result-object v0
 
     invoke-virtual {v0, v8}, Landroid/util/SparseIntArray;->removeAt(I)V
 
-    .line 924
+    .line 941
     :cond_0
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 929
+    .line 946
     :cond_1
     :goto_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 931
+    .line 948
     .end local v8    # "index":I
     :cond_2
     return-void
 
-    .line 917
+    .line 934
     :catchall_0
     move-exception v0
 
@@ -182,7 +182,7 @@
 
     throw v0
 
-    .line 924
+    .line 941
     .restart local v8    # "index":I
     :catchall_1
     move-exception v0
@@ -194,15 +194,15 @@
 
     throw v0
 
-    .line 925
+    .line 942
     :cond_3
     if-gez v8, :cond_1
 
-    .line 927
+    .line 944
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver$2;->this$1:Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;
 
     # invokes: Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;->addToCache(Landroid/database/Cursor;)V
-    invoke-static {v0, v6}, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;->access$1900(Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;Landroid/database/Cursor;)V
+    invoke-static {v0, v6}, Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;->access$2000(Lcom/android/server/notification/NotificationManagerService$SpamFilterObserver;Landroid/database/Cursor;)V
 
     goto :goto_0
 .end method

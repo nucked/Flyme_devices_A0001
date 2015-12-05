@@ -66,6 +66,7 @@
     .line 2302
     iget-object v0, p0, Landroid/view/ViewRootImpl$3;->this$0:Landroid/view/ViewRootImpl;
 
+    # getter for: Landroid/view/ViewRootImpl;->mRenderProfilingEnabled:Z
     invoke-static {v0}, Landroid/view/ViewRootImpl;->access$000(Landroid/view/ViewRootImpl;)Z
 
     move-result v0
@@ -79,6 +80,7 @@
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$3;->this$0:Landroid/view/ViewRootImpl;
 
+    # getter for: Landroid/view/ViewRootImpl;->mRenderProfiler:Landroid/view/Choreographer$FrameCallback;
     invoke-static {v1}, Landroid/view/ViewRootImpl;->access$100(Landroid/view/ViewRootImpl;)Landroid/view/Choreographer$FrameCallback;
 
     move-result-object v1

@@ -3,9 +3,9 @@
 .source "ContactsContract.java"
 
 # interfaces
+.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 .implements Landroid/provider/ContactsContract$CommonDataKinds$CommonColumns;
 .implements Landroid/provider/ContactsContract$ContactCounts;
-.implements Landroid/provider/ContactsContract$DataColumnsWithJoins;
 
 
 # annotations
@@ -140,32 +140,32 @@
     packed-switch p0, :pswitch_data_0
 
     .line 6071
-    const v0, 0x104042c
+    const v0, 0x1040421
 
     :goto_0
     return v0
 
     .line 6067
     :pswitch_0
-    const v0, 0x104042d
+    const v0, 0x1040422
 
     goto :goto_0
 
     .line 6068
     :pswitch_1
-    const v0, 0x104042e
+    const v0, 0x1040423
 
     goto :goto_0
 
     .line 6069
     :pswitch_2
-    const v0, 0x104042f
+    const v0, 0x1040424
 
     goto :goto_0
 
     .line 6070
     :pswitch_3
-    const v0, 0x1040430
+    const v0, 0x1040425
 
     goto :goto_0
 

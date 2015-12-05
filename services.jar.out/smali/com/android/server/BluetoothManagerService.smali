@@ -5057,7 +5057,6 @@
     return-void
 .end method
 
-
 .method private hook_checkIfCallerIsForegroundUser()Z
     .locals 1
 
