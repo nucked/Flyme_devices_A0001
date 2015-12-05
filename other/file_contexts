@@ -580,7 +580,7 @@
 
 #Context for mediaserver
 /data/display-tests/media(/.*)?                 u:object_r:display_test_media_file:s0
-#line 1 "device/oneplus/bacon/sepolicy/file_contexts"
+#line 1 "device/oppo/msm8974-common/sepolicy/file_contexts"
 # We have a couple of non-standard NV partitions
 /dev/block/bootdevice/by-name/oppodycnvbk          u:object_r:modem_efs_partition_device:s0
 /dev/block/bootdevice/by-name/oppostanvbk          u:object_r:modem_efs_partition_device:s0

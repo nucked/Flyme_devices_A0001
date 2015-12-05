@@ -38,6 +38,7 @@ system/bin/id|toolbox
 system/bin/ifconfig|toolbox
 system/bin/iftop|toolbox
 system/bin/insmod|toolbox
+system/bin/install-recovery.sh|/system/etc/install-recovery.sh
 system/bin/ioctl|toolbox
 system/bin/ionice|toolbox
 system/bin/kill|toolbox

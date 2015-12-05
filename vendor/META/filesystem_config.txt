@@ -1,7 +1,7 @@
 system/addon.d 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
-system/addon.d/50-cm.sh 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
-system/addon.d/99-supersu.sh 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/addon.d/50-cm.sh 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/addon.d/blacklist 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/addon.d/UKM.sh 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/app 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/app/AntHalService 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/app/AntHalService/AntHalService.apk 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
@@ -218,7 +218,8 @@ system/bin/ime 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/input 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/insmod 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/installd 0 2000 755 selabel=u:object_r:installd_exec:s0 capabilities=0x0
-system/bin/install-recovery.sh 0 0 750 selabel=u:object_r:install_recovery_exec:s0 capabilities=0x0
+system/bin/install-recovery_original.sh 0 0 750 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/bin/install-recovery.sh 0 0 777 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/ioctl 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/ionice 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/ip 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
@@ -508,6 +509,7 @@ system/etc/hosts 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/init.d/00banner 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/init.d 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/init.d/99SuperSUDaemon 0 0 744 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/etc/init.d/UKM 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/init.qcom.bt.sh 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/.installed_su_daemon 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/install-recovery.sh 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
@@ -2191,6 +2193,7 @@ system/xbin/traceroute 0 2000 755 selabel=u:object_r:system_file:s0 capabilities
 system/xbin/true 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/xbin/ttysize 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/xbin/tune2fs 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/xbin/uci 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/xbin/umount 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/xbin/uname 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/xbin/uncompress 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
