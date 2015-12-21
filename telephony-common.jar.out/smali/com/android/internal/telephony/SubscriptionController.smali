@@ -372,7 +372,7 @@
     .param p1, "subId"    # I
 
     .prologue
-    .line 1511
+    .line 1516
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -393,20 +393,20 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
 
-    .line 1512
+    .line 1517
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1513
+    .line 1518
     .local v0, "intent":Landroid/content/Intent;
     const/high16 v1, 0x20000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 1514
+    .line 1519
     const-string v1, "subscription"
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/SubscriptionController;->getDefaultDataSubId()I
@@ -415,14 +415,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1515
+    .line 1520
     iget-object v1, p0, Lcom/android/internal/telephony/SubscriptionController;->mContext:Landroid/content/Context;
 
     sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendStickyBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    .line 1516
+    .line 1521
     return-void
 .end method
 
@@ -1814,10 +1814,10 @@
     .param p1, "subId"    # I
 
     .prologue
-    .line 1943
+    .line 1948
     const/4 v2, 0x0
 
-    .line 1945
+    .line 1950
     .local v2, "retVal":Z
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
@@ -1825,14 +1825,14 @@
 
     if-eqz v4, :cond_1
 
-    .line 1946
+    .line 1951
     sget-object v4, Lcom/android/internal/telephony/SubscriptionController;->mSlotIdxToSubId:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
     move-result-object v3
 
-    .line 1949
+    .line 1954
     .local v3, "simInfoSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;>;"
     invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
@@ -1852,7 +1852,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 1950
+    .line 1955
     .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -1866,10 +1866,10 @@
 
     if-ne p1, v4, :cond_0
 
-    .line 1951
+    .line 1956
     const/4 v2, 0x1
 
-    .line 1958
+    .line 1963
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     .end local v1    # "i$":Ljava/util/Iterator;
     .end local v3    # "simInfoSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/Integer;>;>;"
@@ -2004,12 +2004,12 @@
     .param p0, "msg"    # Ljava/lang/String;
 
     .prologue
-    .line 1995
+    .line 2000
     new-instance v4, Ljava/lang/RuntimeException;
 
     invoke-direct {v4}, Ljava/lang/RuntimeException;-><init>()V
 
-    .line 1996
+    .line 2001
     .local v4, "re":Ljava/lang/RuntimeException;
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -2031,16 +2031,16 @@
 
     invoke-static {v7}, Lcom/android/internal/telephony/SubscriptionController;->slogd(Ljava/lang/String;)V
 
-    .line 1997
+    .line 2002
     invoke-virtual {v4}, Ljava/lang/RuntimeException;->getStackTrace()[Ljava/lang/StackTraceElement;
 
     move-result-object v5
 
-    .line 1998
+    .line 2003
     .local v5, "st":[Ljava/lang/StackTraceElement;
     const/4 v1, 0x1
 
-    .line 1999
+    .line 2004
     .local v1, "first":Z
     move-object v0, v5
 
@@ -2056,20 +2056,20 @@
 
     aget-object v6, v0, v2
 
-    .line 2000
+    .line 2005
     .local v6, "ste":Ljava/lang/StackTraceElement;
     if-eqz v1, :cond_0
 
-    .line 2001
+    .line 2006
     const/4 v1, 0x0
 
-    .line 1999
+    .line 2004
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 2003
+    .line 2008
     :cond_0
     invoke-virtual {v6}, Ljava/lang/StackTraceElement;->toString()Ljava/lang/String;
 
@@ -2079,7 +2079,7 @@
 
     goto :goto_1
 
-    .line 2006
+    .line 2011
     .end local v6    # "ste":Ljava/lang/StackTraceElement;
     :cond_1
     return-void
@@ -2232,85 +2232,83 @@
     .param p1, "subId"    # I
 
     .prologue
-    const/4 v10, 0x1
+    const v11, 0x7fffffff
 
-    const/4 v11, 0x0
+    if-ne p1, v11, :cond_1
 
-    const v12, 0x7fffffff
+    const-string v11, "setDefaultDataSubNetworkType called with DEFAULT_SUB_ID"
 
-    if-ne p1, v12, :cond_1
-
-    const-string v10, "setDefaultDataSubNetworkType called with DEFAULT_SUB_ID"
-
-    invoke-direct {p0, v10}, Lcom/android/internal/telephony/SubscriptionController;->logel(Ljava/lang/String;)V
+    invoke-direct {p0, v11}, Lcom/android/internal/telephony/SubscriptionController;->logel(Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "[setDefaultDataSubNetworkType] subId="
+    const-string v12, "[setDefaultDataSubNetworkType] subId="
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-virtual {v12, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-direct {p0, v12}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
+    invoke-direct {p0, v11}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
 
-    sget-object v12, Lcom/android/internal/telephony/SubscriptionController;->sProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
+    sget-object v11, Lcom/android/internal/telephony/SubscriptionController;->sProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    array-length v3, v12
+    array-length v3, v11
 
     .local v3, "len":I
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "[setDefaultDataSubNetworkType] num phones="
+    const-string v12, "[setDefaultDataSubNetworkType] num phones="
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-direct {p0, v12}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
+    invoke-direct {p0, v11}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
 
-    iget-object v12, p0, Lcom/android/internal/telephony/SubscriptionController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v11, p0, Lcom/android/internal/telephony/SubscriptionController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v12}, Landroid/telephony/TelephonyManager;->getMultiSimConfiguration()Landroid/telephony/TelephonyManager$MultiSimVariants;
+    invoke-virtual {v11}, Landroid/telephony/TelephonyManager;->getMultiSimConfiguration()Landroid/telephony/TelephonyManager$MultiSimVariants;
 
-    move-result-object v12
+    move-result-object v11
 
-    sget-object v13, Landroid/telephony/TelephonyManager$MultiSimVariants;->DSDS:Landroid/telephony/TelephonyManager$MultiSimVariants;
+    sget-object v12, Landroid/telephony/TelephonyManager$MultiSimVariants;->DSDS:Landroid/telephony/TelephonyManager$MultiSimVariants;
 
-    if-ne v12, v13, :cond_3
+    if-ne v11, v12, :cond_3
 
-    move v1, v10
+    const/4 v1, 0x1
 
     .local v1, "isDsds":Z
     :goto_1
-    const-string v12, "ro.ril.multi_rat_capable"
+    const-string v11, "ro.ril.multi_rat_capable"
 
-    invoke-static {v12, v11}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    const/4 v12, 0x0
+
+    invoke-static {v11, v12}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v2
 
@@ -2319,7 +2317,9 @@
 
     if-nez v2, :cond_0
 
-    if-le v3, v10, :cond_0
+    const/4 v11, 0x1
+
+    if-le v3, v11, :cond_0
 
     const/4 v4, -0x1
 
@@ -2339,9 +2339,9 @@
     :goto_2
     if-ge v7, v3, :cond_5
 
-    sget-object v10, Lcom/android/internal/telephony/SubscriptionController;->sProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
+    sget-object v11, Lcom/android/internal/telephony/SubscriptionController;->sProxyPhones:[Lcom/android/internal/telephony/PhoneProxy;
 
-    aget-object v6, v10, v7
+    aget-object v6, v11, v7
 
     .local v6, "phone":Lcom/android/internal/telephony/PhoneProxy;
     invoke-virtual {v6}, Lcom/android/internal/telephony/PhoneProxy;->getSubId()I
@@ -2355,46 +2355,62 @@
 
     move-result v4
 
-    const/4 v10, -0x1
+    const/4 v11, -0x1
 
-    if-ne v4, v10, :cond_2
+    if-ne v4, v11, :cond_2
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/SubscriptionController;->getNwMode(I)I
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/SubscriptionController;->getActiveSubscriptionInfo(I)Landroid/telephony/SubscriptionInfo;
+
+    move-result-object v10
+
+    .local v10, "subInfo":Landroid/telephony/SubscriptionInfo;
+    if-eqz v10, :cond_2
+
+    const-string v11, "ro.telephony.default_network"
+
+    invoke-virtual {v10}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
+
+    move-result v12
+
+    const/4 v13, -0x1
+
+    invoke-static {v11, v12, v13}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(Ljava/lang/String;II)I
 
     move-result v4
 
+    .end local v10    # "subInfo":Landroid/telephony/SubscriptionInfo;
     :cond_2
     move v8, v7
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "[setDefaultDataSubNetworkType] networkType1: "
+    const-string v12, "[setDefaultDataSubNetworkType] networkType1: "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    const-string v11, ", phoneId1: "
+    const-string v12, ", phoneId1: "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-direct {p0, v10}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
+    invoke-direct {p0, v11}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
 
     :goto_3
     add-int/lit8 v7, v7, 0x1
@@ -2411,7 +2427,7 @@
     .end local v8    # "phoneId1":I
     .end local v9    # "phoneId2":I
     :cond_3
-    move v1, v11
+    const/4 v1, 0x0
 
     goto :goto_1
 
@@ -2427,66 +2443,66 @@
     :cond_4
     move v9, v7
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "[setDefaultDataSubNetworkType] networkType2: "
+    const-string v12, "[setDefaultDataSubNetworkType] networkType2: "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    const-string v11, ", phoneId2: "
+    const-string v12, ", phoneId2: "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-direct {p0, v10}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
+    invoke-direct {p0, v11}, Lcom/android/internal/telephony/SubscriptionController;->logdl(Ljava/lang/String;)V
 
     goto :goto_3
 
     .end local v0    # "id":I
     .end local v6    # "phone":Lcom/android/internal/telephony/PhoneProxy;
     :cond_5
-    iget-object v10, p0, Lcom/android/internal/telephony/SubscriptionController;->mContext:Landroid/content/Context;
+    iget-object v11, p0, Lcom/android/internal/telephony/SubscriptionController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v11}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v10
+    move-result-object v11
 
-    const-string v11, "preferred_network_mode"
+    const-string v12, "preferred_network_mode"
 
-    invoke-static {v10, v11, v8, v4}, Landroid/telephony/TelephonyManager;->putIntAtIndex(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+    invoke-static {v11, v12, v8, v4}, Landroid/telephony/TelephonyManager;->putIntAtIndex(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    iget-object v10, p0, Lcom/android/internal/telephony/SubscriptionController;->mContext:Landroid/content/Context;
+    iget-object v11, p0, Lcom/android/internal/telephony/SubscriptionController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v11}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v10
+    move-result-object v11
 
-    const-string v11, "preferred_network_mode"
+    const-string v12, "preferred_network_mode"
 
-    invoke-static {v10, v11, v9, v5}, Landroid/telephony/TelephonyManager;->putIntAtIndex(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+    invoke-static {v11, v12, v9, v5}, Landroid/telephony/TelephonyManager;->putIntAtIndex(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     invoke-static {}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->getInstance()Lcom/android/internal/telephony/ModemBindingPolicyHandler;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->setPreferredNetworkTypesFromDB()V
+    invoke-virtual {v11}, Lcom/android/internal/telephony/ModemBindingPolicyHandler;->setPreferredNetworkTypesFromDB()V
 
     goto/16 :goto_0
 .end method
@@ -8278,7 +8294,7 @@
 
     if-nez v3, :cond_1
 
-    .line 1526
+    .line 1531
     :cond_0
     const-string v3, "[setPlmnSpn] No valid subscription to store info"
 
@@ -8289,7 +8305,7 @@
     :goto_0
     return v2
 
-    .line 1531
+    .line 1536
     :cond_1
     if-eqz p3, :cond_2
 
@@ -8512,7 +8528,7 @@
 
     sget-object v4, Landroid/telephony/SubscriptionManager;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 1601
+    .line 1606
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -8648,7 +8664,7 @@
 
     sget-object v2, Landroid/telephony/SubscriptionManager;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 1608
+    .line 1613
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -8765,7 +8781,7 @@
     .param p1, "n"    # Landroid/net/NetworkRequest;
 
     .prologue
-    .line 1683
+    .line 1688
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -8913,7 +8929,7 @@
     :goto_0
     return-void
 
-    .line 1689
+    .line 1694
     :cond_1
     invoke-interface {v7}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -9142,7 +9158,7 @@
 
     move-result-object v8
 
-    .line 1586
+    .line 1591
     invoke-virtual {p0}, Lcom/android/internal/telephony/SubscriptionController;->getDefaultDataSubId()I
 
     move-result v9
@@ -9274,7 +9290,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/SubscriptionController;->setDefaultVoiceSubId(I)V
 
-    .line 1916
+    .line 1921
     return-void
 .end method
 

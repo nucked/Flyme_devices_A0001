@@ -856,12 +856,91 @@
     goto :goto_0
 .end method
 
-.method public saveTargets(Ljava/util/ArrayList;)V
+.method public removeTargetsForPackage(Ljava/lang/String;)V
+    .locals 4
+    .param p1, "packageName"    # Ljava/lang/String;
+
+    .prologue
+    .line 226
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 237
+    :goto_0
+    return-void
+
+    .line 229
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 230
+    const/4 v0, 0x0
+
+    .local v0, "i":I
+    :goto_1
+    iget-object v2, p0, Lcom/android/internal/util/cm/LockscreenShortcutsHelper;->mTargetActivities:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_2
+
+    .line 231
+    iget-object v2, p0, Lcom/android/internal/util/cm/LockscreenShortcutsHelper;->mTargetActivities:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    .line 232
+    .local v1, "target":Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 233
+    iget-object v2, p0, Lcom/android/internal/util/cm/LockscreenShortcutsHelper;->mTargetActivities:Ljava/util/List;
+
+    const-string v3, "default"
+
+    invoke-interface {v2, v0, v3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+    .line 230
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 236
+    .end local v1    # "target":Ljava/lang/String;
+    :cond_2
+    iget-object v2, p0, Lcom/android/internal/util/cm/LockscreenShortcutsHelper;->mTargetActivities:Ljava/util/List;
+
+    invoke-virtual {p0, v2}, Lcom/android/internal/util/cm/LockscreenShortcutsHelper;->saveTargets(Ljava/util/List;)V
+
+    goto :goto_0
+.end method
+
+.method public saveTargets(Ljava/util/List;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList",
+            "Ljava/util/List",
             "<",
             "Ljava/lang/String;",
             ">;)V"
@@ -870,7 +949,7 @@
 
     .prologue
     .line 221
-    .local p1, "targets":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local p1, "targets":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Lcom/android/internal/util/cm/LockscreenShortcutsHelper;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;

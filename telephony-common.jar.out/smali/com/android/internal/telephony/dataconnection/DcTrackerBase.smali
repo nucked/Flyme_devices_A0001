@@ -109,7 +109,7 @@
 
 .field mAlarmManager:Landroid/app/AlarmManager;
 
-.field protected mAllApnSettings:Ljava/util/ArrayList;
+.field protected final mAllApnSettings:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",

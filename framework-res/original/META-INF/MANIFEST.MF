@@ -2564,7 +2564,7 @@ Name: res/drawable-xxhdpi-v4/btn_radio_to_off_mtrl_015.png
 SHA1-Digest: 53DYKltMU34zhaYZHtlNZkme+Co=
 
 Name: AndroidManifest.xml
-SHA1-Digest: fZ6QZE6t0KK2glum8NRCu0/Ee5g=
+SHA1-Digest: D55FDJmrJiRvfq21ablSFkv0QsI=
 
 Name: res/drawable/ic_find_next_material.xml
 SHA1-Digest: JCExZl8YSD5I4Xwk5r+VPAboOZ0=
@@ -5053,7 +5053,7 @@ Name: res/drawable-xhdpi-v4/tab_focus.9.png
 SHA1-Digest: isfyZYrQjES3LsrD60azEqQo9O0=
 
 Name: res/layout/transient_notification.xml
-SHA1-Digest: mGsMPysj5mXsqdfYzoqCzlJxMj8=
+SHA1-Digest: uVBlTyibmNNKkw8yX5zaAgSakXc=
 
 Name: res/drawable/box.xml
 SHA1-Digest: QziYz5ekcN4/Xvf4X9MurL9PaHk=
