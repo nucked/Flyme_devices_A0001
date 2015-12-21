@@ -57,7 +57,7 @@ vendor_modify_images := boot
 vendor_saved_apps := Bluetooth NfcNci KeyChain Tag HTMLViewer UserDictionaryProvider BackupRestoreConfirmation \
                      FusedLocation PrintSpooler SharedStorageBackup  ExternalStorageProvider InputDevices \
                      ProxyHandler Shell DefaultContainerService WAPPushManager Stk TimeService qcrilmsgtunnel \
-		     SnapdragonCamera ConfigPanel PPPreference QuickBoot shutdownlistener com.qualcomm.location
+                     SnapdragonCamera ConfigPanel PPPreference QuickBoot shutdownlistener com.qualcomm.location
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
