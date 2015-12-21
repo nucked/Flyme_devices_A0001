@@ -48,7 +48,6 @@ name="LiveWallpapers.apk" certificate="build/security/shared.x509.pem" private_k
 name="LiveWallpapersPicker.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="LockClock.apk" certificate="PRESIGNED" private_key=""
 name="ManagedProvisioning.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
-name="maxxaudio.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="MediaProvider.apk" certificate="build/security/media.x509.pem" private_key="build/security/media.pk8"
 name="Mms.apk" certificate="PRESIGNED" private_key=""
 name="MmsService.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
