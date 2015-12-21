@@ -18,6 +18,16 @@ def FlashSUperSU(info):
     info.script.AppendExtra(('run_program("/sbin/busybox", "unzip", "/tmp/supersu/UPDATE-SuperSU.zip", "META-INF/com/google/android/*", "-d", "/tmp/supersu");'))
     info.script.AppendExtra(('run_program("/sbin/busybox", "sh", "/tmp/supersu/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/supersu/UPDATE-SuperSU.zip");'))
 
+def InstallDap(info):
+    supersu = info.input_zip.read("META/dap.zip")
+    common.ZipWriteStr(info.output_zip, "dap/dap.zip", supersu)
+
+def FlashDap(info):
+    info.script.AppendExtra(('ui_print("flash Dap...");'))
+    info.script.AppendExtra(('package_extract_dir("dap", "/tmp/dap");'))
+    info.script.AppendExtra(('run_program("/sbin/busybox", "unzip", "/tmp/dap/dap.zip", "META-INF/com/google/android/*", "-d", "/tmp/dap");'))
+    info.script.AppendExtra(('run_program("/sbin/busybox", "sh", "/tmp/dap/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/dap/dap.zip");'))
+
 def InstallRadio(img_name, img_file, partition, info):
     common.ZipWriteStr(info.output_zip, img_name, img_file)
     info.script.AppendExtra(('package_extract_file("' + img_name + '", "' + partition + '");'))
@@ -59,6 +69,8 @@ def FullOTA_InstallEnd(info):
     WritePolicyConfig(info)
     InstallSuperSU(info)
     FlashSUperSU(info)
+    InstallDap(info)
+    FlashDap(info)
     info.script.AppendExtra(('ui_print("Writing radio image...");'))
     InstallAboot(info)
     InstallLogo(info)
