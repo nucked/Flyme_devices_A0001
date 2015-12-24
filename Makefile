@@ -141,7 +141,7 @@ board_modify_apps := TeleService Keyguard SystemUI Telecom FlymeLauncher MmsServ
 # The default value is Nexus-5_Unofficial.
 # You should configure the property according to your device and your ID with replace the "Nexus-5_Unofficial".
 override_property += \
-    ro.flyme.romer=Nucked\
+    ro.flyme.romer=Nucked \
     ro.product.model_romer=A0001_Nucked
 
 ##############################################################################
