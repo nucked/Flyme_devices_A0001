@@ -2564,7 +2564,7 @@ Name: res/drawable-xxhdpi-v4/btn_radio_to_off_mtrl_015.png
 SHA1-Digest: 53DYKltMU34zhaYZHtlNZkme+Co=
 
 Name: AndroidManifest.xml
-SHA1-Digest: D55FDJmrJiRvfq21ablSFkv0QsI=
+SHA1-Digest: HNX1Y3DYSWZo+KsC85HAaOTmgNQ=
 
 Name: res/drawable/ic_find_next_material.xml
 SHA1-Digest: JCExZl8YSD5I4Xwk5r+VPAboOZ0=

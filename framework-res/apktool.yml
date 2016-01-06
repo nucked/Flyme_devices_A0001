@@ -8,7 +8,7 @@ packageInfo:
   forced-package-id: '1'
 versionInfo:
   versionCode: '22'
-  versionName: 5.1.1-2d47aae2a4
+  versionName: 5.1.1-c126eb632f
 sharedLibrary: false
 doNotCompress:
 - arsc

@@ -36,7 +36,7 @@
     .locals 0
 
     .prologue
-    .line 1606
+    .line 1607
     iput-object p1, p0, Lcom/android/server/content/SyncManager$11;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
     .param p2, "rhs"    # Lcom/android/server/content/SyncManager$AuthoritySyncStats;
 
     .prologue
-    .line 1610
+    .line 1611
     iget v1, p2, Lcom/android/server/content/SyncManager$AuthoritySyncStats;->times:I
 
     iget v2, p1, Lcom/android/server/content/SyncManager$AuthoritySyncStats;->times:I
@@ -61,11 +61,11 @@
 
     move-result v0
 
-    .line 1611
+    .line 1612
     .local v0, "compare":I
     if-nez v0, :cond_0
 
-    .line 1612
+    .line 1613
     iget-wide v2, p2, Lcom/android/server/content/SyncManager$AuthoritySyncStats;->elapsedTime:J
 
     iget-wide v4, p1, Lcom/android/server/content/SyncManager$AuthoritySyncStats;->elapsedTime:J
@@ -74,7 +74,7 @@
 
     move-result v0
 
-    .line 1614
+    .line 1615
     :cond_0
     return v0
 .end method
@@ -83,7 +83,7 @@
     .locals 1
 
     .prologue
-    .line 1606
+    .line 1607
     check-cast p1, Lcom/android/server/content/SyncManager$AuthoritySyncStats;
 
     check-cast p2, Lcom/android/server/content/SyncManager$AuthoritySyncStats;

@@ -36,7 +36,7 @@
     .locals 1
 
     .prologue
-    .line 105
+    .line 107
     new-instance v0, Landroid/content/PeriodicSync$1;
 
     invoke-direct {v0}, Landroid/content/PeriodicSync$1;-><init>()V
@@ -54,38 +54,38 @@
     .param p4, "periodInSeconds"    # J
 
     .prologue
-    .line 45
+    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
+    .line 48
     iput-object p1, p0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
-    .line 47
+    .line 49
     iput-object p2, p0, Landroid/content/PeriodicSync;->authority:Ljava/lang/String;
 
-    .line 48
+    .line 50
     if-nez p3, :cond_0
 
-    .line 49
+    .line 51
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->extras:Landroid/os/Bundle;
 
-    .line 53
+    .line 55
     :goto_0
     iput-wide p4, p0, Landroid/content/PeriodicSync;->period:J
 
-    .line 55
+    .line 57
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/content/PeriodicSync;->flexTime:J
 
-    .line 56
+    .line 58
     return-void
 
-    .line 51
+    .line 53
     :cond_0
     new-instance v0, Landroid/os/Bundle;
 
@@ -105,29 +105,29 @@
     .param p6, "flexTime"    # J
 
     .prologue
-    .line 75
+    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 76
+    .line 78
     iput-object p1, p0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
-    .line 77
+    .line 79
     iput-object p2, p0, Landroid/content/PeriodicSync;->authority:Ljava/lang/String;
 
-    .line 78
+    .line 80
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p3}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->extras:Landroid/os/Bundle;
 
-    .line 79
+    .line 81
     iput-wide p4, p0, Landroid/content/PeriodicSync;->period:J
 
-    .line 80
+    .line 82
     iput-wide p6, p0, Landroid/content/PeriodicSync;->flexTime:J
 
-    .line 81
+    .line 83
     return-void
 .end method
 
@@ -136,20 +136,20 @@
     .param p1, "other"    # Landroid/content/PeriodicSync;
 
     .prologue
-    .line 62
+    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 63
+    .line 65
     iget-object v0, p1, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
-    .line 64
+    .line 66
     iget-object v0, p1, Landroid/content/PeriodicSync;->authority:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->authority:Ljava/lang/String;
 
-    .line 65
+    .line 67
     new-instance v0, Landroid/os/Bundle;
 
     iget-object v1, p1, Landroid/content/PeriodicSync;->extras:Landroid/os/Bundle;
@@ -158,17 +158,17 @@
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->extras:Landroid/os/Bundle;
 
-    .line 66
+    .line 68
     iget-wide v0, p1, Landroid/content/PeriodicSync;->period:J
 
     iput-wide v0, p0, Landroid/content/PeriodicSync;->period:J
 
-    .line 67
+    .line 69
     iget-wide v0, p1, Landroid/content/PeriodicSync;->flexTime:J
 
     iput-wide v0, p0, Landroid/content/PeriodicSync;->flexTime:J
 
-    .line 68
+    .line 70
     return-void
 .end method
 
@@ -177,10 +177,10 @@
     .param p1, "in"    # Landroid/os/Parcel;
 
     .prologue
-    .line 83
+    .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 84
+    .line 86
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -191,35 +191,35 @@
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
-    .line 85
+    .line 87
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->authority:Ljava/lang/String;
 
-    .line 86
+    .line 88
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/PeriodicSync;->extras:Landroid/os/Bundle;
 
-    .line 87
+    .line 89
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/content/PeriodicSync;->period:J
 
-    .line 88
+    .line 90
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/content/PeriodicSync;->flexTime:J
 
-    .line 89
+    .line 91
     return-void
 .end method
 
@@ -229,7 +229,7 @@
     .param p2, "x1"    # Landroid/content/PeriodicSync$1;
 
     .prologue
-    .line 27
+    .line 29
     invoke-direct {p0, p1}, Landroid/content/PeriodicSync;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -245,7 +245,7 @@
 
     const/4 v2, 0x0
 
-    .line 137
+    .line 139
     invoke-virtual {p0}, Landroid/os/Bundle;->size()I
 
     move-result v4
@@ -256,12 +256,12 @@
 
     if-eq v4, v5, :cond_1
 
-    .line 151
+    .line 155
     :cond_0
     :goto_0
     return v2
 
-    .line 140
+    .line 142
     :cond_1
     invoke-virtual {p0}, Landroid/os/Bundle;->isEmpty()Z
 
@@ -271,10 +271,10 @@
 
     move v2, v3
 
-    .line 141
+    .line 143
     goto :goto_0
 
-    .line 143
+    .line 145
     :cond_2
     invoke-virtual {p0}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
@@ -298,7 +298,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 144
+    .line 146
     .local v1, "key":Ljava/lang/String;
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -306,7 +306,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 147
+    .line 151
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v4
@@ -315,7 +315,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-static {v4, v5}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -327,7 +327,7 @@
     :cond_4
     move v2, v3
 
-    .line 151
+    .line 155
     goto :goto_0
 .end method
 
@@ -337,7 +337,7 @@
     .locals 1
 
     .prologue
-    .line 93
+    .line 95
     const/4 v0, 0x0
 
     return v0
@@ -352,15 +352,15 @@
 
     const/4 v2, 0x0
 
-    .line 119
+    .line 121
     if-ne p1, p0, :cond_1
 
-    .line 126
+    .line 128
     :cond_0
     :goto_0
     return v1
 
-    .line 122
+    .line 124
     :cond_1
     instance-of v3, p1, Landroid/content/PeriodicSync;
 
@@ -368,16 +368,16 @@
 
     move v1, v2
 
-    .line 123
+    .line 125
     goto :goto_0
 
     :cond_2
     move-object v0, p1
 
-    .line 125
+    .line 127
     check-cast v0, Landroid/content/PeriodicSync;
 
-    .line 126
+    .line 128
     .local v0, "other":Landroid/content/PeriodicSync;
     iget-object v3, p0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
@@ -427,7 +427,7 @@
     .locals 4
 
     .prologue
-    .line 156
+    .line 160
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -499,31 +499,31 @@
     .param p2, "flags"    # I
 
     .prologue
-    .line 98
+    .line 100
     iget-object v0, p0, Landroid/content/PeriodicSync;->account:Landroid/accounts/Account;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 99
+    .line 101
     iget-object v0, p0, Landroid/content/PeriodicSync;->authority:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 100
+    .line 102
     iget-object v0, p0, Landroid/content/PeriodicSync;->extras:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 101
+    .line 103
     iget-wide v0, p0, Landroid/content/PeriodicSync;->period:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 102
+    .line 104
     iget-wide v0, p0, Landroid/content/PeriodicSync;->flexTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 103
+    .line 105
     return-void
 .end method
